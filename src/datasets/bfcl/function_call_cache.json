@@ -1,0 +1,8336 @@
+{
+  "de839fc1e74d9e21b3303e2a54882bf8": {
+    "output": 0.1294102919789905,
+    "error": null
+  },
+  "2b09734055a789dae5e94b3a2ad7c7ab": {
+    "output": 0.9884017323417256,
+    "error": null
+  },
+  "efb0daa7f6385f93ae3d62af9a00dc3b": {
+    "output": 5.0,
+    "error": null
+  },
+  "93b05c47c1e55f430fb4994204be4d22": {
+    "output": 640.0,
+    "error": null
+  },
+  "1f15e1fe14eb933c0b5cba9c70d5435e": {
+    "output": 50,
+    "error": null
+  },
+  "c616f58270ff14bef1d5baabb6fd531e": {
+    "output": 117.60000000000001,
+    "error": null
+  },
+  "ee58b91948997521c5cdff7f23c97c54": {
+    "output": 8144.47313388721,
+    "error": null
+  },
+  "8bad514c9de2dd9d20e9e2b29451ccdd": {
+    "output": 51.0,
+    "error": null
+  },
+  "142142a10a92fa907daec91416687ead": {
+    "output": 7893600.0,
+    "error": null
+  },
+  "3eadc03639764056727fe27b7a309a36": {
+    "output": 8879.189152169245,
+    "error": null
+  },
+  "ea36322646be6795299d6f1625c6e88a": {
+    "output": 75000.0,
+    "error": null
+  },
+  "23d92d2bb14dfa4b93a68435ea5b8161": {
+    "output": 859533.5,
+    "error": null
+  },
+  "e7a71278b1424f156515ab664b6a784f": {
+    "output": 32.00000264769187,
+    "error": null
+  },
+  "d5fed38ac4903cf910f488cce81bd40b": {
+    "output": "When [something] is [turned up] or [popping] ...",
+    "error": null
+  },
+  "62811de19ed1af5bfdccdc0f30e0c66b": {
+    "output": 706.8583470577034,
+    "error": null
+  },
+  "592445cc6b785abbc285b1bcd32c713d": {
+    "output": 1783377,
+    "error": null
+  },
+  "8d6bfbff74d48ba10b0371680ac75137": {
+    "output": "Apple Inc.",
+    "error": null
+  },
+  "24d7fc7e5e904fd83b835d0fac1c68c2": {
+    "output": "private range",
+    "error": null
+  },
+  "cec1afd1122eb8d38388af52e49ed695": {
+    "output": [
+      "48.8588897",
+      "2.3200410217200766"
+    ],
+    "error": null
+  },
+  "5abe8d907691e3cd9532c8328627b319": {
+    "output": 711380,
+    "error": null
+  },
+  "17fdd3bd27116002ba78ee03acc174bf": {
+    "output": 3.9746823772472712,
+    "error": null
+  },
+  "d838fa5718c9b05925e1474926a34756": {
+    "output": [
+      0,
+      1,
+      1,
+      2,
+      3,
+      5,
+      8,
+      13,
+      21,
+      34,
+      55,
+      89,
+      144,
+      233,
+      377,
+      610,
+      987,
+      1597,
+      2584,
+      4181
+    ],
+    "error": null
+  },
+  "18663a5b4b3345342f1ea7a4dae3a981": {
+    "output": "$180.00",
+    "error": null
+  },
+  "36a17fb039c7fdc6e811448828ea17a6": {
+    "output": [
+      4567
+    ],
+    "error": null
+  },
+  "3a44f5e9bd8513655213245acbebcf2f": {
+    "output": "Apple iPhone 11 Pro Max, 64GB, Midnight Green - Unlocked (Renewed Premium)",
+    "error": null
+  },
+  "72856e1d376bc65b056c42170710732c": {
+    "output": "4.2",
+    "error": null
+  },
+  "c7eefcc1c9e187679ad5a463bd31b20d": {
+    "output": {
+      "1730433600": {
+        "date": "2024-11-01",
+        "date_utc": 1730433600,
+        "open": 220.97,
+        "high": 237.81,
+        "low": 219.71,
+        "close": 237.33,
+        "volume": 891640600,
+        "adjclose": 236.5
+      },
+      "1733029200": {
+        "date": "2024-12-01",
+        "date_utc": 1733029200,
+        "open": 237.27,
+        "high": 260.1,
+        "low": 237.16,
+        "close": 250.42,
+        "volume": 977916100,
+        "adjclose": 249.82
+      },
+      "1735707600": {
+        "date": "2025-01-01",
+        "date_utc": 1735707600,
+        "open": 248.93,
+        "high": 249.1,
+        "low": 219.38,
+        "close": 236,
+        "volume": 1200291700,
+        "adjclose": 235.43
+      },
+      "1738386000": {
+        "date": "2025-02-01",
+        "date_utc": 1738386000,
+        "open": 229.99,
+        "high": 250,
+        "low": 225.7,
+        "close": 241.84,
+        "volume": 862272300,
+        "adjclose": 241.26
+      },
+      "1740805200": {
+        "date": "2025-03-01",
+        "date_utc": 1740805200,
+        "open": 241.79,
+        "high": 244.03,
+        "low": 208.42,
+        "close": 222.13,
+        "volume": 1115239500,
+        "adjclose": 221.84
+      },
+      "1743480000": {
+        "date": "2025-04-01",
+        "date_utc": 1743480000,
+        "open": 219.81,
+        "high": 225.19,
+        "low": 169.21,
+        "close": 212.5,
+        "volume": 1606488200,
+        "adjclose": 212.22
+      },
+      "1746072000": {
+        "date": "2025-05-01",
+        "date_utc": 1746072000,
+        "open": 209.08,
+        "high": 214.56,
+        "low": 193.25,
+        "close": 200.85,
+        "volume": 1195728200,
+        "adjclose": 200.59
+      },
+      "1748750400": {
+        "date": "2025-06-01",
+        "date_utc": 1748750400,
+        "open": 200.28,
+        "high": 207.39,
+        "low": 195.07,
+        "close": 205.17,
+        "volume": 1100409300,
+        "adjclose": 205.17
+      },
+      "1751342400": {
+        "date": "2025-07-01",
+        "date_utc": 1751342400,
+        "open": 206.67,
+        "high": 216.23,
+        "low": 206.14,
+        "close": 211.16,
+        "volume": 407676700,
+        "adjclose": 211.16
+      },
+      "1752264001": {
+        "date": "2025-07-11",
+        "date_utc": 1752264001,
+        "open": 210.57,
+        "high": 212.13,
+        "low": 209.86,
+        "close": 211.16,
+        "volume": 39765812,
+        "adjclose": 211.16
+      }
+    },
+    "error": null
+  },
+  "b8bed72d196ab0442c868085b6058873": {
+    "output": 211.16,
+    "error": null
+  },
+  "036de490d5a7351fb00ce671e8420027": {
+    "output": "Antarctica/DumontDUrville",
+    "error": null
+  },
+  "40f47d4d3c65e6cd7a5db13b819e4d9d": {
+    "output": 32.1,
+    "error": null
+  },
+  "621c7bde150633cdf3b9fc0af68b4179": {
+    "output": "private range",
+    "error": null
+  },
+  "b500fde1f876e0900638a87f4fd31f8a": {
+    "output": [
+      [
+        19,
+        22
+      ],
+      [
+        43,
+        50
+      ]
+    ],
+    "error": null
+  },
+  "a6f9892c68e7a82940a8ec99b4766f5f": {
+    "output": 5040,
+    "error": null
+  },
+  "109656ab9afd02d0811d24d0f6e268c1": {
+    "output": 150,
+    "error": null
+  },
+  "109480e0d39f5ca3bebadf192b8e327f": {
+    "output": 72.0,
+    "error": null
+  },
+  "7358a4e62a60342fc5f5aab1f676ed7f": {
+    "output": 1571.656407330882,
+    "error": null
+  },
+  "2a346e835305074935f0a99e3ed1de9c": {
+    "output": [
+      1.0,
+      -3.3333333333333335
+    ],
+    "error": null
+  },
+  "bcad0353344f52c7c0a09f0f6378d179": {
+    "output": "BEVERLY HILLS",
+    "error": null
+  },
+  "7461c0762b159e717b27a3efe71498a5": {
+    "output": [
+      {
+        "date": "2010-01-01",
+        "localName": "Jour de l'an",
+        "name": "New Year's Day",
+        "countryCode": "FR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2010-04-05",
+        "localName": "Lundi de P\u00e2ques",
+        "name": "Easter Monday",
+        "countryCode": "FR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2010-05-01",
+        "localName": "F\u00eate du Travail",
+        "name": "Labour Day",
+        "countryCode": "FR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2010-05-08",
+        "localName": "Victoire 1945",
+        "name": "Victory in Europe Day",
+        "countryCode": "FR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2010-05-13",
+        "localName": "Ascension",
+        "name": "Ascension Day",
+        "countryCode": "FR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2010-05-24",
+        "localName": "Lundi de Pentec\u00f4te",
+        "name": "Whit Monday",
+        "countryCode": "FR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2010-07-14",
+        "localName": "F\u00eate nationale",
+        "name": "Bastille Day",
+        "countryCode": "FR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2010-08-15",
+        "localName": "Assomption",
+        "name": "Assumption Day",
+        "countryCode": "FR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2010-11-01",
+        "localName": "Toussaint",
+        "name": "All Saints' Day",
+        "countryCode": "FR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2010-11-11",
+        "localName": "Armistice 1918",
+        "name": "Armistice Day",
+        "countryCode": "FR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2010-12-25",
+        "localName": "No\u00ebl",
+        "name": "Christmas Day",
+        "countryCode": "FR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      }
+    ],
+    "error": null
+  },
+  "8f474dd76c387d5f2eb4e020dcc4621a": {
+    "output": [
+      56,
+      34,
+      12,
+      9,
+      7,
+      2
+    ],
+    "error": null
+  },
+  "795c2b6ca23d03623ab07e398235bf6c": {
+    "output": "11111",
+    "error": null
+  },
+  "e93820cdc4290cb642a250de15f543a3": {
+    "output": -15.476190476190476,
+    "error": null
+  },
+  "3452cef0badc09899a6673975315c588": {
+    "output": 16145.646273400002,
+    "error": null
+  },
+  "c05b3f51d4b4aae278a1fc75eadd6472": {
+    "output": 1227813.9640000002,
+    "error": null
+  },
+  "f68fe341389af12be6937817ca594eba": {
+    "output": {
+      "calories": 1524.15985,
+      "proteins_g": 114.31198875,
+      "fats_g": 42.33777361111111,
+      "carbohydrates_g": 171.46798312500002
+    },
+    "error": null
+  },
+  "f3eb40ca99f0fe2db91534751ee6dfcc": {
+    "output": 210.1,
+    "error": null
+  },
+  "d6b12e22267ba77bbcfb7ee30d6f3e69": {
+    "output": "Quentin Tarantino",
+    "error": null
+  },
+  "287830db7fd69adcbc4d99025c291f43": {
+    "output": "PG-13",
+    "error": null
+  },
+  "fbd725b090e0ec2022311d686f08b61b": {
+    "output": 0.0,
+    "error": null
+  },
+  "c98fb58d2b5e26faf82d4baa9ede2124": {
+    "output": 0.12941029203075463,
+    "error": null
+  },
+  "0ee41ef4c4990f46a56e8a38470ef533": {
+    "output": 32.1,
+    "error": null
+  },
+  "5d7f8cb9f1457f75fd92cb64477c8c5c": {
+    "output": -1.7142857142857142,
+    "error": null
+  },
+  "d303bba0d83ae538a09a4ad2dda99f8a": {
+    "output": {
+      "calories": 2024.15985,
+      "proteins_g": 151.81198874999998,
+      "fats_g": 56.2266625,
+      "carbohydrates_g": 227.71798312500002
+    },
+    "error": null
+  },
+  "6e2a80102035c8b8969d3875f4ca3c5d": {
+    "output": 210.1,
+    "error": null
+  },
+  "e482a6e55aa24aac17f4a5354945b83b": {
+    "output": 859533.5,
+    "error": null
+  },
+  "ee74c71cb1074408d616067cbae3dafc": {
+    "output": 0.1294102919789905,
+    "error": null
+  },
+  "72cb40d507c9edfdd3669e01f5305faa": {
+    "output": 0.9884017323417256,
+    "error": null
+  },
+  "1dc9157b36d08bd6015f37816b353f7a": {
+    "output": 5.0,
+    "error": null
+  },
+  "0327dfbc3d8612bd2918caab7dfdf211": {
+    "output": 640.0,
+    "error": null
+  },
+  "058a92508a50a08af2eebde564db4eb3": {
+    "output": 50.0,
+    "error": null
+  },
+  "9f7b33c8f7d37706defd57acccc3f9d0": {
+    "output": 117.60000000000001,
+    "error": null
+  },
+  "5a92103fa20be698dc3485303e31fe80": {
+    "output": 8144.47313388721,
+    "error": null
+  },
+  "af210221326b5e658c452ec6e0caad3a": {
+    "output": 7893600.0,
+    "error": null
+  },
+  "cd4389bb2af938437aa7433f669b2998": {
+    "output": 8879.189152169245,
+    "error": null
+  },
+  "0e620c3795b20012d5e4cac9010b419a": {
+    "output": 75000.0,
+    "error": null
+  },
+  "6d9d3146bc1f288458f695b0d01205c7": {
+    "output": 859533.5,
+    "error": null
+  },
+  "8b76c28105ed8efd7c329d216e635bb6": {
+    "output": 32.00000264769187,
+    "error": null
+  },
+  "88225bf6ae10533717e758176af4cc22": {
+    "output": "When [something] is [turned up] or [popping] ...",
+    "error": null
+  },
+  "f4b34168129ce856707b4a4da3b44912": {
+    "output": 3.9746823772472712,
+    "error": null
+  },
+  "296c9069f3b439712c9ca8e8e13d25ca": {
+    "output": {
+      "1730433600": {
+        "date": "2024-11-01",
+        "date_utc": 1730433600,
+        "open": 220.97,
+        "high": 237.81,
+        "low": 219.71,
+        "close": 237.33,
+        "volume": 891640600,
+        "adjclose": 236.5
+      },
+      "1733029200": {
+        "date": "2024-12-01",
+        "date_utc": 1733029200,
+        "open": 237.27,
+        "high": 260.1,
+        "low": 237.16,
+        "close": 250.42,
+        "volume": 977916100,
+        "adjclose": 249.82
+      },
+      "1735707600": {
+        "date": "2025-01-01",
+        "date_utc": 1735707600,
+        "open": 248.93,
+        "high": 249.1,
+        "low": 219.38,
+        "close": 236,
+        "volume": 1200291700,
+        "adjclose": 235.43
+      },
+      "1738386000": {
+        "date": "2025-02-01",
+        "date_utc": 1738386000,
+        "open": 229.99,
+        "high": 250,
+        "low": 225.7,
+        "close": 241.84,
+        "volume": 862272300,
+        "adjclose": 241.26
+      },
+      "1740805200": {
+        "date": "2025-03-01",
+        "date_utc": 1740805200,
+        "open": 241.79,
+        "high": 244.03,
+        "low": 208.42,
+        "close": 222.13,
+        "volume": 1115239500,
+        "adjclose": 221.84
+      },
+      "1743480000": {
+        "date": "2025-04-01",
+        "date_utc": 1743480000,
+        "open": 219.81,
+        "high": 225.19,
+        "low": 169.21,
+        "close": 212.5,
+        "volume": 1606488200,
+        "adjclose": 212.22
+      },
+      "1746072000": {
+        "date": "2025-05-01",
+        "date_utc": 1746072000,
+        "open": 209.08,
+        "high": 214.56,
+        "low": 193.25,
+        "close": 200.85,
+        "volume": 1195728200,
+        "adjclose": 200.59
+      },
+      "1748750400": {
+        "date": "2025-06-01",
+        "date_utc": 1748750400,
+        "open": 200.28,
+        "high": 207.39,
+        "low": 195.07,
+        "close": 205.17,
+        "volume": 1100409300,
+        "adjclose": 205.17
+      },
+      "1751342400": {
+        "date": "2025-07-01",
+        "date_utc": 1751342400,
+        "open": 206.67,
+        "high": 216.23,
+        "low": 206.14,
+        "close": 211.16,
+        "volume": 407676700,
+        "adjclose": 211.16
+      },
+      "1752523201": {
+        "date": "2025-07-14",
+        "date_utc": 1752523201,
+        "open": 209.91,
+        "high": 210.91,
+        "low": 207.54,
+        "close": 208.62,
+        "volume": 37683849,
+        "adjclose": 208.62
+      }
+    },
+    "error": null
+  },
+  "41b2942a82c14efc97b94d0c7ce284c1": {
+    "output": "Antarctica/DumontDUrville",
+    "error": null
+  },
+  "d9691a12470cc73ba1d3ce3c86181f10": {
+    "output": 31.5,
+    "error": null
+  },
+  "8449680a520b1e5720427df0c30fdb92": {
+    "output": "private range",
+    "error": null
+  },
+  "1faa86423b3d756cf701903762ce92b6": {
+    "output": [
+      [
+        19,
+        22
+      ],
+      [
+        43,
+        50
+      ]
+    ],
+    "error": null
+  },
+  "b571a46913fb2c1ea682f336506ec906": {
+    "output": 150,
+    "error": null
+  },
+  "350a6a4ee47c484b1026d3a77c0e54f5": {
+    "output": 72.0,
+    "error": null
+  },
+  "8f729b74ee3a61767cc4d10d97f4002e": {
+    "output": 1571.656407330882,
+    "error": null
+  },
+  "8278e65a6ab9fa6c65549cbc1075cf39": {
+    "output": [
+      1.0,
+      -3.3333333333333335
+    ],
+    "error": null
+  },
+  "afacc8d551be836820237c652ba4c04f": {
+    "output": [
+      {
+        "date": "2010-01-01",
+        "localName": "Jour de l'an",
+        "name": "New Year's Day",
+        "countryCode": "FR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2010-04-05",
+        "localName": "Lundi de P\u00e2ques",
+        "name": "Easter Monday",
+        "countryCode": "FR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2010-05-01",
+        "localName": "F\u00eate du Travail",
+        "name": "Labour Day",
+        "countryCode": "FR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2010-05-08",
+        "localName": "Victoire 1945",
+        "name": "Victory in Europe Day",
+        "countryCode": "FR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2010-05-13",
+        "localName": "Ascension",
+        "name": "Ascension Day",
+        "countryCode": "FR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2010-05-24",
+        "localName": "Lundi de Pentec\u00f4te",
+        "name": "Whit Monday",
+        "countryCode": "FR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2010-07-14",
+        "localName": "F\u00eate nationale",
+        "name": "Bastille Day",
+        "countryCode": "FR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2010-08-15",
+        "localName": "Assomption",
+        "name": "Assumption Day",
+        "countryCode": "FR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2010-11-01",
+        "localName": "Toussaint",
+        "name": "All Saints' Day",
+        "countryCode": "FR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2010-11-11",
+        "localName": "Armistice 1918",
+        "name": "Armistice Day",
+        "countryCode": "FR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2010-12-25",
+        "localName": "No\u00ebl",
+        "name": "Christmas Day",
+        "countryCode": "FR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      }
+    ],
+    "error": null
+  },
+  "091c7ded95acdba89d6a7c927c67c558": {
+    "output": [
+      56,
+      34,
+      12,
+      9,
+      7,
+      2
+    ],
+    "error": null
+  },
+  "1d725a51d2d1f10eb08b7a023ae6833e": {
+    "output": -15.476190476190476,
+    "error": null
+  },
+  "024dae11aa89b81dd66789455dc58c1e": {
+    "output": 16145.646273400002,
+    "error": null
+  },
+  "6cae9fb2df7174a52fc3c51a63d31e2b": {
+    "output": 1227813.9640000002,
+    "error": null
+  },
+  "2be4865554179360cd6753797bd1cd6a": {
+    "output": {
+      "customer_id": "123",
+      "room_number": "deluxe",
+      "check_in_date": "08-11-2024",
+      "check_out_date": "08-15-2024",
+      "total_price": 1000
+    },
+    "error": null
+  },
+  "75fa271a109f01114d025dc7629d7c6e": {
+    "output": 210.1,
+    "error": null
+  },
+  "2b1eefcfa2251e89fb9d6469efbe1362": {
+    "output": 0.0,
+    "error": null
+  },
+  "28cf51eef0d90b51d6a6b9e5e7fda992": {
+    "output": 72.0,
+    "error": null
+  },
+  "cd4df2d98fa04f8f8156ab9b75325c60": {
+    "output": 102083.33333333334,
+    "error": null
+  },
+  "a60ce508af454413f843a888ca79ea30": {
+    "output": [
+      {
+        "date": "2010-01-01",
+        "localName": "Jour de l'an",
+        "name": "New Year's Day",
+        "countryCode": "FR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2010-04-05",
+        "localName": "Lundi de P\u00e2ques",
+        "name": "Easter Monday",
+        "countryCode": "FR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2010-05-01",
+        "localName": "F\u00eate du Travail",
+        "name": "Labour Day",
+        "countryCode": "FR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2010-05-08",
+        "localName": "Victoire 1945",
+        "name": "Victory in Europe Day",
+        "countryCode": "FR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2010-05-13",
+        "localName": "Ascension",
+        "name": "Ascension Day",
+        "countryCode": "FR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2010-05-24",
+        "localName": "Lundi de Pentec\u00f4te",
+        "name": "Whit Monday",
+        "countryCode": "FR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2010-07-14",
+        "localName": "F\u00eate nationale",
+        "name": "Bastille Day",
+        "countryCode": "FR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2010-08-15",
+        "localName": "Assomption",
+        "name": "Assumption Day",
+        "countryCode": "FR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2010-11-01",
+        "localName": "Toussaint",
+        "name": "All Saints' Day",
+        "countryCode": "FR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2010-11-11",
+        "localName": "Armistice 1918",
+        "name": "Armistice Day",
+        "countryCode": "FR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2010-12-25",
+        "localName": "No\u00ebl",
+        "name": "Christmas Day",
+        "countryCode": "FR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      }
+    ],
+    "error": null
+  },
+  "ee47197602f8c74a5e6301838f207886": {
+    "output": "Antarctica/DumontDUrville",
+    "error": null
+  },
+  "6fa7d92c414ebbe80f2f230856a9a038": {
+    "output": {
+      "1730433600": {
+        "date": "2024-11-01",
+        "date_utc": 1730433600,
+        "open": 220.97,
+        "high": 237.81,
+        "low": 219.71,
+        "close": 237.33,
+        "volume": 891640600,
+        "adjclose": 236.5
+      },
+      "1733029200": {
+        "date": "2024-12-01",
+        "date_utc": 1733029200,
+        "open": 237.27,
+        "high": 260.1,
+        "low": 237.16,
+        "close": 250.42,
+        "volume": 977916100,
+        "adjclose": 249.82
+      },
+      "1735707600": {
+        "date": "2025-01-01",
+        "date_utc": 1735707600,
+        "open": 248.93,
+        "high": 249.1,
+        "low": 219.38,
+        "close": 236,
+        "volume": 1200291700,
+        "adjclose": 235.43
+      },
+      "1738386000": {
+        "date": "2025-02-01",
+        "date_utc": 1738386000,
+        "open": 229.99,
+        "high": 250,
+        "low": 225.7,
+        "close": 241.84,
+        "volume": 862272300,
+        "adjclose": 241.26
+      },
+      "1740805200": {
+        "date": "2025-03-01",
+        "date_utc": 1740805200,
+        "open": 241.79,
+        "high": 244.03,
+        "low": 208.42,
+        "close": 222.13,
+        "volume": 1115239500,
+        "adjclose": 221.84
+      },
+      "1743480000": {
+        "date": "2025-04-01",
+        "date_utc": 1743480000,
+        "open": 219.81,
+        "high": 225.19,
+        "low": 169.21,
+        "close": 212.5,
+        "volume": 1606488200,
+        "adjclose": 212.22
+      },
+      "1746072000": {
+        "date": "2025-05-01",
+        "date_utc": 1746072000,
+        "open": 209.08,
+        "high": 214.56,
+        "low": 193.25,
+        "close": 200.85,
+        "volume": 1195728200,
+        "adjclose": 200.59
+      },
+      "1748750400": {
+        "date": "2025-06-01",
+        "date_utc": 1748750400,
+        "open": 200.28,
+        "high": 207.39,
+        "low": 195.07,
+        "close": 205.17,
+        "volume": 1100409300,
+        "adjclose": 205.17
+      },
+      "1751342400": {
+        "date": "2025-07-01",
+        "date_utc": 1751342400,
+        "open": 206.67,
+        "high": 216.23,
+        "low": 206.14,
+        "close": 209.11,
+        "volume": 488788600,
+        "adjclose": 209.11
+      },
+      "1752609601": {
+        "date": "2025-07-15",
+        "date_utc": 1752609601,
+        "open": 209.15,
+        "high": 211.89,
+        "low": 208.92,
+        "close": 209.11,
+        "volume": 42071894,
+        "adjclose": 209.11
+      }
+    },
+    "error": null
+  },
+  "fae5fd45a535862ece845d986a5a43eb": {
+    "output": [
+      2,
+      7,
+      9,
+      12,
+      34,
+      56
+    ],
+    "error": null
+  },
+  "8063248fa47cb9a8425debf4948cf580": {
+    "output": {
+      "customer_id": "123",
+      "room_number": "deluxe",
+      "check_in_date": "2024-08-11",
+      "check_out_date": "2024-08-15",
+      "total_price": 1000
+    },
+    "error": null
+  },
+  "4f2e4178ff553f1b401e2423b2d5a1a0": {
+    "output": {
+      "success": false,
+      "message": "Invalid tickers"
+    },
+    "error": null
+  },
+  "787ab44a25699b31cf0d48a8e050f099": {
+    "output": {
+      "calories": 2024.15985,
+      "proteins_g": 151.81198874999998,
+      "fats_g": 56.2266625,
+      "carbohydrates_g": 227.71798312500002
+    },
+    "error": null
+  },
+  "b3b3b1cb67ed4e68919562a2774213bd": {
+    "output": 16145.646273400002,
+    "error": null
+  },
+  "a5d793a19213bb936700c0146fcd384b": {
+    "output": "Failed to fetch data with status code: 400",
+    "error": null
+  },
+  "88d2e4ef266cc331ae9fc835b02ac73a": {
+    "output": "BEVERLY HILLS",
+    "error": null
+  },
+  "9e7e1e1f69756a49cee4548565b7c8b1": {
+    "output": {
+      "calories": 2024.15985,
+      "proteins_g": 151.81198874999998,
+      "fats_g": 56.2266625,
+      "carbohydrates_g": 227.71798312500002
+    },
+    "error": null
+  },
+  "c57e1891cc2c9a29616c4ba0524aaaa0": {
+    "output": {
+      "customer_id": "123",
+      "room_number": "deluxe",
+      "check_in_date": "08-11-2024",
+      "check_out_date": "08-15-2024",
+      "total_price": 4000
+    },
+    "error": null
+  },
+  "d086bc1e4f9d1f4060a441600bb2598e": {
+    "output": {
+      "customer_id": "123",
+      "room_number": "deluxe",
+      "check_in_date": "08-11-2024",
+      "check_out_date": "08-15-2024",
+      "total_price": 1000
+    },
+    "error": null
+  },
+  "6e23802295c6fc2143c552a09d4b372b": {
+    "output": 915402.1911066846,
+    "error": null
+  },
+  "8ce2c8bc6d7dff000da7a95ad90af562": {
+    "output": "Action, Adventure, Fantasy",
+    "error": null
+  },
+  "de4f908dab3ae6d16cf40e4fe36e5fb0": {
+    "output": [
+      [
+        1,
+        2
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        3,
+        7
+      ]
+    ],
+    "error": null
+  },
+  "e1158b7a65bca3c720541dc48dd3e675": {
+    "output": 1881.1125000000002,
+    "error": null
+  },
+  "eff2d319348837b2fa0957004c35ad51": {
+    "output": 0.0,
+    "error": null
+  },
+  "1bb04dcaea24657fa903c55b08eb0210": {
+    "output": {
+      "customer_id": "123",
+      "room_number": "deluxe",
+      "check_in_date": "08-11-2024",
+      "check_out_date": "08-15-2024",
+      "total_price": 4000
+    },
+    "error": null
+  },
+  "6fc315ace619f53b762c66990f95464a": {
+    "output": 0.0,
+    "error": null
+  },
+  "2a98f65e9e75b6826a64c43968cf2a1d": {
+    "output": "James Cameron",
+    "error": null
+  },
+  "1bf87821b549a515bdf70f511f24e041": {
+    "output": {
+      "customer_id": "123",
+      "room_number": "deluxe",
+      "check_in_date": "08-11-2024",
+      "check_out_date": "08-15-2024",
+      "total_price": 1000
+    },
+    "error": null
+  },
+  "7fe9178c50764c9f08e9b26b4a624276": {
+    "output": 4000,
+    "error": null
+  },
+  "7149b6470ab0f5e7f9b42d2ce38629c1": {
+    "output": 32.00000264769187,
+    "error": null
+  },
+  "fa1abae4608c5f27b00e1633987d5953": {
+    "output": {
+      "calories": 2024.15985,
+      "proteins_g": 151.81198874999998,
+      "fats_g": 56.2266625,
+      "carbohydrates_g": 227.71798312500002
+    },
+    "error": null
+  },
+  "215b40547217bacc8fbfc0e8e732fcb6": {
+    "output": {
+      "customer_id": "123",
+      "room_number": "deluxe",
+      "check_in_date": "08-11-2024",
+      "check_out_date": "08-15-2024",
+      "total_price": 1000
+    },
+    "error": null
+  },
+  "b68893d2c7dd4f4f00f2101e2ba4951e": {
+    "output": {
+      "customer_id": "123",
+      "room_number": "deluxe",
+      "check_in_date": "08-11-2024",
+      "check_out_date": "08-15-2024",
+      "total_price": 4000
+    },
+    "error": null
+  },
+  "26f628bbe26f1c837363504019923c1a": {
+    "output": {
+      "customer_id": "123",
+      "room_number": "deluxe",
+      "check_in_date": "08-11-2024",
+      "check_out_date": "08-15-2024",
+      "total_price": 4000
+    },
+    "error": null
+  },
+  "1baceff9e8bd8f2d3925d1b4d651873e": {
+    "output": {
+      "customer_id": "123",
+      "room_number": "deluxe",
+      "check_in_date": "08-11-2024",
+      "check_out_date": "08-15-2024",
+      "total_price": 1000
+    },
+    "error": null
+  },
+  "9c7ca81f295d54dc9e5a6a65b5d98934": {
+    "output": 1.5,
+    "error": null
+  },
+  "358e23f07c376094f341ee4d40ebfa46": {
+    "output": 2371000,
+    "error": null
+  },
+  "7cd892fcbaeec3b6dd339546d6c8de07": {
+    "output": null,
+    "error": null
+  },
+  "3101f09ceb4681974ad856975b6490c8": {
+    "output": {
+      "calories": 2024.15985,
+      "proteins_g": 151.81198874999998,
+      "fats_g": 56.2266625,
+      "carbohydrates_g": 227.71798312500002
+    },
+    "error": null
+  },
+  "4ca1fbf88944984248abcaeac0ca6fad": {
+    "output": 32.00000264769187,
+    "error": null
+  },
+  "1c46dc822e793ac1de2eb4a4b1adf518": {
+    "output": 706.8583470577034,
+    "error": null
+  },
+  "f1ecb4d1944900d188e5ebc333f33503": {
+    "output": 210.1,
+    "error": null
+  },
+  "b69602e17ab9a2635fd15f93e8641e4b": {
+    "output": 32.00000264769187,
+    "error": null
+  },
+  "c9db72440618fc016223c1ec08cda2ce": {
+    "output": 11003.327213399989,
+    "error": null
+  },
+  "932389c41ef98d3b1aed2434ad0c589a": {
+    "output": 117.60000000000001,
+    "error": null
+  },
+  "3a5d0e421e4549b8f2c8a6b614f9dcb6": {
+    "output": {
+      "customer_id": "123",
+      "room_number": "deluxe",
+      "check_in_date": "08-11-2024",
+      "check_out_date": "08-15-2024",
+      "total_price": 4000.0
+    },
+    "error": null
+  },
+  "23fa8a69034825a4bc71c7ead8b3c977": {
+    "output": {
+      "success": false,
+      "message": "Invalid tickers"
+    },
+    "error": null
+  },
+  "b8a8d61c62ca9bdfbe2bdcded0d0f314": {
+    "output": 50.0,
+    "error": null
+  },
+  "6a3e88f9c29d7b59d3d5aec2449a5425": {
+    "output": 0.1294102919789905,
+    "error": null
+  },
+  "8e1f3b2667cf9ed70a546cd4caadd2dc": {
+    "output": 640.0,
+    "error": null
+  },
+  "33ac3bc1810ddc0121547a8f797fff52": {
+    "output": 50,
+    "error": null
+  },
+  "c6de431415a9446c0958156bead4ca96": {
+    "output": 32.00000264769187,
+    "error": null
+  },
+  "b7b5046b3d14ba617ff6f170197e2726": {
+    "output": [
+      "48.8588897",
+      "2.3200410217200766"
+    ],
+    "error": null
+  },
+  "fbbdc551397787202b86223fda393a6f": {
+    "output": 392.2650346736279,
+    "error": null
+  },
+  "6977ce559243e85b27be1507e800e252": {
+    "output": "Antarctica/DumontDUrville",
+    "error": null
+  },
+  "d2bdb4f8ca8eb63210a45535c16e1e84": {
+    "output": "11111",
+    "error": null
+  },
+  "47f949126fb0d8c141c9ff9f528803f9": {
+    "output": 16145.646273400002,
+    "error": null
+  },
+  "725eadc0dcea0def11963827398d2c73": {
+    "output": 1227813.9640000002,
+    "error": null
+  },
+  "180a12ea0892309f8be3399bea17610c": {
+    "output": {
+      "calories": 1524.15985,
+      "proteins_g": 114.31198875,
+      "fats_g": 42.33777361111111,
+      "carbohydrates_g": 171.46798312500002
+    },
+    "error": null
+  },
+  "81abbb488491fd69df2bcbc9d0a1c119": {
+    "output": 210.1,
+    "error": null
+  },
+  "ef6eada4febd7da385ee3a29880353b3": {
+    "output": "N/A",
+    "error": null
+  },
+  "eacdb7aa846fe6c99ca8caf86d9c0668": {
+    "output": true,
+    "error": null
+  },
+  "e94cfdaf804e40d33e5d8787a6cf5b8b": {
+    "output": 3.9746823772472712,
+    "error": null
+  },
+  "a2c752e1bc0c41677f5d2d9f3c86eace": {
+    "output": 4000,
+    "error": null
+  },
+  "9ecfdf3a9ea8a2500dc26b9fa2338b14": {
+    "output": {
+      "1757079000": {
+        "date": "2025-09-05",
+        "date_utc": 1757079000,
+        "open": 240,
+        "high": 241.32,
+        "low": 238.49,
+        "close": 239.69,
+        "volume": 54870400,
+        "adjclose": 239.69
+      },
+      "1757338200": {
+        "date": "2025-09-08",
+        "date_utc": 1757338200,
+        "open": 239.3,
+        "high": 240.15,
+        "low": 236.34,
+        "close": 237.88,
+        "volume": 48999500,
+        "adjclose": 237.88
+      },
+      "1757424600": {
+        "date": "2025-09-09",
+        "date_utc": 1757424600,
+        "open": 237,
+        "high": 238.78,
+        "low": 233.36,
+        "close": 234.35,
+        "volume": 66313900,
+        "adjclose": 234.35
+      },
+      "1757511000": {
+        "date": "2025-09-10",
+        "date_utc": 1757511000,
+        "open": 232.19,
+        "high": 232.42,
+        "low": 225.95,
+        "close": 226.79,
+        "volume": 83440800,
+        "adjclose": 226.79
+      },
+      "1757597400": {
+        "date": "2025-09-11",
+        "date_utc": 1757597400,
+        "open": 226.88,
+        "high": 230.45,
+        "low": 226.65,
+        "close": 230.03,
+        "volume": 50208600,
+        "adjclose": 230.03
+      },
+      "1757683800": {
+        "date": "2025-09-12",
+        "date_utc": 1757683800,
+        "open": 229.22,
+        "high": 234.51,
+        "low": 229.02,
+        "close": 234.07,
+        "volume": 55824200,
+        "adjclose": 234.07
+      },
+      "1757943000": {
+        "date": "2025-09-15",
+        "date_utc": 1757943000,
+        "open": 237,
+        "high": 238.19,
+        "low": 235.03,
+        "close": 236.7,
+        "volume": 42699500,
+        "adjclose": 236.7
+      },
+      "1758029400": {
+        "date": "2025-09-16",
+        "date_utc": 1758029400,
+        "open": 237.18,
+        "high": 241.22,
+        "low": 236.32,
+        "close": 238.15,
+        "volume": 63421100,
+        "adjclose": 238.15
+      },
+      "1758115800": {
+        "date": "2025-09-17",
+        "date_utc": 1758115800,
+        "open": 238.97,
+        "high": 240.1,
+        "low": 237.73,
+        "close": 238.99,
+        "volume": 46508000,
+        "adjclose": 238.99
+      },
+      "1758202200": {
+        "date": "2025-09-18",
+        "date_utc": 1758202200,
+        "open": 239.97,
+        "high": 241.2,
+        "low": 236.65,
+        "close": 237.88,
+        "volume": 44219200,
+        "adjclose": 237.88
+      }
+    },
+    "error": null
+  },
+  "93a895af32d7681c260eb345f8bd76ee": {
+    "output": "Antarctica/DumontDUrville",
+    "error": null
+  },
+  "d261303ebd1c6023029ebd69591ee9e8": {
+    "output": {
+      "get": "statistics",
+      "parameters": {
+        "country": "BRA"
+      },
+      "errors": [],
+      "results": 0,
+      "response": []
+    },
+    "error": null
+  },
+  "5a6f28094c4f89c234d0b7f8f3193cd5": {
+    "output": [
+      "48.8588897",
+      "2.3200410217200766"
+    ],
+    "error": null
+  },
+  "f21ed4ee2785f7a552e9302bd5e4caf7": {
+    "output": 72.0,
+    "error": null
+  },
+  "5c9fa2906d83ece2e53361376b0d2ed5": {
+    "output": 102083.33333333334,
+    "error": null
+  },
+  "77277a847dcc195b7fd07e24b006f576": {
+    "output": {
+      "type": "https://tools.ietf.org/html/rfc9110#section-15.5.5",
+      "title": "Not Found",
+      "status": 404,
+      "traceId": "00-3703d93f20c09c8f0575d1e1ef8b387e-8a5eed788b891f73-00"
+    },
+    "error": null
+  },
+  "e54bd80bb633c2784a78cacf28a5ac33": {
+    "output": 1.6666666666666667,
+    "error": null
+  },
+  "49662da07c762b5c605e2783e81dac39": {
+    "output": 4000,
+    "error": null
+  },
+  "0fddb6164bc49df6d55be03d397f3819": {
+    "output": -0.04761904761904745,
+    "error": null
+  },
+  "0b07d34db282ba775fdaec2105d1b2fc": {
+    "output": "Antarctica/DumontDUrville",
+    "error": null
+  },
+  "8b88c5b424500a1a23be75d4e56656bc": {
+    "output": 16145.646273400002,
+    "error": null
+  },
+  "62da8c6b95ee05158fb50bf6902aaa0e": {
+    "output": 210.1,
+    "error": null
+  },
+  "6de81ed95fb228f976777f0b57e2721f": {
+    "output": 2,
+    "error": null
+  },
+  "eb3cab7392fc9991c7b2aaac535f252c": {
+    "output": [
+      0,
+      1
+    ],
+    "error": null
+  },
+  "ed5eb568ef5824b60f4536b35f42f559": {
+    "output": [
+      0,
+      1
+    ],
+    "error": null
+  },
+  "3c52d02b8440a34c24904769b261c230": {
+    "output": {
+      "get": "statistics",
+      "parameters": {
+        "country": "US"
+      },
+      "errors": [],
+      "results": 0,
+      "response": []
+    },
+    "error": null
+  },
+  "b65c3ef832d1f99fcf4e0e09556a9ebc": {
+    "output": 3.141592653589793,
+    "error": null
+  },
+  "0550ced90b480cba6ac041c575d0973c": {
+    "output": 117.60000000000001,
+    "error": null
+  },
+  "bc29666f83b84af2f5e0a351498bd4ea": {
+    "output": 870638.0,
+    "error": null
+  },
+  "472e28b82b783a940dbc3dc62fecd4db": {
+    "output": -15.476190476190476,
+    "error": null
+  },
+  "4a1ba66db030324fd2a477dc0a25800d": {
+    "output": 210.1,
+    "error": null
+  },
+  "5b8b1c961370856b11afd096a4f1543d": {
+    "output": 32.00000264769187,
+    "error": null
+  },
+  "14a069f23ebaca59f085cbf362d19d14": {
+    "output": "Antarctica/DumontDUrville",
+    "error": null
+  },
+  "9d55e01cac3b37de5a97a5149b3b1220": {
+    "output": {
+      "type": "https://tools.ietf.org/html/rfc9110#section-15.5.5",
+      "title": "Not Found",
+      "status": 404,
+      "traceId": "00-3703d93f20c09c8f0575d1e1ef8b387e-8a5eed788b891f73-00"
+    },
+    "error": null
+  },
+  "4113ab9ce711b62ac9be7478200140e9": {
+    "output": -1.7142857142857142,
+    "error": null
+  },
+  "0873c70187ecc248b03c59d2bbad11f3": {
+    "output": {
+      "1757338200": {
+        "date": "2025-09-08",
+        "date_utc": 1757338200,
+        "open": 239.3,
+        "high": 240.15,
+        "low": 236.34,
+        "close": 237.88,
+        "volume": 48999500,
+        "adjclose": 237.88
+      },
+      "1757424600": {
+        "date": "2025-09-09",
+        "date_utc": 1757424600,
+        "open": 237,
+        "high": 238.78,
+        "low": 233.36,
+        "close": 234.35,
+        "volume": 66313900,
+        "adjclose": 234.35
+      },
+      "1757511000": {
+        "date": "2025-09-10",
+        "date_utc": 1757511000,
+        "open": 232.19,
+        "high": 232.42,
+        "low": 225.95,
+        "close": 226.79,
+        "volume": 83440800,
+        "adjclose": 226.79
+      },
+      "1757597400": {
+        "date": "2025-09-11",
+        "date_utc": 1757597400,
+        "open": 226.88,
+        "high": 230.45,
+        "low": 226.65,
+        "close": 230.03,
+        "volume": 50208600,
+        "adjclose": 230.03
+      },
+      "1757683800": {
+        "date": "2025-09-12",
+        "date_utc": 1757683800,
+        "open": 229.22,
+        "high": 234.51,
+        "low": 229.02,
+        "close": 234.07,
+        "volume": 55824200,
+        "adjclose": 234.07
+      },
+      "1757943000": {
+        "date": "2025-09-15",
+        "date_utc": 1757943000,
+        "open": 237,
+        "high": 238.19,
+        "low": 235.03,
+        "close": 236.7,
+        "volume": 42699500,
+        "adjclose": 236.7
+      },
+      "1758029400": {
+        "date": "2025-09-16",
+        "date_utc": 1758029400,
+        "open": 237.18,
+        "high": 241.22,
+        "low": 236.32,
+        "close": 238.15,
+        "volume": 63421100,
+        "adjclose": 238.15
+      },
+      "1758115800": {
+        "date": "2025-09-17",
+        "date_utc": 1758115800,
+        "open": 238.97,
+        "high": 240.1,
+        "low": 237.73,
+        "close": 238.99,
+        "volume": 46508000,
+        "adjclose": 238.99
+      },
+      "1758202200": {
+        "date": "2025-09-18",
+        "date_utc": 1758202200,
+        "open": 239.97,
+        "high": 241.2,
+        "low": 236.65,
+        "close": 237.88,
+        "volume": 44219200,
+        "adjclose": 237.88
+      },
+      "1758301735": {
+        "date": "2025-09-19",
+        "date_utc": 1758301735,
+        "open": 241.18,
+        "high": 245.92,
+        "low": 240.21,
+        "close": 245.32,
+        "volume": 56126858,
+        "adjclose": 245.32
+      }
+    },
+    "error": null
+  },
+  "2e2959086ba7a35a968f0cfc6d0ee129": {
+    "output": [
+      {
+        "date": "2010-01-01",
+        "localName": "Jour de l'an",
+        "name": "New Year's Day",
+        "countryCode": "FR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2010-04-05",
+        "localName": "Lundi de P\u00e2ques",
+        "name": "Easter Monday",
+        "countryCode": "FR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2010-05-01",
+        "localName": "F\u00eate du Travail",
+        "name": "Labour Day",
+        "countryCode": "FR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2010-05-08",
+        "localName": "Victoire 1945",
+        "name": "Victory in Europe Day",
+        "countryCode": "FR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2010-05-13",
+        "localName": "Ascension",
+        "name": "Ascension Day",
+        "countryCode": "FR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2010-05-24",
+        "localName": "Lundi de Pentec\u00f4te",
+        "name": "Whit Monday",
+        "countryCode": "FR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2010-07-14",
+        "localName": "F\u00eate nationale",
+        "name": "Bastille Day",
+        "countryCode": "FR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2010-08-15",
+        "localName": "Assomption",
+        "name": "Assumption Day",
+        "countryCode": "FR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2010-11-01",
+        "localName": "Toussaint",
+        "name": "All Saints' Day",
+        "countryCode": "FR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2010-11-11",
+        "localName": "Armistice 1918",
+        "name": "Armistice Day",
+        "countryCode": "FR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2010-12-25",
+        "localName": "No\u00ebl",
+        "name": "Christmas Day",
+        "countryCode": "FR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      }
+    ],
+    "error": null
+  },
+  "a26e44925a54dee230e0b26c1a0455cb": {
+    "output": {
+      "calories": 2024.15985,
+      "proteins_g": 151.81198874999998,
+      "fats_g": 56.2266625,
+      "carbohydrates_g": 227.71798312500002
+    },
+    "error": null
+  },
+  "b0c942b9bcb41eafd746fee3e30a50be": {
+    "output": {
+      "1735707600": {
+        "date": "2025-01-01",
+        "date_utc": 1735707600,
+        "open": 248.93,
+        "high": 249.1,
+        "low": 219.38,
+        "close": 236,
+        "volume": 1200176400,
+        "adjclose": 235.17
+      },
+      "1738386000": {
+        "date": "2025-02-01",
+        "date_utc": 1738386000,
+        "open": 229.99,
+        "high": 250,
+        "low": 225.7,
+        "close": 241.84,
+        "volume": 862272300,
+        "adjclose": 240.98
+      },
+      "1740805200": {
+        "date": "2025-03-01",
+        "date_utc": 1740805200,
+        "open": 241.79,
+        "high": 244.03,
+        "low": 208.42,
+        "close": 222.13,
+        "volume": 1115239500,
+        "adjclose": 221.59
+      },
+      "1743480000": {
+        "date": "2025-04-01",
+        "date_utc": 1743480000,
+        "open": 219.81,
+        "high": 225.19,
+        "low": 169.21,
+        "close": 212.5,
+        "volume": 1607318600,
+        "adjclose": 211.98
+      },
+      "1746072000": {
+        "date": "2025-05-01",
+        "date_utc": 1746072000,
+        "open": 209.08,
+        "high": 214.56,
+        "low": 193.25,
+        "close": 200.85,
+        "volume": 1195728200,
+        "adjclose": 200.36
+      },
+      "1748750400": {
+        "date": "2025-06-01",
+        "date_utc": 1748750400,
+        "open": 200.28,
+        "high": 207.39,
+        "low": 195.07,
+        "close": 205.17,
+        "volume": 1100409300,
+        "adjclose": 204.94
+      },
+      "1751342400": {
+        "date": "2025-07-01",
+        "date_utc": 1751342400,
+        "open": 206.67,
+        "high": 216.23,
+        "low": 206.14,
+        "close": 207.57,
+        "volume": 1079935600,
+        "adjclose": 207.33
+      },
+      "1754020800": {
+        "date": "2025-08-01",
+        "date_utc": 1754020800,
+        "open": 210.87,
+        "high": 235.12,
+        "low": 201.5,
+        "close": 232.14,
+        "volume": 1218079100,
+        "adjclose": 231.88
+      },
+      "1756699200": {
+        "date": "2025-09-01",
+        "date_utc": 1756699200,
+        "open": 229.25,
+        "high": 241.32,
+        "low": 225.95,
+        "close": 237.88,
+        "volume": 714558000,
+        "adjclose": 237.88
+      },
+      "1758303252": {
+        "date": "2025-09-19",
+        "date_utc": 1758303252,
+        "open": 241.18,
+        "high": 245.92,
+        "low": 240.21,
+        "close": 245.09,
+        "volume": 58685437,
+        "adjclose": 245.09
+      }
+    },
+    "error": null
+  },
+  "4f5cd1af47d8b9a010a15af616b1c2c3": {
+    "output": 1050.0,
+    "error": null
+  },
+  "8fecc8e22993c814abe7976ba8d7e7fc": {
+    "output": 1,
+    "error": null
+  },
+  "bddf45003110c86a66e989a78abc810a": {
+    "output": 0,
+    "error": null
+  },
+  "5d3e0956f965e61053f4bf9310c4cd9b": {
+    "output": 25.60441795,
+    "error": null
+  },
+  "0bbe43c4d082d5e43ab707e973d70b07": {
+    "output": 416.6666732542942,
+    "error": null
+  },
+  "cc8c17ce80d440565d4dae756b6b60c9": {
+    "output": 1,
+    "error": null
+  },
+  "646e17cb1be891590b2029a986a97d00": {
+    "output": 1.0,
+    "error": null
+  },
+  "1a9ebd069e5418da69a1f647370e1e4f": {
+    "output": 1331000.0000000005,
+    "error": null
+  },
+  "e34eef5927ef0772a57aceea4b297b74": {
+    "output": {
+      "customer_id": 123,
+      "room_number": "deluxe",
+      "check_in_date": "2024-08-11",
+      "check_out_date": "2024-08-15",
+      "total_price": 1000
+    },
+    "error": null
+  },
+  "c7d09166bdb5ed6a4d568c1b4a9051a2": {
+    "output": 0.0,
+    "error": null
+  },
+  "7c4bd0878442d1f82b1c151c8e45a4f5": {
+    "output": "Etc/GMT",
+    "error": null
+  },
+  "b0bc0ed3b9f417f02c21480aa844edc1": {
+    "output": 25.6044,
+    "error": null
+  },
+  "7c00464d1c7b77ce754cf3389ab32c99": {
+    "output": 924.8904135698546,
+    "error": null
+  },
+  "85c4e04c3fd4487cc08f52b5c7001802": {
+    "output": 1091.5,
+    "error": null
+  },
+  "31c2fea34f580ebc7fcb887b64dbe784": {
+    "output": 210.1,
+    "error": null
+  },
+  "7ba0f0f736f644679454c88226a673d9": {
+    "output": 1500.0,
+    "error": null
+  },
+  "9ca7c04dd82c3a1e25a94aa2d8f8442c": {
+    "output": 1.0,
+    "error": null
+  },
+  "2adf9dd256821b165ddfce344403b124": {
+    "output": {
+      "customer_id": 123,
+      "room_number": "deluxe",
+      "check_in_date": "2024-08-11",
+      "check_out_date": "2024-08-15",
+      "total_price": 4000
+    },
+    "error": null
+  },
+  "a1c5c21599ceae70fc645f3480c30fa3": {
+    "output": {
+      "calories": 2024.15985,
+      "proteins_g": 151.81198874999998,
+      "fats_g": 56.2266625,
+      "carbohydrates_g": 227.71798312500002
+    },
+    "error": null
+  },
+  "f8e7d8e251aab1a1be633e6b62493cf1": {
+    "output": {
+      "customer_id": "123",
+      "room_number": "deluxe",
+      "check_in_date": "2024-08-11",
+      "check_out_date": "2024-08-15",
+      "total_price": 4000
+    },
+    "error": null
+  },
+  "07db268752a31c91a7396cd7d4e4fd81": {
+    "output": 210.1,
+    "error": null
+  },
+  "f0f01824fbdc9222f1958c3ceb9e6606": {
+    "output": {
+      "calories": 2024.15985,
+      "proteins_g": 151.81198874999998,
+      "fats_g": 56.2266625,
+      "carbohydrates_g": 227.71798312500002
+    },
+    "error": null
+  },
+  "d64ff49503caaec5075909ddb1c3d069": {
+    "output": 19,
+    "error": null
+  },
+  "2a593c1c730a5dc6d522f9f879fd7345": {
+    "output": 210.1,
+    "error": null
+  },
+  "0e70888291e1a3270c307b37c748270a": {
+    "output": 1.0,
+    "error": null
+  },
+  "7d6b57c15a28a4711a7c1eff01b54767": {
+    "output": 1,
+    "error": null
+  },
+  "0cb3331744aa4d92bd4ed2e154690c64": {
+    "output": "20149",
+    "error": null
+  },
+  "587c2ed6f91f520681ad6c2b760340f3": {
+    "output": 25.6044445,
+    "error": null
+  },
+  "d26cc529fdc6764425da7b8208be672d": {
+    "output": 14.7648230602334,
+    "error": null
+  },
+  "c1445f374127fb25aaaa915257d50d79": {
+    "output": 105.0,
+    "error": null
+  },
+  "042a3afcbe8a05e70647d7d04f112097": {
+    "output": "[Slang] for [the police] or any other [law] enforcement.",
+    "error": null
+  },
+  "4d75219b72cbe595f96cc9fd7ddc1b8c": {
+    "output": {
+      "customer_id": "123",
+      "room_number": "deluxe",
+      "check_in_date": "2024-08-11",
+      "check_out_date": "2024-08-15",
+      "total_price": 1000
+    },
+    "error": null
+  },
+  "a4b7bd41c318a317fbfab90d400d82e0": {
+    "output": 0.9949464040551009,
+    "error": null
+  },
+  "3dc728167ecb2ec7dd20ae2bf1eeff9a": {
+    "output": [
+      0,
+      1,
+      1
+    ],
+    "error": null
+  },
+  "9366473955d3f282072f62b480804773": {
+    "output": 0.8483,
+    "error": null
+  },
+  "def07a92f75cf45b03996ff2dcc60826": {
+    "output": 7.615773105863909,
+    "error": null
+  },
+  "48350302393335ea657cbf511af51b14": {
+    "output": "Europe/Paris",
+    "error": null
+  },
+  "07dd132932ac0c6df1274016bff452f1": {
+    "output": 0.0,
+    "error": null
+  },
+  "47a4eaa764ac6eed406b3ecd3f77a82a": {
+    "output": 1,
+    "error": null
+  },
+  "9cc0f7250dd63694ce49593acc2cf1a9": {
+    "output": 0.1171875,
+    "error": null
+  },
+  "52bf32ff8f7e3658aa4f974981cce26f": {
+    "output": 5.9381,
+    "error": null
+  },
+  "99e839f0c49dd76eac483895e51630e0": {
+    "output": 1.5,
+    "error": null
+  },
+  "388c306eed9daf75c3bdc9b94e29bfc1": {
+    "output": 1.4142135623730951,
+    "error": null
+  },
+  "ffebec1218d6a051c659420afd190f04": {
+    "output": 536.8216230121398,
+    "error": null
+  },
+  "aa70e4fccc6030953f1ab37c56285970": {
+    "output": 1.0,
+    "error": null
+  },
+  "f3397e930bc50c2eebc7e2320ab23eb8": {
+    "output": 86.8,
+    "error": null
+  },
+  "2969c79ac07ba2ff2c729a3f06840b8e": {
+    "output": 0.18,
+    "error": null
+  },
+  "288f510f98adb0ec2392b53b61783ccd": {
+    "output": 7,
+    "error": null
+  },
+  "808358bdbe5683c9f3f474e2d6d7af4e": {
+    "output": "Europe/Paris",
+    "error": null
+  },
+  "c26c47e532fc72929a21ebb40c587dd4": {
+    "output": {
+      "customer_id": "123",
+      "room_number": "Deluxe",
+      "check_in_date": "2024-08-11",
+      "check_out_date": "2024-08-15",
+      "total_price": 1000
+    },
+    "error": null
+  },
+  "c808fb1ecb80259009a8f44dcd7d7970": {
+    "output": 75.3,
+    "error": null
+  },
+  "84261a847cf1ddd2adfbbcc90d6a7320": {
+    "output": "Etc/GMT",
+    "error": null
+  },
+  "41a5317d36a671e6eaa46cb2d7538b86": {
+    "output": null,
+    "error": null
+  },
+  "d8683d552a60ea646c5e6f6a374ad31f": {
+    "output": 5.0,
+    "error": null
+  },
+  "309ca54dc944c736e11935005c42da30": {
+    "output": 16145.646273400002,
+    "error": null
+  },
+  "9cab5a42a8f05a240551ad48c769a7aa": {
+    "output": {
+      "type": "https://tools.ietf.org/html/rfc9110#section-15.5.5",
+      "title": "Not Found",
+      "status": 404,
+      "traceId": "00-07e18df84eed80360dd77046bea1da29-18727076a7c60e00-00"
+    },
+    "error": null
+  },
+  "b712cf04913bfff0eba26acd3f6f9f3f": {
+    "output": {
+      "customer_id": 123,
+      "room_number": "Deluxe Room",
+      "check_in_date": "2024-08-11",
+      "check_out_date": "2024-08-15",
+      "total_price": 1000
+    },
+    "error": null
+  },
+  "aef7014ceb80479f2ad1076a2749d933": {
+    "output": 150000.0,
+    "error": null
+  },
+  "f50a77e26a983f2bd4b01de93c00a282": {
+    "output": {
+      "type": "https://tools.ietf.org/html/rfc9110#section-15.5.5",
+      "title": "Not Found",
+      "status": 404,
+      "traceId": "00-bda023f6a586658a47e02714e4f9b660-69e1041ee14c368c-00"
+    },
+    "error": null
+  },
+  "347fdc221bca16c04b99a146c98aa57f": {
+    "output": null,
+    "error": null
+  },
+  "4d80ddb531190e8caab677d4f7108280": {
+    "output": {
+      "get": "statistics",
+      "parameters": {
+        "country": "North Pole"
+      },
+      "errors": [],
+      "results": 0,
+      "response": []
+    },
+    "error": null
+  },
+  "f2041d381fdaf2cb1e621758ea96c3a1": {
+    "output": {
+      "type": "https://tools.ietf.org/html/rfc9110#section-15.5.5",
+      "title": "Not Found",
+      "status": 404,
+      "traceId": "00-33a9a2afa22431fa525d59fc12a9ae1b-bcf514e72775c196-00"
+    },
+    "error": null
+  },
+  "2dbd4576c017ad53a32b0982243062cb": {
+    "output": 0,
+    "error": null
+  },
+  "85e497196fe419374e830c928a948a3a": {
+    "output": 150000.0,
+    "error": null
+  },
+  "aa17ce9b2cbb2e31d4ecfa5ab06b255f": {
+    "output": 6402373705728000.0,
+    "error": null
+  },
+  "465086ff40631f691311e52a3f05a290": {
+    "output": 1227813.9640000002,
+    "error": null
+  },
+  "bf272b65f049e5afc132d88929a52539": {
+    "output": 1,
+    "error": null
+  },
+  "021eb22b78af7fc2414c434246895495": {
+    "output": 3983166922118810678205990336564718434224120605664143701183608768141905250787782877719783678679061484962365081537093035923501297045164325783140744700987694957532389158400858116442933576455898753759925348456032608650278150327110180834816760596303097286523605280428429436106445252981359910377930818774855112452474332249873412259136132368731917415053983296042291396691439150433279600306468690306707682489567387757087354859605042563344537364880212053587269055695748062646674865811939840510090971364835065252717494840800357338638708817635670004576509737845399272402043442156827044195038802613229625783142492845706197046207004041551342095347194089863859659283335973442255940429503528960000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,
+    "error": null
+  },
+  "6d8eafc0e596b29aecb049588b58ee37": {
+    "output": "0x1f",
+    "error": null
+  },
+  "46457fc8eee994bc1ea51410a79d1fb5": {
+    "output": {
+      "get": "statistics",
+      "parameters": {
+        "country": "Federative Republic of Brazil"
+      },
+      "errors": [],
+      "results": 0,
+      "response": []
+    },
+    "error": null
+  },
+  "d0cf4852c23ff88ec66dc3236ff8c140": {
+    "output": 24414,
+    "error": null
+  },
+  "30f4e2e559392525b585e63005e8b636": {
+    "output": {
+      "type": "https://tools.ietf.org/html/rfc9110#section-15.5.5",
+      "title": "Not Found",
+      "status": 404,
+      "traceId": "00-056d5233fefcc5a4d0bbb91dadb6db72-3d4c16fd9272a379-00"
+    },
+    "error": null
+  },
+  "d886a230fa512165294dc87d2f2beb5e": {
+    "output": [
+      0,
+      1,
+      1,
+      2,
+      3,
+      5,
+      8
+    ],
+    "error": null
+  },
+  "cba40331ebda4a2c0fc0c5f418fc34d0": {
+    "output": {
+      "type": "https://tools.ietf.org/html/rfc9110#section-15.5.5",
+      "title": "Not Found",
+      "status": 404,
+      "traceId": "00-627d4ec0a9fd2d7e605a21d226214371-b20ed1187ca90416-00"
+    },
+    "error": null
+  },
+  "7ca08e36b9038eea2d1eb1c3de44405e": {
+    "output": 25.6044175,
+    "error": null
+  },
+  "04e95e16939ecf5ac0b6e6eac6034e96": {
+    "output": null,
+    "error": null
+  },
+  "ef69381dda9a9c252a5c42cb70f022d4": {
+    "output": 26.1,
+    "error": null
+  },
+  "f296afeed14e322b8580aefc7da2802c": {
+    "output": 706.8583470577034,
+    "error": null
+  },
+  "2d2a7e2a53be1719c259acdcf6efb125": {
+    "output": {
+      "customer_id": 123,
+      "room_number": "deluxe",
+      "check_in_date": "2024-08-11",
+      "check_out_date": "2024-08-15",
+      "total_price": 1000.0
+    },
+    "error": null
+  },
+  "c826588594db92f5b3e70a23da9edab6": {
+    "output": "1012",
+    "error": null
+  },
+  "38738a556df5c60a3b8a46b1e97c57b1": {
+    "output": {
+      "customer_id": 123,
+      "room_number": "Deluxe",
+      "check_in_date": "2024-08-11",
+      "check_out_date": "2024-08-15",
+      "total_price": 1000
+    },
+    "error": null
+  },
+  "eb6f65c59445e7817691de7e269c875d": {
+    "output": {
+      "customer_id": 123,
+      "room_number": "deluxe",
+      "check_in_date": "2024-08-11",
+      "check_out_date": "2024-08-15",
+      "total_price": 4000.0
+    },
+    "error": null
+  },
+  "6d055dd49e8d7668b306bd845194f272": {
+    "output": 15000.0,
+    "error": null
+  },
+  "36740bf537c84dd15dcc8a44f8c72425": {
+    "output": "59100",
+    "error": null
+  },
+  "fb86e28d49fd966de3291ed4c17584d6": {
+    "output": 706.8583470577034,
+    "error": null
+  },
+  "bb7154150114aba48d314f880f47fdd1": {
+    "output": 1691.825,
+    "error": null
+  },
+  "0b8203f5f0e928ab5e657adabfda22ff": {
+    "output": "373-0051",
+    "error": null
+  },
+  "badbdca22ccfe9bbb26026394143ba27": {
+    "output": "Boiron Calendula Gel, 1.5 Ounce, Topical First Aid Gel for bug bites, burns, sun burns, skin irritations, non-greasy, paraben-free, fast absorbing, water-based",
+    "error": null
+  },
+  "7c6fa8cbbce5a8b40f616dfb3e297813": {
+    "output": "Echo Dot (3rd Gen) - Smart speaker with Alexa - Sandstone",
+    "error": null
+  },
+  "0f2ad4c5a86287204c51f5bec284ca69": {
+    "output": 1.0,
+    "error": null
+  },
+  "49afcf851660abd6ba6d82eb4af3e3f8": {
+    "output": [
+      0,
+      1
+    ],
+    "error": null
+  },
+  "3af944f7c5b49225cb4fa42393dd6998": {
+    "output": [
+      0,
+      1,
+      1,
+      2,
+      3
+    ],
+    "error": null
+  },
+  "9a514a6bf5010cd3ea7b781320b97028": {
+    "output": {
+      "customer_id": "123",
+      "room_number": {
+        "type": "deluxe"
+      },
+      "check_in_date": "08-11-2024",
+      "check_out_date": "08-15-2024",
+      "total_price": 1000
+    },
+    "error": null
+  },
+  "8ff2913f6049a263fa71e62c512af538": {
+    "output": 392.4658591851397,
+    "error": null
+  },
+  "bfe7c675425763508a10f9ebc041d057": {
+    "output": {
+      "customer_id": 123,
+      "room_number": "deluxe",
+      "check_in_date": "2024-08-11",
+      "check_out_date": "2024-08-15",
+      "total_price": 1000
+    },
+    "error": null
+  },
+  "6863b427c99180719ebcb92a31f5c2de": {
+    "output": {
+      "calories": 1524.15985,
+      "proteins_g": 114.31198875,
+      "fats_g": 42.33777361111111,
+      "carbohydrates_g": 171.46798312500002
+    },
+    "error": null
+  },
+  "ab149eef93102049484589be37238acf": {
+    "output": 1210.0000000000002,
+    "error": null
+  },
+  "cc368f365eb305cf45bcad39f18c7c13": {
+    "output": 1100.0,
+    "error": null
+  },
+  "b99d805e7f7d3d9617d64d045ce1138a": {
+    "output": 1000.0,
+    "error": null
+  },
+  "0f7c39802578df5f8108b97eac72afbd": {
+    "output": 0.12941029203075463,
+    "error": null
+  },
+  "ba9c9d901e26e10cf3a6fa37c27e32c1": {
+    "output": {
+      "type": "https://tools.ietf.org/html/rfc9110#section-15.5.5",
+      "title": "Not Found",
+      "status": 404,
+      "traceId": "00-dff425b0e3339e8fc2e56e6714b9317e-cf11f03990106544-00"
+    },
+    "error": null
+  },
+  "5bcb5964614e5dc638d05e3f48d1b590": {
+    "output": 12,
+    "error": null
+  },
+  "1f19a3e4f7e31728244845fb616de012": {
+    "output": 210.1,
+    "error": null
+  },
+  "9299b2536341678dfcd7849131cb89ba": {
+    "output": {
+      "customer_id": "123",
+      "room_number": "deluxe",
+      "check_in_date": "2024-08-11",
+      "check_out_date": "2024-08-15",
+      "total_price": 1000
+    },
+    "error": null
+  },
+  "54bbe78f27757c320bcdad0ec9ba7fdd": {
+    "output": 392.3413077744785,
+    "error": null
+  },
+  "aacb8eb40f05699a5e09255ffc5cab36": {
+    "output": 11390.0,
+    "error": null
+  },
+  "f67ed35a8ab922955739b7316d7c8419": {
+    "output": 12711.7,
+    "error": null
+  },
+  "1f8abe2a9a175fa25b7301ffeb0d6fa1": {
+    "output": 13935.934000000001,
+    "error": null
+  },
+  "f74dc814dd4bcf3b32372c8fd73c4032": {
+    "output": 15035.293340000002,
+    "error": null
+  },
+  "65bfa40494cf604ca071ded6e9b55a27": {
+    "output": 18288.446875,
+    "error": null
+  },
+  "2f85b5bb45431b44540fbeaff0fda1fc": {
+    "output": 1334310.0,
+    "error": null
+  },
+  "56f4ac8688d8fe440168fbf65bc2a26d": {
+    "output": {
+      "calories": 2024.15985,
+      "proteins_g": 151.81198874999998,
+      "fats_g": 56.2266625,
+      "carbohydrates_g": 227.71798312500002
+    },
+    "error": null
+  },
+  "e3c00ff47ed87809f9e020d71b788cd4": {
+    "output": "1.  To move from a higher to a lower place; come or go down.\r\n2. To slope, extend, or incline downward.\r\n3. To come from an ancestor or [ancestry]. \r\n4. To come down from a source; derive.\r\n5. To pass by [inheritance]. \r\n6. To lower oneself. \r\n7. To proceed or progress downward, as in rank, pitch, or scale. \r\n8. To arrive or attack in a sudden or an [overwhelming] manner.",
+    "error": null
+  },
+  "466cb11fcf4f4341feae912cc1e43d17": {
+    "output": {
+      "customer_id": "123",
+      "room_number": {
+        "name": "Deluxe",
+        "code": "DELUXE"
+      },
+      "check_in_date": "2024-08-11",
+      "check_out_date": "2024-08-15",
+      "total_price": 1000
+    },
+    "error": null
+  },
+  "e5fa97a743fbcbe2a9f1d66fabd759e1": {
+    "output": {
+      "customer_id": "123",
+      "room_number": {
+        "name": "deluxe"
+      },
+      "check_in_date": "2024-08-11",
+      "check_out_date": "2024-08-15",
+      "total_price": 1000
+    },
+    "error": null
+  },
+  "ea2ea0981260fa66cef595b27c2c277a": {
+    "output": {
+      "customer_id": "123",
+      "room_number": "deluxe",
+      "check_in_date": "08-11-2024",
+      "check_out_date": "08-15-2024",
+      "total_price": 4000
+    },
+    "error": null
+  },
+  "19fa6804569abf503281e583395beedd": {
+    "output": {
+      "customer_id": "123",
+      "room_number": "deluxe",
+      "check_in_date": "08-11-2024",
+      "check_out_date": "08-15-2024",
+      "total_price": 1000
+    },
+    "error": null
+  },
+  "55de7f748fcc28ea77a05b0494976e15": {
+    "output": 1.01,
+    "error": null
+  },
+  "c2def8468544c735bc8d5ff12ca69dd1": {
+    "output": 1.04,
+    "error": null
+  },
+  "5db0905e346ee36f497bfdf634ec65f9": {
+    "output": "America/Los_Angeles",
+    "error": null
+  },
+  "bc15ee3f3a37cdb3611ac1662e496bb6": {
+    "output": 1.0,
+    "error": null
+  },
+  "f604b64cfee942e0de2dc8f3a610d4e1": {
+    "output": "Unknown",
+    "error": null
+  },
+  "12501f61c81779b0b9a5b484eedc4573": {
+    "output": "Unknown",
+    "error": null
+  },
+  "41732c8fdfa62a5745e79600a95bdb07": {
+    "output": [
+      0,
+      1,
+      1,
+      2,
+      3,
+      5,
+      8,
+      13,
+      21,
+      34
+    ],
+    "error": null
+  },
+  "d09f11cd1fb1c5a6545e3f4ca163d514": {
+    "output": [
+      0.05,
+      10,
+      5000
+    ],
+    "error": null
+  },
+  "a2420eea5ab4c143e68f2a445b345e59": {
+    "output": {
+      "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
+      "title": "One or more validation errors occurred.",
+      "status": 400,
+      "errors": {
+        "year": [
+          "The value 'latest' is not valid."
+        ]
+      },
+      "traceId": "00-7945c595de0de8f743bf8cda6e9e6548-be973fb37cf278d0-00"
+    },
+    "error": null
+  },
+  "15e9d48711f6dcae2b1032b91f2d20be": {
+    "output": 4.5,
+    "error": null
+  },
+  "5ae3d142ec049710b2d0881fce411cc6": {
+    "output": "Europe/Paris",
+    "error": null
+  },
+  "c8ce30ffd6bd3cf2533109efb7c4dd20": {
+    "output": -3.4761904761904754,
+    "error": null
+  },
+  "55bd1dd1cd9e4f7054df7260369cf290": {
+    "output": 12762.815625000003,
+    "error": null
+  },
+  "a4c9ea1570026766acb9215162d79fa0": {
+    "output": 0.9154021911066846,
+    "error": null
+  },
+  "228da3912a9af17dd0d3baca9b2187be": {
+    "output": 210.1,
+    "error": null
+  },
+  "6c2efe88ce4e9236337a74f89709b5bc": {
+    "output": 1,
+    "error": null
+  },
+  "ce143ef749ec440b2ee62854788c64a4": {
+    "output": {
+      "status": "confirmed",
+      "customer_id": "123",
+      "room_number": "D501",
+      "total_price": 4000,
+      "confirmation_code": "CONF-123-D501"
+    },
+    "error": null
+  },
+  "05fe011349bada93d8d8b4ab900272a5": {
+    "output": 5.0,
+    "error": null
+  },
+  "7c786961c74a676988af2d2a371ed1ab": {
+    "output": {
+      "status": "confirmed",
+      "customer_id": "123",
+      "room_number": 101,
+      "total_price": 4000,
+      "confirmation_code": "CONF-123-101"
+    },
+    "error": null
+  },
+  "2a49868c554da92def5db30dbbefa0c4": {
+    "output": 32,
+    "error": null
+  },
+  "1324d6750f9e11bcaf8184ed9cd3b43d": {
+    "output": 1.0,
+    "error": null
+  },
+  "db8851f1afb37d8e8c6ecc92c9302687": {
+    "output": 1691.825,
+    "error": null
+  },
+  "73568bdac7cb4d8a3854ce04d2c21da6": {
+    "output": 32.00000264769187,
+    "error": null
+  },
+  "e58d522d3379d1dfa22dbe21afef439d": {
+    "output": {
+      "status": "confirmed",
+      "customer_id": "123",
+      "room_number": 210,
+      "total_price": 4000,
+      "confirmation_code": "CONF-123-210"
+    },
+    "error": null
+  },
+  "784f3e3712fe2fe9439475319cc1c572": {
+    "output": "N/A",
+    "error": null
+  },
+  "51c28e3e13adc8f986d3454c05f1d9db": {
+    "output": 5.0,
+    "error": null
+  },
+  "6406a5a63ca150ff6fa9de6c4dcc0f4f": {
+    "output": 6,
+    "error": null
+  },
+  "fd40d61fea79560bdacd1e049c1c00ba": {
+    "output": -1,
+    "error": null
+  },
+  "9e5abe55dcf2b93ed4e62f5907000379": {
+    "output": 5,
+    "error": null
+  },
+  "2f24477ab9c714b404a5d2b370deb179": {
+    "output": 0,
+    "error": null
+  },
+  "e6255a35d9f4a8ff179add97c97da640": {
+    "output": 4000.0,
+    "error": null
+  },
+  "3a19f29cd9e80895320afeb2482f4e7a": {
+    "output": 1221430.2976155605,
+    "error": null
+  },
+  "4f7964ff1fbfde1bdeb9b095cb86ff5a": {
+    "output": {
+      "customer_id": 123,
+      "room_number": "Deluxe",
+      "check_in_date": "2024-08-11",
+      "check_out_date": "2024-08-15",
+      "total_price": 1000.0
+    },
+    "error": null
+  },
+  "d424ee696c5f0864efae1275718903d7": {
+    "output": "000000",
+    "error": null
+  },
+  "c849aa8b09bf151d92dae747d7e7abb9": {
+    "output": 110.25,
+    "error": null
+  },
+  "18c3d27660153377727b5b4dc790e3fb": {
+    "output": 1628.894626777442,
+    "error": null
+  },
+  "f341a1495bb158703996c76e2d4129ba": {
+    "output": {
+      "status": "confirmed",
+      "customer_id": 123,
+      "room_number": "deluxe",
+      "total_price": 4000,
+      "confirmation_code": "CONF-123-deluxe"
+    },
+    "error": null
+  },
+  "7a092e418f48294b6d6c9ea056dec901": {
+    "output": {
+      "status": "confirmed",
+      "customer_id": 123,
+      "room_number": "deluxe",
+      "total_price": 4000.0,
+      "confirmation_code": "CONF-123-deluxe"
+    },
+    "error": null
+  },
+  "0a66dcf65f0c95b3b6545e9d2f405ef9": {
+    "output": {
+      "customer_id": 123,
+      "room_number": "Deluxe",
+      "check_in_date": "2024-08-11",
+      "check_out_date": "2024-08-15",
+      "total_price": 4000
+    },
+    "error": null
+  },
+  "faf88a0909ce468e01ac0c72753a9e64": {
+    "output": {
+      "status": "confirmed",
+      "customer_id": 123,
+      "room_number": "Deluxe",
+      "total_price": 4000,
+      "confirmation_code": "CONF-123-Deluxe"
+    },
+    "error": null
+  },
+  "9d7948fa86bc24879937944ea92bf1d8": {
+    "output": 0.9154021911066846,
+    "error": null
+  },
+  "7f0ca10eee502e4b4ac20f3a431e066e": {
+    "output": 1,
+    "error": null
+  },
+  "a58e53dc227839b495a70a8fe6573929": {
+    "output": 9.248904135698545,
+    "error": null
+  },
+  "5222cba2b63194464473a0bfe08b0bbc": {
+    "output": 0.2013265920000001,
+    "error": null
+  },
+  "1fb9a4bc45236a775adf9458f11c20ad": {
+    "output": 1091.5,
+    "error": null
+  },
+  "34e2196cc38239e35de615d7e09d44a0": {
+    "output": 0.5,
+    "error": null
+  },
+  "f247f093526e55637e1901b92585dee2": {
+    "output": 1882.8375,
+    "error": null
+  },
+  "c71b8430e4a3b7099ae4ab138a7448c1": {
+    "output": 640.0,
+    "error": null
+  },
+  "b5fef59400976f8f3c7bebb59f6845d5": {
+    "output": 0.3,
+    "error": null
+  },
+  "e5d85c64df3e1977878df82fd999d041": {
+    "output": 0.3,
+    "error": null
+  },
+  "deab8d8df3114d9800788eb675d99277": {
+    "output": 1,
+    "error": null
+  },
+  "2c153e20412b0160f42b73e0b4694290": {
+    "output": {
+      "type": "https://tools.ietf.org/html/rfc9110#section-15.5.5",
+      "title": "Not Found",
+      "status": 404,
+      "traceId": "00-aec83b9de333bde417a93a980660dfad-daea853f1089e16f-00"
+    },
+    "error": null
+  },
+  "76438968bcd5e056d161277b7b7098b2": {
+    "output": {
+      "type": "https://tools.ietf.org/html/rfc9110#section-15.5.5",
+      "title": "Not Found",
+      "status": 404,
+      "traceId": "00-7f8426c0681f1c20ce0af5137eb9f098-fd3b125b7d43b226-00"
+    },
+    "error": null
+  },
+  "1386aafa351c65715e67eb0566066575": {
+    "output": 0.0,
+    "error": null
+  },
+  "481cfd345b0fd257f009937d548ea814": {
+    "output": 77466152.9678944,
+    "error": null
+  },
+  "e1e14642bf1de34f67668eb0f26df8ff": {
+    "output": 302330880000,
+    "error": null
+  },
+  "214a637b189bf0559646edfb4dd5c87b": {
+    "output": 2371000,
+    "error": null
+  },
+  "b1da571efd2be5903d0b23d6d7636af5": {
+    "output": 489976000,
+    "error": null
+  },
+  "23a99acac8d0aa0a80c613f2d6f9ed15": {
+    "output": "Failed to fetch data with status code: 400",
+    "error": null
+  },
+  "20c4d159aa4988a77c283ee97598d911": {
+    "output": 0,
+    "error": null
+  },
+  "d6ab30bb021f5b9998cf64346a46ea21": {
+    "output": 1.0,
+    "error": null
+  },
+  "676896959d1993e66d5f28fc0709f573": {
+    "output": [
+      0,
+      1,
+      1,
+      2,
+      3,
+      5,
+      8,
+      13,
+      21,
+      34,
+      55,
+      89,
+      144,
+      233,
+      377,
+      610,
+      987,
+      1597,
+      2584,
+      4181
+    ],
+    "error": null
+  },
+  "e6221f61f6712c1bac5ebaf5706065a3": {
+    "output": 10,
+    "error": null
+  },
+  "91201158e64dfd3c9b3785a1c9dd0c28": {
+    "output": 1.6666666666666667,
+    "error": null
+  },
+  "513aff4927a6119b60aa53e14e69be96": {
+    "output": 0.0,
+    "error": null
+  },
+  "e5cc8d017f6e1eb528b54b8e523c6902": {
+    "output": {
+      "title": "Unknown country code",
+      "status": 404,
+      "detail": "The country code provided is invalid or not recognized."
+    },
+    "error": null
+  },
+  "28a86d6da0d4efebae528d1bd0a0c68b": {
+    "output": {
+      "title": "Unknown country code",
+      "status": 404,
+      "detail": "The country code provided is invalid or not recognized."
+    },
+    "error": null
+  },
+  "c50548577941c853cfc56189de0a976d": {
+    "output": [
+      {
+        "date": "2024-01-01",
+        "localName": "Confraterniza\u00e7\u00e3o Universal",
+        "name": "New Year's Day",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2024-02-12",
+        "localName": "Carnaval",
+        "name": "Carnival",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Bank",
+          "Optional"
+        ]
+      },
+      {
+        "date": "2024-02-13",
+        "localName": "Carnaval",
+        "name": "Carnival",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Bank",
+          "Optional"
+        ]
+      },
+      {
+        "date": "2024-03-29",
+        "localName": "Sexta-feira Santa",
+        "name": "Good Friday",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2024-03-31",
+        "localName": "Domingo de P\u00e1scoa",
+        "name": "Easter Sunday",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2024-04-21",
+        "localName": "Dia de Tiradentes",
+        "name": "Tiradentes",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2024-05-01",
+        "localName": "Dia do Trabalhador",
+        "name": "Labour Day",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2024-05-30",
+        "localName": "Corpus Christi",
+        "name": "Corpus Christi",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2024-07-09",
+        "localName": "Revolu\u00e7\u00e3o Constitucionalista de 1932",
+        "name": "Constitutionalist Revolution of 1932",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": false,
+        "counties": [
+          "BR-SP"
+        ],
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2024-09-07",
+        "localName": "Dia da Independ\u00eancia",
+        "name": "Independence Day",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2024-10-12",
+        "localName": "Nossa Senhora Aparecida",
+        "name": "Our Lady of Aparecida",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2024-11-02",
+        "localName": "Dia de Finados",
+        "name": "All Souls' Day",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2024-11-15",
+        "localName": "Proclama\u00e7\u00e3o da Rep\u00fablica",
+        "name": "Republic Proclamation Day",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2024-11-20",
+        "localName": "Dia da Consci\u00eancia Negra",
+        "name": "Black Awareness Day",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2024-12-25",
+        "localName": "Natal",
+        "name": "Christmas Day",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      }
+    ],
+    "error": null
+  },
+  "e13ef644192db93e4856d0efbc2a6b01": {
+    "output": 32.00000264769187,
+    "error": null
+  },
+  "d90119b221c52e050923f4cb0dda5c0d": {
+    "output": 1860.0,
+    "error": null
+  },
+  "4a984667339d6dfcd64bf630e5759dae": {
+    "output": 711380,
+    "error": null
+  },
+  "d88b0621cbe2edc66e5b63349f938ba3": {
+    "output": -9,
+    "error": null
+  },
+  "9cf1481fd434ed2c9a91773964668c3f": {
+    "output": "0x13",
+    "error": null
+  },
+  "f3db91f2c87c71a66d6ce153931f8eef": {
+    "output": -115,
+    "error": null
+  },
+  "4783532ca4696b5257c6e075f86d68de": {
+    "output": 77466152.9678944,
+    "error": null
+  },
+  "d37c88cbabfe6794d7af76e4e7861205": {
+    "output": 489976000,
+    "error": null
+  },
+  "b78a664d1d72a3e07ac874a417ad88e3": {
+    "output": {
+      "1748750400": {
+        "date": "2025-06-01",
+        "date_utc": 1748750400,
+        "open": 200.28,
+        "high": 207.39,
+        "low": 195.07,
+        "close": 205.17,
+        "volume": 1100409300,
+        "adjclose": 204.74
+      },
+      "1751342400": {
+        "date": "2025-07-01",
+        "date_utc": 1751342400,
+        "open": 206.67,
+        "high": 216.23,
+        "low": 206.14,
+        "close": 207.57,
+        "volume": 1079935600,
+        "adjclose": 207.13
+      },
+      "1754020800": {
+        "date": "2025-08-01",
+        "date_utc": 1754020800,
+        "open": 210.87,
+        "high": 235.12,
+        "low": 201.5,
+        "close": 232.14,
+        "volume": 1218079100,
+        "adjclose": 231.65
+      },
+      "1756699200": {
+        "date": "2025-09-01",
+        "date_utc": 1756699200,
+        "open": 229.25,
+        "high": 257.6,
+        "low": 225.95,
+        "close": 254.63,
+        "volume": 1265536400,
+        "adjclose": 254.38
+      },
+      "1759291200": {
+        "date": "2025-10-01",
+        "date_utc": 1759291200,
+        "open": 255.04,
+        "high": 277.32,
+        "low": 244,
+        "close": 270.37,
+        "volume": 1097142200,
+        "adjclose": 270.11
+      },
+      "1761969600": {
+        "date": "2025-11-01",
+        "date_utc": 1761969600,
+        "open": 270.42,
+        "high": 280.38,
+        "low": 265.32,
+        "close": 278.85,
+        "volume": 877578200,
+        "adjclose": 278.58
+      },
+      "1764565200": {
+        "date": "2025-12-01",
+        "date_utc": 1764565200,
+        "open": 278.01,
+        "high": 288.62,
+        "low": 266.95,
+        "close": 271.86,
+        "volume": 924528800,
+        "adjclose": 271.86
+      },
+      "1767243600": {
+        "date": "2026-01-01",
+        "date_utc": 1767243600,
+        "open": 272.26,
+        "high": 277.84,
+        "low": 243.42,
+        "close": 259.48,
+        "volume": 1040017300,
+        "adjclose": 259.48
+      },
+      "1769922000": {
+        "date": "2026-02-01",
+        "date_utc": 1769922000,
+        "open": 260.03,
+        "high": 271.88,
+        "low": 259.21,
+        "close": 269.48,
+        "volume": 138253000,
+        "adjclose": 269.48
+      },
+      "1770235658": {
+        "date": "2026-02-04",
+        "date_utc": 1770235658,
+        "open": 272.31,
+        "high": 278.81,
+        "low": 272.29,
+        "close": 275.18,
+        "volume": 58278920,
+        "adjclose": 275.18
+      }
+    },
+    "error": null
+  },
+  "6a2c161af626f38217eacab13d579476": {
+    "output": {
+      "title": "Unknown country code",
+      "status": 404,
+      "detail": "The country code provided is invalid or not recognized."
+    },
+    "error": null
+  },
+  "945da98d5e3a82b88f0d133a68e9cd8f": {
+    "output": [
+      {
+        "date": "2023-01-01",
+        "localName": "Confraterniza\u00e7\u00e3o Universal",
+        "name": "New Year's Day",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2023-02-20",
+        "localName": "Carnaval",
+        "name": "Carnival",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Bank",
+          "Optional"
+        ]
+      },
+      {
+        "date": "2023-02-21",
+        "localName": "Carnaval",
+        "name": "Carnival",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Bank",
+          "Optional"
+        ]
+      },
+      {
+        "date": "2023-04-07",
+        "localName": "Sexta-feira Santa",
+        "name": "Good Friday",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2023-04-09",
+        "localName": "Domingo de P\u00e1scoa",
+        "name": "Easter Sunday",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2023-04-21",
+        "localName": "Dia de Tiradentes",
+        "name": "Tiradentes",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2023-05-01",
+        "localName": "Dia do Trabalhador",
+        "name": "Labour Day",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2023-06-08",
+        "localName": "Corpus Christi",
+        "name": "Corpus Christi",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2023-07-09",
+        "localName": "Revolu\u00e7\u00e3o Constitucionalista de 1932",
+        "name": "Constitutionalist Revolution of 1932",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": false,
+        "counties": [
+          "BR-SP"
+        ],
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2023-09-07",
+        "localName": "Dia da Independ\u00eancia",
+        "name": "Independence Day",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2023-10-12",
+        "localName": "Nossa Senhora Aparecida",
+        "name": "Our Lady of Aparecida",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2023-11-02",
+        "localName": "Dia de Finados",
+        "name": "All Souls' Day",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2023-11-15",
+        "localName": "Proclama\u00e7\u00e3o da Rep\u00fablica",
+        "name": "Republic Proclamation Day",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2023-12-25",
+        "localName": "Natal",
+        "name": "Christmas Day",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      }
+    ],
+    "error": null
+  },
+  "7014a6e3da162a57dcb1c0eb56422443": {
+    "output": [
+      {
+        "date": "2022-01-01",
+        "localName": "Confraterniza\u00e7\u00e3o Universal",
+        "name": "New Year's Day",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2022-02-28",
+        "localName": "Carnaval",
+        "name": "Carnival",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Bank",
+          "Optional"
+        ]
+      },
+      {
+        "date": "2022-03-01",
+        "localName": "Carnaval",
+        "name": "Carnival",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Bank",
+          "Optional"
+        ]
+      },
+      {
+        "date": "2022-04-15",
+        "localName": "Sexta-feira Santa",
+        "name": "Good Friday",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2022-04-17",
+        "localName": "Domingo de P\u00e1scoa",
+        "name": "Easter Sunday",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2022-04-21",
+        "localName": "Dia de Tiradentes",
+        "name": "Tiradentes",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2022-05-01",
+        "localName": "Dia do Trabalhador",
+        "name": "Labour Day",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2022-06-16",
+        "localName": "Corpus Christi",
+        "name": "Corpus Christi",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2022-07-09",
+        "localName": "Revolu\u00e7\u00e3o Constitucionalista de 1932",
+        "name": "Constitutionalist Revolution of 1932",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": false,
+        "counties": [
+          "BR-SP"
+        ],
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2022-09-07",
+        "localName": "Dia da Independ\u00eancia",
+        "name": "Independence Day",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2022-10-12",
+        "localName": "Nossa Senhora Aparecida",
+        "name": "Our Lady of Aparecida",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2022-11-02",
+        "localName": "Dia de Finados",
+        "name": "All Souls' Day",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2022-11-15",
+        "localName": "Proclama\u00e7\u00e3o da Rep\u00fablica",
+        "name": "Republic Proclamation Day",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2022-12-25",
+        "localName": "Natal",
+        "name": "Christmas Day",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      }
+    ],
+    "error": null
+  },
+  "0673ec99bab1353aac478e230239c527": {
+    "output": [
+      {
+        "date": "2021-01-01",
+        "localName": "Confraterniza\u00e7\u00e3o Universal",
+        "name": "New Year's Day",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2021-02-15",
+        "localName": "Carnaval",
+        "name": "Carnival",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Bank",
+          "Optional"
+        ]
+      },
+      {
+        "date": "2021-02-16",
+        "localName": "Carnaval",
+        "name": "Carnival",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Bank",
+          "Optional"
+        ]
+      },
+      {
+        "date": "2021-04-02",
+        "localName": "Sexta-feira Santa",
+        "name": "Good Friday",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2021-04-04",
+        "localName": "Domingo de P\u00e1scoa",
+        "name": "Easter Sunday",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2021-04-21",
+        "localName": "Dia de Tiradentes",
+        "name": "Tiradentes",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2021-05-01",
+        "localName": "Dia do Trabalhador",
+        "name": "Labour Day",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2021-06-03",
+        "localName": "Corpus Christi",
+        "name": "Corpus Christi",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2021-07-09",
+        "localName": "Revolu\u00e7\u00e3o Constitucionalista de 1932",
+        "name": "Constitutionalist Revolution of 1932",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": false,
+        "counties": [
+          "BR-SP"
+        ],
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2021-09-07",
+        "localName": "Dia da Independ\u00eancia",
+        "name": "Independence Day",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2021-10-12",
+        "localName": "Nossa Senhora Aparecida",
+        "name": "Our Lady of Aparecida",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2021-11-02",
+        "localName": "Dia de Finados",
+        "name": "All Souls' Day",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2021-11-15",
+        "localName": "Proclama\u00e7\u00e3o da Rep\u00fablica",
+        "name": "Republic Proclamation Day",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2021-12-25",
+        "localName": "Natal",
+        "name": "Christmas Day",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      }
+    ],
+    "error": null
+  },
+  "c53d438110e372985da92c08df004a1a": {
+    "output": [
+      {
+        "date": "2020-01-01",
+        "localName": "Confraterniza\u00e7\u00e3o Universal",
+        "name": "New Year's Day",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2020-02-24",
+        "localName": "Carnaval",
+        "name": "Carnival",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Bank",
+          "Optional"
+        ]
+      },
+      {
+        "date": "2020-02-25",
+        "localName": "Carnaval",
+        "name": "Carnival",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Bank",
+          "Optional"
+        ]
+      },
+      {
+        "date": "2020-04-10",
+        "localName": "Sexta-feira Santa",
+        "name": "Good Friday",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2020-04-12",
+        "localName": "Domingo de P\u00e1scoa",
+        "name": "Easter Sunday",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2020-04-21",
+        "localName": "Dia de Tiradentes",
+        "name": "Tiradentes",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2020-05-01",
+        "localName": "Dia do Trabalhador",
+        "name": "Labour Day",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2020-06-11",
+        "localName": "Corpus Christi",
+        "name": "Corpus Christi",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2020-07-09",
+        "localName": "Revolu\u00e7\u00e3o Constitucionalista de 1932",
+        "name": "Constitutionalist Revolution of 1932",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": false,
+        "counties": [
+          "BR-SP"
+        ],
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2020-09-07",
+        "localName": "Dia da Independ\u00eancia",
+        "name": "Independence Day",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2020-10-12",
+        "localName": "Nossa Senhora Aparecida",
+        "name": "Our Lady of Aparecida",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2020-11-02",
+        "localName": "Dia de Finados",
+        "name": "All Souls' Day",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2020-11-15",
+        "localName": "Proclama\u00e7\u00e3o da Rep\u00fablica",
+        "name": "Republic Proclamation Day",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2020-12-25",
+        "localName": "Natal",
+        "name": "Christmas Day",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      }
+    ],
+    "error": null
+  },
+  "d9a3bbc435c083a82a074e41d798a4d1": {
+    "output": [
+      {
+        "date": "2026-01-01",
+        "localName": "Confraterniza\u00e7\u00e3o Universal",
+        "name": "New Year's Day",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2026-02-16",
+        "localName": "Carnaval",
+        "name": "Carnival",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Bank",
+          "Optional"
+        ]
+      },
+      {
+        "date": "2026-02-17",
+        "localName": "Carnaval",
+        "name": "Carnival",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Bank",
+          "Optional"
+        ]
+      },
+      {
+        "date": "2026-04-03",
+        "localName": "Sexta-feira Santa",
+        "name": "Good Friday",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2026-04-05",
+        "localName": "Domingo de P\u00e1scoa",
+        "name": "Easter Sunday",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2026-04-21",
+        "localName": "Dia de Tiradentes",
+        "name": "Tiradentes",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2026-05-01",
+        "localName": "Dia do Trabalhador",
+        "name": "Labour Day",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2026-06-04",
+        "localName": "Corpus Christi",
+        "name": "Corpus Christi",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2026-07-09",
+        "localName": "Revolu\u00e7\u00e3o Constitucionalista de 1932",
+        "name": "Constitutionalist Revolution of 1932",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": false,
+        "counties": [
+          "BR-SP"
+        ],
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2026-09-07",
+        "localName": "Dia da Independ\u00eancia",
+        "name": "Independence Day",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2026-10-12",
+        "localName": "Nossa Senhora Aparecida",
+        "name": "Our Lady of Aparecida",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2026-11-02",
+        "localName": "Dia de Finados",
+        "name": "All Souls' Day",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2026-11-15",
+        "localName": "Proclama\u00e7\u00e3o da Rep\u00fablica",
+        "name": "Republic Proclamation Day",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2026-11-20",
+        "localName": "Dia da Consci\u00eancia Negra",
+        "name": "Black Awareness Day",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2026-12-25",
+        "localName": "Natal",
+        "name": "Christmas Day",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      }
+    ],
+    "error": null
+  },
+  "86756584cfbb34137ca40b37f46184f9": {
+    "output": "Failed to fetch data with status code: 400",
+    "error": null
+  },
+  "db1ca236a1bef26f6a5e027d721d03c8": {
+    "output": [
+      56,
+      34,
+      12,
+      9,
+      7,
+      2
+    ],
+    "error": null
+  },
+  "86e2ef4fa2507e95094223bd4781d3d9": {
+    "output": 1227813.9640000002,
+    "error": null
+  },
+  "1bc396b59d7ab71bc6533c4b1d796587": {
+    "output": 0.0,
+    "error": null
+  },
+  "f1ee5d6c52782a9d648f2fa6aec78fa3": {
+    "output": 37500.0,
+    "error": null
+  },
+  "0e3bede9fbfa5a3d69a83e219e84fca6": {
+    "output": [
+      {
+        "date": "2025-01-01",
+        "localName": "Confraterniza\u00e7\u00e3o Universal",
+        "name": "New Year's Day",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2025-03-03",
+        "localName": "Carnaval",
+        "name": "Carnival",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Bank",
+          "Optional"
+        ]
+      },
+      {
+        "date": "2025-03-04",
+        "localName": "Carnaval",
+        "name": "Carnival",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Bank",
+          "Optional"
+        ]
+      },
+      {
+        "date": "2025-04-18",
+        "localName": "Sexta-feira Santa",
+        "name": "Good Friday",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2025-04-20",
+        "localName": "Domingo de P\u00e1scoa",
+        "name": "Easter Sunday",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2025-04-21",
+        "localName": "Dia de Tiradentes",
+        "name": "Tiradentes",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2025-05-01",
+        "localName": "Dia do Trabalhador",
+        "name": "Labour Day",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2025-06-19",
+        "localName": "Corpus Christi",
+        "name": "Corpus Christi",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2025-07-09",
+        "localName": "Revolu\u00e7\u00e3o Constitucionalista de 1932",
+        "name": "Constitutionalist Revolution of 1932",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": false,
+        "counties": [
+          "BR-SP"
+        ],
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2025-09-07",
+        "localName": "Dia da Independ\u00eancia",
+        "name": "Independence Day",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2025-10-12",
+        "localName": "Nossa Senhora Aparecida",
+        "name": "Our Lady of Aparecida",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2025-11-02",
+        "localName": "Dia de Finados",
+        "name": "All Souls' Day",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2025-11-15",
+        "localName": "Proclama\u00e7\u00e3o da Rep\u00fablica",
+        "name": "Republic Proclamation Day",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2025-11-20",
+        "localName": "Dia da Consci\u00eancia Negra",
+        "name": "Black Awareness Day",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2025-12-25",
+        "localName": "Natal",
+        "name": "Christmas Day",
+        "countryCode": "BR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      }
+    ],
+    "error": null
+  },
+  "11a5099d361d118a2972c67d321c315d": {
+    "output": 5.999964969305438,
+    "error": null
+  },
+  "919c431bd5567c0391dc81c7510f7a30": {
+    "output": {
+      "title": "Unknown country code",
+      "status": 404,
+      "detail": "The country code provided is invalid or not recognized."
+    },
+    "error": null
+  },
+  "44610861d06debba3545771c6dc0f063": {
+    "output": 18107.373143564357,
+    "error": null
+  },
+  "270671ad78a7598ac5677744ae7227f5": {
+    "output": 423.14218020096735,
+    "error": null
+  },
+  "7d44a0eaf2cc7d1b7ea81e8e599998c9": {
+    "output": 1010.0,
+    "error": null
+  },
+  "9ba9abc80b993e2db1ef8605b1a24f0d": {
+    "output": 1.0,
+    "error": null
+  },
+  "0ae5f339c424f8aa274eedc9eaf70cb5": {
+    "output": 1,
+    "error": null
+  },
+  "407c676a90e18477a4fa07ae1908a684": {
+    "output": "000000",
+    "error": null
+  },
+  "2e4692a80aefbd70e62d367464f873d0": {
+    "output": 0.5,
+    "error": null
+  },
+  "813bbe22b424227969e6870d7e2b9db8": {
+    "output": 6,
+    "error": null
+  },
+  "b35f36916b14798fcf8e85215f4a32a5": {
+    "output": 1.5,
+    "error": null
+  },
+  "81501a916dc7470244ba6ca6226ab1ea": {
+    "output": 20.0,
+    "error": null
+  },
+  "167397d5ebcfdb546790445921334382": {
+    "output": "Europe/Paris",
+    "error": null
+  },
+  "e8d479e843f6ac22a36cce336bd4bbcb": {
+    "output": -15.476190476190476,
+    "error": null
+  },
+  "ebe2cbc23ceb37906fb5f7f62018b91b": {
+    "output": {
+      "get": "statistics",
+      "parameters": {
+        "country": "BR"
+      },
+      "errors": [],
+      "results": 0,
+      "response": []
+    },
+    "error": null
+  },
+  "63a521435d2db4acdca71503f8517eee": {
+    "output": 33.5,
+    "error": null
+  },
+  "52389c3f6e7806076071065e355ede80": {
+    "output": 1,
+    "error": null
+  },
+  "010dcf6b54c0fc6f3bdf0eb3b0a7b334": {
+    "output": 6,
+    "error": null
+  },
+  "b3c98d3dd99a2f31b8d95e427766fc33": {
+    "output": {
+      "get": "statistics",
+      "parameters": {
+        "country": "United States"
+      },
+      "errors": [],
+      "results": 0,
+      "response": []
+    },
+    "error": null
+  },
+  "7cb7a45de8ca922497828b85081f9f4e": {
+    "output": 350000.0,
+    "error": null
+  },
+  "8ff6b830eca1c9145a5abc4ea5daedc5": {
+    "output": -16.19047619047619,
+    "error": null
+  },
+  "697215d997c63b1237a21516bc9720b7": {
+    "output": 1020.8368393222611,
+    "error": null
+  },
+  "5f49ae589b1c6d39ee305ef2fc962fe7": {
+    "output": {
+      "get": "statistics",
+      "parameters": {
+        "country": "BR"
+      },
+      "errors": [],
+      "results": 0,
+      "response": []
+    },
+    "error": null
+  },
+  "5bb5686d001e1a83dab3c2a56caf2f1f": {
+    "output": [
+      0,
+      1,
+      1,
+      2,
+      3,
+      5,
+      8,
+      13,
+      21,
+      34,
+      55,
+      89,
+      144,
+      233,
+      377,
+      610,
+      987,
+      1597,
+      2584
+    ],
+    "error": null
+  },
+  "8ea3fcb2139409612234b1ad430e9b1a": {
+    "output": 72.0,
+    "error": null
+  },
+  "c3840cb288feb91550e79eb4f224817e": {
+    "output": 18288.446875,
+    "error": null
+  },
+  "7c81e4d7cddebc122f443b035dd0b765": {
+    "output": [
+      0,
+      1,
+      1,
+      2
+    ],
+    "error": null
+  },
+  "44e56023739ceac31d64805cc8d611ff": {
+    "output": [
+      0,
+      1,
+      1,
+      2,
+      3,
+      5
+    ],
+    "error": null
+  },
+  "018cfc30802d94c2d567dee20b97c68e": {
+    "output": [
+      0,
+      1,
+      1,
+      2,
+      3,
+      5,
+      8,
+      13
+    ],
+    "error": null
+  },
+  "e590c3513d723aea3b1215be574db46d": {
+    "output": [
+      0,
+      1,
+      1,
+      2,
+      3,
+      5,
+      8,
+      13,
+      21
+    ],
+    "error": null
+  },
+  "1d81b064caf9e502c54ac7205ce33ba7": {
+    "output": [
+      0,
+      1,
+      1,
+      2,
+      3,
+      5,
+      8,
+      13,
+      21,
+      34,
+      55
+    ],
+    "error": null
+  },
+  "a5718f38244f5a3de0610d297aa7dba1": {
+    "output": [
+      0,
+      1,
+      1,
+      2,
+      3,
+      5,
+      8,
+      13,
+      21,
+      34,
+      55,
+      89
+    ],
+    "error": null
+  },
+  "d8761ce7ac5fc9cc10e87cf310d2c5b4": {
+    "output": [
+      0,
+      1,
+      1,
+      2,
+      3,
+      5,
+      8,
+      13,
+      21,
+      34,
+      55,
+      89,
+      144
+    ],
+    "error": null
+  },
+  "6a5474664b5d5fd50bb972879ca0c9fe": {
+    "output": [
+      0,
+      1,
+      1,
+      2,
+      3,
+      5,
+      8,
+      13,
+      21,
+      34,
+      55,
+      89,
+      144,
+      233
+    ],
+    "error": null
+  },
+  "22916bcc0d381b1b626a81b228d2514c": {
+    "output": [
+      0,
+      1,
+      1,
+      2,
+      3,
+      5,
+      8,
+      13,
+      21,
+      34,
+      55,
+      89,
+      144,
+      233,
+      377
+    ],
+    "error": null
+  },
+  "2f15f1e7aa5c66bd67b764bbcca71b31": {
+    "output": [
+      0,
+      1,
+      1,
+      2,
+      3,
+      5,
+      8,
+      13,
+      21,
+      34,
+      55,
+      89,
+      144,
+      233,
+      377,
+      610
+    ],
+    "error": null
+  },
+  "0c1af0f379f409c90d85ee1a72948685": {
+    "output": [
+      0,
+      1,
+      1,
+      2,
+      3,
+      5,
+      8,
+      13,
+      21,
+      34,
+      55,
+      89,
+      144,
+      233,
+      377,
+      610,
+      987
+    ],
+    "error": null
+  },
+  "1f54225d944b3ed2903fd69e1f663edc": {
+    "output": [
+      0,
+      1,
+      1,
+      2,
+      3,
+      5,
+      8,
+      13,
+      21,
+      34,
+      55,
+      89,
+      144,
+      233,
+      377,
+      610,
+      987,
+      1597
+    ],
+    "error": null
+  },
+  "226c6ff82e668d4c7ea18b5ef3df2aaf": {
+    "output": "reserved range",
+    "error": null
+  },
+  "e3d9d55c005a123197bddcd479b2d25a": {
+    "output": "Apple Inc.",
+    "error": null
+  },
+  "7c5de4715421297090fc98cf9d6819b8": {
+    "output": 265252859812191058636308480000000,
+    "error": null
+  },
+  "71070e3e4995bbfecab4bf9bf95795d2": {
+    "output": 8.130123227310589e+16,
+    "error": null
+  },
+  "13a135051a8c9d5e6b99d96df047f65f": {
+    "output": 4,
+    "error": null
+  },
+  "e29f310a79ee8eec8d946888742729ec": {
+    "output": null,
+    "error": null
+  },
+  "008ca1d7a32f8c2ac73b52e5395f8821": {
+    "output": 1.7763568394002505e-15,
+    "error": null
+  },
+  "17df359d63124e9396f2bb451c49c8a5": {
+    "output": {
+      "get": "statistics",
+      "parameters": {
+        "country": "US"
+      },
+      "errors": [],
+      "results": 0,
+      "response": []
+    },
+    "error": null
+  },
+  "b203116f8494cbadcb85c5082c543c55": {
+    "output": 7.105427357601002e-15,
+    "error": null
+  },
+  "e4c2aeedbb150502dde170f855a52a91": {
+    "output": {
+      "title": "Unknown country code",
+      "status": 404,
+      "detail": "The country code provided is invalid or not recognized."
+    },
+    "error": null
+  },
+  "a9c9c30f5e135660ef4079ee1364f08c": {
+    "output": 706.8583470577034,
+    "error": null
+  },
+  "b170bd50782f1a414c273b8f6e627124": {
+    "output": {
+      "get": "statistics",
+      "parameters": {
+        "country": "Arctic Ocean"
+      },
+      "errors": [],
+      "results": 0,
+      "response": []
+    },
+    "error": null
+  },
+  "87cf3f61aaad18dfb3e69ceee03d3b03": {
+    "output": 4.333333333333334,
+    "error": null
+  },
+  "b0f5815461de989992ef724de6fe40c9": {
+    "output": 1.0,
+    "error": null
+  },
+  "39ecc020a836e283bce14a78c9d2824c": {
+    "output": "Failed to fetch data with status code: 400",
+    "error": null
+  },
+  "4224298f133f55449e394ec31ca3b567": {
+    "output": 8.617338912961659e+20,
+    "error": null
+  },
+  "ab0ab1c1715eebf8d3f728ebd029a61b": {
+    "output": 5,
+    "error": null
+  },
+  "3e44183d731e31e3da183b6c1b2fe4ea": {
+    "output": -118.33333333333333,
+    "error": null
+  },
+  "f9077c181573971b20b81c3e7dd8fc58": {
+    "output": 1050000.0,
+    "error": null
+  },
+  "6d2273829c4e475925238cc86b297e3e": {
+    "output": 1.6666666666666667,
+    "error": null
+  },
+  "46ed23accf12bc76f69f648068d4fa8c": {
+    "output": 2.5,
+    "error": null
+  },
+  "846fce5796b85baa54ba5c6905dcb091": {
+    "output": 60.0,
+    "error": null
+  },
+  "195c1597c99ca9f732eb2e2ad9159e5b": {
+    "output": -1.000000082740371,
+    "error": null
+  },
+  "fa0f87334e83f09dc3cb229dfb3638e9": {
+    "output": [],
+    "error": null
+  },
+  "accce43f813adb71eac294bd16ce06a9": {
+    "output": 130.87252504677042,
+    "error": null
+  },
+  "0de02a5c4f9a02da7615c832a3b1c8f6": {
+    "output": [
+      2,
+      7,
+      9,
+      12,
+      34,
+      56
+    ],
+    "error": null
+  },
+  "74eafd5e49669ac41086977318ef9f03": {
+    "output": -0.999982319171977,
+    "error": null
+  },
+  "6e94dc1063e753e1d88d97d9674ba99f": {
+    "output": 1.118033988749895,
+    "error": null
+  },
+  "55aafc223246077c1d40f07bcd9b7e80": {
+    "output": 130.87252439645147,
+    "error": null
+  },
+  "b3814ec9216ce07bbb933c0927ad6f0c": {
+    "output": 1.000017846308765,
+    "error": null
+  },
+  "cf328182546dd25ecda18e7f8d6e223b": {
+    "output": {
+      "success": false,
+      "message": "No data available, please check your params and try again"
+    },
+    "error": null
+  },
+  "ac0c7cdf63d8ddf32296c5738a22446e": {
+    "output": 1320266785.9840002,
+    "error": null
+  },
+  "5671420c8079e473485c9e7ecc45068b": {
+    "output": 1035.4196385144255,
+    "error": null
+  },
+  "fdbd69ff578005dccb6ea6ec084730f0": {
+    "output": {
+      "success": false,
+      "message": "Invalid tickers"
+    },
+    "error": null
+  },
+  "0abb3ec26b97213b1c7bc0a32b8b7a8a": {
+    "output": 0.0012944935222876579,
+    "error": null
+  },
+  "a252fdea538faaaa06cbfa44e5d6edd6": {
+    "output": 0.14446444809436798,
+    "error": null
+  },
+  "3699872d9a3122f750c5a3ae3b59ce61": {
+    "output": 0.9424212936563149,
+    "error": null
+  },
+  "c554cbf884980487b8daa63e2c1122e9": {
+    "output": 5.0,
+    "error": null
+  },
+  "cb481eabd390daa71f2ddfbe62cea4b0": {
+    "output": 4.0,
+    "error": null
+  },
+  "169ec3b87e36d4aacf1891470d812a10": {
+    "output": 680.0,
+    "error": null
+  },
+  "4d366e5ea270bd363142159d5712d2d7": {
+    "output": 118.55999999999999,
+    "error": null
+  },
+  "89246fb334d7722e822d2dec828d4da7": {
+    "output": 68.60000000000001,
+    "error": null
+  },
+  "c595effc30233cff6778e50a5a1ec536": {
+    "output": 14407.548044055333,
+    "error": null
+  },
+  "a5689924601aa3e1e55182772fa5f638": {
+    "output": 87.5,
+    "error": null
+  },
+  "55b0fe3bc2bbe1be820999dc413b322b": {
+    "output": 10260432000.0,
+    "error": null
+  },
+  "b0658f0b60eceda5fd10bf3936ba9f25": {
+    "output": 19.061851081851067,
+    "error": null
+  },
+  "9a8f4857bf505c55c9be75c5bba14478": {
+    "output": 157500.0,
+    "error": null
+  },
+  "9531908a5510465aba908742706eb5e7": {
+    "output": 2195.4,
+    "error": null
+  },
+  "1948d3657808b3020b2f2367bf44e8b0": {
+    "output": 632.0010470517445,
+    "error": null
+  },
+  "ae00d404fcd0045f42499d8134ea6aa2": {
+    "output": "[jai]",
+    "error": null
+  },
+  "77f6375ec0d01da97c7eb99266c70b3c": {
+    "output": 1256.6370614359173,
+    "error": null
+  },
+  "d23350d918e0f16be0e4601354cb121d": {
+    "output": 30634,
+    "error": null
+  },
+  "5e57187fa3625124836deb2210bdffb0": {
+    "output": "Alphabet Inc.",
+    "error": null
+  },
+  "c6af78dd947bcd02b95d11990f9f7023": {
+    "output": "private range",
+    "error": null
+  },
+  "0b2c9771740db7ce36e10d5823907808": {
+    "output": [
+      "37.0057958",
+      "-89.1772449"
+    ],
+    "error": null
+  },
+  "f06cbcda51bd901fde293cfd46910cbf": {
+    "output": 533570,
+    "error": null
+  },
+  "e07079cb55e878e19de559ac40dad0d6": {
+    "output": 1.7273389939441528,
+    "error": null
+  },
+  "e28ff7f4e803ed3413bc1486ce603dba": {
+    "output": [
+      0,
+      1,
+      1,
+      2,
+      3,
+      5,
+      8,
+      13,
+      21,
+      34,
+      55,
+      89,
+      144,
+      233,
+      377,
+      610,
+      987,
+      1597,
+      2584,
+      4181,
+      6765,
+      10946,
+      17711,
+      28657,
+      46368,
+      75025,
+      121393,
+      196418,
+      317811,
+      514229,
+      832040,
+      1346269,
+      2178309,
+      3524578,
+      5702887,
+      9227465,
+      14930352,
+      24157817,
+      39088169,
+      63245986,
+      102334155,
+      165580141,
+      267914296,
+      433494437,
+      701408733,
+      1134903170,
+      1836311903,
+      2971215073,
+      4807526976,
+      7778742049
+    ],
+    "error": null
+  },
+  "31e05e660b5b4616a025e60c86d80240": {
+    "output": [
+      13,
+      607
+    ],
+    "error": null
+  },
+  "4d52ed567d0336ab30f35513fb64c2de": {
+    "output": "Apple iPhone 11, 64GB, (PRODUCT)RED - Fully Unlocked (Renewed)",
+    "error": null
+  },
+  "2d735def4a1701021c0406fe556160e9": {
+    "output": "4.2",
+    "error": null
+  },
+  "10d3f8656a38bda0a52556c8be3c4fb5": {
+    "output": {
+      "1765774800": {
+        "date": "2025-12-15",
+        "date_utc": 1765774800,
+        "open": 480.1,
+        "high": 489.6,
+        "low": 470.88,
+        "close": 485.92,
+        "volume": 168370100,
+        "adjclose": 485.92
+      },
+      "1766379600": {
+        "date": "2025-12-22",
+        "date_utc": 1766379600,
+        "open": 486.12,
+        "high": 489.16,
+        "low": 482.69,
+        "close": 487.71,
+        "volume": 46344700,
+        "adjclose": 487.71
+      },
+      "1766984400": {
+        "date": "2025-12-29",
+        "date_utc": 1766984400,
+        "open": 484.86,
+        "high": 489.68,
+        "low": 470.16,
+        "close": 472.94,
+        "volume": 66011100,
+        "adjclose": 472.94
+      },
+      "1767589200": {
+        "date": "2026-01-05",
+        "date_utc": 1767589200,
+        "open": 474.06,
+        "high": 489.7,
+        "low": 469.5,
+        "close": 479.28,
+        "volume": 110505800,
+        "adjclose": 479.28
+      },
+      "1768194000": {
+        "date": "2026-01-12",
+        "date_utc": 1768194000,
+        "open": 476.67,
+        "high": 480.99,
+        "low": 455.9,
+        "close": 459.86,
+        "volume": 137722500,
+        "adjclose": 459.86
+      },
+      "1768798800": {
+        "date": "2026-01-19",
+        "date_utc": 1768798800,
+        "open": 451.22,
+        "high": 471.1,
+        "low": 438.68,
+        "close": 465.95,
+        "volume": 127460100,
+        "adjclose": 465.95
+      },
+      "1769403600": {
+        "date": "2026-01-26",
+        "date_utc": 1769403600,
+        "open": 465.31,
+        "high": 483.74,
+        "low": 421.02,
+        "close": 430.29,
+        "volume": 282802600,
+        "adjclose": 430.29
+      },
+      "1770008400": {
+        "date": "2026-02-02",
+        "date_utc": 1770008400,
+        "open": 430.24,
+        "high": 430.74,
+        "low": 392.32,
+        "close": 401.14,
+        "volume": 268460900,
+        "adjclose": 401.14
+      },
+      "1770613200": {
+        "date": "2026-02-09",
+        "date_utc": 1770613200,
+        "open": 404.85,
+        "high": 414.89,
+        "low": 400.87,
+        "close": 413.6,
+        "volume": 45480500,
+        "adjclose": 413.6
+      },
+      "1770757202": {
+        "date": "2026-02-10",
+        "date_utc": 1770757202,
+        "open": 419.62,
+        "high": 423.68,
+        "low": 412.7,
+        "close": 413.27,
+        "volume": 44798127,
+        "adjclose": 413.27
+      }
+    },
+    "error": null
+  },
+  "c6a942ec34c0fe4436ead87a440b53cc": {
+    "output": 413.27,
+    "error": null
+  },
+  "0ba4226073c233a951fe389f09eb6a40": {
+    "output": "America/New_York",
+    "error": null
+  },
+  "bc5a0703b141d77db4542cf607b18d64": {
+    "output": 57.7,
+    "error": null
+  },
+  "0c2890bb871d16d619a27efd9bd24e46": {
+    "output": "private range",
+    "error": null
+  },
+  "48c4f5b9811066653c18b1a8415ed9e1": {
+    "output": [
+      [
+        36,
+        41
+      ],
+      [
+        64,
+        73
+      ]
+    ],
+    "error": null
+  },
+  "7186899d805210d89c0dbbf38e0243fe": {
+    "output": 479001600,
+    "error": null
+  },
+  "102db5e18474fb2d3a7a183d1da92bc0": {
+    "output": 120,
+    "error": null
+  },
+  "b362b58c74f05641bb2e982612bd78c6": {
+    "output": 315.0,
+    "error": null
+  },
+  "e3e528f07ecc34587a51dd70aecdb279": {
+    "output": 2779.1623898099774,
+    "error": null
+  },
+  "10d36199c67a221cd6282eaf8a96ca9e": {
+    "output": [
+      1.2898979485566355,
+      0.31010205144336445
+    ],
+    "error": null
+  },
+  "c73e106688aee28167912be46af69d2a": {
+    "output": "NEW YORK",
+    "error": null
+  },
+  "bfac9b363b4d4d03b1456766aee52aac": {
+    "output": [
+      {
+        "date": "2005-01-01",
+        "localName": "Neujahr",
+        "name": "New Year's Day",
+        "countryCode": "DE",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2005-01-06",
+        "localName": "Heilige Drei K\u00f6nige",
+        "name": "Epiphany",
+        "countryCode": "DE",
+        "fixed": false,
+        "global": false,
+        "counties": [
+          "DE-BW",
+          "DE-BY",
+          "DE-ST"
+        ],
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2005-03-25",
+        "localName": "Karfreitag",
+        "name": "Good Friday",
+        "countryCode": "DE",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2005-03-27",
+        "localName": "Ostersonntag",
+        "name": "Easter Sunday",
+        "countryCode": "DE",
+        "fixed": false,
+        "global": false,
+        "counties": [
+          "DE-BB"
+        ],
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2005-03-28",
+        "localName": "Ostermontag",
+        "name": "Easter Monday",
+        "countryCode": "DE",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2005-05-01",
+        "localName": "Tag der Arbeit",
+        "name": "Labour Day",
+        "countryCode": "DE",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2005-05-05",
+        "localName": "Christi Himmelfahrt",
+        "name": "Ascension Day",
+        "countryCode": "DE",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2005-05-15",
+        "localName": "Pfingstsonntag",
+        "name": "Pentecost",
+        "countryCode": "DE",
+        "fixed": false,
+        "global": false,
+        "counties": [
+          "DE-BB"
+        ],
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2005-05-16",
+        "localName": "Pfingstmontag",
+        "name": "Whit Monday",
+        "countryCode": "DE",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2005-05-26",
+        "localName": "Fronleichnam",
+        "name": "Corpus Christi",
+        "countryCode": "DE",
+        "fixed": false,
+        "global": false,
+        "counties": [
+          "DE-BW",
+          "DE-BY",
+          "DE-HE",
+          "DE-NW",
+          "DE-RP",
+          "DE-SL"
+        ],
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2005-08-15",
+        "localName": "Mari\u00e4 Himmelfahrt",
+        "name": "Assumption Day",
+        "countryCode": "DE",
+        "fixed": false,
+        "global": false,
+        "counties": [
+          "DE-SL"
+        ],
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2005-10-03",
+        "localName": "Tag der Deutschen Einheit",
+        "name": "German Unity Day",
+        "countryCode": "DE",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2005-10-31",
+        "localName": "Reformationstag",
+        "name": "Reformation Day",
+        "countryCode": "DE",
+        "fixed": false,
+        "global": false,
+        "counties": [
+          "DE-BB",
+          "DE-MV",
+          "DE-SN",
+          "DE-ST",
+          "DE-TH"
+        ],
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2005-11-01",
+        "localName": "Allerheiligen",
+        "name": "All Saints' Day",
+        "countryCode": "DE",
+        "fixed": false,
+        "global": false,
+        "counties": [
+          "DE-BW",
+          "DE-BY",
+          "DE-NW",
+          "DE-RP",
+          "DE-SL"
+        ],
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2005-11-16",
+        "localName": "Bu\u00df- und Bettag",
+        "name": "Repentance and Prayer Day",
+        "countryCode": "DE",
+        "fixed": false,
+        "global": false,
+        "counties": [
+          "DE-SN"
+        ],
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2005-12-25",
+        "localName": "Erster Weihnachtstag",
+        "name": "Christmas Day",
+        "countryCode": "DE",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2005-12-26",
+        "localName": "Zweiter Weihnachtstag",
+        "name": "St. Stephen's Day",
+        "countryCode": "DE",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      }
+    ],
+    "error": null
+  },
+  "1725bffee187ac0d8f2775a9a24f744b": {
+    "output": [
+      1,
+      2,
+      2,
+      7,
+      7,
+      10
+    ],
+    "error": null
+  },
+  "88a714c966f435aa21c50423ef17987f": {
+    "output": "1111",
+    "error": null
+  },
+  "9282e8b824c78a14667d0a170d361733": {
+    "output": 13.0,
+    "error": null
+  },
+  "74d1832754a93e36c18ceb7f9d313014": {
+    "output": 3,
+    "error": null
+  },
+  "b4cb86e1cc727cf740900530c6d4c715": {
+    "output": 2,
+    "error": null
+  },
+  "eb6527e57f930b7bd59bacc9779518ed": {
+    "output": 16145.646273400002,
+    "error": null
+  },
+  "d7ee333659619f08a4b207e87bddf2e2": {
+    "output": 1227813.9640000002,
+    "error": null
+  },
+  "c04e7a5265d37105a692ebe4d1b41203": {
+    "output": {
+      "calories": 1988.2984000000001,
+      "proteins_g": 149.12238,
+      "fats_g": 55.23051111111111,
+      "carbohydrates_g": 223.68357000000003
+    },
+    "error": null
+  },
+  "cddfa7c71f6792c779cb20d02cdb2ac7": {
+    "output": {
+      "customer_id": "123",
+      "room_number": "king",
+      "check_in_date": "12-11-2023",
+      "check_out_date": "08-15-2024",
+      "total_price": 10000
+    },
+    "error": null
+  },
+  "48a7801025cc0e4800136f68bbd2c9cc": {
+    "output": 64,
+    "error": null
+  },
+  "3cf935559a83244318b9af35ff280ccc": {
+    "output": "James Cameron",
+    "error": null
+  },
+  "0190274493f87ce6a1a33848b2b8113f": {
+    "output": "R",
+    "error": null
+  },
+  "721671cad16159b4e9e2ebbe61fa3b7c": {
+    "output": 1.0,
+    "error": null
+  },
+  "f24b9b246bf7a478773461fd7d3fd0a7": {
+    "output": 4.0,
+    "error": null
+  },
+  "9857b0748d05d5927f55d2fb2adf9e59": {
+    "output": 680.0,
+    "error": null
+  },
+  "f204d550255e73cf3c570d00bf55b4fb": {
+    "output": 19.061851081851067,
+    "error": null
+  },
+  "942e35b0af79b1adc5bb494056bed812": {
+    "output": "[jai]",
+    "error": null
+  },
+  "4912f4ba5944ffb233fc1564ad427ccb": {
+    "output": [
+      "30.0443879",
+      "31.2357257"
+    ],
+    "error": null
+  },
+  "66fee7317462b91d3f5d70c55890c6ce": {
+    "output": 180.32426307484766,
+    "error": null
+  },
+  "2653b02920e5c604497ef44dbad93415": {
+    "output": {
+      "1765774800": {
+        "date": "2025-12-15",
+        "date_utc": 1765774800,
+        "open": 480.1,
+        "high": 489.6,
+        "low": 470.88,
+        "close": 485.92,
+        "volume": 168370100,
+        "adjclose": 485.92
+      },
+      "1766379600": {
+        "date": "2025-12-22",
+        "date_utc": 1766379600,
+        "open": 486.12,
+        "high": 489.16,
+        "low": 482.69,
+        "close": 487.71,
+        "volume": 46344700,
+        "adjclose": 487.71
+      },
+      "1766984400": {
+        "date": "2025-12-29",
+        "date_utc": 1766984400,
+        "open": 484.86,
+        "high": 489.68,
+        "low": 470.16,
+        "close": 472.94,
+        "volume": 66011100,
+        "adjclose": 472.94
+      },
+      "1767589200": {
+        "date": "2026-01-05",
+        "date_utc": 1767589200,
+        "open": 474.06,
+        "high": 489.7,
+        "low": 469.5,
+        "close": 479.28,
+        "volume": 110505800,
+        "adjclose": 479.28
+      },
+      "1768194000": {
+        "date": "2026-01-12",
+        "date_utc": 1768194000,
+        "open": 476.67,
+        "high": 480.99,
+        "low": 455.9,
+        "close": 459.86,
+        "volume": 137722500,
+        "adjclose": 459.86
+      },
+      "1768798800": {
+        "date": "2026-01-19",
+        "date_utc": 1768798800,
+        "open": 451.22,
+        "high": 471.1,
+        "low": 438.68,
+        "close": 465.95,
+        "volume": 127460100,
+        "adjclose": 465.95
+      },
+      "1769403600": {
+        "date": "2026-01-26",
+        "date_utc": 1769403600,
+        "open": 465.31,
+        "high": 483.74,
+        "low": 421.02,
+        "close": 430.29,
+        "volume": 282802600,
+        "adjclose": 430.29
+      },
+      "1770008400": {
+        "date": "2026-02-02",
+        "date_utc": 1770008400,
+        "open": 430.24,
+        "high": 430.74,
+        "low": 392.32,
+        "close": 401.14,
+        "volume": 268460900,
+        "adjclose": 401.14
+      },
+      "1770613200": {
+        "date": "2026-02-09",
+        "date_utc": 1770613200,
+        "open": 404.85,
+        "high": 414.89,
+        "low": 400.87,
+        "close": 413.6,
+        "volume": 45480500,
+        "adjclose": 413.6
+      },
+      "1770757202": {
+        "date": "2026-02-10",
+        "date_utc": 1770757202,
+        "open": 419.62,
+        "high": 423.68,
+        "low": 412.7,
+        "close": 413.27,
+        "volume": 44798127,
+        "adjclose": 413.27
+      }
+    },
+    "error": null
+  },
+  "c7a66d0714968ff7963e565ac33b8023": {
+    "output": 57.7,
+    "error": null
+  },
+  "187d92754822ad0477a41c14d6c4611b": {
+    "output": [
+      1,
+      2,
+      2,
+      7,
+      7,
+      10
+    ],
+    "error": null
+  },
+  "5d0bf9d8772264e790a24cbd48d84a0c": {
+    "output": "1111",
+    "error": null
+  },
+  "46c767714e05ed109ee1649d0dc53a9d": {
+    "output": 13.0,
+    "error": null
+  },
+  "f8842679ba8f1dfdc3f062845dd2f05c": {
+    "output": 3,
+    "error": null
+  },
+  "c82e26efe1b35ba67b733a7a709e4ec3": {
+    "output": 2,
+    "error": null
+  },
+  "3e47017e8fab854aaee1e29181123cb4": {
+    "output": {
+      "calories": 1988.2984000000001,
+      "proteins_g": 149.12238,
+      "fats_g": 55.23051111111111,
+      "carbohydrates_g": 223.68357000000003
+    },
+    "error": null
+  },
+  "bf9e68603c47c61ecb2c15bdd62c89be": {
+    "output": {
+      "customer_id": "123",
+      "room_number": "deluxe",
+      "check_in_date": "08-11-2024",
+      "check_out_date": "08-15-2024",
+      "total_price": 1000
+    },
+    "error": null
+  },
+  "055e6f2c8a844d1c9f12ca1a41f8038c": {
+    "output": {
+      "customer_id": "123",
+      "room_number": "king",
+      "check_in_date": "12-11-2023",
+      "check_out_date": "08-15-2024",
+      "total_price": 10000
+    },
+    "error": null
+  },
+  "92630a447c57e0b9cff7fce3df2d2cae": {
+    "output": 64,
+    "error": null
+  },
+  "d527baa0c2518a8afe3c6230afbaaef7": {
+    "output": 210.1,
+    "error": null
+  },
+  "850c57c41abcddd6a390a02ad597bbd0": {
+    "output": 1.0,
+    "error": null
+  },
+  "e3c7042f984b69d65d2445f62e8cb07c": {
+    "output": 180.14469217115447,
+    "error": null
+  },
+  "3daa25647257bdc299614018bbce6082": {
+    "output": {
+      "customer_id": "123",
+      "room_number": "king",
+      "check_in_date": "12-11-2023",
+      "check_out_date": "08-15-2024",
+      "total_price": 10000
+    },
+    "error": null
+  },
+  "a913532ac3372d077014cdb29345e7db": {
+    "output": 1.7273389939441528,
+    "error": null
+  },
+  "9c539515d3e9650d9d838c2c94bbc985": {
+    "output": 57.6,
+    "error": null
+  },
+  "2a3b833cf78770f0bc1b4b3068229c0d": {
+    "output": 210.1,
+    "error": null
+  },
+  "a4fb661801573440d68e6f683974d78b": {
+    "output": {
+      "customer_id": "123",
+      "room_number": "Deluxe",
+      "check_in_date": "08-11-2024",
+      "check_out_date": "08-15-2024",
+      "total_price": 1000
+    },
+    "error": null
+  },
+  "078721fc0e2a5bede7580b1b919017a4": {
+    "output": {
+      "1765774800": {
+        "date": "2025-12-15",
+        "date_utc": 1765774800,
+        "open": 480.1,
+        "high": 489.6,
+        "low": 470.88,
+        "close": 485.92,
+        "volume": 168370100,
+        "adjclose": 485.92
+      },
+      "1766379600": {
+        "date": "2025-12-22",
+        "date_utc": 1766379600,
+        "open": 486.12,
+        "high": 489.16,
+        "low": 482.69,
+        "close": 487.71,
+        "volume": 46344700,
+        "adjclose": 487.71
+      },
+      "1766984400": {
+        "date": "2025-12-29",
+        "date_utc": 1766984400,
+        "open": 484.86,
+        "high": 489.68,
+        "low": 470.16,
+        "close": 472.94,
+        "volume": 66011100,
+        "adjclose": 472.94
+      },
+      "1767589200": {
+        "date": "2026-01-05",
+        "date_utc": 1767589200,
+        "open": 474.06,
+        "high": 489.7,
+        "low": 469.5,
+        "close": 479.28,
+        "volume": 110505800,
+        "adjclose": 479.28
+      },
+      "1768194000": {
+        "date": "2026-01-12",
+        "date_utc": 1768194000,
+        "open": 476.67,
+        "high": 480.99,
+        "low": 455.9,
+        "close": 459.86,
+        "volume": 137722500,
+        "adjclose": 459.86
+      },
+      "1768798800": {
+        "date": "2026-01-19",
+        "date_utc": 1768798800,
+        "open": 451.22,
+        "high": 471.1,
+        "low": 438.68,
+        "close": 465.95,
+        "volume": 127460100,
+        "adjclose": 465.95
+      },
+      "1769403600": {
+        "date": "2026-01-26",
+        "date_utc": 1769403600,
+        "open": 465.31,
+        "high": 483.74,
+        "low": 421.02,
+        "close": 430.29,
+        "volume": 282802600,
+        "adjclose": 430.29
+      },
+      "1770008400": {
+        "date": "2026-02-02",
+        "date_utc": 1770008400,
+        "open": 430.24,
+        "high": 430.74,
+        "low": 392.32,
+        "close": 401.14,
+        "volume": 268460900,
+        "adjclose": 401.14
+      },
+      "1770613200": {
+        "date": "2026-02-09",
+        "date_utc": 1770613200,
+        "open": 404.85,
+        "high": 423.68,
+        "low": 400.87,
+        "close": 413.27,
+        "volume": 90276200,
+        "adjclose": 413.27
+      },
+      "1770757202": {
+        "date": "2026-02-10",
+        "date_utc": 1770757202,
+        "open": 419.62,
+        "high": 423.68,
+        "low": 412.7,
+        "close": 413.27,
+        "volume": 44798127,
+        "adjclose": 413.27
+      }
+    },
+    "error": null
+  },
+  "d379b5882075a0f2997b1d28219e73a6": {
+    "output": {
+      "success": false,
+      "message": "Invalid tickers"
+    },
+    "error": null
+  },
+  "e4d631f39d12cc89730b36e88911708b": {
+    "output": "America/New_York",
+    "error": null
+  },
+  "7d40e3e49cd750de6d9831bf88b31a1b": {
+    "output": 315.0,
+    "error": null
+  },
+  "efbd8869a5dbe2d4469f7bb970bc24fa": {
+    "output": 187500.0,
+    "error": null
+  },
+  "5a9b8670d043bdb48e1f6181a1e04087": {
+    "output": {
+      "title": "Unknown country code",
+      "status": 404,
+      "detail": "The country code provided is invalid or not recognized."
+    },
+    "error": null
+  },
+  "b471709753a82a2b13c7f250e04fafd9": {
+    "output": {
+      "customer_id": "123",
+      "room_number": "king",
+      "check_in_date": "2023-12-11",
+      "check_out_date": "2024-08-15",
+      "total_price": 10000
+    },
+    "error": null
+  },
+  "4e2a529b1eaacd533a6510800cd67135": {
+    "output": 5.0,
+    "error": null
+  },
+  "78534a5a0dae64b54d826fecef07936b": {
+    "output": [
+      {
+        "date": "2005-01-01",
+        "localName": "Neujahr",
+        "name": "New Year's Day",
+        "countryCode": "DE",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2005-01-06",
+        "localName": "Heilige Drei K\u00f6nige",
+        "name": "Epiphany",
+        "countryCode": "DE",
+        "fixed": false,
+        "global": false,
+        "counties": [
+          "DE-BW",
+          "DE-BY",
+          "DE-ST"
+        ],
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2005-03-25",
+        "localName": "Karfreitag",
+        "name": "Good Friday",
+        "countryCode": "DE",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2005-03-27",
+        "localName": "Ostersonntag",
+        "name": "Easter Sunday",
+        "countryCode": "DE",
+        "fixed": false,
+        "global": false,
+        "counties": [
+          "DE-BB"
+        ],
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2005-03-28",
+        "localName": "Ostermontag",
+        "name": "Easter Monday",
+        "countryCode": "DE",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2005-05-01",
+        "localName": "Tag der Arbeit",
+        "name": "Labour Day",
+        "countryCode": "DE",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2005-05-05",
+        "localName": "Christi Himmelfahrt",
+        "name": "Ascension Day",
+        "countryCode": "DE",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2005-05-15",
+        "localName": "Pfingstsonntag",
+        "name": "Pentecost",
+        "countryCode": "DE",
+        "fixed": false,
+        "global": false,
+        "counties": [
+          "DE-BB"
+        ],
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2005-05-16",
+        "localName": "Pfingstmontag",
+        "name": "Whit Monday",
+        "countryCode": "DE",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2005-05-26",
+        "localName": "Fronleichnam",
+        "name": "Corpus Christi",
+        "countryCode": "DE",
+        "fixed": false,
+        "global": false,
+        "counties": [
+          "DE-BW",
+          "DE-BY",
+          "DE-HE",
+          "DE-NW",
+          "DE-RP",
+          "DE-SL"
+        ],
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2005-08-15",
+        "localName": "Mari\u00e4 Himmelfahrt",
+        "name": "Assumption Day",
+        "countryCode": "DE",
+        "fixed": false,
+        "global": false,
+        "counties": [
+          "DE-SL"
+        ],
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2005-10-03",
+        "localName": "Tag der Deutschen Einheit",
+        "name": "German Unity Day",
+        "countryCode": "DE",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2005-10-31",
+        "localName": "Reformationstag",
+        "name": "Reformation Day",
+        "countryCode": "DE",
+        "fixed": false,
+        "global": false,
+        "counties": [
+          "DE-BB",
+          "DE-MV",
+          "DE-SN",
+          "DE-ST",
+          "DE-TH"
+        ],
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2005-11-01",
+        "localName": "Allerheiligen",
+        "name": "All Saints' Day",
+        "countryCode": "DE",
+        "fixed": false,
+        "global": false,
+        "counties": [
+          "DE-BW",
+          "DE-BY",
+          "DE-NW",
+          "DE-RP",
+          "DE-SL"
+        ],
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2005-11-16",
+        "localName": "Bu\u00df- und Bettag",
+        "name": "Repentance and Prayer Day",
+        "countryCode": "DE",
+        "fixed": false,
+        "global": false,
+        "counties": [
+          "DE-SN"
+        ],
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2005-12-25",
+        "localName": "Erster Weihnachtstag",
+        "name": "Christmas Day",
+        "countryCode": "DE",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2005-12-26",
+        "localName": "Zweiter Weihnachtstag",
+        "name": "St. Stephen's Day",
+        "countryCode": "DE",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      }
+    ],
+    "error": null
+  },
+  "0e34ef315742d782ece0a91debd757a0": {
+    "output": {
+      "calories": 1988.2984000000001,
+      "proteins_g": 149.12238,
+      "fats_g": 55.23051111111111,
+      "carbohydrates_g": 223.68357000000003
+    },
+    "error": null
+  },
+  "250cdbf575ecd9ae042d0b9458de00f6": {
+    "output": {
+      "title": "Unknown country code",
+      "status": 404,
+      "detail": "The country code provided is invalid or not recognized."
+    },
+    "error": null
+  },
+  "a8745b47c90595ca258fa230a4af0260": {
+    "output": {
+      "calories": 2488.2984,
+      "proteins_g": 186.62238,
+      "fats_g": 69.1194,
+      "carbohydrates_g": 279.93357000000003
+    },
+    "error": null
+  },
+  "17e1831dcd631fba1e849333286cb8f8": {
+    "output": 180.31760630188057,
+    "error": null
+  },
+  "4dc22e7f8e0c00f0c9db5cf6618eae4d": {
+    "output": {
+      "customer_id": 123,
+      "room_number": "king",
+      "check_in_date": "2023-12-11",
+      "check_out_date": "2024-08-15",
+      "total_price": 10000
+    },
+    "error": null
+  },
+  "f431251dcd6980cb791125ffa0b7462b": {
+    "output": {
+      "calories": 2488.2984,
+      "proteins_g": 186.62238,
+      "fats_g": 69.1194,
+      "carbohydrates_g": 279.93357000000003
+    },
+    "error": null
+  },
+  "2e56bbb50040a9f4f468c8e777ef73d3": {
+    "output": {
+      "customer_id": "123",
+      "room_number": "deluxe",
+      "check_in_date": "2024-08-11",
+      "check_out_date": "2024-08-15",
+      "total_price": 1000
+    },
+    "error": null
+  },
+  "5ab12acee88da6907f2601d713f990a0": {
+    "output": {
+      "customer_id": "123",
+      "room_number": "king",
+      "check_in_date": "2023-12-11",
+      "check_out_date": "2024-08-15",
+      "total_price": 10000
+    },
+    "error": null
+  },
+  "8fd5e07e66ccfa33dabdefb7e5e83e9f": {
+    "output": 680.0,
+    "error": null
+  },
+  "d1f92532167f5ea168615aafb5ed9afb": {
+    "output": 271690264.8237511,
+    "error": null
+  },
+  "9358e488ae8cdc9e1fe1184477296bd7": {
+    "output": [
+      "30.0443879",
+      "31.2357257"
+    ],
+    "error": null
+  },
+  "9f369a3f91dc12b9215ce5c5e626861b": {
+    "output": 82.6,
+    "error": null
+  },
+  "f656c53ad9fb939dd56661f7b52bcd7a": {
+    "output": 84.1,
+    "error": null
+  },
+  "1773f6909f1db7d651ab391020d792e0": {
+    "output": 1875.0026362831295,
+    "error": null
+  },
+  "816c0347a10f023e1f8e144b5be91cfc": {
+    "output": 5.0,
+    "error": null
+  },
+  "10a8ec67b563cb9ce82c8dfd3c3134d8": {
+    "output": {
+      "calories": 2488.2984,
+      "proteins_g": 186.62238,
+      "fats_g": 69.1194,
+      "carbohydrates_g": 279.93357000000003
+    },
+    "error": null
+  },
+  "b340ac70fab025704905fc5a8838560e": {
+    "output": {
+      "calories": 2024.15985,
+      "proteins_g": 151.81198874999998,
+      "fats_g": 56.2266625,
+      "carbohydrates_g": 227.71798312500002
+    },
+    "error": null
+  },
+  "8285bc1d88a16b758344370a55d5a69b": {
+    "output": "N/A",
+    "error": null
+  },
+  "544b03410e785c85a658b1a31e75ef75": {
+    "output": 68.60000000000001,
+    "error": null
+  },
+  "05e120856300fc1402b31a5b75cad9eb": {
+    "output": 82.6,
+    "error": null
+  },
+  "69f1e34bf79a1c70cb033c0c8711fa28": {
+    "output": 84.1,
+    "error": null
+  },
+  "f4ed81517c887afe88c461e0c4fae7da": {
+    "output": 18288.446875,
+    "error": null
+  },
+  "9ca704880f86aaf21c0dbb472b2395c6": {
+    "output": "Austin Zwibelman",
+    "error": null
+  },
+  "c4938465593af67982cb61f1bb48799f": {
+    "output": 0.004854350708578716,
+    "error": null
+  },
+  "91daf0324171c3ff767f62a2bdf4a794": {
+    "output": 0.004,
+    "error": null
+  },
+  "577a1e4b8a46601a130509a52aa976d2": {
+    "output": 2197.2000000000003,
+    "error": null
+  },
+  "ed6fcf0e02430c196045ea5573be3965": {
+    "output": {
+      "get": "statistics",
+      "parameters": {
+        "country": "ES"
+      },
+      "errors": [],
+      "results": 0,
+      "response": []
+    },
+    "error": null
+  },
+  "3c4825268800acb8ef697041a59c8cc2": {
+    "output": "America/New_York",
+    "error": null
+  },
+  "9813cd1b1bae2f688ade50163c2dd966": {
+    "output": 78.53981633974483,
+    "error": null
+  },
+  "0dd12b727ff015a2cb2a688a5c68c077": {
+    "output": [
+      2,
+      3
+    ],
+    "error": null
+  },
+  "f222dfb75c1ca4e77b9c0d638e782e4c": {
+    "output": [
+      2,
+      7,
+      9,
+      12,
+      34,
+      56
+    ],
+    "error": null
+  },
+  "a2ee4a7612f5fa5d58e72b3f6260dd61": {
+    "output": -1.7619047619047616,
+    "error": null
+  },
+  "fd095bc69391951eb045104b73207433": {
+    "output": {
+      "customer_id": "123",
+      "room_number": "Deluxe Room",
+      "check_in_date": "2024-08-11",
+      "check_out_date": "2024-08-15",
+      "total_price": 1000
+    },
+    "error": null
+  },
+  "97804a5496ddfe43144f5931f1263856": {
+    "output": 2371000,
+    "error": null
+  },
+  "73b4e67adfcc6d00f55f81418b6fa720": {
+    "output": {
+      "calories": 2024.15985,
+      "proteins_g": 151.81198874999998,
+      "fats_g": 56.2266625,
+      "carbohydrates_g": 227.71798312500002
+    },
+    "error": null
+  },
+  "a3a87c7dd999cd50afc327f0e52e3874": {
+    "output": {
+      "customer_id": "123",
+      "room_number": "king",
+      "check_in_date": "2023-12-11",
+      "check_out_date": "2024-08-15",
+      "total_price": 10000
+    },
+    "error": null
+  },
+  "3820be972f2b231674381721bb3368cd": {
+    "output": 64,
+    "error": null
+  },
+  "53d4f928842f958adbcb203c826c0a22": {
+    "output": "[The best meme] [ever]",
+    "error": null
+  },
+  "5ede80f74e6c19f538a4f2cd42233275": {
+    "output": {
+      "meta": {
+        "version": "v1.0",
+        "status": 200,
+        "copywrite": "https://steadyapi.com",
+        "symbol": "Microsoft",
+        "processedTime": "2026-04-17T05:17:50.791307Z"
+      },
+      "body": [
+        {
+          "language": "en-US",
+          "region": "US",
+          "quoteType": "MUTUALFUND",
+          "typeDisp": "Fund",
+          "quoteSourceName": "Delayed Quote",
+          "triggerable": false,
+          "customPriceAlertConfidence": "NONE",
+          "marketState": "PREPRE",
+          "hasPrePostMarketData": false,
+          "priceHint": 2,
+          "fullExchangeName": "YHD",
+          "exchange": "YHD",
+          "exchangeTimezoneName": "America/New_York",
+          "exchangeTimezoneShortName": "EDT",
+          "gmtOffSetMilliseconds": -14400000,
+          "market": "us_market",
+          "esgPopulated": false,
+          "sourceInterval": 15,
+          "exchangeDataDelayedBy": 0,
+          "tradeable": false,
+          "cryptoTradeable": false,
+          "corporateActions": [],
+          "regularMarketTime": 1561759658,
+          "symbol": "MICROSOFT",
+          "preMarketChange": null,
+          "preMarketChangePercent": null,
+          "preMarketPrice": null,
+          "preMarketTime": null,
+          "postMarketChange": null,
+          "postMarketChangePercent": null,
+          "postMarketPrice": null,
+          "postMarketTime": null
+        }
+      ]
+    },
+    "error": null
+  },
+  "5d216168c8d170c268cf14ae6f15fb0f": {
+    "output": {
+      "customer_id": "123",
+      "room_number": "King",
+      "check_in_date": "2023-12-11",
+      "check_out_date": "2024-08-15",
+      "total_price": 10000
+    },
+    "error": null
+  },
+  "7b45391d222e096989f25cff4298e513": {
+    "output": 64,
+    "error": null
+  },
+  "37acc664b18b74dc7f91301d43ddb89e": {
+    "output": 3.0,
+    "error": null
+  },
+  "68d960ec7821dd709014b49a6730f1b4": {
+    "output": {
+      "customer_id": "123",
+      "room_number": "Deluxe",
+      "check_in_date": "2024-08-11",
+      "check_out_date": "2024-08-15",
+      "total_price": 1000.0
+    },
+    "error": null
+  },
+  "804cfefb12a9aa4d252d641829ba09de": {
+    "output": "[The best meme] [ever]",
+    "error": null
+  },
+  "0c4b0888b5592ebf797d8a3bdbf1c32f": {
+    "output": {
+      "title": "Unknown country code",
+      "status": 404,
+      "detail": "The country code provided is invalid or not recognized."
+    },
+    "error": null
+  },
+  "a977251ec8a823ba8be0b7d01587ff56": {
+    "output": 33.18332062500001,
+    "error": null
+  },
+  "9a325a0e746a9adee66e8fd2100b4724": {
+    "output": 5040,
+    "error": null
+  },
+  "710824633f64ea643f014dbbca574c3b": {
+    "output": [
+      {
+        "date": "2023-01-02",
+        "localName": "New Year's Day",
+        "name": "New Year's Day",
+        "countryCode": "US",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2023-01-16",
+        "localName": "Martin Luther King, Jr. Day",
+        "name": "Martin Luther King, Jr. Day",
+        "countryCode": "US",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2023-02-12",
+        "localName": "Lincoln's Birthday",
+        "name": "Lincoln's Birthday",
+        "countryCode": "US",
+        "fixed": false,
+        "global": false,
+        "counties": [
+          "US-CA",
+          "US-CT",
+          "US-IL",
+          "US-IN",
+          "US-KY",
+          "US-MI",
+          "US-NY",
+          "US-MO",
+          "US-OH"
+        ],
+        "launchYear": null,
+        "types": [
+          "Observance"
+        ]
+      },
+      {
+        "date": "2023-02-20",
+        "localName": "Washington's Birthday",
+        "name": "Presidents Day",
+        "countryCode": "US",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2023-04-07",
+        "localName": "Good Friday",
+        "name": "Good Friday",
+        "countryCode": "US",
+        "fixed": false,
+        "global": false,
+        "counties": [
+          "US-CT",
+          "US-DE",
+          "US-HI",
+          "US-IN",
+          "US-KY",
+          "US-LA",
+          "US-NC",
+          "US-ND",
+          "US-NJ",
+          "US-TN"
+        ],
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2023-04-07",
+        "localName": "Good Friday",
+        "name": "Good Friday",
+        "countryCode": "US",
+        "fixed": false,
+        "global": false,
+        "counties": [
+          "US-TX"
+        ],
+        "launchYear": null,
+        "types": [
+          "Optional"
+        ]
+      },
+      {
+        "date": "2023-05-08",
+        "localName": "Truman Day",
+        "name": "Truman Day",
+        "countryCode": "US",
+        "fixed": false,
+        "global": false,
+        "counties": [
+          "US-MO"
+        ],
+        "launchYear": null,
+        "types": [
+          "School",
+          "Authorities"
+        ]
+      },
+      {
+        "date": "2023-05-29",
+        "localName": "Memorial Day",
+        "name": "Memorial Day",
+        "countryCode": "US",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2023-06-19",
+        "localName": "Juneteenth National Independence Day",
+        "name": "Juneteenth National Independence Day",
+        "countryCode": "US",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2023-07-04",
+        "localName": "Independence Day",
+        "name": "Independence Day",
+        "countryCode": "US",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2023-09-04",
+        "localName": "Labor Day",
+        "name": "Labour Day",
+        "countryCode": "US",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2023-10-09",
+        "localName": "Columbus Day",
+        "name": "Columbus Day",
+        "countryCode": "US",
+        "fixed": false,
+        "global": false,
+        "counties": [
+          "US-AL",
+          "US-AZ",
+          "US-CO",
+          "US-CT",
+          "US-GA",
+          "US-ID",
+          "US-IL",
+          "US-IN",
+          "US-IA",
+          "US-KS",
+          "US-KY",
+          "US-LA",
+          "US-ME",
+          "US-MD",
+          "US-MA",
+          "US-MS",
+          "US-MO",
+          "US-MT",
+          "US-NE",
+          "US-NH",
+          "US-NJ",
+          "US-NM",
+          "US-NY",
+          "US-NC",
+          "US-OH",
+          "US-OK",
+          "US-PA",
+          "US-RI",
+          "US-SC",
+          "US-TN",
+          "US-UT",
+          "US-VA",
+          "US-WV"
+        ],
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2023-10-09",
+        "localName": "Indigenous Peoples' Day",
+        "name": "Indigenous Peoples' Day",
+        "countryCode": "US",
+        "fixed": false,
+        "global": false,
+        "counties": [
+          "US-AK",
+          "US-AL",
+          "US-CA",
+          "US-HI",
+          "US-IA",
+          "US-LA",
+          "US-ME",
+          "US-MI",
+          "US-MN",
+          "US-NC",
+          "US-NE",
+          "US-NM",
+          "US-OK",
+          "US-OR",
+          "US-SD",
+          "US-TX",
+          "US-VA",
+          "US-VT",
+          "US-WI"
+        ],
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2023-11-10",
+        "localName": "Veterans Day",
+        "name": "Veterans Day",
+        "countryCode": "US",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2023-11-23",
+        "localName": "Thanksgiving Day",
+        "name": "Thanksgiving Day",
+        "countryCode": "US",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2023-12-25",
+        "localName": "Christmas Day",
+        "name": "Christmas Day",
+        "countryCode": "US",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      }
+    ],
+    "error": null
+  },
+  "d5bd77f2436617bbf1e2eb474f318cfe": {
+    "output": 0.24609375,
+    "error": null
+  },
+  "cd122d34feb1e52ce5e2c15e134241d2": {
+    "output": 117.60000000000001,
+    "error": null
+  },
+  "384303ac3da179ef6627ac0c0e085275": {
+    "output": 12762.815625000003,
+    "error": null
+  },
+  "9788140440f910cf5bda077cc9d24688": {
+    "output": 11.0,
+    "error": null
+  },
+  "11595f85fdc23be56dac745e7da2b9fd": {
+    "output": {
+      "title": "Unknown country code",
+      "status": 404,
+      "detail": "The country code provided is invalid or not recognized."
+    },
+    "error": null
+  },
+  "08907a6f992b82d5660c46ca92ac5795": {
+    "output": [
+      {
+        "date": "2010-01-01",
+        "localName": "Jour de l'an",
+        "name": "New Year's Day",
+        "countryCode": "FR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2010-04-05",
+        "localName": "Lundi de P\u00e2ques",
+        "name": "Easter Monday",
+        "countryCode": "FR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2010-05-01",
+        "localName": "F\u00eate du Travail",
+        "name": "Labour Day",
+        "countryCode": "FR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2010-05-08",
+        "localName": "Victoire 1945",
+        "name": "Victory in Europe Day",
+        "countryCode": "FR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2010-05-13",
+        "localName": "Ascension",
+        "name": "Ascension Day",
+        "countryCode": "FR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2010-05-24",
+        "localName": "Lundi de Pentec\u00f4te",
+        "name": "Whit Monday",
+        "countryCode": "FR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2010-07-14",
+        "localName": "F\u00eate nationale",
+        "name": "Bastille Day",
+        "countryCode": "FR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2010-08-15",
+        "localName": "Assomption",
+        "name": "Assumption Day",
+        "countryCode": "FR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2010-11-01",
+        "localName": "Toussaint",
+        "name": "All Saints' Day",
+        "countryCode": "FR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2010-11-11",
+        "localName": "Armistice 1918",
+        "name": "Armistice Day",
+        "countryCode": "FR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2010-12-25",
+        "localName": "No\u00ebl",
+        "name": "Christmas Day",
+        "countryCode": "FR",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      }
+    ],
+    "error": null
+  },
+  "87b4fa5cc0705a59944480a9fd6e29c5": {
+    "output": {
+      "customer_id": 123,
+      "room_number": "deluxe",
+      "check_in_date": "2024-08-11",
+      "check_out_date": "2024-08-15",
+      "total_price": 900
+    },
+    "error": null
+  },
+  "496dfd5196016bd106376973c6b8a6d2": {
+    "output": {
+      "calories": 2024.15985,
+      "proteins_g": 151.81198874999998,
+      "fats_g": 56.2266625,
+      "carbohydrates_g": 227.71798312500002
+    },
+    "error": null
+  },
+  "62f7db8c8572ecefc1b5c13d44b4075c": {
+    "output": 632.0010470517445,
+    "error": null
+  },
+  "7e711682ee9be6687237599384b7e68a": {
+    "output": [
+      39.03,
+      -77.5
+    ],
+    "error": null
+  },
+  "c8b46560130792ee088844d1b20e4744": {
+    "output": {
+      "calories": 2488.2984,
+      "proteins_g": 186.62238,
+      "fats_g": 69.1194,
+      "carbohydrates_g": 279.93357000000003
+    },
+    "error": null
+  },
+  "3c73a97781c423b42e6d0b153d10b1bd": {
+    "output": 1,
+    "error": null
+  },
+  "d6dbe8f960741295ec5ff3a1b58108dc": {
+    "output": -115.0,
+    "error": null
+  },
+  "d9fa2bdcff05fec837bc21dbcab56299": {
+    "output": 0.0,
+    "error": null
+  },
+  "c81cba4ef8b63b298a28e469f24c5528": {
+    "output": {
+      "customer_id": 123,
+      "room_number": "deluxe room",
+      "check_in_date": "2024-08-11",
+      "check_out_date": "2024-08-15",
+      "total_price": 1000
+    },
+    "error": null
+  },
+  "2e1d521576ad8c029b8ebb3b130c020a": {
+    "output": [
+      {
+        "date": "2024-01-01",
+        "localName": "New Year's Day",
+        "name": "New Year's Day",
+        "countryCode": "US",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2024-01-15",
+        "localName": "Martin Luther King, Jr. Day",
+        "name": "Martin Luther King, Jr. Day",
+        "countryCode": "US",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2024-02-12",
+        "localName": "Lincoln's Birthday",
+        "name": "Lincoln's Birthday",
+        "countryCode": "US",
+        "fixed": false,
+        "global": false,
+        "counties": [
+          "US-CA",
+          "US-CT",
+          "US-IL",
+          "US-IN",
+          "US-KY",
+          "US-MI",
+          "US-NY",
+          "US-MO",
+          "US-OH"
+        ],
+        "launchYear": null,
+        "types": [
+          "Observance"
+        ]
+      },
+      {
+        "date": "2024-02-19",
+        "localName": "Washington's Birthday",
+        "name": "Presidents Day",
+        "countryCode": "US",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2024-03-29",
+        "localName": "Good Friday",
+        "name": "Good Friday",
+        "countryCode": "US",
+        "fixed": false,
+        "global": false,
+        "counties": [
+          "US-CT",
+          "US-DE",
+          "US-HI",
+          "US-IN",
+          "US-KY",
+          "US-LA",
+          "US-NC",
+          "US-ND",
+          "US-NJ",
+          "US-TN"
+        ],
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2024-03-29",
+        "localName": "Good Friday",
+        "name": "Good Friday",
+        "countryCode": "US",
+        "fixed": false,
+        "global": false,
+        "counties": [
+          "US-TX"
+        ],
+        "launchYear": null,
+        "types": [
+          "Optional"
+        ]
+      },
+      {
+        "date": "2024-05-08",
+        "localName": "Truman Day",
+        "name": "Truman Day",
+        "countryCode": "US",
+        "fixed": false,
+        "global": false,
+        "counties": [
+          "US-MO"
+        ],
+        "launchYear": null,
+        "types": [
+          "School",
+          "Authorities"
+        ]
+      },
+      {
+        "date": "2024-05-27",
+        "localName": "Memorial Day",
+        "name": "Memorial Day",
+        "countryCode": "US",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2024-06-19",
+        "localName": "Juneteenth National Independence Day",
+        "name": "Juneteenth National Independence Day",
+        "countryCode": "US",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2024-07-04",
+        "localName": "Independence Day",
+        "name": "Independence Day",
+        "countryCode": "US",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2024-09-02",
+        "localName": "Labor Day",
+        "name": "Labour Day",
+        "countryCode": "US",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2024-10-14",
+        "localName": "Columbus Day",
+        "name": "Columbus Day",
+        "countryCode": "US",
+        "fixed": false,
+        "global": false,
+        "counties": [
+          "US-AL",
+          "US-AZ",
+          "US-CO",
+          "US-CT",
+          "US-GA",
+          "US-ID",
+          "US-IL",
+          "US-IN",
+          "US-IA",
+          "US-KS",
+          "US-KY",
+          "US-LA",
+          "US-ME",
+          "US-MD",
+          "US-MA",
+          "US-MS",
+          "US-MO",
+          "US-MT",
+          "US-NE",
+          "US-NH",
+          "US-NJ",
+          "US-NM",
+          "US-NY",
+          "US-NC",
+          "US-OH",
+          "US-OK",
+          "US-PA",
+          "US-RI",
+          "US-SC",
+          "US-TN",
+          "US-UT",
+          "US-VA",
+          "US-WV"
+        ],
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2024-10-14",
+        "localName": "Indigenous Peoples' Day",
+        "name": "Indigenous Peoples' Day",
+        "countryCode": "US",
+        "fixed": false,
+        "global": false,
+        "counties": [
+          "US-AK",
+          "US-AL",
+          "US-CA",
+          "US-HI",
+          "US-IA",
+          "US-LA",
+          "US-ME",
+          "US-MI",
+          "US-MN",
+          "US-NC",
+          "US-NE",
+          "US-NM",
+          "US-OK",
+          "US-OR",
+          "US-SD",
+          "US-TX",
+          "US-VA",
+          "US-VT",
+          "US-WI"
+        ],
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2024-11-11",
+        "localName": "Veterans Day",
+        "name": "Veterans Day",
+        "countryCode": "US",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2024-11-28",
+        "localName": "Thanksgiving Day",
+        "name": "Thanksgiving Day",
+        "countryCode": "US",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2024-12-25",
+        "localName": "Christmas Day",
+        "name": "Christmas Day",
+        "countryCode": "US",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      }
+    ],
+    "error": null
+  },
+  "ae8a39454a62b11326c9d11b24e5b16d": {
+    "output": 26.0,
+    "error": null
+  },
+  "a9b0ab58ddb7ad76ba9ee644eefd01f3": {
+    "output": 225,
+    "error": null
+  },
+  "fbef0fc53eded85eb7456a4884b46a65": {
+    "output": null,
+    "error": null
+  },
+  "3e694684b3c70e21ed9ab82e90279614": {
+    "output": 2371000.0,
+    "error": null
+  },
+  "b4142e77152c588fbf68551e6b1f30c3": {
+    "output": 1,
+    "error": null
+  },
+  "b05e2cc1a72d4be00a8c97eb2211fee1": {
+    "output": {
+      "calories": 2488.2984,
+      "proteins_g": 186.62238,
+      "fats_g": 69.1194,
+      "carbohydrates_g": 279.93357000000003
+    },
+    "error": null
+  },
+  "23ed5843c34a8f293cca61a92dcb5a5a": {
+    "output": {
+      "title": "Unknown country code",
+      "status": 404,
+      "detail": "The country code provided is invalid or not recognized."
+    },
+    "error": null
+  },
+  "e1e95ac4f26491e194f4b224dde2de76": {
+    "output": {
+      "calories": 2488.2984,
+      "proteins_g": 186.62238,
+      "fats_g": 69.1194,
+      "carbohydrates_g": 279.93357000000003
+    },
+    "error": null
+  },
+  "20df536a1d43939380b4f50b422ecaf2": {
+    "output": {
+      "calories": 2024.15985,
+      "proteins_g": 151.81198874999998,
+      "fats_g": 56.2266625,
+      "carbohydrates_g": 227.71798312500002
+    },
+    "error": null
+  },
+  "a3a599f92b0e3c29e3bbda8b468edd2d": {
+    "output": 117.60000000000001,
+    "error": null
+  },
+  "8ce398b36792526be3841bed9b4e85a6": {
+    "output": 15.5,
+    "error": null
+  },
+  "e62dded64109162ca68fa00badb32b64": {
+    "output": 1215.5062500000001,
+    "error": null
+  },
+  "907fb5e98e304874b4dc910f74822281": {
+    "output": 1157.6250000000002,
+    "error": null
+  },
+  "cd02baf2575742f7ceaa6aabdcedb7b1": {
+    "output": 1102.5,
+    "error": null
+  },
+  "de36300862fa9d665e4afd2331dc9913": {
+    "output": 1050.0,
+    "error": null
+  },
+  "5ecb1fca17f67a38cc377588e797e5c3": {
+    "output": 1000.0,
+    "error": null
+  },
+  "63ce15b9a2dd7c1fed1548f954135e23": {
+    "output": {
+      "success": false,
+      "message": "Invalid tickers"
+    },
+    "error": null
+  },
+  "798b04cbd330d71408b88d53c24326c5": {
+    "output": 489976000.0,
+    "error": null
+  },
+  "06eadd31568894b1317769118d0cfeda": {
+    "output": {
+      "calories": 2488.2984,
+      "proteins_g": 186.62238,
+      "fats_g": 69.1194,
+      "carbohydrates_g": 279.93357000000003
+    },
+    "error": null
+  },
+  "7a3f5069594204c62575dc53300ea91a": {
+    "output": {
+      "calories": 1524.15985,
+      "proteins_g": 114.31198875,
+      "fats_g": 42.33777361111111,
+      "carbohydrates_g": 171.46798312500002
+    },
+    "error": null
+  },
+  "310d88f4bcffa51e2b562a661baf1659": {
+    "output": {
+      "calories": 2024.15985,
+      "proteins_g": 151.81198874999998,
+      "fats_g": 56.2266625,
+      "carbohydrates_g": 227.71798312500002
+    },
+    "error": null
+  },
+  "3a1c2aeea366915c26b2ca64e3a11210": {
+    "output": -15.476190476190476,
+    "error": null
+  },
+  "a1039f5e9d036d7862afde4ce5d49c78": {
+    "output": {
+      "calories": 2488.2984,
+      "proteins_g": 186.62238,
+      "fats_g": 69.1194,
+      "carbohydrates_g": 279.93357000000003
+    },
+    "error": null
+  },
+  "d90414d64633b362c34a3863659678ad": {
+    "output": 244140625000000,
+    "error": null
+  },
+  "06e04a9794bd4aaa71c034095f90c59c": {
+    "output": {
+      "calories": 2024.15985,
+      "proteins_g": 151.81198874999998,
+      "fats_g": 56.2266625,
+      "carbohydrates_g": 227.71798312500002
+    },
+    "error": null
+  },
+  "baa2ad125c7b34b66ba7a7773c468a23": {
+    "output": 10.100000000000001,
+    "error": null
+  },
+  "5e814584755cdf6b0ffdf328890adfd3": {
+    "output": {
+      "customer_id": "123",
+      "room_number": "king room",
+      "check_in_date": "2023-12-11",
+      "check_out_date": "2024-08-15",
+      "total_price": 10000
+    },
+    "error": null
+  },
+  "7b7ab2126980e4bbbe427ebbca06ce66": {
+    "output": {
+      "customer_id": 123,
+      "room_number": "deluxe",
+      "check_in_date": "2024-08-11",
+      "check_out_date": "2024-08-15",
+      "total_price": 4000
+    },
+    "error": null
+  },
+  "7cf947a413279e97497bc60fa84caff1": {
+    "output": 1091.5,
+    "error": null
+  },
+  "befcb2157d0948dc92e466098b492cff": {
+    "output": {
+      "1776455460": {
+        "date": "2026-04-17",
+        "date_utc": 1776455460,
+        "open": 270.11,
+        "high": 270.13,
+        "low": 269.87,
+        "close": 269.98,
+        "volume": 184388
+      },
+      "1776455520": {
+        "date": "2026-04-17",
+        "date_utc": 1776455520,
+        "open": 269.97,
+        "high": 269.99,
+        "low": 269.71,
+        "close": 269.77,
+        "volume": 287413
+      },
+      "1776455580": {
+        "date": "2026-04-17",
+        "date_utc": 1776455580,
+        "open": 269.77,
+        "high": 269.96,
+        "low": 269.75,
+        "close": 269.96,
+        "volume": 157903
+      },
+      "1776455640": {
+        "date": "2026-04-17",
+        "date_utc": 1776455640,
+        "open": 269.96,
+        "high": 270.21,
+        "low": 269.86,
+        "close": 270.08,
+        "volume": 250331
+      },
+      "1776455700": {
+        "date": "2026-04-17",
+        "date_utc": 1776455700,
+        "open": 270.07,
+        "high": 270.3,
+        "low": 269.94,
+        "close": 270.11,
+        "volume": 621452
+      },
+      "1776455760": {
+        "date": "2026-04-17",
+        "date_utc": 1776455760,
+        "open": 270.12,
+        "high": 270.23,
+        "low": 270.1,
+        "close": 270.19,
+        "volume": 211122
+      },
+      "1776455820": {
+        "date": "2026-04-17",
+        "date_utc": 1776455820,
+        "open": 270.19,
+        "high": 270.42,
+        "low": 270.06,
+        "close": 270.37,
+        "volume": 263171
+      },
+      "1776455880": {
+        "date": "2026-04-17",
+        "date_utc": 1776455880,
+        "open": 270.36,
+        "high": 270.42,
+        "low": 270.29,
+        "close": 270.37,
+        "volume": 267123
+      },
+      "1776455940": {
+        "date": "2026-04-17",
+        "date_utc": 1776455940,
+        "open": 270.38,
+        "high": 270.41,
+        "low": 270.16,
+        "close": 270.18,
+        "volume": 623616
+      },
+      "1776456000": {
+        "date": "2026-04-17",
+        "date_utc": 1776456000,
+        "open": 270.23,
+        "high": 270.23,
+        "low": 270.23,
+        "close": 270.23,
+        "volume": 0
+      }
+    },
+    "error": null
+  },
+  "c20d8df77501c3c604183560edcce702": {
+    "output": -7,
+    "error": null
+  },
+  "426eee5682fdbe4b9fec44dfab149d30": {
+    "output": 1.6666666666666667,
+    "error": null
+  },
+  "613a4ba12a1f724c02efb9ba67aed805": {
+    "output": 1.6666666666666667,
+    "error": null
+  },
+  "ee90a2f91ce4cd9724926db5cfd2c6b1": {
+    "output": {
+      "customer_id": 123,
+      "room_number": "king",
+      "check_in_date": "2023-12-11",
+      "check_out_date": "2024-08-15",
+      "total_price": 10000
+    },
+    "error": null
+  },
+  "4f8f822b19e3510e59dfffff7e130366": {
+    "output": [
+      {
+        "date": "2005-01-01",
+        "localName": "Neujahr",
+        "name": "New Year's Day",
+        "countryCode": "DE",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2005-01-06",
+        "localName": "Heilige Drei K\u00f6nige",
+        "name": "Epiphany",
+        "countryCode": "DE",
+        "fixed": false,
+        "global": false,
+        "counties": [
+          "DE-BW",
+          "DE-BY",
+          "DE-ST"
+        ],
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2005-03-25",
+        "localName": "Karfreitag",
+        "name": "Good Friday",
+        "countryCode": "DE",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2005-03-27",
+        "localName": "Ostersonntag",
+        "name": "Easter Sunday",
+        "countryCode": "DE",
+        "fixed": false,
+        "global": false,
+        "counties": [
+          "DE-BB"
+        ],
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2005-03-28",
+        "localName": "Ostermontag",
+        "name": "Easter Monday",
+        "countryCode": "DE",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2005-05-01",
+        "localName": "Tag der Arbeit",
+        "name": "Labour Day",
+        "countryCode": "DE",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2005-05-05",
+        "localName": "Christi Himmelfahrt",
+        "name": "Ascension Day",
+        "countryCode": "DE",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2005-05-15",
+        "localName": "Pfingstsonntag",
+        "name": "Pentecost",
+        "countryCode": "DE",
+        "fixed": false,
+        "global": false,
+        "counties": [
+          "DE-BB"
+        ],
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2005-05-16",
+        "localName": "Pfingstmontag",
+        "name": "Whit Monday",
+        "countryCode": "DE",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2005-05-26",
+        "localName": "Fronleichnam",
+        "name": "Corpus Christi",
+        "countryCode": "DE",
+        "fixed": false,
+        "global": false,
+        "counties": [
+          "DE-BW",
+          "DE-BY",
+          "DE-HE",
+          "DE-NW",
+          "DE-RP",
+          "DE-SL"
+        ],
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2005-08-15",
+        "localName": "Mari\u00e4 Himmelfahrt",
+        "name": "Assumption Day",
+        "countryCode": "DE",
+        "fixed": false,
+        "global": false,
+        "counties": [
+          "DE-SL"
+        ],
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2005-10-03",
+        "localName": "Tag der Deutschen Einheit",
+        "name": "German Unity Day",
+        "countryCode": "DE",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2005-10-31",
+        "localName": "Reformationstag",
+        "name": "Reformation Day",
+        "countryCode": "DE",
+        "fixed": false,
+        "global": false,
+        "counties": [
+          "DE-BB",
+          "DE-MV",
+          "DE-SN",
+          "DE-ST",
+          "DE-TH"
+        ],
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2005-11-01",
+        "localName": "Allerheiligen",
+        "name": "All Saints' Day",
+        "countryCode": "DE",
+        "fixed": false,
+        "global": false,
+        "counties": [
+          "DE-BW",
+          "DE-BY",
+          "DE-NW",
+          "DE-RP",
+          "DE-SL"
+        ],
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2005-11-16",
+        "localName": "Bu\u00df- und Bettag",
+        "name": "Repentance and Prayer Day",
+        "countryCode": "DE",
+        "fixed": false,
+        "global": false,
+        "counties": [
+          "DE-SN"
+        ],
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2005-12-25",
+        "localName": "Erster Weihnachtstag",
+        "name": "Christmas Day",
+        "countryCode": "DE",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      },
+      {
+        "date": "2005-12-26",
+        "localName": "Zweiter Weihnachtstag",
+        "name": "St. Stephen's Day",
+        "countryCode": "DE",
+        "fixed": false,
+        "global": true,
+        "counties": null,
+        "launchYear": null,
+        "types": [
+          "Public"
+        ]
+      }
+    ],
+    "error": null
+  },
+  "67aa0a8c067045628983754516436a11": {
+    "output": {
+      "customer_id": 123,
+      "room_number": "king room",
+      "check_in_date": "2023-12-11",
+      "check_out_date": "2024-08-15",
+      "total_price": 10000
+    },
+    "error": null
+  },
+  "2f9edd5e046091bff36137379f967d15": {
+    "output": {
+      "customer_id": 123,
+      "room_number": "deluxe room",
+      "check_in_date": "2024-08-11",
+      "check_out_date": "2024-08-15",
+      "total_price": 800
+    },
+    "error": null
+  },
+  "895425412d4574cdc662ca9278b0c140": {
+    "output": {
+      "customer_id": 123,
+      "room_number": "king room",
+      "check_in_date": "2023-12-11",
+      "check_out_date": "2024-08-15",
+      "total_price": 10000
+    },
+    "error": null
+  },
+  "8a9b6603aa492e77eb3510684b4fa14f": {
+    "output": {
+      "customer_id": 123,
+      "room_number": "king",
+      "check_in_date": "2023-12-11",
+      "check_out_date": "2024-08-15",
+      "total_price": 10000
+    },
+    "error": null
+  },
+  "365da9114ede8cd748300d15c85f60ac": {
+    "output": {
+      "customer_id": "123",
+      "room_number": "king room",
+      "check_in_date": "2023-12-11",
+      "check_out_date": "2024-08-15",
+      "total_price": 10000
+    },
+    "error": null
+  },
+  "edcbb2858440aea9d80c832ebc571112": {
+    "output": {
+      "customer_id": "123",
+      "room_number": "deluxe room",
+      "check_in_date": "2024-08-11",
+      "check_out_date": "2024-08-15",
+      "total_price": 1000
+    },
+    "error": null
+  },
+  "2b1bb3d75e847d490d3b0f0e0440d385": {
+    "output": -68.60000000000001,
+    "error": null
+  },
+  "1fccfc24cf2332501a584e82dcf6f1fc": {
+    "output": null,
+    "error": null
+  },
+  "f357a625a714e3694c69b6c91a62791f": {
+    "output": 3,
+    "error": null
+  },
+  "89e6945a1d5b276e2679df9b51f4f328": {
+    "output": 1218400.3163629973,
+    "error": null
+  },
+  "a48894cfe3325dcaa5fc57fb8586ddf8": {
+    "output": {
+      "status": "confirmed",
+      "customer_id": "cust_123",
+      "room_number": 0,
+      "total_price": 4000,
+      "confirmation_code": "CONF-cust_123-0"
+    },
+    "error": null
+  },
+  "6ca3edd2d5c603bdda82d2414d01bf42": {
+    "output": -62.5,
+    "error": null
+  },
+  "ebb1682215a1880870a96bb4aabf3523": {
+    "output": {
+      "calories": 2488.2984,
+      "proteins_g": 186.62238,
+      "fats_g": 69.1194,
+      "carbohydrates_g": 279.93357000000003
+    },
+    "error": null
+  },
+  "4f2a874f62d38687e6fb389ff0aac147": {
+    "output": -17,
+    "error": null
+  }
+}

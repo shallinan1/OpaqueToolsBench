@@ -210,4 +210,3 @@ __marimo__/
 src/vendor/*
 runs/*
 .claude/*
-*function_call_cache.json
