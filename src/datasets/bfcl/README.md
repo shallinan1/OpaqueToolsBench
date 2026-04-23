@@ -57,7 +57,11 @@ python -m src.datasets.bfcl.evaluate \
   --result-dir runs/bfcl/ours/<config_name>/<hyperparam_dir>
 ```
 
-Execution results are cached in `function_call_cache.json`; delete it to force re-execution.
+Executed function-call results are cached in `function_call_cache.json` (keyed by
+an md5 of the call string). We ship a pre-populated cache (654 entries) so paper
+scores reproduce exactly — some BFCL tests hit live REST APIs (weather, stocks)
+whose values drift, so rebuilding from scratch will not match. Delete the file
+to force re-execution.
 
 ### Step 4 — Iterative improvement
 

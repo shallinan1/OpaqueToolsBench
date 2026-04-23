@@ -9,6 +9,7 @@ This release covers the **BFCL (function calling)** domain on the two test categ
 - Opacity setup (`generate_configs.py`) with independent name / description / parameter knobs.
 - Iterative improvement pipeline: `v0 (opaque) → evaluate → rewrite descriptions → v1 → …`.
 - Ready-to-use configs for both paper categories — transparent base + opacified variants (full matrix in [`src/datasets/bfcl/README.md`](src/datasets/bfcl/README.md)).
+- Pre-populated `function_call_cache.json` so paper scores reproduce exactly (some BFCL tests hit live REST APIs whose results drift).
 
 ## Install
 
@@ -26,7 +27,12 @@ mkdir -p src/vendor
 git clone https://github.com/ShishirPatil/gorilla src/vendor/gorilla_bfcl_v1
 ```
 
-Set `OPENAI_API_KEY` in `.env` or your shell. `TOGETHER_API_KEY` is optional (used if you pass `--together`).
+Create a `.env` file at the repo root (auto-loaded by `python-dotenv` at startup):
+
+```
+OPENAI_API_KEY=sk-...
+TOGETHER_API_KEY=...   # optional, only used with --together
+```
 
 ## Quickstart
 
