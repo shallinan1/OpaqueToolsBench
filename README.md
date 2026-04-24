@@ -7,7 +7,7 @@ This release covers the **BFCL (function calling)** domain on the two test categ
 ## What's shipped
 
 - Opacity setup (`generate_configs.py`) with independent name / description / parameter knobs.
-- Iterative improvement pipeline: `v0 (opaque) → evaluate → rewrite descriptions → v1 → …`.
+- Iterative description-improvement pipeline (**ToolObserver** in the paper): `v0 (opaque) → evaluate → rewrite descriptions → v1 → …`. Outputs land under `runs/bfcl/tool_observer/`.
 - Ready-to-use configs for both paper categories — transparent base + opacified variants (full matrix in [`src/datasets/bfcl/README.md`](src/datasets/bfcl/README.md)).
 - Pre-populated `function_call_cache.json` so paper scores reproduce exactly (some BFCL tests hit live REST APIs whose results drift).
 
@@ -46,7 +46,7 @@ python -m src.datasets.bfcl.iterative_improve \
   --iterations 3
 ```
 
-Outputs land under `runs/bfcl/ours/…/v{N}/` (gitignored). Exit code 2 means all tests converged.
+Outputs land under `runs/bfcl/tool_observer/…/v{N}/` (gitignored). Exit code 2 means all tests converged.
 
 See [`src/datasets/bfcl/README.md`](src/datasets/bfcl/README.md) for the full workflow, config matrix, and how to regenerate configs.
 

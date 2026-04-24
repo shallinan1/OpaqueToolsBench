@@ -8,17 +8,17 @@ Example usage:
 
     # Generate descriptions from the evaluation results
     python -m src.datasets.bfcl.generate_descriptions \
-        --result-dir runs/bfcl/ours/executable_multiple_function_name[all:increasing_number]_desc[all:blank]_param[all:remove_all]/v0/gpt-5_0.001_1.0_required_8192_must_call_tool_2025-09-12_13-35-00 \
+        --result-dir runs/bfcl/tool_observer/executable_multiple_function_name[all:increasing_number]_desc[all:blank]_param[all:remove_all]/v0/gpt-5_0.001_1.0_required_8192_must_call_tool_2025-09-12_13-35-00 \
         --model gpt-5 \
         --prompt-key basic_improved
 
     python -m src.datasets.bfcl.generate_descriptions \
-        --result-dir runs/bfcl/ours/executable_multiple_function_name[all:increasing_number]_desc[all:blank]_param[all:remove_all]/v0/gpt-5_0.001_1.0_required_8192_must_call_tool_2025-09-12_13-35-00 \
+        --result-dir runs/bfcl/tool_observer/executable_multiple_function_name[all:increasing_number]_desc[all:blank]_param[all:remove_all]/v0/gpt-5_0.001_1.0_required_8192_must_call_tool_2025-09-12_13-35-00 \
         --model o3 \
         --prompt-key basic_improved
 
     python -m src.datasets.bfcl.generate_descriptions \
-        --result-dir runs/bfcl/ours/executable_multiple_function_name[all:increasing_number]_desc[all:blank]_param[all:remove_all]/v0/gpt-5-mini_0.001_1.0_required_8192_must_call_tool_2025-09-12_13-36-52 \
+        --result-dir runs/bfcl/tool_observer/executable_multiple_function_name[all:increasing_number]_desc[all:blank]_param[all:remove_all]/v0/gpt-5-mini_0.001_1.0_required_8192_must_call_tool_2025-09-12_13-36-52 \
         --model gpt-5 \
         --prompt-key basic_improved
 

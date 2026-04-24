@@ -25,7 +25,7 @@ Usage:
 
     # Continue from existing improvement
     python -m src.datasets.bfcl.iterative_improve \
-        --config-source runs/bfcl/ours/executable_multiple_function_name[all:increasing_number]_param[all:remove_all]/gpt5mini_req_8k_must_call_tool/improvements/gpt5_basic_improved_8k/v4/config.json \
+        --config-source runs/bfcl/tool_observer/executable_multiple_function_name[all:increasing_number]_param[all:remove_all]/gpt5mini_req_8k_must_call_tool/improvements/gpt5_basic_improved_8k/v4/config.json \
         --generation-model gpt-5-mini \
         --generation-prompt-key must_call_tool \
         --generation-tool-choice required \
@@ -58,7 +58,7 @@ from src.datasets.bfcl.utils.path_utils import (
 )
 
 
-def run_generation(config_source: str, generation_args: Dict, output_dir: Path = Path("runs/bfcl/ours")) -> Tuple[bool, Optional[Path]]:
+def run_generation(config_source: str, generation_args: Dict, output_dir: Path = Path("runs/bfcl/tool_observer")) -> Tuple[bool, Optional[Path]]:
     """Run the generation step (run.py).
 
     Returns:
@@ -253,7 +253,7 @@ def run_iteration(
     generation_args: Dict,
     editing_args: Dict,
     iteration_num: int,
-    output_dir: Path = Path("runs/bfcl/ours")
+    output_dir: Path = Path("runs/bfcl/tool_observer")
 ) -> Tuple[bool, Optional[str], Dict]:
     """Run one complete iteration.
 
@@ -368,8 +368,8 @@ def main():
                        help="Stop if accuracy decreases")
 
     # Other options
-    parser.add_argument("--output-dir", type=Path, default=Path("runs/bfcl/ours"),
-                       help="Base output directory for runs (default: runs/bfcl/ours)")
+    parser.add_argument("--output-dir", type=Path, default=Path("runs/bfcl/tool_observer"),
+                       help="Base output directory for runs (default: runs/bfcl/tool_observer)")
     parser.add_argument("--num-queries", type=int,
                        help="Limit number of test queries per iteration")
     parser.add_argument("--output-summary", type=str,

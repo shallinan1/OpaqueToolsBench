@@ -4,7 +4,7 @@ Path management utilities for BFCL file structure.
 Directory structure:
 - configs/config1.json, config2.json, etc.
 - runs/bfcl/{method}/{config_name}/{hyperparam_dir}/
-  where {method} is "ours"
+  where {method} is "tool_observer"
   - v0_results.json, v0_metadata.json, v0_scored.json (base runs)
   - improvements/{editing_hypers}/
     - v1/config.json, results.json, metadata.json, scored.json
@@ -16,7 +16,7 @@ from pathlib import Path
 from typing import Optional, Tuple, Dict, Any
 
 # Known method subdirectories under runs/bfcl/
-KNOWN_METHODS = {"ours"}
+KNOWN_METHODS = {"tool_observer"}
 
 
 def parse_config_name(config_path: Path) -> str:
@@ -26,7 +26,7 @@ def parse_config_name(config_path: Path) -> str:
         configs/config1.json -> config1
         src/datasets/bfcl/tool_configs/executable_multiple_function_name[all:increasing_number]_param[all:remove_all]_config.json
             -> executable_multiple_function_name[all:increasing_number]_param[all:remove_all]
-        runs/bfcl/ours/config1/gpt5.../improvements/.../v1/config.json -> config1
+        runs/bfcl/tool_observer/config1/gpt5.../improvements/.../v1/config.json -> config1
     """
     config_path = Path(config_path)
 
@@ -212,7 +212,7 @@ def detect_improvement_context(config_path: Path) -> Tuple[bool, Optional[Path],
         (is_improvement, improvement_base_path, version)
 
     Example:
-        config_path: runs/bfcl/ours/config1/gpt5.../improvements/gpt4o.../v1/config.json
+        config_path: runs/bfcl/tool_observer/config1/gpt5.../improvements/gpt4o.../v1/config.json
         Returns: (True, Path(".../improvements/gpt4o..."), 1)
     """
     config_path = Path(config_path)
@@ -239,8 +239,8 @@ def get_base_run_path(config_path: Path) -> Optional[Path]:
     """Get the base run directory for a given config.
 
     Example:
-        config_path: runs/bfcl/ours/config1/gpt5.../improvements/gpt4o.../v1/config.json
-        Returns: Path("runs/bfcl/ours/config1/gpt5...")
+        config_path: runs/bfcl/tool_observer/config1/gpt5.../improvements/gpt4o.../v1/config.json
+        Returns: Path("runs/bfcl/tool_observer/config1/gpt5...")
     """
     config_path = Path(config_path)
     parts = config_path.parts
@@ -456,7 +456,7 @@ def parse_cross_model_source(source_path: Path) -> Tuple[str, str, int]:
     """Parse a cross-model source config path to extract source identity.
 
     Expects a path from an iterate-improve run like:
-        runs/bfcl/ours/{config}/{gen_hyper}/improvements/{edit_hyper}/v{N}/config.json
+        runs/bfcl/tool_observer/{config}/{gen_hyper}/improvements/{edit_hyper}/v{N}/config.json
 
     Returns:
         (source_gen_dirname, source_edit_dirname, source_version)

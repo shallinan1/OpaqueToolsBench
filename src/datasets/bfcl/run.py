@@ -7,7 +7,7 @@ Example usage:
         --model gpt-4o-2024-08-06 \
         --config-source src/datasets/bfcl/tool_configs/executable_simple_config.json \
         --prompt-key must_call_tool \
-        --output-dir runs/bfcl/ours
+        --output-dir runs/bfcl/tool_observer
 """
 
 import os
@@ -673,6 +673,6 @@ if __name__ == "__main__":
 
     # Set default output directory
     if not args.output_dir:
-        args.output_dir = Path("runs/bfcl/ours")
+        args.output_dir = Path("runs/bfcl/tool_observer")
 
     main(args)

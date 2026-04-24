@@ -47,14 +47,14 @@ python -m src.datasets.bfcl.generate_configs \
 python -m src.datasets.bfcl.run \
   --config-source 'src/datasets/bfcl/tool_configs/executable_simple_name[all:increasing_number]_desc[all:blank]_param[all:remove_all]_config.json' \
   --model gpt-4o-2024-08-06 \
-  --output-dir runs/bfcl/ours
+  --output-dir runs/bfcl/tool_observer
 ```
 
 ### Step 3 — Evaluate
 
 ```bash
 python -m src.datasets.bfcl.evaluate \
-  --result-dir runs/bfcl/ours/<config_name>/<hyperparam_dir>
+  --result-dir runs/bfcl/tool_observer/<config_name>/<hyperparam_dir>
 ```
 
 Executed function-call results are cached in `function_call_cache.json` (keyed by
@@ -63,7 +63,7 @@ scores reproduce exactly — some BFCL tests hit live REST APIs (weather, stocks
 whose values drift, so rebuilding from scratch will not match. Delete the file
 to force re-execution.
 
-### Step 4 — Iterative improvement
+### Step 4 — Iterative improvement (ToolObserver)
 
 Full loop:
 
@@ -79,7 +79,7 @@ Single rewrite step:
 
 ```bash
 python -m src.datasets.bfcl.generate_descriptions \
-  --result-dir runs/bfcl/ours/<config_name>/<hyperparam_dir> \
+  --result-dir runs/bfcl/tool_observer/<config_name>/<hyperparam_dir> \
   --model gpt-4o-2024-08-06 \
   --prompt-key reflective
 ```
@@ -88,7 +88,7 @@ Description-rewrite prompt strategies: `reflective` (default), `evidence_based`,
 
 ## Outputs
 
-Under `runs/bfcl/ours/<config>/<hypers>/`:
+Under `runs/bfcl/tool_observer/<config>/<hypers>/`:
 - `v0_results.json`, `v0_scored.json` — base run
 - `improvements/<edit_hypers>/v1/{config,results,scored}.json`, `v2/…` — iterations
 
