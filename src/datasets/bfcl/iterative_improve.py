@@ -351,7 +351,7 @@ def main():
                        help="Model for generating descriptions (e.g., gpt-4o)")
     parser.add_argument("--editing-temperature", type=float, default=1.0,
                        help="Temperature for description generation")
-    parser.add_argument("--editing-prompt-key", default="reflective",
+    parser.add_argument("--editing-prompt-key", default="basic_improved",
                        help="Prompt key for description generation")
     parser.add_argument("--editing-max-tokens", type=int, default=8192,
                        help="Max tokens for description generation")

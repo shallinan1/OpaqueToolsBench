@@ -3,7 +3,8 @@ BFCL evaluation script.
 Evaluates function call results against ground truth.
 
 Example usage:
-    python -m src.datasets.bfcl.evaluate --result-dir runs/bfcl/executable_multiple_function_name[all:increasing_number]_desc[all:blank]_param[all:remove_all]/v0/gpt-5-mini_0.001_1.0_required_8192_must_call_tool_2025-09-12_13-36-52
+    python -m src.datasets.bfcl.evaluate \
+        --result-dir runs/bfcl/tool_observer/<config_name>/<hyperparam_dirname>
 """
 
 import os

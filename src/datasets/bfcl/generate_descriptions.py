@@ -5,25 +5,8 @@ This script analyzes function call results and generates better descriptions
 based on observed usage patterns.
 
 Example usage:
-
-    # Generate descriptions from the evaluation results
     python -m src.datasets.bfcl.generate_descriptions \
-        --result-dir runs/bfcl/tool_observer/executable_multiple_function_name[all:increasing_number]_desc[all:blank]_param[all:remove_all]/v0/gpt-5_0.001_1.0_required_8192_must_call_tool_2025-09-12_13-35-00 \
-        --model gpt-5 \
-        --prompt-key basic_improved
-
-    python -m src.datasets.bfcl.generate_descriptions \
-        --result-dir runs/bfcl/tool_observer/executable_multiple_function_name[all:increasing_number]_desc[all:blank]_param[all:remove_all]/v0/gpt-5_0.001_1.0_required_8192_must_call_tool_2025-09-12_13-35-00 \
-        --model o3 \
-        --prompt-key basic_improved
-
-    python -m src.datasets.bfcl.generate_descriptions \
-        --result-dir runs/bfcl/tool_observer/executable_multiple_function_name[all:increasing_number]_desc[all:blank]_param[all:remove_all]/v0/gpt-5-mini_0.001_1.0_required_8192_must_call_tool_2025-09-12_13-36-52 \
-        --model gpt-5 \
-        --prompt-key basic_improved
-
-    python -m src.datasets.bfcl.generate_descriptions \
-        --result-dir runs/bfcl_descs/executable_multiple_function_name[all:increasing_number]_param[all:remove_all]/v0/gpt-5_0.001_1.0_required_8192_must_call_tool_2025-09-12_18-01-59 \
+        --result-dir runs/bfcl/tool_observer/<config_name>/<hyperparam_dirname> \
         --model gpt-5 \
         --prompt-key basic_improved
 """
@@ -590,7 +573,7 @@ def main():
                        help="Directory containing scored.json from evaluation")
     parser.add_argument("--model", type=str, default="gpt-4o-2024-08-06",
                        help="Model to use for generating descriptions")
-    parser.add_argument("--prompt-key", type=str, default="reflective",
+    parser.add_argument("--prompt-key", type=str, default="basic_improved",
                        choices=list(BFCL_FUNCTION_DESCRIPTION_PROMPTS.keys()),
                        help="Prompt template to use")
     parser.add_argument("--temperature", type=float, default=0.7,

@@ -81,10 +81,10 @@ Single rewrite step:
 python -m src.datasets.bfcl.generate_descriptions \
   --result-dir runs/bfcl/tool_observer/<config_name>/<hyperparam_dir> \
   --model gpt-4o-2024-08-06 \
-  --prompt-key reflective
+  --prompt-key basic_improved
 ```
 
-Description-rewrite prompt strategies: `reflective` (default), `evidence_based`, `basic_improved`.
+Description-rewrite prompt strategies: `basic_improved` (default), `reflective`, `evidence_based`.
 
 ## Outputs
 
