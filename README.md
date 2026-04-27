@@ -41,14 +41,16 @@ TOGETHER_API_KEY=...   # optional, only used with --together
 
 ### Function-execution credentials (BFCL upstream) — required
 
-BFCL v1's executable test categories make live REST/RapidAPI calls during evaluation (Yahoo Finance, Urban Dictionary, COVID-19, ExchangeRate-API, OMDB, Geocode). These keys go in **`src/vendor/gorilla_bfcl_v1/berkeley-function-call-leaderboard/function_credential_config.json`** — a separate file from `.env`, read by upstream BFCL code. Required keys (all have free tiers):
+BFCL v1's executable test categories make live REST/RapidAPI calls during evaluation (Yahoo Finance, Urban Dictionary, COVID-19, ExchangeRate-API, OMDB, Geocode). All four keys below must be present (any missing → `NoAPIKeyError`), but only one typically needs payment. They go in **`src/vendor/gorilla_bfcl_v1/berkeley-function-call-leaderboard/function_credential_config.json`** — a separate file from `.env`, read by upstream BFCL code.
 
-- `RAPID-API-KEY`
-- `EXCHANGERATE-API-KEY`
-- `OMDB-API-KEY`
-- `GEOCODE-API-KEY`
+| Key | Used by | Sign up | Cost |
+|---|---|---|---|
+| `RAPID-API-KEY` | Yahoo Finance, Urban Dictionary, COVID-19, Amazon, time-zone (10 functions) | [rapidapi.com](https://rapidapi.com/) | Free tier covers light/replication use; you may pay for higher quota if running large sweeps |
+| `EXCHANGERATE-API-KEY` | `convert_currency` | [exchangerate-api.com](https://www.exchangerate-api.com/) | Free |
+| `OMDB-API-KEY` | `get_movie_rating`, `get_movie_director` | [omdbapi.com](https://www.omdbapi.com/apikey.aspx) | Free |
+| `GEOCODE-API-KEY` | `get_coordinates_from_city` | [geocode.maps.co](https://geocode.maps.co/) | Free |
 
-**Why you need these even with the cache:** the shipped `function_call_cache.json` is keyed on `md5(exact_call_string)`. It hits only when your run produces byte-identical calls to ours. Any divergence — different model, different temperature, different prompt, even normal model stochasticity — produces a cache miss → BFCL hits the live API → `NoAPIKeyError` if these keys aren't set. The cache speeds up reruns; it doesn't replace the credentials.
+**Most users won't hit the live APIs much.** The shipped `function_call_cache.json` (654 entries) covers every call the paper made, keyed on `md5(exact_call_string)`. If you're replicating with the same model + temperature + prompt, almost every executable test should be a cache hit. Live API calls only happen on cache misses — i.e. when your run diverges from ours (different model, different temperature, different prompt, or normal model stochasticity producing slightly different args). Free tiers handle that volume comfortably for typical experimentation.
 
 ## Quickstart
 
