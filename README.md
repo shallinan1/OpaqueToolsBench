@@ -39,7 +39,7 @@ OPENAI_API_KEY=sk-...
 TOGETHER_API_KEY=...   # optional, only used with --together
 ```
 
-### Function-execution credentials (BFCL upstream)
+### Function-execution credentials (BFCL upstream) — required
 
 BFCL v1's executable test categories make live REST/RapidAPI calls during evaluation (Yahoo Finance, Urban Dictionary, COVID-19, ExchangeRate-API, OMDB, Geocode). These keys go in **`src/vendor/gorilla_bfcl_v1/berkeley-function-call-leaderboard/function_credential_config.json`** — a separate file from `.env`, read by upstream BFCL code. Required keys (all have free tiers):
 
@@ -48,7 +48,7 @@ BFCL v1's executable test categories make live REST/RapidAPI calls during evalua
 - `OMDB-API-KEY`
 - `GEOCODE-API-KEY`
 
-**For paper replication you can skip this step.** The shipped `function_call_cache.json` (654 entries) covers every executable lookup the paper used, so evaluation runs cache-only without ever calling the live APIs. You only need these credentials if you delete the cache or run uncached tests.
+**Why you need these even with the cache:** the shipped `function_call_cache.json` is keyed on `md5(exact_call_string)`. It hits only when your run produces byte-identical calls to ours. Any divergence — different model, different temperature, different prompt, even normal model stochasticity — produces a cache miss → BFCL hits the live API → `NoAPIKeyError` if these keys aren't set. The cache speeds up reruns; it doesn't replace the credentials.
 
 ## Quickstart
 
