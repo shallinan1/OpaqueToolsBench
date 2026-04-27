@@ -20,12 +20,17 @@ uv sync
 source .venv/bin/activate
 ```
 
-Vendor data (BFCL test data + evaluation logic) is not committed. Clone it once:
+Vendor data (BFCL test data + evaluation logic) is not committed. Clone it once, **pinned to `v1.3`** — our code targets the BFCL v1 layout (`berkeley-function-call-leaderboard/eval_checker/...`). Upstream HEAD has restructured under `bfcl_eval/...` and won't work.
 
 ```bash
 mkdir -p src/vendor
-git clone https://github.com/ShishirPatil/gorilla src/vendor/gorilla_bfcl_v1
+git clone --depth 1 --branch v1.3 \
+  https://github.com/ShishirPatil/gorilla src/vendor/gorilla_bfcl_v1
 ```
+
+If you already have a working BFCL v1 checkout elsewhere, you can `ln -s /path/to/your/gorilla src/vendor/gorilla_bfcl_v1` instead.
+
+### LLM API keys
 
 Create a `.env` file at the repo root (auto-loaded by `python-dotenv` at startup):
 
@@ -33,6 +38,17 @@ Create a `.env` file at the repo root (auto-loaded by `python-dotenv` at startup
 OPENAI_API_KEY=sk-...
 TOGETHER_API_KEY=...   # optional, only used with --together
 ```
+
+### Function-execution credentials (BFCL upstream)
+
+BFCL v1's executable test categories make live REST/RapidAPI calls during evaluation (Yahoo Finance, Urban Dictionary, COVID-19, ExchangeRate-API, OMDB, Geocode). These keys go in **`src/vendor/gorilla_bfcl_v1/berkeley-function-call-leaderboard/function_credential_config.json`** — a separate file from `.env`, read by upstream BFCL code. Required keys (all have free tiers):
+
+- `RAPID-API-KEY`
+- `EXCHANGERATE-API-KEY`
+- `OMDB-API-KEY`
+- `GEOCODE-API-KEY`
+
+**For paper replication you can skip this step.** The shipped `function_call_cache.json` (654 entries) covers every executable lookup the paper used, so evaluation runs cache-only without ever calling the live APIs. You only need these credentials if you delete the cache or run uncached tests.
 
 ## Quickstart
 
