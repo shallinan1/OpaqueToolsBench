@@ -8,7 +8,7 @@ from pathlib import Path
 parser = argparse.ArgumentParser(add_help=False)
 
 # Model and generation parameters
-parser.add_argument("--model", default="gpt-4o-2024-08-06",
+parser.add_argument("--model", default="gpt-5-mini",
                    help="OpenAI chat model used for reasoning and tool use)")
 parser.add_argument("--temperature", type=float, default=1.0,
                    help="Temperature for the model (default: 1.0)")
@@ -24,7 +24,7 @@ parser.add_argument("--num-queries", type=int, default=None,
 
 # Config source
 parser.add_argument("--config-source", type=Path, default=None,
-                   help="Path to config JSON file (e.g., tool_configs/.../base.json or runs/.../improved_configs/gpt4o_t07_basic.json or src/datasets/bfcl/tool_configs/base/simple_base_config.json)")
+                   help="Path to config JSON file (e.g., tool_configs/.../base.json or src/datasets/bfcl/tool_configs/base/simple_base_config.json)")
 
 # Output settings
 parser.add_argument("--output-dir", type=Path, default=None,

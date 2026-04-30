@@ -63,7 +63,7 @@ def create_generation_dirname(args) -> str:
     - gpt51_none_req_8k_basic_seed0
     - o3_medium_req_16k_basic_seed42
     """
-    # Clean model name (keep gpt-5 and gpt-5-mini separate, remove dates like -2024-08-06)
+    # Clean model name (keep gpt-5 and gpt-5-mini separate, remove dates like -2025-04-14)
     model = args.model.split('/')[-1] # Remove any path prefix and whitespace
     if model == 'gpt-5':
         model_short = 'gpt5'
@@ -72,7 +72,7 @@ def create_generation_dirname(args) -> str:
     elif model == 'gpt-5-mini':
         model_short = 'gpt5mini'
     elif '-20' in model and not model.startswith('o'):
-        # For models like gpt-4o-2024-08-06, take everything before the date
+        # For dated model identifiers like gpt-4.1-2025-04-14, take everything before the date
         model_short = model.split('-20')[0].replace('-', '').replace('_', '')
     else:
         model_short = model.replace('-', '').replace('_', '')
@@ -128,11 +128,11 @@ def create_editing_dirname(model: str, temperature: float, prompt_key: str, max_
     - For o/gpt-5 models: {model}_{reasoning_effort}_{prompt_key}_{max_tokens}
 
     Example:
-    - gpt4o_t07_reflective_8k
+    - gpt41_t07_reflective_8k
     - gpt5_medium_reflective_8k
     - o3_medium_basic_improved_16k
     """
-    # Clean model name (keep gpt-5 and gpt-5-mini separate, remove dates like -2024-08-06)
+    # Clean model name (keep gpt-5 and gpt-5-mini separate, remove dates like -2025-04-14)
     model_clean = model.split('/')[-1]  # Remove any path prefix
     if model_clean == 'gpt-5':
         model_short = 'gpt5'
@@ -141,7 +141,7 @@ def create_editing_dirname(model: str, temperature: float, prompt_key: str, max_
     elif model_clean == 'gpt-5-mini':
         model_short = 'gpt5mini'
     elif '-20' in model_clean and not model_clean.startswith('o'):
-        # For models like gpt-4o-2024-08-06, take everything before the date
+        # For dated model identifiers like gpt-4.1-2025-04-14, take everything before the date
         model_short = model_clean.split('-20')[0].replace('-', '').replace('_', '')
     else:
         model_short = model_clean.replace('-', '').replace('_', '')
@@ -212,8 +212,8 @@ def detect_improvement_context(config_path: Path) -> Tuple[bool, Optional[Path],
         (is_improvement, improvement_base_path, version)
 
     Example:
-        config_path: runs/bfcl/tool_observer/config1/gpt5.../improvements/gpt4o.../v1/config.json
-        Returns: (True, Path(".../improvements/gpt4o..."), 1)
+        config_path: runs/bfcl/tool_observer/config1/gpt5mini.../improvements/gpt5.../v1/config.json
+        Returns: (True, Path(".../improvements/gpt5..."), 1)
     """
     config_path = Path(config_path)
     parts = config_path.parts
@@ -239,8 +239,8 @@ def get_base_run_path(config_path: Path) -> Optional[Path]:
     """Get the base run directory for a given config.
 
     Example:
-        config_path: runs/bfcl/tool_observer/config1/gpt5.../improvements/gpt4o.../v1/config.json
-        Returns: Path("runs/bfcl/tool_observer/config1/gpt5...")
+        config_path: runs/bfcl/tool_observer/config1/gpt5mini.../improvements/gpt5.../v1/config.json
+        Returns: Path("runs/bfcl/tool_observer/config1/gpt5mini...")
     """
     config_path = Path(config_path)
     parts = config_path.parts
@@ -265,8 +265,8 @@ def parse_editing_dirname(dirname: str) -> Dict[str, Any]:
     """Parse editing hyperparameters from directory name.
 
     Example:
-        gpt4o_t07_reflective_8192 -> {
-            "model": "gpt4o",
+        gpt41_t07_reflective_8192 -> {
+            "model": "gpt-4.1",
             "temperature": 0.7,
             "reasoning_effort": None,
             "prompt_key": "reflective",

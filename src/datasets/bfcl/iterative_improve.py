@@ -348,7 +348,7 @@ def main():
 
     # Editing parameters
     parser.add_argument("--editing-model", required=True,
-                       help="Model for generating descriptions (e.g., gpt-4o)")
+                       help="Model for generating descriptions (e.g., gpt-5-mini)")
     parser.add_argument("--editing-temperature", type=float, default=1.0,
                        help="Temperature for description generation")
     parser.add_argument("--editing-prompt-key", default="basic_improved",

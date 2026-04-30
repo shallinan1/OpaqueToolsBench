@@ -571,7 +571,7 @@ def main():
     parser = argparse.ArgumentParser(description="Generate improved function descriptions from BFCL results")
     parser.add_argument("--result-dir", type=str, required=True,
                        help="Directory containing scored.json from evaluation")
-    parser.add_argument("--model", type=str, default="gpt-4o-2024-08-06",
+    parser.add_argument("--model", type=str, default="gpt-5-mini",
                        help="Model to use for generating descriptions")
     parser.add_argument("--prompt-key", type=str, default="basic_improved",
                        choices=list(BFCL_FUNCTION_DESCRIPTION_PROMPTS.keys()),

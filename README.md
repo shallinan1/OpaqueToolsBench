@@ -73,8 +73,8 @@ The shipped `function_call_cache.json` covers every call the paper made (keyed o
 ```bash
 python -m src.datasets.bfcl.iterative_improve \
   --config-source 'src/datasets/bfcl/tool_configs/executable_simple_name[all:increasing_number]_desc[all:blank]_param[all:remove_all]_config.json' \
-  --generation-model gpt-4o-2024-08-06 \
-  --editing-model gpt-4o-2024-08-06 \
+  --generation-model gpt-5-mini \
+  --editing-model gpt-5-mini \
   --iterations 3
 ```
 

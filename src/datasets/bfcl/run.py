@@ -4,7 +4,7 @@ Generates function call responses using LLMs with efficient batch processing.
 
 Example usage:
     python -m src.datasets.bfcl.run \
-        --model gpt-4o-2024-08-06 \
+        --model gpt-5-mini \
         --config-source src/datasets/bfcl/tool_configs/executable_simple_config.json \
         --prompt-key must_call_tool \
         --output-dir runs/bfcl/tool_observer

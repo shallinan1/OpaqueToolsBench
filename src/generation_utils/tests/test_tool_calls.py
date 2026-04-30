@@ -3,7 +3,7 @@
 import asyncio
 from src.generation_utils.openai_parallel_generate import openai_parallel_generate, requests_url_dict
 
-test_models = ["gpt-5-mini", "gpt-5-nano", "gpt-5", "gpt-4.1", "gpt-4o-2024-08-06"]
+test_models = ["gpt-5-mini", "gpt-5-nano", "gpt-5", "gpt-4.1"]
 outputs = {}
 
 # Define simple tools for testing

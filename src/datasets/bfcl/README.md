@@ -46,7 +46,7 @@ python -m src.datasets.bfcl.generate_configs \
 ```bash
 python -m src.datasets.bfcl.run \
   --config-source 'src/datasets/bfcl/tool_configs/executable_simple_name[all:increasing_number]_desc[all:blank]_param[all:remove_all]_config.json' \
-  --model gpt-4o-2024-08-06 \
+  --model gpt-5-mini \
   --output-dir runs/bfcl/tool_observer
 ```
 
@@ -70,8 +70,8 @@ Full loop:
 ```bash
 python -m src.datasets.bfcl.iterative_improve \
   --config-source 'src/datasets/bfcl/tool_configs/executable_simple_name[all:increasing_number]_desc[all:blank]_param[all:remove_all]_config.json' \
-  --generation-model gpt-4o-2024-08-06 \
-  --editing-model gpt-4o-2024-08-06 \
+  --generation-model gpt-5-mini \
+  --editing-model gpt-5-mini \
   --iterations 3
 ```
 
@@ -80,7 +80,7 @@ Single rewrite step:
 ```bash
 python -m src.datasets.bfcl.generate_descriptions \
   --result-dir runs/bfcl/tool_observer/<config_name>/<hyperparam_dir> \
-  --model gpt-4o-2024-08-06 \
+  --model gpt-5-mini \
   --prompt-key basic_improved
 ```
 

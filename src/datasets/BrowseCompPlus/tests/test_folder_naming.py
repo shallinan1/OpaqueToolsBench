@@ -31,7 +31,7 @@ def main():
     print("Default:")
     print("  ", create_generation_dirname(args))
 
-    args = MockArgs(model="gpt-4o-2024-08-06", temperature=0.7, top_p=0.95)
+    args = MockArgs(model="gpt-4.1-2025-04-14", temperature=0.7, top_p=0.95)
     print("\nNon-reasoning model:")
     print("  ", create_generation_dirname(args))
 
