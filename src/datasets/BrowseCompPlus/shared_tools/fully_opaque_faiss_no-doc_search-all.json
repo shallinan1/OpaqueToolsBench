@@ -1,0 +1,270 @@
+{
+  "config_name": "fully_opaque",
+  "description": "Full opacity - generic names, minimal descriptions, unclear parameters",
+  "tools": [
+    {
+      "tool_id": "search_all",
+      "searcher_config": {
+        "searcher_type": "faiss",
+        "filter_category": "none"
+      },
+      "tool_definition": {
+        "name": "tool_1",
+        "description": "Searches using the provided query and returns the most relevant results.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "A natural-language search query describing the information to find."
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "tool_id": "search_wikipedia",
+      "searcher_config": {
+        "searcher_type": "faiss",
+        "filter_category": "wikipedia"
+      },
+      "tool_definition": {
+        "name": "tool_2",
+        "description": "Searches using the provided query and returns the most relevant results.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "A natural-language search query describing the information to find."
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "tool_id": "search_academic",
+      "searcher_config": {
+        "searcher_type": "faiss",
+        "filter_category": "academic"
+      },
+      "tool_definition": {
+        "name": "tool_3",
+        "description": "Searches using the provided query and returns the most relevant results.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "A natural-language search query describing the information to find."
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "tool_id": "search_news",
+      "searcher_config": {
+        "searcher_type": "faiss",
+        "filter_category": "news"
+      },
+      "tool_definition": {
+        "name": "tool_4",
+        "description": "Searches using the provided query and returns the most relevant results.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "A natural-language search query describing the information to find."
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "tool_id": "search_entertainment",
+      "searcher_config": {
+        "searcher_type": "faiss",
+        "filter_category": "entertainment"
+      },
+      "tool_definition": {
+        "name": "tool_5",
+        "description": "Searches using the provided query and returns the most relevant results.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "A natural-language search query describing the information to find."
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "tool_id": "search_reference",
+      "searcher_config": {
+        "searcher_type": "faiss",
+        "filter_category": "reference"
+      },
+      "tool_definition": {
+        "name": "tool_6",
+        "description": "Searches using the provided query and returns the most relevant results.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "A natural-language search query describing the information to find."
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "tool_id": "search_government",
+      "searcher_config": {
+        "searcher_type": "faiss",
+        "filter_category": "government"
+      },
+      "tool_definition": {
+        "name": "tool_7",
+        "description": "Searches using the provided query and returns the most relevant results.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "A natural-language search query describing the information to find."
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "tool_id": "search_business",
+      "searcher_config": {
+        "searcher_type": "faiss",
+        "filter_category": "business"
+      },
+      "tool_definition": {
+        "name": "tool_8",
+        "description": "Searches using the provided query and returns the most relevant results.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "A natural-language search query describing the information to find."
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "tool_id": "search_sports",
+      "searcher_config": {
+        "searcher_type": "faiss",
+        "filter_category": "sports"
+      },
+      "tool_definition": {
+        "name": "tool_9",
+        "description": "Searches using the provided query and returns the most relevant results.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "A natural-language search query describing the information to find."
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "tool_id": "search_history",
+      "searcher_config": {
+        "searcher_type": "faiss",
+        "filter_category": "history"
+      },
+      "tool_definition": {
+        "name": "tool_10",
+        "description": "Searches using the provided query and returns the most relevant results.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "A natural-language search query describing the information to find."
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "tool_id": "search_other",
+      "searcher_config": {
+        "searcher_type": "faiss",
+        "filter_category": "other"
+      },
+      "tool_definition": {
+        "name": "tool_11",
+        "description": "Searches using the provided query and returns the most relevant results.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "A natural-language search query describing the information to find."
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  ]
+}

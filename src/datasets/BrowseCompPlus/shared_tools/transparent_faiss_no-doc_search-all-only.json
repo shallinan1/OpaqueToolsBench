@@ -1,0 +1,28 @@
+{
+  "config_name": "transparent",
+  "description": "Full transparency - clear tool names and descriptions",
+  "tools": [
+    {
+      "tool_id": "search_all",
+      "searcher_config": {
+        "searcher_type": "faiss",
+        "filter_category": "none"
+      },
+      "tool_definition": {
+        "name": "search_all_sources",
+        "description": "Searches through all available documents and web sources including Wikipedia, academic papers, news articles, and other content. Returns top-{k} most relevant results with snippets.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "The search query to find relevant documents"
+            }
+          },
+          "required": ["query"],
+          "additionalProperties": false
+        }
+      }
+    }
+  ]
+}

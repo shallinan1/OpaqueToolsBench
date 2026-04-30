@@ -1,0 +1,226 @@
+{
+  "config_name": "transparent",
+  "description": "Full transparency - clear tool names and descriptions",
+  "tools": [
+    {
+      "tool_id": "search_wikipedia",
+      "searcher_config": {
+        "searcher_type": "faiss", 
+        "filter_category": "wikipedia"
+      },
+      "tool_definition": {
+        "name": "search_wikipedia",
+        "description": "Searches specifically through Wikipedia articles only. Returns top-{k} most relevant Wikipedia entries with snippets.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string", 
+              "description": "The search query to find relevant Wikipedia articles"
+            }
+          },
+          "required": ["query"],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "tool_id": "search_academic",
+      "searcher_config": {
+        "searcher_type": "faiss",
+        "filter_category": "academic"
+      },
+      "tool_definition": {
+        "name": "search_academic_sources",
+        "description": "Searches through only Wikipedia articles. Returns top-{k} most relevant Wikipedia entries with snippets.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "The search query to find relevant academic sources"
+            }
+          },
+          "required": ["query"],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "tool_id": "search_news",
+      "searcher_config": {
+        "searcher_type": "faiss",
+        "filter_category": "news"
+      },
+      "tool_definition": {
+        "name": "search_news_sources",
+        "description": "Searches through news articles, journalism, and current events coverage from major news outlets. Returns top-{k} most relevant news articles with snippets.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "The search query to find relevant news articles"
+            }
+          },
+          "required": ["query"],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "tool_id": "search_entertainment",
+      "searcher_config": {
+        "searcher_type": "faiss",
+        "filter_category": "entertainment"
+      },
+      "tool_definition": {
+        "name": "search_entertainment_sources",
+        "description": "Searches through entertainment content including movies, TV shows, music, celebrities, and pop culture. Returns top-{k} most relevant entertainment sources with snippets.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "The search query to find relevant entertainment content"
+            }
+          },
+          "required": ["query"],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "tool_id": "search_reference",
+      "searcher_config": {
+        "searcher_type": "faiss",
+        "filter_category": "reference"
+      },
+      "tool_definition": {
+        "name": "search_reference_sources",
+        "description": "Searches through reference materials including encyclopedias, dictionaries, biographies, and educational resources. Returns top-{k} most relevant reference sources with snippets.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "The search query to find relevant reference materials"
+            }
+          },
+          "required": ["query"],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "tool_id": "search_government",
+      "searcher_config": {
+        "searcher_type": "faiss",
+        "filter_category": "government"
+      },
+      "tool_definition": {
+        "name": "search_government_sources",
+        "description": "Searches through government websites, official documents, policy information, and public records. Returns top-{k} most relevant government sources with snippets.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "The search query to find relevant government information"
+            }
+          },
+          "required": ["query"],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "tool_id": "search_business",
+      "searcher_config": {
+        "searcher_type": "faiss",
+        "filter_category": "business"
+      },
+      "tool_definition": {
+        "name": "search_business_sources",
+        "description": "Searches through business publications, financial reports, industry analysis, and corporate information. Returns top-{k} most relevant business sources with snippets.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "The search query to find relevant business information"
+            }
+          },
+          "required": ["query"],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "tool_id": "search_sports",
+      "searcher_config": {
+        "searcher_type": "faiss",
+        "filter_category": "sports"
+      },
+      "tool_definition": {
+        "name": "search_sports_sources",
+        "description": "Searches through sports news, statistics, player information, and athletic competitions. Returns top-{k} most relevant sports sources with snippets.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "The search query to find relevant sports information"
+            }
+          },
+          "required": ["query"],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "tool_id": "search_history",
+      "searcher_config": {
+        "searcher_type": "faiss",
+        "filter_category": "history"
+      },
+      "tool_definition": {
+        "name": "search_history_sources",
+        "description": "Searches through historical documents, archives, and historical analysis. Returns top-{k} most relevant historical sources with snippets.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "The search query to find relevant historical information"
+            }
+          },
+          "required": ["query"],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "tool_id": "search_other",
+      "searcher_config": {
+        "searcher_type": "faiss",
+        "filter_category": "other"
+      },
+      "tool_definition": {
+        "name": "search_other_sources",
+        "description": "Searches through miscellaneous and uncategorized web sources that don't fall into specific categories like Wikipedia, news, academic, etc. Returns top-{k} most relevant other sources with snippets.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "The search query to find relevant miscellaneous sources"
+            }
+          },
+          "required": ["query"],
+          "additionalProperties": false
+        }
+      }
+    }
+  ]
+}

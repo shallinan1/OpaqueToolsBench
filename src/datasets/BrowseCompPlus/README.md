@@ -1,0 +1,154 @@
+# BrowseCompPlus
+
+Information-retrieval benchmark with 9 domain-specialized search tools (Wikipedia, academic, news, etc.) plus an optional `get_document` tool. Opacity hides which tool searches which domain — the agent must discover that through usage.
+
+```
+Generation → Evaluation (LLM-as-judge) → Description rewrite (batch + synthesis) → (repeat)
+```
+
+The rewrite step is two-phase: per-batch trajectory analysis (default 10 trajectories per minibatch) followed by cross-batch synthesis into final tool descriptions.
+
+## Setup
+
+Vendor data is **not committed**. You need both the upstream BrowseComp-Plus repo (for the `search_agent` library and pre-built indexes) and a Hugging Face token (the corpus dataset is gated).
+
+```bash
+# 1. Clone the upstream BrowseComp-Plus repo into src/vendor/, pinned to a
+#    known-good commit (upstream has no tags; this SHA matches our layout).
+mkdir -p src/vendor
+git clone https://github.com/texttron/BrowseComp-Plus src/vendor/BrowseComp-Plus
+(cd src/vendor/BrowseComp-Plus && git checkout 56534c8453a9efe37862f0173cf221974a99a49c)
+
+# 2. Authenticate with Hugging Face (the corpus is a gated dataset)
+huggingface-cli login
+# or: export HF_TOKEN=hf_...
+
+# 3. Download indexes + build the URL mapping
+bash src/datasets/BrowseCompPlus/scripts/setup_database.sh
+```
+
+The setup script downloads BM25 + FAISS indexes via the upstream's
+`scripts_build_index/download_indexes.sh`, then runs `extract_base_urls.py` to
+populate `outputs/id_to_url.json` and `outputs/base_url_counts.json`. (Both are
+also shipped pre-built; the setup step refreshes them against your local
+corpus.)
+
+### Java 21 (required for BM25)
+
+Pyserini needs a JDK 21 runtime:
+
+```bash
+conda install -c conda-forge openjdk=21
+# or: sudo apt install -y openjdk-21-jdk
+```
+
+## Shipped configs
+
+`shared_tools/` ships 12 configs. Each bundles an OpenAI tool definition + a `searcher_config` (which backend, which category filter):
+
+|  | `_no-doc` | `_no-doc_search-all` | `_no-doc_search-all-only` |
+|---|---|---|---|
+| `transparent_bm25_*` | accurate names + descs | + a "search all domains" tool | only the search-all tool |
+| `fully_opaque_bm25_*` | `tool_1`/`tool_2`/... + generic descs | + opaque search-all | only opaque search-all |
+| `transparent_faiss_*` | (FAISS variants) | | |
+| `fully_opaque_faiss_*` | | | |
+
+Paper evaluations use `*_no-doc.json` (the simple variant, no `get_document` tool, no search-all). The `_search-all` and `_search-all-only` variants are for ablations.
+
+## Workflow
+
+### Step 1 — Run
+
+```bash
+python -m src.datasets.BrowseCompPlus.run \
+  --config-source src/datasets/BrowseCompPlus/shared_tools/fully_opaque_bm25_no-doc.json \
+  --model gpt-5 \
+  --num-queries 100 \
+  --output-dir runs/BrowseCompPlus/tool_observer
+```
+
+For FAISS configs, the path includes an embedding tag (e.g. `emb0p6b`, `emb4b`, `emb8b`) derived from `--faiss-index-path`.
+
+### Step 2 — Evaluate (LLM-as-judge)
+
+```bash
+python -m src.datasets.BrowseCompPlus.evaluate \
+  --result-dir runs/BrowseCompPlus/tool_observer/shared_tools/fully_opaque_bm25_no-doc/<gen_hypers> \
+  --judge-model gpt-5
+```
+
+### Step 3 — Generate improved descriptions (single iteration)
+
+```bash
+python -m src.datasets.BrowseCompPlus.generate_improved_descriptions \
+  --result-dir runs/BrowseCompPlus/tool_observer/shared_tools/fully_opaque_bm25_no-doc/<gen_hypers> \
+  --prompt-type detailed_v2 \
+  --synthesis-prompt-key v2 \
+  --num-trajectories-batch 10 \
+  --model gpt-5
+```
+
+Writes:
+- `.../improvements/{editing_hypers}/v1/config.json` — improved config
+- `.../improvements/{editing_hypers}/v1/llm_responses.json` — per-batch analyses
+- `.../improvements/{editing_hypers}/v1/synthesis_response.json` — cross-batch synthesis
+
+### Step 4 — Iterative improve (ToolObserver)
+
+Full loop:
+
+```bash
+python -m src.datasets.BrowseCompPlus.iterative_improve \
+  --config-source src/datasets/BrowseCompPlus/shared_tools/fully_opaque_bm25_no-doc.json \
+  --generation-model gpt-5 \
+  --generation-reasoning-effort medium \
+  --editing-model gpt-5 \
+  --editing-reasoning-effort medium \
+  --editing-prompt-type detailed_v2 \
+  --synthesis-prompt-key v2 \
+  --num-trajectories-batch 10 \
+  --iterations 3
+```
+
+Description-rewrite prompt strategies: `detailed_v2` (paper default), `detailed`. Synthesis strategies: `v2` (paper default), `v1`.
+
+### Iteration semantics
+
+`--iterations N`:
+- From a base config: run `v0` plus `N` improvement rounds.
+- From `.../improvements/.../vK/config.json`: run `N` additional rounds starting at `vK+1`.
+
+## Outputs
+
+Base runs:
+```
+runs/BrowseCompPlus/tool_observer/shared_tools/<config>/<gen_hypers>/
+├── v0_results.json
+├── v0_metadata.json
+├── v0_scored.json
+└── v0_token_usage_generation.json
+```
+
+Improvements:
+```
+…/<gen_hypers>/improvements/<editing_hypers>/
+├── v1/{config,results,scored,metadata,llm_responses,synthesis_response,token_usage_generation}.json
+└── v2/…
+```
+
+## Legacy single-searcher mode
+
+For debugging without a config file:
+
+```bash
+python -m src.datasets.BrowseCompPlus.run \
+  --searcher-type bm25 \
+  --filter-category wikipedia \
+  --model gpt-5 \
+  --num-queries 50 \
+  --output-dir runs/BrowseCompPlus/tool_observer
+```
+
+## Paper
+
+[arXiv:2602.15197](https://arxiv.org/abs/2602.15197v1)

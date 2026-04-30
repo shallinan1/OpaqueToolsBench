@@ -1,0 +1,30 @@
+{
+  "config_name": "fully_opaque",
+  "description": "Full opacity - generic names, minimal descriptions, unclear parameters",
+  "tools": [
+    {
+      "tool_id": "search_all",
+      "searcher_config": {
+        "searcher_type": "bm25",
+        "filter_category": "none"
+      },
+      "tool_definition": {
+        "name": "tool_1",
+        "description": "Searches using the provided query and returns the most relevant results.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "A natural-language search query describing the information to find."
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  ]
+}
