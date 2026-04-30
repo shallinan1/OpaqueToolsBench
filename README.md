@@ -39,17 +39,25 @@ HF_TOKEN=hf_...         # required for BrowseCompPlus (gated corpus on HuggingFa
 
 ## BFCL setup
 
-Vendor data is not committed. Clone Gorilla **pinned to `v1.3`** — our code targets the BFCL v1 layout. Upstream HEAD has restructured under `bfcl_eval/...` and won't work.
+Vendor data is not committed. Clone Gorilla and check out a **specific SHA** — our code targets the BFCL v1 layout (`berkeley-function-call-leaderboard/eval_checker/...`), and that layout was removed in the upstream restructure. The `v1.3` tag is *not* the right pin (it points to a commit predating the v1 eval layout).
 
 ```bash
 mkdir -p src/vendor
-git clone --depth 1 --branch v1.3 \
-  https://github.com/ShishirPatil/gorilla src/vendor/gorilla_bfcl_v1
+git clone https://github.com/ShishirPatil/gorilla src/vendor/gorilla_bfcl_v1
+(cd src/vendor/gorilla_bfcl_v1 && git checkout 83dfe1a97329a167a79bbe2fa67bc57d55369d1f)
 ```
 
 ### Function-execution credentials (required)
 
-BFCL v1's executable test categories make live REST/RapidAPI calls during evaluation. The four keys below all must be present in **`src/vendor/gorilla_bfcl_v1/berkeley-function-call-leaderboard/function_credential_config.json`** (a separate file from `.env`), but only one typically needs payment.
+BFCL v1's executable test categories make live REST/RapidAPI calls during evaluation. Upstream ships an empty template at **`src/vendor/gorilla_bfcl_v1/berkeley-function-call-leaderboard/function_credential_config.json`** — open it and fill in the four keys. (This file is *separate* from `.env`; it's read by upstream BFCL code, not our code.)
+
+After cloning the vendor at the SHA above, the file already exists with empty values:
+
+```json
+[{"RAPID-API-KEY" : ""},{"EXCHANGERATE-API-KEY" : ""},{"OMDB-API-KEY" : ""}, {"GEOCODE-API-KEY": ""}]
+```
+
+Fill each empty string with your key. Any missing key → `NoAPIKeyError` at eval time. Only one typically needs payment:
 
 | Key | Used by | Sign up | Cost |
 |---|---|---|---|
