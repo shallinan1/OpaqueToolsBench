@@ -1,0 +1,10 @@
+{
+  "prompt_tokens": 31019,
+  "completion_tokens": 17002,
+  "total_tokens": 48021,
+  "num_requests": 50,
+  "models": [
+    "o3"
+  ],
+  "timestamp": "2026-02-04T22:01:47.473485"
+}

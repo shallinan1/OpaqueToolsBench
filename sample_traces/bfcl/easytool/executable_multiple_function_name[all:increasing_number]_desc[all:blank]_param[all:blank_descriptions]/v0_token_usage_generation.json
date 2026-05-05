@@ -1,0 +1,8 @@
+{
+  "prompt_tokens": 23534,
+  "completion_tokens": 24076,
+  "total_tokens": 47610,
+  "num_requests": 50,
+  "timestamp": "2026-02-06T20:13:00.122814",
+  "model": "gpt-5-mini"
+}

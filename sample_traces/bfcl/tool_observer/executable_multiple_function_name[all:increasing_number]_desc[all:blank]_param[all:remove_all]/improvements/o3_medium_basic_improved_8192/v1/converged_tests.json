@@ -1,0 +1,11 @@
+{
+  "converged_tests": [
+    0
+  ],
+  "newly_converged_this_iteration": [
+    0
+  ],
+  "previously_converged": [],
+  "total_tests": 50,
+  "convergence_rate": 0.02
+}

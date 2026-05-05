@@ -1,0 +1,33 @@
+{
+  "timestamp": "2026-02-04 21:57:39 UTC",
+  "timestamp_utc": "20260204T215739545548Z",
+  "model": "gpt-5-mini",
+  "temperature": 0.001,
+  "top_p": 1.0,
+  "max_tokens": 8192,
+  "tool_choice": "required",
+  "prompt_key": "must_call_tool",
+  "reasoning_effort": "medium",
+  "seed": 0,
+  "num_tests": 50,
+  "num_completed": 50,
+  "processing_time_seconds": 116.96780443191528,
+  "hyperparam_dirname": "gpt5mini_medium_req_8192_must_call_tool_seed0",
+  "command": "src/datasets/bfcl/run.py --config-source runs/bfcl/tool_observer/executable_multiple_function_name[all:increasing_number]_desc[all:blank]_param[all:remove_all]/gpt5mini_medium_req_8192_must_call_tool_seed0/improvements/o3_medium_basic_improved_8192/v2/config.json --model gpt-5-mini --temperature 0.001 --tool-choice required --prompt-key must_call_tool --max-tokens 8192 --seed 0 --output-dir runs/bfcl/tool_observer --top-p 1.0 --reasoning-effort medium",
+  "config_source": "runs/bfcl/tool_observer/executable_multiple_function_name[all:increasing_number]_desc[all:blank]_param[all:remove_all]/gpt5mini_medium_req_8192_must_call_tool_seed0/improvements/o3_medium_basic_improved_8192/v2/config.json",
+  "config_name": "executable_multiple_function_name[all:increasing_number]_desc[all:blank]_param[all:remove_all]",
+  "config_modifications": {
+    "names": {
+      "all": "increasing_number"
+    },
+    "descriptions": {
+      "all": "blank"
+    },
+    "parameters": {
+      "all": "remove_all"
+    }
+  },
+  "config_test_category": "executable_multiple_function",
+  "version": 2,
+  "is_improvement": true
+}

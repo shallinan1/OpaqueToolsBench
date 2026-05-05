@@ -1,0 +1,10 @@
+{
+  "editing_model": "o3",
+  "editing_temperature": 1.0,
+  "editing_prompt_key": "basic_improved",
+  "editing_max_tokens": 8192,
+  "source_result_dir": "runs/bfcl/tool_observer/executable_multiple_function_name[all:increasing_number]_desc[all:blank]_param[all:remove_all]/gpt5mini_medium_req_8192_must_call_tool_seed0/improvements/o3_medium_basic_improved_8192/v2",
+  "improvement_version": 3,
+  "num_functions_updated": 10,
+  "generated_timestamp": "2026-02-04T21:58:06.267522Z"
+}

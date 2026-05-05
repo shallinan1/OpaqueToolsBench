@@ -1,0 +1,10 @@
+{
+  "editing_model": "gpt-5",
+  "editing_temperature": 1.0,
+  "editing_prompt_key": "basic_improved",
+  "editing_max_tokens": 8192,
+  "source_result_dir": "runs/bfcl/tool_observer/executable_multiple_function_name[all:increasing_number]_desc[all:blank]_param[all:blank_descriptions]/gpt5mini_medium_req_8192_must_call_tool_seed0/improvements/gpt5_medium_basic_improved_8192/v5",
+  "improvement_version": 6,
+  "num_functions_updated": 1,
+  "generated_timestamp": "2026-02-04T21:45:17.212181Z"
+}

@@ -1,0 +1,4140 @@
+{
+  "config_name": "executable_simple_base",
+  "config_description": "Tool configurations for executable_simple tests",
+  "test_category": "executable_simple",
+  "num_tests": 100,
+  "modifications": null,
+  "tests": [
+    {
+      "test_id": 0,
+      "question": "I've been playing a game where rolling a six is somehow more likely than usual, and the chance of it happening on a single roll is 60%. I'm curious, if I roll the die 20 times, what are the odds that I'll get exactly five sixes?",
+      "tools": [
+        {
+          "name": "calc_binomial_probability",
+          "description": "Computes the binomial probability P(X = k) for X ~ Binomial(n, p), i.e., the probability of exactly k successes in n independent trials with success probability p. Call as calc_binomial_probability(n, k, p) where n and k are non-negative integers with 0 \u2264 k \u2264 n and p is in [0, 1]; returns a floating-point probability.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "n": {
+                "type": "integer",
+                "description": "The number of trials."
+              },
+              "k": {
+                "type": "integer",
+                "description": "The number of successes."
+              },
+              "p": {
+                "type": "number",
+                "description": "The probability of success."
+              }
+            },
+            "required": [
+              "n",
+              "k",
+              "p"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "calc_binomial_probability(n=20, k=5, p=0.6)"
+      ],
+      "name_mapping": {
+        "calc_binomial_probability": "calc_binomial_probability"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 1,
+      "question": "During last night's basketball game, one of the star players was on fire, attempting a whopping 30 free throws. It's generally known that the average success rate for free throws hovers around 50%. I'm curious, with that success probability, what are the chances that the player made exactly 15 out of those 30 attempts?",
+      "tools": [
+        {
+          "name": "calc_binomial_probability",
+          "description": "Computes the binomial probability P(X = k) for exactly k successes in n independent Bernoulli trials with per-trial success probability p (0 \u2264 p \u2264 1). Pass n and k as nonnegative integers with 0 \u2264 k \u2264 n and p as a float, and it returns a float in [0,1]; call as calc_binomial_probability(n, k, p).",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "n": {
+                "type": "integer",
+                "description": "The number of trials."
+              },
+              "k": {
+                "type": "integer",
+                "description": "The number of successes."
+              },
+              "p": {
+                "type": "number",
+                "description": "The probability of success."
+              }
+            },
+            "required": [
+              "n",
+              "k",
+              "p"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "calc_binomial_probability(n=30, k=15, p=0.5)"
+      ],
+      "name_mapping": {
+        "calc_binomial_probability": "calc_binomial_probability"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 2,
+      "question": "I'm currently tweaking a machine learning model and I need to understand the similarity between two objects in my dataset. Their characteristics are expressed in the feature vectors [0.5, 0.7, 0.2, 0.9, 0.1] for the first object and [0.4, 0.6, 0.3, 0.8, 0.2] for the second one. Could you calculate the cosine similarity between these two feature vectors to help me determine how similar these objects are?",
+      "tools": [
+        {
+          "name": "calculate_cosine_similarity",
+          "description": "Computes the cosine similarity between two equal-length numeric vectors as dot(vectorA, vectorB) divided by the product of their Euclidean norms. Provide vectorA and vectorB as arrays/lists of numbers of the same length (neither should be all zeros); returns a single float in [-1, 1], called as calculate_cosine_similarity(vectorA=[...], vectorB=[...]).",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "vectorA": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "description": "The first vector."
+              },
+              "vectorB": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "description": "The second vector."
+              }
+            },
+            "required": [
+              "vectorA",
+              "vectorB"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "calculate_cosine_similarity(vectorA=[0.5, 0.7, 0.2, 0.9, 0.1], vectorB=[0.4, 0.6, 0.3, 0.8, 0.2])"
+      ],
+      "name_mapping": {
+        "calculate_cosine_similarity": "calculate_cosine_similarity"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 3,
+      "question": "I'm working on a project that involves comparing the attributes of different entities to determine how similar they are. I have two entities represented by numerical arrays, and I need to use cosine similarity as a measure of similarity between them. The attributes for the first entity are [0.3, 0.8, 0.1, 0.6, 0.2], and for the second entity, they are [0.5, 0.7, 0.4, 0.9, 0.3]. Could you calculate the cosine similarity for these two vectors for me?",
+      "tools": [
+        {
+          "name": "calculate_cosine_similarity",
+          "description": "Computes the cosine similarity between two equal-length numeric vectors as dot(A,B)/(||A||\u00b7||B||). Call as calculate_cosine_similarity(vectorA=[...], vectorB=[...]) with non-empty arrays of numbers of the same length (neither all zeros); returns a single float in [-1, 1] indicating directional similarity.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "vectorA": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "description": "The first vector."
+              },
+              "vectorB": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "description": "The second vector."
+              }
+            },
+            "required": [
+              "vectorA",
+              "vectorB"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "calculate_cosine_similarity(vectorA=[0.3, 0.8, 0.1, 0.6, 0.2], vectorB=[0.5, 0.7, 0.4, 0.9, 0.3])"
+      ],
+      "name_mapping": {
+        "calculate_cosine_similarity": "calculate_cosine_similarity"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 4,
+      "question": "I'm working on a physics experiment and need to calculate the density of an object I have. It weighs 50 kilograms and takes up a space of 10 cubic meters. Could you help me figure out its density?",
+      "tools": [
+        {
+          "name": "calculate_density",
+          "description": "Calculates the density of an object.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "mass": {
+                "type": "number",
+                "description": "The mass of the object, in kilograms."
+              },
+              "volume": {
+                "type": "number",
+                "description": "The volume of the object, in cubic meters."
+              }
+            },
+            "required": [
+              "mass",
+              "volume"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "calculate_density(mass=50.0, volume=10.0)"
+      ],
+      "name_mapping": {
+        "calculate_density": "calculate_density"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 5,
+      "question": "I've got this strange object we've come across in our scientific research. It's pretty hefty, weighing in at 120 kilograms, and it takes up about 30 cubic meters of space. Can you help me calculate its density?",
+      "tools": [
+        {
+          "name": "calculate_density",
+          "description": "Calculates the density of an object.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "mass": {
+                "type": "number",
+                "description": "The mass of the object, in kilograms."
+              },
+              "volume": {
+                "type": "number",
+                "description": "The volume of the object, in cubic meters."
+              }
+            },
+            "required": [
+              "mass",
+              "volume"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "calculate_density(mass=120.0, volume=30.0)"
+      ],
+      "name_mapping": {
+        "calculate_density": "calculate_density"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 6,
+      "question": "During our advanced physics experiment, we've been tracking this unique object which initially was moving at 15 m/s. It's been accelerating at a rate of 9.8 m/s\u00b2, and this has been going on for exactly 10 seconds. I need to calculate the total displacement of the object over this period. Can you help me with that?",
+      "tools": [
+        {
+          "name": "calculate_displacement",
+          "description": "Computes the displacement of an object moving with constant acceleration using s = v0*t + 0.5*a*t^2. Call as calculate_displacement(initial_velocity, acceleration, time) with numeric inputs in SI units (m/s, m/s^2, s); returns the displacement in meters as a single numeric value.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "initial_velocity": {
+                "type": "number",
+                "description": "The initial velocity of the object, in meters per second."
+              },
+              "acceleration": {
+                "type": "number",
+                "description": "The acceleration of the object, in meters per second squared."
+              },
+              "time": {
+                "type": "number",
+                "description": "The time the object has been moving, in seconds."
+              }
+            },
+            "required": [
+              "initial_velocity",
+              "acceleration",
+              "time"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "calculate_displacement(initial_velocity=15.0, acceleration=9.8, time=10)"
+      ],
+      "name_mapping": {
+        "calculate_displacement": "calculate_displacement"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 7,
+      "question": "During the high-speed chase, when the driver accelerated the vehicle, it was initially moving at 25 meters per second. With the sudden push on the gas pedal, the car accelerated at 15 meters per second squared, and this went on for 8 seconds. I need to calculate the displacement of the vehicle over that time. Can you provide me with that information?",
+      "tools": [
+        {
+          "name": "calculate_displacement",
+          "description": "Computes linear displacement using s = v0 * t + 0.5 * a * t^2, where initial_velocity is in meters/second, acceleration in meters/second^2, and time in seconds; returns the displacement as a number in meters. Call as calculate_displacement(initial_velocity=<number>, acceleration=<number>, time=<number>).",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "initial_velocity": {
+                "type": "number",
+                "description": "The initial velocity of the object, in meters per second."
+              },
+              "acceleration": {
+                "type": "number",
+                "description": "The acceleration of the object, in meters per second squared."
+              },
+              "time": {
+                "type": "number",
+                "description": "The time the object has been moving, in seconds."
+              }
+            },
+            "required": [
+              "initial_velocity",
+              "acceleration",
+              "time"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "calculate_displacement(initial_velocity=25.0, acceleration=15.0, time=8)"
+      ],
+      "name_mapping": {
+        "calculate_displacement": "calculate_displacement"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 8,
+      "question": "During our physics lab session, we're experimenting with electric fields and their effects on charged particles. We've placed a particle that carries a charge of 5 coulombs within a field where there's a voltage of 10 volts. I need to calculate the electrostatic potential energy for this scenario. Could you work that out for me?",
+      "tools": [
+        {
+          "name": "calculate_electrostatic_potential_energy",
+          "description": "Computes the electrostatic potential energy U = q \u00d7 V for a charge at a specified electric potential. Call calculate_electrostatic_potential_energy(charge, voltage) with charge (number, in coulombs) and voltage (number, in volts); returns a number (in joules) equal to charge * voltage.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "charge": {
+                "type": "number",
+                "description": "The charge of the object, in coulombs."
+              },
+              "voltage": {
+                "type": "number",
+                "description": "The voltage of the object, in volts."
+              }
+            },
+            "required": [
+              "charge",
+              "voltage"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "calculate_electrostatic_potential_energy(charge=5.0, voltage=10.0)"
+      ],
+      "name_mapping": {
+        "calculate_electrostatic_potential_energy": "calculate_electrostatic_potential_energy"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 9,
+      "question": "I'm working on a physics simulation and I have a micro-particle here charged at 7.8 coulombs. It's placed in an electromagnetic field with a voltage of 15.2 volts. Can you calculate the electrostatic potential energy for this particle in the given field?",
+      "tools": [
+        {
+          "name": "calculate_electrostatic_potential_energy",
+          "description": "Computes the electrostatic potential energy U = q \u00d7 V (in joules) from a given charge (in coulombs) and electric potential/voltage (in volts). Call as calculate_electrostatic_potential_energy(charge: number, voltage: number) and it returns a single numeric value equal to charge * voltage (J).",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "charge": {
+                "type": "number",
+                "description": "The charge of the object, in coulombs."
+              },
+              "voltage": {
+                "type": "number",
+                "description": "The voltage of the object, in volts."
+              }
+            },
+            "required": [
+              "charge",
+              "voltage"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "calculate_electrostatic_potential_energy(charge=7.8, voltage=15.2)"
+      ],
+      "name_mapping": {
+        "calculate_electrostatic_potential_energy": "calculate_electrostatic_potential_energy"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 10,
+      "question": "During a training exercise, we're analyzing a simulation of a high-speed chase where a vehicle starts from a standstill and then accelerates constantly. We've clocked the acceleration at 9.8 meters per second squared and the time span for this acceleration is 12 seconds. I need to calculate the final velocity of the vehicle at the end of this time frame. Can you give me that figure?",
+      "tools": [
+        {
+          "name": "calculate_final_velocity",
+          "description": "Calculates the final velocity of an object.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "initial_velocity": {
+                "type": "number",
+                "description": "The initial velocity of the object, in meters per second."
+              },
+              "acceleration": {
+                "type": "number",
+                "description": "The acceleration of the object, in meters per second squared."
+              },
+              "time": {
+                "type": "number",
+                "description": "The time the object has been moving, in seconds."
+              }
+            },
+            "required": [
+              "initial_velocity",
+              "acceleration",
+              "time"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "calculate_final_velocity(initial_velocity=0, acceleration=9.8, time=12)"
+      ],
+      "name_mapping": {
+        "calculate_final_velocity": "calculate_final_velocity"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 11,
+      "question": "I've got a physics experiment where I'm dropping a ball from a certain height, and I know that the initial velocity is zero because I'm letting it fall freely. Gravity is doing all the work here at 9.8 m/s\u00b2. After 7 seconds, I want to calculate what the final velocity will be. Can we get that sorted out?",
+      "tools": [
+        {
+          "name": "calculate_final_velocity",
+          "description": "Calculates the final velocity of an object.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "initial_velocity": {
+                "type": "number",
+                "description": "The initial velocity of the object, in meters per second."
+              },
+              "acceleration": {
+                "type": "number",
+                "description": "The acceleration of the object, in meters per second squared."
+              },
+              "time": {
+                "type": "number",
+                "description": "The time the object has been moving, in seconds."
+              }
+            },
+            "required": [
+              "initial_velocity",
+              "acceleration",
+              "time"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "calculate_final_velocity(initial_velocity=0, acceleration=9.8, time=7)"
+      ],
+      "name_mapping": {
+        "calculate_final_velocity": "calculate_final_velocity"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 12,
+      "question": "I've put $5000 into a fixed deposit offering a 5% annual interest rate, and I'm planning to let it grow for 10 years. Could you calculate the future value of this investment for me?",
+      "tools": [
+        {
+          "name": "calculate_future_value",
+          "description": "Computes the future value of an investment using discrete compounding per period: FV = present_value * (1 + interest_rate) ** periods. Call as calculate_future_value(present_value, interest_rate, periods) with present_value in dollars (number), interest_rate as a decimal between 0 and 1 (e.g., 0.05 for 5%), and periods as a non-negative integer number of years; returns a single numeric future value in dollars.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "present_value": {
+                "type": "number",
+                "description": "The present value of the investment, in dollars."
+              },
+              "interest_rate": {
+                "type": "number",
+                "description": "The interest rate of the investment, ranging from 0 to 1."
+              },
+              "periods": {
+                "type": "integer",
+                "description": "The number of periods, in years."
+              }
+            },
+            "required": [
+              "present_value",
+              "interest_rate",
+              "periods"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "calculate_future_value(present_value=5000, interest_rate=0.05, periods=10)"
+      ],
+      "name_mapping": {
+        "calculate_future_value": "calculate_future_value"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 13,
+      "question": "I've got $8000 that I'm planning to drop into a savings account with a sweet annual interest rate of 4%. I'm not touching it for 15 years. I'm curious about the future value of this investment after that time. Can you crunch the numbers for me?",
+      "tools": [
+        {
+          "name": "calculate_future_value",
+          "description": "Computes the compound future value of an investment using FV = present_value * (1 + interest_rate)^periods, assuming one compounding per period. Call calculate_future_value(present_value, interest_rate, periods) with present_value as a number in USD, interest_rate as a decimal between 0 and 1 (e.g., 0.04 for 4%), and periods as a non-negative integer count of periods/years; returns a single numeric future value.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "present_value": {
+                "type": "number",
+                "description": "The present value of the investment, in dollars."
+              },
+              "interest_rate": {
+                "type": "number",
+                "description": "The interest rate of the investment, ranging from 0 to 1."
+              },
+              "periods": {
+                "type": "integer",
+                "description": "The number of periods, in years."
+              }
+            },
+            "required": [
+              "present_value",
+              "interest_rate",
+              "periods"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "calculate_future_value(present_value=8000, interest_rate=0.04, periods=15)"
+      ],
+      "name_mapping": {
+        "calculate_future_value": "calculate_future_value"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 14,
+      "question": "As part of my data analysis project, I've been tasked with examining the temperature trends over the past month. I've collected a set of daily temperature readings that I need to interpret. The dataset includes temperatures ranging from 22 to 80 degrees Celsius, incrementing by 2 each day. To gain a better understanding of the overall climate patterns, could you calculate the average temperature for this period using these values?",
+      "tools": [
+        {
+          "name": "calculate_mean",
+          "description": "Computes the arithmetic mean (average) of a numeric sequence. Call calculate_mean(numbers=[n1, n2, ...]) with a list/array of integers or floats; it returns the mean as a float (e.g., calculate_mean(numbers=[22, 24, 26]) \u2192 24.0).",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "numbers": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "description": "The list of numbers."
+              }
+            },
+            "required": [
+              "numbers"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "calculate_mean(numbers=[22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80])"
+      ],
+      "name_mapping": {
+        "calculate_mean": "calculate_mean"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 15,
+      "question": "I'm working on a report about a basketball player's average performance throughout the season. The data I have includes the points they scored in each game: 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130, 135, 140, 145, 150, 155, 160. To complete my analysis, I need to calculate the mean score per game. Can you help me with that?",
+      "tools": [
+        {
+          "name": "calculate_mean",
+          "description": "Computes the arithmetic mean of a non-empty list/array of numeric values (ints or floats). Call as calculate_mean(numbers=[v1, v2, ...]); returns a one-element array containing the mean as a float (e.g., [87.5]).",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "numbers": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "description": "The list of numbers."
+              }
+            },
+            "required": [
+              "numbers"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "calculate_mean(numbers=[15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130, 135, 140, 145, 150, 155, 160])"
+      ],
+      "name_mapping": {
+        "calculate_mean": "calculate_mean"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 16,
+      "question": "I'm developing a new encryption algorithm and I'm currently focused on the permutations aspect. I need to know how many unique arrangements are possible if I take 5 characters from the standard English alphabet, which has 26 letters. This calculation is crucial for understanding the complexity of the encryption. Can you run the permutations calculation with these values?",
+      "tools": [
+        {
+          "name": "calculate_permutations",
+          "description": "Calculates the number of permutations of k elements from a set of n elements.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "n": {
+                "type": "integer",
+                "description": "The number of elements in the set."
+              },
+              "k": {
+                "type": "integer",
+                "description": "The number of elements to choose."
+              }
+            },
+            "required": [
+              "n",
+              "k"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "calculate_permutations(n=26, k=5)"
+      ],
+      "name_mapping": {
+        "calculate_permutations": "calculate_permutations"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 17,
+      "question": "In my current research on plant genetics, I'm exploring the genetic diversity within a specific species. It's fascinating work, and I've managed to isolate 30 unique genes. The next step in my study involves figuring out the possible combinations if I were to select 7 of these genes at a time for a more detailed analysis. Could you calculate the number of different permutations for 7 genes out of the total 30?",
+      "tools": [
+        {
+          "name": "calculate_permutations",
+          "description": "Calculates the number of permutations of k elements from a set of n elements.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "n": {
+                "type": "integer",
+                "description": "The number of elements in the set."
+              },
+              "k": {
+                "type": "integer",
+                "description": "The number of elements to choose."
+              }
+            },
+            "required": [
+              "n",
+              "k"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "calculate_permutations(n=30, k=7)"
+      ],
+      "name_mapping": {
+        "calculate_permutations": "calculate_permutations"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 18,
+      "question": "To better understand the volatility and risk associated with this particular stock, I need to calculate the standard deviation of its daily closing prices over the past 10 trading days. Here are the figures I've gathered: 1000, 2000, 3000, 4000, 5000, 7000, 9000, 15000, 20000, and 30000. Can you provide me with the standard deviation for these closing prices?",
+      "tools": [
+        {
+          "name": "calculate_standard_deviation",
+          "description": "Computes the population standard deviation of a non-empty array of numeric values (ints or floats). Call as calculate_standard_deviation(numbers=[x1, x2, ...]); returns a single-element array [std_dev] where std_dev is a float.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "numbers": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "description": "The list of numbers."
+              }
+            },
+            "required": [
+              "numbers"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "calculate_standard_deviation(numbers=[1000,2000,3000,4000,5000,7000,9000,15000,20000,30000])"
+      ],
+      "name_mapping": {
+        "calculate_standard_deviation": "calculate_standard_deviation"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 19,
+      "question": "I've been tracking the scoring performance of a certain basketball player across the last 12 games to get insights into his consistency. The points he scored in each game are as follows: 30, 20, 25, 12, 59, 23, 64, 21, 67, 12, 23, and 43. I need to calculate the standard deviation of this scoring to better understand the variability and predictability of his performance. Could you help me with that?",
+      "tools": [
+        {
+          "name": "calculate_standard_deviation",
+          "description": "Computes the population standard deviation (dividing by n) of a non-empty list of numeric values (ints or floats). Call as calculate_standard_deviation(numbers=[v1, v2, ...]); returns a single floating-point number representing the standard deviation.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "numbers": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "description": "The list of numbers."
+              }
+            },
+            "required": [
+              "numbers"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "calculate_standard_deviation(numbers=[30,20,25,12,59,23,64,21,67,12,23,43])"
+      ],
+      "name_mapping": {
+        "calculate_standard_deviation": "calculate_standard_deviation"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 20,
+      "question": "I'm currently working on an architectural project where we're designing a new triangular-shaped park. We've finally settled on the dimensions, and we're planning for the base to be 500 meters long with a height of 300 meters. Could you calculate the area of this park for me?",
+      "tools": [
+        {
+          "name": "calculate_triangle_area",
+          "description": "Computes the area of a triangle as 0.5 \u00d7 base \u00d7 height using non-negative integer base and height values in meters, returning the area as a floating-point number in square meters. Call as calculate_triangle_area(base=<int>, height=<int>), e.g., calculate_triangle_area(base=500, height=300) -> 75000.0.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "base": {
+                "type": "integer",
+                "description": "The base of the triangle, in meters."
+              },
+              "height": {
+                "type": "integer",
+                "description": "The height of the triangle, in meters."
+              }
+            },
+            "required": [
+              "base",
+              "height"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "calculate_triangle_area(base=500, height=300)"
+      ],
+      "name_mapping": {
+        "calculate_triangle_area": "calculate_triangle_area"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 21,
+      "question": "I'm working on the design for a triangular dam, and I've settled on the dimensions. The base is going to be 700 meters, and the height will be at 450 meters. I need to calculate the total area that the face of this dam will cover. Can you help me figure out what that area would be with these measurements?",
+      "tools": [
+        {
+          "name": "calculate_triangle_area",
+          "description": "Calculates the area of a triangle given its base and height.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "base": {
+                "type": "integer",
+                "description": "The base of the triangle, in meters."
+              },
+              "height": {
+                "type": "integer",
+                "description": "The height of the triangle, in meters."
+              }
+            },
+            "required": [
+              "base",
+              "height"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "calculate_triangle_area(base=700, height=450)"
+      ],
+      "name_mapping": {
+        "calculate_triangle_area": "calculate_triangle_area"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 22,
+      "question": "I'm working on a financial analysis for an upcoming business transaction, and I need to convert 5,000 Euros into Japanese Yen. Could you provide me with the converted amount using the current exchange rates?",
+      "tools": [
+        {
+          "name": "convert_currency",
+          "description": "Converts a monetary amount from one ISO 4217 currency to another using the latest ExchangeRate-API rate. Call convert_currency(amount, from_currency, to_currency) with amount as a positive number and 3-letter ISO codes; returns the converted amount as a number (e.g., 5000, 'EUR', 'JPY' -> 859533.5).",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "amount": {
+                "type": "number",
+                "description": "The amount of money to convert, in the base currency."
+              },
+              "from_currency": {
+                "type": "string",
+                "description": "The ISO currency code for the base currency."
+              },
+              "to_currency": {
+                "type": "string",
+                "description": "The ISO currency code for the target currency."
+              }
+            },
+            "required": [
+              "amount",
+              "from_currency",
+              "to_currency"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "convert_currency(amount=5000, from_currency='EUR', to_currency='JPY')"
+      ],
+      "name_mapping": {
+        "convert_currency": "convert_currency"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "real_time_match"
+      ]
+    },
+    {
+      "test_id": 23,
+      "question": "I have a client preparing for a vacation in the United Kingdom, and they've set aside a budget of 3000 US Dollars for the trip. They've asked me to get a clear idea of how much they will have in British Pounds so they can plan their expenses accordingly. Could you convert $3000 from USD to GBP for me?",
+      "tools": [
+        {
+          "name": "convert_currency",
+          "description": "Converts a monetary amount from one ISO 4217 currency to another using ExchangeRate-API rates and returns the converted amount as a number in the target currency. Call as convert_currency(amount, from_currency, to_currency) where amount is a numeric value (e.g., 3000) and from_currency/to_currency are three-letter codes like \"USD\" and \"GBP\".",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "amount": {
+                "type": "number",
+                "description": "The amount of money to convert, in the base currency."
+              },
+              "from_currency": {
+                "type": "string",
+                "description": "The ISO currency code for the base currency."
+              },
+              "to_currency": {
+                "type": "string",
+                "description": "The ISO currency code for the target currency."
+              }
+            },
+            "required": [
+              "amount",
+              "from_currency",
+              "to_currency"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "convert_currency(amount=3000, from_currency='USD', to_currency='GBP')"
+      ],
+      "name_mapping": {
+        "convert_currency": "convert_currency"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "real_time_match"
+      ]
+    },
+    {
+      "test_id": 24,
+      "question": "While working on my physics assignment, I've been examining the motion of a particle on a linear trajectory. The equation f(x) = 3t^2 + 2t + 1 represents the particle's position over time. To grasp the particle's behavior better, I need to figure out its velocity at precisely 5 seconds. Could you help me calculate the derivative of the position function to find the velocity at that moment?",
+      "tools": [
+        {
+          "name": "estimate_derivative",
+          "description": "Numerically estimates the derivative of a real-valued function at a specified point using finite differences; pass a Python callable (e.g., lambda x: ...) that accepts a single numeric argument and a numeric x (int or float), and it returns the estimated derivative as a single float (in this interface, provided as a one-element list). Call as: estimate_derivative(function=lambda t: 3*t**2 + 2*t + 1, x=5).",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "function": {
+                "type": "string",
+                "description": "The function to calculate the derivative of. This should be in the format of python lambda function."
+              },
+              "x": {
+                "type": "integer",
+                "description": "The point to calculate the derivative at."
+              }
+            },
+            "required": [
+              "function",
+              "x"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "estimate_derivative(function='lambda x: 3*x**2 + 2*x + 1', x=5)"
+      ],
+      "name_mapping": {
+        "estimate_derivative": "estimate_derivative"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 25,
+      "question": "I'm working on a financial analysis for a company, trying to understand the intricacies of their revenue growth. The revenue function over time can be described by a mathematical function, specifically f(x) = 4x^3 + 3x^2 + 2x + 1. My current task is to determine the rate at which the company's revenue is changing at the 7-year mark. Can you calculate the derivative of the revenue function for me?",
+      "tools": [
+        {
+          "name": "estimate_derivative",
+          "description": "Numerically estimates the derivative f\u2032(x) of a 1D function at a specified point. Call as estimate_derivative(function=lambda x: ..., x=<number>); function must be a Python callable (e.g., a lambda) that accepts a single numeric input, and the result is returned as a single-element list containing the floating-point derivative estimate.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "function": {
+                "type": "string",
+                "description": "The function to calculate the derivative of.This should be in the format of python lambda function."
+              },
+              "x": {
+                "type": "integer",
+                "description": "The point to calculate the derivative at."
+              }
+            },
+            "required": [
+              "function",
+              "x"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "estimate_derivative(function='lambda x: 4*x**3 + 3*x**2 + 2*x + 1', x=7)"
+      ],
+      "name_mapping": {
+        "estimate_derivative": "estimate_derivative"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 26,
+      "question": "I've been expanding my slang vocabulary, and I keep hearing the word \"lit\" pop up in conversations. It's not a term I'm familiar with, and I'm curious about its meaning. Can you find out what \"lit\" means on Urban Dictionary for me?",
+      "tools": [
+        {
+          "name": "find_term_on_urban_dictionary",
+          "description": "Looks up a term on Urban Dictionary and returns its definition text results. Pass a non-empty string as term; the function returns a list of definition strings (one or more), called as find_term_on_urban_dictionary(term='lit').",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "term": {
+                "type": "string",
+                "description": "The term to find the definition of."
+              }
+            },
+            "required": [
+              "term"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "find_term_on_urban_dictionary(term=\"lit\")"
+      ],
+      "name_mapping": {
+        "find_term_on_urban_dictionary": "find_term_on_urban_dictionary"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 27,
+      "question": "While listening to the latest hip-hop tracks, I've noticed that the word \"flex\" keeps popping up in the lyrics. It seems to be used in a way that's different from the traditional meaning I'm familiar with. To get a better grasp of the slang, can you look up what \"flex\" means in the context of hip-hop on Urban Dictionary for me?",
+      "tools": [
+        {
+          "name": "find_term_on_urban_dictionary",
+          "description": "Looks up a term on Urban Dictionary and returns its definitions. Call as find_term_on_urban_dictionary(term=\"your term\") with a non-empty string; it returns a list of definition text strings (preserving Urban Dictionary\u2019s bracketed link markup), or an empty list if no definitions are found.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "term": {
+                "type": "string",
+                "description": "The term to find the definition of."
+              }
+            },
+            "required": [
+              "term"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "find_term_on_urban_dictionary(term=\"flex\")"
+      ],
+      "name_mapping": {
+        "find_term_on_urban_dictionary": "find_term_on_urban_dictionary"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 28,
+      "question": "I'm planning a new art project - a circular mural on one of the downtown walls. It's going to be quite large, with a 15-foot radius. To make sure I buy enough paint without overspending, I need to figure out the area of this circle. Can you help me with that calculation?",
+      "tools": [
+        {
+          "name": "geometry_area_circle",
+          "description": "Calculates the area of a circle.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "radius": {
+                "type": "integer",
+                "description": "The radius of the circle, in feet."
+              }
+            },
+            "required": [
+              "radius"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "geometry_area_circle(radius=15)"
+      ],
+      "name_mapping": {
+        "geometry_area_circle": "geometry_area_circle"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 29,
+      "question": "I'm working on the design for a client's circular garden and I need to figure out how much sod to order. The garden's radius is 20 feet. Can you calculate the area for me?",
+      "tools": [
+        {
+          "name": "geometry_area_circle",
+          "description": "Computes the area of a circle using \u03c0 \u00d7 radius\u00b2. Call as geometry_area_circle(radius=<int in feet>) and it returns a floating-point number representing the area in square feet (e.g., geometry_area_circle(radius=20) -> 1256.6370614359173).",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "radius": {
+                "type": "integer",
+                "description": "The radius of the circle, in feet."
+              }
+            },
+            "required": [
+              "radius"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "geometry_area_circle(radius=20)"
+      ],
+      "name_mapping": {
+        "geometry_area_circle": "geometry_area_circle"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 30,
+      "question": "I'm in the middle of composing an article on the COVID-19 situation, focusing on Brazil's ongoing response and how it's affecting the local population. Accurate data is crucial for my analysis. Could you give me the latest figures on the active COVID-19 cases in Brazil?",
+      "tools": [
+        {
+          "name": "get_active_covid_case_by_country",
+          "description": "Returns the most recent number of active COVID-19 cases for the specified country as an integer. Call get_active_covid_case_by_country(country=\"<full country name in English>\") to receive the latest active case count (e.g., 1783377 for \"Brazil\").",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "country": {
+                "type": "string",
+                "description": "The country to find the active cases of, in the format of the country's full name."
+              }
+            },
+            "required": [
+              "country"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "get_active_covid_case_by_country(country='Brazil')"
+      ],
+      "name_mapping": {
+        "get_active_covid_case_by_country": "get_active_covid_case_by_country"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "real_time_match"
+      ]
+    },
+    {
+      "test_id": 31,
+      "question": "I'm currently compiling a report on the COVID-19 status in various countries, and I need to include the latest figures on active cases in Spain. Can you get me the updated active case count for Spain?",
+      "tools": [
+        {
+          "name": "get_active_covid_case_by_country",
+          "description": "Retrieves the most recent number of active COVID-19 cases for a specified country; expects country as a string containing the country\u2019s full name (e.g., \"Spain\"). Returns a single-element list with the active case count as an integer (e.g., [30634]); call as get_active_covid_case_by_country(country=\"Spain\").",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "country": {
+                "type": "string",
+                "description": "The country to find the active cases of, in the format of the country's full name."
+              }
+            },
+            "required": [
+              "country"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "get_active_covid_case_by_country(country='Spain')"
+      ],
+      "name_mapping": {
+        "get_active_covid_case_by_country": "get_active_covid_case_by_country"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "real_time_match"
+      ]
+    },
+    {
+      "test_id": 32,
+      "question": "I'm currently compiling a report on various key players in the tech industry, and I'm looking into the origins and ownerships of some of the most traded stocks. Apple's stock, 'AAPL', has been on my radar, and it's vital for my analysis to confirm the exact name of the company trading under this stock symbol. Could you provide me with the company name for 'AAPL'?",
+      "tools": [
+        {
+          "name": "get_company_name_by_stock_name",
+          "description": "Looks up the official company name associated with a given stock ticker symbol. Call as get_company_name_by_stock_name(stock_name=\"AAPL\") with a required string ticker symbol, and it returns a list of matching company names (e.g., [\"Apple Inc.\"]).",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "stock_name": {
+                "type": "string",
+                "description": "The stock name of the product, in the format of the stock symbol."
+              }
+            },
+            "required": [
+              "stock_name"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "get_company_name_by_stock_name(stock_name='AAPL')"
+      ],
+      "name_mapping": {
+        "get_company_name_by_stock_name": "get_company_name_by_stock_name"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 33,
+      "question": "I'm expanding my investment portfolio and I've been closely following a few tech stocks. 'GOOGL' has shown promising trends, and I'm thinking about investing in it. However, I want to be thorough with my research. Could you provide me with the name of the company that 'GOOGL' represents?",
+      "tools": [
+        {
+          "name": "get_company_name_by_stock_name",
+          "description": "Looks up and returns the official company name(s) for a given stock ticker symbol. Provide stock_name as a required string (e.g., 'GOOGL'); the function returns a list of matching company names (typically a single-item list) and is called as get_company_name_by_stock_name(stock_name='GOOGL').",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "stock_name": {
+                "type": "string",
+                "description": "The stock name of the product, in the format of the stock symbol."
+              }
+            },
+            "required": [
+              "stock_name"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "get_company_name_by_stock_name(stock_name='GOOGL')"
+      ],
+      "name_mapping": {
+        "get_company_name_by_stock_name": "get_company_name_by_stock_name"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 34,
+      "question": "We've been tracking potential security breaches and '192.168.1.1' keeps popping up in our logs. I need to pinpoint the geographical origin of this IP. Could you determine the latitude and longitude for this address?",
+      "tools": [
+        {
+          "name": "get_coordinate_by_ip_address",
+          "description": "Looks up the geolocation of an IP address and returns its coordinates when available. Call as get_coordinate_by_ip_address(ip_address='1.2.3.4'); ip_address must be a string-formatted public IPv4/IPv6 address, and the function returns [latitude, longitude] (floats) for geolocatable addresses or a status list such as ['private range'] when the address cannot be located (e.g., private/reserved ranges).",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "ip_address": {
+                "type": "string",
+                "description": "The IP address to find the location of."
+              }
+            },
+            "required": [
+              "ip_address"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "get_coordinate_by_ip_address(ip_address='192.168.1.1')"
+      ],
+      "name_mapping": {
+        "get_coordinate_by_ip_address": "get_coordinate_by_ip_address"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 35,
+      "question": "Could you track down the latitude and longitude for this IP address I'm concerned about? It's 172.16.254.1. I've been monitoring the network and this one's been popping up with some strange activity.",
+      "tools": [
+        {
+          "name": "get_coordinate_by_ip_address",
+          "description": "Looks up the geographic coordinates of an IP address. Provide ip_address as a string (e.g., '8.8.8.8'); the function returns [latitude(float), longitude(float)] for public IPs, or ['private range'] when the address is in a private/reserved range. Call as get_coordinate_by_ip_address(ip_address='8.8.8.8').",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "ip_address": {
+                "type": "string",
+                "description": "The IP address to find the location of."
+              }
+            },
+            "required": [
+              "ip_address"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "get_coordinate_by_ip_address(ip_address='172.16.254.1')"
+      ],
+      "name_mapping": {
+        "get_coordinate_by_ip_address": "get_coordinate_by_ip_address"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 36,
+      "question": "I have a client planning a trip to Paris, and they're quite keen on details. They want to know the exact latitude and longitude for the city to plan their itinerary with precision. Could you look up the geographical coordinates for Paris for me?",
+      "tools": [
+        {
+          "name": "get_coordinates_from_city",
+          "description": "Retrieves a city's geographic coordinates from the Maps.co Geocoding API; pass city_name as a string (e.g., 'Paris') and it returns a list of [latitude, longitude] pairs as strings in decimal degrees (order: lat, lon), one pair per match. Usage: get_coordinates_from_city(city_name='Rome').",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "city_name": {
+                "type": "string",
+                "description": "The name of the city, such as 'Rome'."
+              }
+            },
+            "required": [
+              "city_name"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "get_coordinates_from_city(city_name='Paris')"
+      ],
+      "name_mapping": {
+        "get_coordinates_from_city": "get_coordinates_from_city"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 37,
+      "question": "I'm currently working on a wildlife research project that involves tracking the migration patterns of a bird species known to pass through various cities. The next phase of my study will focus on their activity around Cairo. To ensure the precision of my tracking equipment, I need the exact latitude and longitude coordinates of Cairo. Could you provide me with these details for Cairo?",
+      "tools": [
+        {
+          "name": "get_coordinates_from_city",
+          "description": "Queries the Maps.co Geocoding API for the given city name and returns a list of one or more coordinate matches as [latitude, longitude] string pairs, with the first pair being the top match. Provide city_name as a string (include state/region/country to disambiguate, e.g., 'Cairo, Egypt') and call as get_coordinates_from_city(city_name='Cairo, Egypt').",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "city_name": {
+                "type": "string",
+                "description": "The name of the city, such as 'Rome'."
+              }
+            },
+            "required": [
+              "city_name"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "get_coordinates_from_city(city_name='Cairo')"
+      ],
+      "name_mapping": {
+        "get_coordinates_from_city": "get_coordinates_from_city"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 38,
+      "question": "I'm currently conducting a study on the impact of COVID-19 and I'm focusing on Brazil's situation. I need the latest figures on the total number of deaths attributed to the virus in Brazil. Could you provide me with that information?",
+      "tools": [
+        {
+          "name": "get_covid_death_by_country",
+          "description": "Returns the most recent cumulative number of confirmed COVID-19 deaths for a specified country. Pass the country's full name as a string (e.g., get_covid_death_by_country(country=\"Brazil\")); the function returns an integer representing the total deaths.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "country": {
+                "type": "string",
+                "description": "The country to find the total deaths of, in the format of the country's full name."
+              }
+            },
+            "required": [
+              "country"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "get_covid_death_by_country(country='Brazil')"
+      ],
+      "name_mapping": {
+        "get_covid_death_by_country": "get_covid_death_by_country"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "real_time_match"
+      ]
+    },
+    {
+      "test_id": 39,
+      "question": "I'm an epidemiologist tracking the impact of COVID-19, and right now, I'm focused on the situation in India. I need the latest figures on the death toll there. Can you get me the updated total number of deaths from COVID in India?",
+      "tools": [
+        {
+          "name": "get_covid_death_by_country",
+          "description": "Retrieves the most recent cumulative number of COVID-19 deaths for a specified country. Call as get_covid_death_by_country(country=\"Full Country Name\"); the required country parameter is a string with the country's full name, and the function returns the latest total deaths as an integer.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "country": {
+                "type": "string",
+                "description": "The country to find the total deaths of, in the format of the country's full name."
+              }
+            },
+            "required": [
+              "country"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "get_covid_death_by_country(country='India')"
+      ],
+      "name_mapping": {
+        "get_covid_death_by_country": "get_covid_death_by_country"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "real_time_match"
+      ]
+    },
+    {
+      "test_id": 40,
+      "question": "I'm currently working on a detailed city map, and I've got two key locations that I need to measure the distance between. The first location is at coordinates (45.76, 4.85), and the second one is at (48.85, 2.35). Could you help me figure out how far apart these two points are?",
+      "tools": [
+        {
+          "name": "get_distance",
+          "description": "Computes the Euclidean distance between two 2D points. Call as get_distance(pointA=[x1, y1], pointB=[x2, y2]); each point must be a two-element numeric array, and the function returns a single-element array containing the distance (float).",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "pointA": {
+                "type": "array",
+                "description": "The first point.",
+                "items": {
+                  "type": "number"
+                }
+              },
+              "pointB": {
+                "type": "array",
+                "description": "The second point.",
+                "items": {
+                  "type": "number"
+                }
+              }
+            },
+            "required": [
+              "pointA",
+              "pointB"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "get_distance(pointA=(45.76, 4.85), pointB=(48.85, 2.35))"
+      ],
+      "name_mapping": {
+        "get_distance": "get_distance"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 41,
+      "question": "During my fieldwork in the forest, I've been closely monitoring a certain animal's movement patterns. Just recently, I've noted two specific spots where it's been sighted. The first location is marked by the coordinates (32.71, -117.16), and the second one is at (34.05, -118.25). To better understand its roaming area, I need to calculate the distance it traveled between these two points. Can you help me determine this distance using the coordinates I provided for the two locations?",
+      "tools": [
+        {
+          "name": "get_distance",
+          "description": "Computes the straight-line (Euclidean) distance between two 2D points. Provide pointA and pointB as two-number arrays [x, y] (e.g., [32.71, -117.16]); call as get_distance(pointA=[x1, y1], pointB=[x2, y2]) and it returns the distance as a single numeric value in the same units as the inputs.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "pointA": {
+                "type": "array",
+                "description": "The first point.",
+                "items": {
+                  "type": "number"
+                }
+              },
+              "pointB": {
+                "type": "array",
+                "description": "The second point.",
+                "items": {
+                  "type": "number"
+                }
+              }
+            },
+            "required": [
+              "pointA",
+              "pointB"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "get_distance(pointA=(32.71, -117.16), pointB=(34.05, -118.25))"
+      ],
+      "name_mapping": {
+        "get_distance": "get_distance"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 42,
+      "question": "I'm deep into my research on the Fibonacci sequence, and I need to analyze the first 20 numbers of the sequence for my study. Could you generate that for me?",
+      "tools": [
+        {
+          "name": "get_fibonacci_sequence",
+          "description": "Generates and returns the first n Fibonacci numbers as a list of integers starting with 0 and 1 in index order. Pass a required non-negative integer n (e.g., get_fibonacci_sequence(n=20)); the function returns a list of length n.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "n": {
+                "type": "integer",
+                "description": "The number of Fibonacci numbers to calculate."
+              }
+            },
+            "required": [
+              "n"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "get_fibonacci_sequence(n=20)"
+      ],
+      "name_mapping": {
+        "get_fibonacci_sequence": "get_fibonacci_sequence"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 43,
+      "question": "For my computer science project, I need to generate the Fibonacci sequence. Specifically, the assignment requires the first 50 numbers. Could you calculate that for me?",
+      "tools": [
+        {
+          "name": "get_fibonacci_sequence",
+          "description": "Returns a list containing the first n Fibonacci numbers (length n), starting with 0 and 1; n must be a positive integer (>= 1). Call as get_fibonacci_sequence(n), for example get_fibonacci_sequence(5) -> [0, 1, 1, 2, 3].",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "n": {
+                "type": "integer",
+                "description": "The number of Fibonacci numbers to calculate."
+              }
+            },
+            "required": [
+              "n"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "get_fibonacci_sequence(n=50)"
+      ],
+      "name_mapping": {
+        "get_fibonacci_sequence": "get_fibonacci_sequence"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 44,
+      "question": "I'm tasked with monitoring competitor pricing, and I need to keep tabs on a certain item listed on Amazon. Its ASIN is 'B08PPDJWC8'. Could you fetch the latest price for this product for me?",
+      "tools": [
+        {
+          "name": "get_price_by_amazon_ASIN",
+          "description": "Retrieves the current Amazon price(s) for a product identified by its ASIN. Pass the 10-character ASIN as a string (e.g., \"B08PPDJWC8\"); the function returns a list of price strings including currency symbols (e.g., [\"$180.00\"]) for available offers\u2014call as get_price_by_amazon_ASIN(ASIN=\"B08PPDJWC8\").",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "ASIN": {
+                "type": "string",
+                "description": "The Amazon ASIN of the product."
+              }
+            },
+            "required": [
+              "ASIN"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "get_price_by_amazon_ASIN(ASIN='B08PPDJWC8')"
+      ],
+      "name_mapping": {
+        "get_price_by_amazon_ASIN": "get_price_by_amazon_ASIN"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 45,
+      "question": "I manage inventory for our online store, and it's crucial to keep track of our competitors' pricing, particularly on Amazon. We're currently selling a product that is also listed there, and I want to ensure our prices are competitive. Could you find out the latest price for the product with the Amazon ASIN 'B08PPDJWC8'?",
+      "tools": [
+        {
+          "name": "get_price_by_amazon_ASIN",
+          "description": "Retrieves the current Amazon listing price(s) for a product identified by its ASIN. Provide ASIN as a required 10-character alphanumeric string (e.g., 'B08PPDJWC8'); the function returns a list of currency-formatted price strings (e.g., ['$180.00']); call as get_price_by_amazon_ASIN(ASIN='B08PPDJWC8').",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "ASIN": {
+                "type": "string",
+                "description": "The Amazon ASIN of the product."
+              }
+            },
+            "required": [
+              "ASIN"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "get_price_by_amazon_ASIN(ASIN='B08PPDJWC8')"
+      ],
+      "name_mapping": {
+        "get_price_by_amazon_ASIN": "get_price_by_amazon_ASIN"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 46,
+      "question": "I'm prepping for tomorrow's math class on prime factorization and need to come up with some clear examples. Can you break down the number 4567 into its prime factors for me? This will be a great way to demonstrate the concept to the students.",
+      "tools": [
+        {
+          "name": "get_prime_factors",
+          "description": "Computes the prime factorization of a single positive integer and returns it as a nested list: [[f1, f2, ...]], where the inner list contains the number\u2019s prime factors (or [number] itself if it is prime). Call as get_prime_factors(number=<positive int>) to receive the factors in the inner list; the function accepts only integers.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "number": {
+                "type": "integer",
+                "description": "The number to calculate the prime factors of."
+              }
+            },
+            "required": [
+              "number"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "get_prime_factors(number=4567)"
+      ],
+      "name_mapping": {
+        "get_prime_factors": "get_prime_factors"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 47,
+      "question": "I'm developing a new encryption algorithm and I'm currently focusing on prime factorization as part of the process. To test the algorithm's effectiveness, I need to calculate the prime factors of the number 7891. Can you help me with that?",
+      "tools": [
+        {
+          "name": "get_prime_factors",
+          "description": "Returns the prime factorization of a positive integer >= 2. Call as get_prime_factors(number=<int>); it returns a list of the number\u2019s prime factors in non-decreasing order whose product equals the input (e.g., 7891 \u2192 [13, 607]).",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "number": {
+                "type": "integer",
+                "description": "The number to calculate the prime factors of."
+              }
+            },
+            "required": [
+              "number"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "get_prime_factors(number=7891)"
+      ],
+      "name_mapping": {
+        "get_prime_factors": "get_prime_factors"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 48,
+      "question": "I'm working on a product review article and there's a particular item on Amazon I'm focusing on. Its ASIN is 'B08BHXG144'. I need to include the current price in my article, so could you help me find out what it's selling for?",
+      "tools": [
+        {
+          "name": "get_product_name_by_amazon_ASIN",
+          "description": "Retrieves the Amazon product title for a given ASIN. Call get_product_name_by_amazon_ASIN(ASIN='B08BHXG144') with a 10-character alphanumeric ASIN; returns the product name, typically as a single-element list of strings (e.g., ['Apple iPhone 11 Pro Max, 64GB, Midnight Green - Unlocked (Renewed Premium)']).",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "ASIN": {
+                "type": "string",
+                "description": "The Amazon ASIN of the product."
+              }
+            },
+            "required": [
+              "ASIN"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "get_product_name_by_amazon_ASIN(ASIN='B08BHXG144')"
+      ],
+      "name_mapping": {
+        "get_product_name_by_amazon_ASIN": "get_product_name_by_amazon_ASIN"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 49,
+      "question": "While browsing Amazon, I came across a product that piqued my interest, but I didn't catch its name. The ASIN is 'B07ZPKBL9V'. Can you help me find out the name of this product?",
+      "tools": [
+        {
+          "name": "get_product_name_by_amazon_ASIN",
+          "description": "Retrieves the product name/title for a given Amazon ASIN. Provide the ASIN as a string (e.g., 'B07ZPKBL9V') via the ASIN parameter; the function returns the corresponding product title as a string and can be called as get_product_name_by_amazon_ASIN(ASIN='B07ZPKBL9V').",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "ASIN": {
+                "type": "string",
+                "description": "The Amazon ASIN of the product."
+              }
+            },
+            "required": [
+              "ASIN"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "get_product_name_by_amazon_ASIN(ASIN='B07ZPKBL9V')"
+      ],
+      "name_mapping": {
+        "get_product_name_by_amazon_ASIN": "get_product_name_by_amazon_ASIN"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 50,
+      "question": "I'm considering purchasing a product from Amazon, and before I make a decision, I'd like to check its rating. The product has an ASIN of 'B08BHXG144'. Could you find that information for me?",
+      "tools": [
+        {
+          "name": "get_rating_by_amazon_ASIN",
+          "description": "Retrieves the average star rating for an Amazon product given its ASIN. Call get_rating_by_amazon_ASIN(ASIN='<ASIN>') with a 10-character alphanumeric ASIN string (e.g., 'B08BHXG144'); returns a single-element list containing the rating as a string (e.g., ['4.2']).",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "ASIN": {
+                "type": "string",
+                "description": "The Amazon ASIN of the product."
+              }
+            },
+            "required": [
+              "ASIN"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "get_rating_by_amazon_ASIN(ASIN='B08BHXG144')"
+      ],
+      "name_mapping": {
+        "get_rating_by_amazon_ASIN": "get_rating_by_amazon_ASIN"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 51,
+      "question": "I'm considering purchasing a product I found on Amazon, but I want to make sure it's well-received by others before I commit. It has the ASIN 'B07ZPKBL9V'. Can you tell me what the current average customer rating is for this item?",
+      "tools": [
+        {
+          "name": "get_rating_by_amazon_ASIN",
+          "description": "Retrieves the current average customer star rating for an Amazon product given its ASIN; pass ASIN as a required string (e.g., 'B07ZPKBL9V'). On success, it returns a list containing a single string with the rating value (e.g., ['4.2']); call as get_rating_by_amazon_ASIN(ASIN='B07ZPKBL9V').",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "ASIN": {
+                "type": "string",
+                "description": "The Amazon ASIN of the product."
+              }
+            },
+            "required": [
+              "ASIN"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "get_rating_by_amazon_ASIN(ASIN='B07ZPKBL9V')"
+      ],
+      "name_mapping": {
+        "get_rating_by_amazon_ASIN": "get_rating_by_amazon_ASIN"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 52,
+      "question": "I've been tracking the performance of Apple's stock and I'm interested in taking a deeper dive into its history. I want to see the monthly trends and also check if there have been any splits or dividends issued recently. Can you pull up the history of AAPL for me with a monthly interval and include the stock splits and dividends information?",
+      "tools": [
+        {
+          "name": "get_stock_history",
+          "description": "Retrieves historical price bars for a given stock symbol at a specified interval, returning per-interval OHLC, volume, and adjusted close; when diffandsplits='true', values are adjusted for dividends and splits. Call as get_stock_history(stock_name='<SYMBOL>', interval='5m'|'15m'|'30m'|'1h'|'1d'|'1wk'|'1mo'|'3mo', diffandsplits='true'|'false' [default 'false']); returns a structure keyed by Unix epoch timestamps (date_utc) with fields such as date, open, high, low, close, volume, and adjclose.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "stock_name": {
+                "type": "string",
+                "description": "The stock name of the product, in the format of the stock symbol."
+              },
+              "interval": {
+                "type": "string",
+                "description": "The interval of the stock history. Allows one of following : 5m|15m|30m|1h|1d|1wk|1mo|3mo"
+              },
+              "diffandsplits": {
+                "type": "string",
+                "description": "The diff and splits of the stock history. Allows one of following : true|false. Default as false"
+              }
+            },
+            "required": [
+              "stock_name",
+              "interval"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "get_stock_history(stock_name='AAPL', interval='1mo', diffandsplits='true')"
+      ],
+      "name_mapping": {
+        "get_stock_history": "get_stock_history"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "structural_match"
+      ]
+    },
+    {
+      "test_id": 53,
+      "question": "I need to analyze Microsoft's stock performance over the past few months without the noise from dividends or stock splits. Can you pull up the weekly historical data for the stock symbol 'MSFT' making sure to exclude splits and dividends in the data set?",
+      "tools": [
+        {
+          "name": "get_stock_history",
+          "description": "Retrieves historical OHLCV data for a given stock symbol at a chosen interval, with an option to apply corporate-action adjustments so prices are adjusted for dividends and splits. Inputs: stock_name (string ticker, e.g., \"MSFT\"), interval (\"5m\"|\"15m\"|\"30m\"|\"1h\"|\"1d\"|\"1wk\"|\"1mo\"|\"3mo\"), and diffandsplits (\"true\" to return prices adjusted for dividends/splits, \"false\" for unadjusted; default \"false\"); returns a SUCCESS payload containing a list with a dictionary of bars keyed by UTC epoch, each entry including date, date_utc, open, high, low, close, volume, and adjclose; call as get_stock_history(stock_name=MSFT, interval=1wk, diffandsplits=true).",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "stock_name": {
+                "type": "string",
+                "description": "The stock name of the product, in the format of the stock symbol."
+              },
+              "interval": {
+                "type": "string",
+                "description": "The interval of the stock history. Allows one of following : 5m|15m|30m|1h|1d|1wk|1mo|3mo"
+              },
+              "diffandsplits": {
+                "type": "string",
+                "description": "The diff and splits of the stock history. Allows one of following : true|false. Default as false"
+              }
+            },
+            "required": [
+              "stock_name",
+              "interval"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "get_stock_history(stock_name='MSFT', interval='1wk', diffandsplits='true')"
+      ],
+      "name_mapping": {
+        "get_stock_history": "get_stock_history"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "structural_match"
+      ]
+    },
+    {
+      "test_id": 54,
+      "question": "I need to check the latest price for Apple Inc.'s stock. Can you get that information for me?",
+      "tools": [
+        {
+          "name": "get_stock_price_by_stock_name",
+          "description": "Returns the latest quoted price for a stock given its ticker symbol. Call as get_stock_price_by_stock_name(stock_name='AAPL'); stock_name is a required string ticker (e.g., 'AAPL'), and the function returns the most recent price as a numeric value.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "stock_name": {
+                "type": "string",
+                "description": "The stock name of the product, in the format of the stock symbol."
+              }
+            },
+            "required": [
+              "stock_name"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "get_stock_price_by_stock_name(stock_name='AAPL')"
+      ],
+      "name_mapping": {
+        "get_stock_price_by_stock_name": "get_stock_price_by_stock_name"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "real_time_match"
+      ]
+    },
+    {
+      "test_id": 55,
+      "question": "I need to check the current price of Microsoft Corporation's stock. Could you get me the latest stock price for Microsoft?",
+      "tools": [
+        {
+          "name": "get_stock_price_by_stock_name",
+          "description": "Retrieves the latest market price for a given stock ticker symbol; call as get_stock_price_by_stock_name(stock_name='MSFT'). The stock_name must be a string stock symbol (e.g., 'AAPL'), and the function returns a list containing a single numeric price value (e.g., [413.27]) representing the current quote.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "stock_name": {
+                "type": "string",
+                "description": "The stock name of the product, in the format of the stock symbol."
+              }
+            },
+            "required": [
+              "stock_name"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "get_stock_price_by_stock_name(stock_name='MSFT')"
+      ],
+      "name_mapping": {
+        "get_stock_price_by_stock_name": "get_stock_price_by_stock_name"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "real_time_match"
+      ]
+    },
+    {
+      "test_id": 56,
+      "question": "I'm currently knee-deep in a geography project where understanding the time zones for different coordinates is crucial. I've got this particular location with longitude 123.45 and latitude -67.89. I need to determine its time zone. Can you help me with this?",
+      "tools": [
+        {
+          "name": "get_time_zone_by_coord",
+          "description": "Returns the IANA time zone ID(s) covering a geographic point specified by longitude and latitude. Call get_time_zone_by_coord(long=<longitude>, lat=<latitude>) with numeric values (floats or numeric strings; longitude -180 to 180, latitude -90 to 90); the function returns a list of matching time zone names (e.g., ['Antarctica/DumontDUrville']).",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "long": {
+                "type": "string",
+                "description": "The longitude of the coordinate."
+              },
+              "lat": {
+                "type": "string",
+                "description": "The latitude of the coordinate."
+              }
+            },
+            "required": [
+              "long",
+              "lat"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "get_time_zone_by_coord(long='123.45', lat='-67.89')"
+      ],
+      "name_mapping": {
+        "get_time_zone_by_coord": "get_time_zone_by_coord"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 57,
+      "question": "I'm tracking a storm system for my weather report, and I need to provide updates based on the local time where the storm is currently. The storm is right now at latitude 35.22 and longitude -80.75. Can you help me figure out the timezone for this location?",
+      "tools": [
+        {
+          "name": "get_time_zone_by_coord",
+          "description": "Returns the IANA time zone ID(s) for a geographic point as a list (typically a single value, e.g., ['America/New_York']). Call as get_time_zone_by_coord(long=-80.75, lat=35.22), where long and lat are decimal degrees (floats or numeric strings; long in [-180, 180], lat in [-90, 90], negatives indicate west/south).",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "long": {
+                "type": "string",
+                "description": "The longitude of the coordinate."
+              },
+              "lat": {
+                "type": "string",
+                "description": "The latitude of the coordinate."
+              }
+            },
+            "required": [
+              "long",
+              "lat"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "get_time_zone_by_coord(long='-80.75', lat='35.22')"
+      ],
+      "name_mapping": {
+        "get_time_zone_by_coord": "get_time_zone_by_coord"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 58,
+      "question": "I'm working on a climate study focusing on temperature fluctuations in the Arctic and need the latest temperature readings for the North Pole. Can you get the current weather data for me, specifically at 90.00 latitude and 0.00 longitude, using the Open-Meteo API?",
+      "tools": [
+        {
+          "name": "get_weather_data",
+          "description": "Retrieves the latest (current) temperature for a given location from the Open-Meteo API. Pass coordinates as a two-element array [latitude, longitude] of numbers (e.g., [90.0, 0.0]); the function returns a single-element array containing the current temperature value and is called as get_weather_data(coordinates=[lat, lon]).",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "coordinates": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "description": "The latitude and longitude of the location."
+              }
+            },
+            "required": [
+              "coordinates"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "get_weather_data(coordinates=[90.00, 0.00])"
+      ],
+      "name_mapping": {
+        "get_weather_data": "get_weather_data"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "structural_match"
+      ]
+    },
+    {
+      "test_id": 59,
+      "question": "I'm working on a study about climate change in the Sahara Desert, and part of my research requires analyzing real-time temperature data from specific locations. I need to access the current temperature for a point in the desert with a latitude of 25.00 and a longitude of 13.00. Could we use our weather data retrieval system to get this information from the Open-Meteo API for these coordinates?",
+      "tools": [
+        {
+          "name": "get_weather_data",
+          "description": "Gets the current temperature for a specified location from the Open-Meteo API. Provide coordinates as a two-element array [latitude, longitude] (floats); it returns a one-element array containing the current temperature value (e.g., get_weather_data(coordinates=[25.0, 13.0]) -> [57.6]).",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "coordinates": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "description": "The latitude and longitude of the location."
+              }
+            },
+            "required": [
+              "coordinates"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "get_weather_data(coordinates=[25.00, 13.00])"
+      ],
+      "name_mapping": {
+        "get_weather_data": "get_weather_data"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "structural_match"
+      ]
+    },
+    {
+      "test_id": 60,
+      "question": "During my investigation into a recent security breach, I've pinpointed a suspicious IP address that could be the source of the attack. The address is 192.168.1.1. To narrow down the physical location of the potential hacker, I need to find out the zipcode associated with this IP. Can you provide me with that information?",
+      "tools": [
+        {
+          "name": "get_zipcode_by_ip_address",
+          "description": "Returns the zipcode(s) associated with a given IP address string (e.g., \"203.0.113.5\"); for private/reserved IPs it returns ['private range'] instead of a zipcode. Call as get_zipcode_by_ip_address(ip_address=\"<ip>\") and expect a list of zipcode strings or a list containing the marker 'private range'.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "ip_address": {
+                "type": "string",
+                "description": "The IP address to find the location of."
+              }
+            },
+            "required": [
+              "ip_address"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "get_zipcode_by_ip_address(ip_address=\"192.168.1.1\")"
+      ],
+      "name_mapping": {
+        "get_zipcode_by_ip_address": "get_zipcode_by_ip_address"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 61,
+      "question": "I'm tracking some unusual activity on our company's network, and I need to pinpoint the source. The IP in question is 172.16.254.1. Could you find out the associated zipcode for this IP address?",
+      "tools": [
+        {
+          "name": "get_zipcode_by_ip_address",
+          "description": "Looks up the postal/ZIP code(s) associated with a given IP address via geolocation; call as get_zipcode_by_ip_address(ip_address='<IPv4_or_IPv6>'). Returns a status (e.g., SUCCESS) and a list containing ZIP code(s) when resolvable, or a reason such as 'private range' for non-public/reserved or otherwise unresolvable IPs.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "ip_address": {
+                "type": "string",
+                "description": "The IP address to find the location of."
+              }
+            },
+            "required": [
+              "ip_address"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "get_zipcode_by_ip_address(ip_address='172.16.254.1')"
+      ],
+      "name_mapping": {
+        "get_zipcode_by_ip_address": "get_zipcode_by_ip_address"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 62,
+      "question": "I'm working on some data analysis and need to perform a matrix multiplication as part of the process. The matrices I have are: the first one is [[1, 2], [3, 4]] and the second is [[5, 6], [7, 8]]. Could you help me with the multiplication of these two matrices?",
+      "tools": [
+        {
+          "name": "mat_mul",
+          "description": "Multiplies two matrices.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "matA": {
+                "type": "array",
+                "description": "The first matrix.",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "matB": {
+                "type": "array",
+                "description": "The second matrix.",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  }
+                }
+              }
+            },
+            "required": [
+              "matA",
+              "matB"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "mat_mul(matA=[[1, 2], [3, 4]], matB=[[5, 6], [7, 8]])"
+      ],
+      "name_mapping": {
+        "mat_mul": "mat_mul"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 63,
+      "question": "I'm currently deep into a complex quantum mechanics simulation, and part of the process involves a bit of linear algebra. I need to multiply two matrices to proceed with my calculations. The first matrix I have is [[2, 3], [4, 5]], and the second one is [[6, 7], [8, 9]]. Could you help me with the result of multiplying these two matrices?",
+      "tools": [
+        {
+          "name": "mat_mul",
+          "description": "Computes the standard matrix product C = A \u00d7 B for two numeric 2D arrays (lists of equal-length rows), where the number of columns in matA must equal the number of rows in matB. Call as mat_mul(matA=[[...]], matB=[[...]]); it returns the product as a 2D array with dimensions len(matA) by len(matB[0]).",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "matA": {
+                "type": "array",
+                "description": "The first matrix.",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "matB": {
+                "type": "array",
+                "description": "The second matrix.",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  }
+                }
+              }
+            },
+            "required": [
+              "matA",
+              "matB"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "mat_mul(matA=[[2, 3], [4, 5]], matB=[[6, 7], [8, 9]])"
+      ],
+      "name_mapping": {
+        "mat_mul": "mat_mul"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 64,
+      "question": "I'm working on a combinatorics problem and I've hit a step where I need to calculate the factorial of 7. Can you help me get that result?",
+      "tools": [
+        {
+          "name": "math_factorial",
+          "description": "Calculates the factorial of a number.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "n": {
+                "type": "integer",
+                "description": "The number to calculate the factorial of."
+              }
+            },
+            "required": [
+              "n"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "math_factorial(n=7)"
+      ],
+      "name_mapping": {
+        "math_factorial": "math_factorial"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 65,
+      "question": "While I was delving into some quantum mechanics problems for my physics class, I stumbled upon a particularly challenging equation. It turns out I need to figure out the factorial of the number 12 to proceed with my calculations. Could you help me out by computing the factorial of 12?",
+      "tools": [
+        {
+          "name": "math_factorial",
+          "description": "Calculates the factorial of a number.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "n": {
+                "type": "integer",
+                "description": "The number to calculate the factorial of."
+              }
+            },
+            "required": [
+              "n"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "math_factorial(n=12)"
+      ],
+      "name_mapping": {
+        "math_factorial": "math_factorial"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 66,
+      "question": "While researching the political alliances of ancient Rome, I discovered that during two separate periods, the Senate was comprised of 450 and then 300 members. To analyze the data further, I need to calculate the greatest common divisor of these two senate sizes. Could you help me find the GCD for these numbers?",
+      "tools": [
+        {
+          "name": "math_gcd",
+          "description": "Calculates the greatest common divisor of two numbers.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "a": {
+                "type": "integer",
+                "description": "The first number. This should be the larger number."
+              },
+              "b": {
+                "type": "integer",
+                "description": "The second number."
+              }
+            },
+            "required": [
+              "a",
+              "b"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "math_gcd(a=450, b=300)"
+      ],
+      "name_mapping": {
+        "math_gcd": "math_gcd"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 67,
+      "question": "While working on the urban planning project, I've decided to use a grid layout for the city's design. The grid is based on block numbers with the length spanning 360 blocks and the width covering 240 blocks. To ensure the layout is as efficient as possible, I need to find the largest block size that can be uniformly used across both dimensions. Can you calculate the greatest common divisor for these two numbers, 360 and 240, to help me optimize the city's block design?",
+      "tools": [
+        {
+          "name": "math_gcd",
+          "description": "Computes the greatest common divisor (GCD) of two integers and returns it as a non-negative integer; the order of a and b does not affect the result. Call as math_gcd(a=<int>, b=<int>) with integer inputs (zero allowed), for example: math_gcd(a=360, b=240) -> 120.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "a": {
+                "type": "integer",
+                "description": "The first number. This should be the larger number."
+              },
+              "b": {
+                "type": "integer",
+                "description": "The second number."
+              }
+            },
+            "required": [
+              "a",
+              "b"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "math_gcd(a=360, b=240)"
+      ],
+      "name_mapping": {
+        "math_gcd": "math_gcd"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 68,
+      "question": "In the studio working on a new track, I've got these two drum loops that I'm trying to synchronize. One loop repeats every 18 beats and the other every 24 beats. I need to figure out after how many beats they'll both line up perfectly so the rhythm stays consistent throughout the song. Could you calculate the least common multiple for these two numbers for me?",
+      "tools": [
+        {
+          "name": "math_lcm",
+          "description": "Computes the least common multiple (LCM) of two integers. Call as math_lcm(a, b) with any two integers (order does not matter); returns the LCM as a single numeric value (e.g., math_lcm(a=24, b=18) -> 72).",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "a": {
+                "type": "integer",
+                "description": "The first number. This should be the larger number."
+              },
+              "b": {
+                "type": "integer",
+                "description": "The second number."
+              }
+            },
+            "required": [
+              "a",
+              "b"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "math_lcm(a=24, b=18)"
+      ],
+      "name_mapping": {
+        "math_lcm": "math_lcm"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 69,
+      "question": "I'm currently working on a traffic light system for a busy crossroads, and we've got two lights that are on different timers. One cycles every 35 seconds, and the other every 45 seconds. For optimal traffic flow, I need to synchronize these lights so they change at the same time. Could you help me calculate the least common multiple for these two cycle times?",
+      "tools": [
+        {
+          "name": "math_lcm",
+          "description": "Computes the least common multiple (LCM) of two integers; provide a and b as integers in any order, and it returns a single numeric value representing their LCM. Call as math_lcm(a=<int>, b=<int>) (e.g., math_lcm(a=45, b=35) returns 315).",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "a": {
+                "type": "integer",
+                "description": "The first number. This should be the larger number."
+              },
+              "b": {
+                "type": "integer",
+                "description": "The second number."
+              }
+            },
+            "required": [
+              "a",
+              "b"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "math_lcm(a=45, b=35)"
+      ],
+      "name_mapping": {
+        "math_lcm": "math_lcm"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 70,
+      "question": "I'm currently working with a client who's looking to purchase their first home and we're trying to map out their budget. They have their eyes set on a lovely suburban house priced at $350,000. To finance this purchase, they're considering a 30-year mortgage with an interest rate of about 3.5%. Could you help us figure out what their monthly payment would be with these details in mind?",
+      "tools": [
+        {
+          "name": "mortgage_calculator",
+          "description": "Computes the fixed monthly principal-and-interest payment for a fully amortizing mortgage using the standard amortization formula, given loan_amount (number), interest_rate (annual rate as a decimal between 0 and 1, e.g., 0.035), and loan_period (integer years). Call as mortgage_calculator(loan_amount, interest_rate, loan_period); returns a single number representing the monthly payment in the same currency as loan_amount.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "loan_amount": {
+                "type": "number",
+                "description": "The amount of the loan."
+              },
+              "interest_rate": {
+                "type": "number",
+                "description": "The interest rate of the loan, ranging from 0 to 1."
+              },
+              "loan_period": {
+                "type": "integer",
+                "description": "The period of the loan, in years."
+              }
+            },
+            "required": [
+              "loan_amount",
+              "interest_rate",
+              "loan_period"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "mortgage_calculator(loan_amount=350000, interest_rate=0.035, loan_period=30)"
+      ],
+      "name_mapping": {
+        "mortgage_calculator": "mortgage_calculator"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 71,
+      "question": "A couple I'm working with has found their dream home valued at $500,000, and they're weighing their financing options. To help them out, I need to calculate their monthly mortgage payments. They're considering a 25-year loan with a 4.5% interest rate. Could you calculate their monthly payment for a loan amount of $500,000 at 4.5% interest over a 25-year period?",
+      "tools": [
+        {
+          "name": "mortgage_calculator",
+          "description": "Computes the fixed-rate monthly mortgage payment using the standard amortization formula given loan_amount (principal), annual interest_rate as a decimal between 0 and 1 (e.g., 0.045 for 4.5%), and loan_period in years. Call as mortgage_calculator(loan_amount, interest_rate, loan_period); returns a single number (float) representing the monthly payment amount.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "loan_amount": {
+                "type": "number",
+                "description": "The amount of the loan."
+              },
+              "interest_rate": {
+                "type": "number",
+                "description": "The interest rate of the loan, ranging from 0 to 1."
+              },
+              "loan_period": {
+                "type": "integer",
+                "description": "The period of the loan, in years."
+              }
+            },
+            "required": [
+              "loan_amount",
+              "interest_rate",
+              "loan_period"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "mortgage_calculator(loan_amount=500000, interest_rate=0.045, loan_period=25)"
+      ],
+      "name_mapping": {
+        "mortgage_calculator": "mortgage_calculator"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 72,
+      "question": "I'm prepping for tomorrow's algebra class about quadratic equations, and I want to show the students how to calculate the roots using an example. Let's use the equation 3x^2 + 7x - 10 = 0. I need to find the roots for this, with coefficients 3 for a, 7 for b, and -10 for c. Can we run this through the calculation process to get the roots?",
+      "tools": [
+        {
+          "name": "quadratic_roots",
+          "description": "Computes the two solutions to the quadratic equation ax^2 + bx + c = 0 for numeric coefficients a, b, and c (with a \u2260 0); call as quadratic_roots(a=<number>, b=<number>, c=<number>). On success, returns the two roots as floats in a list nested inside an outer list (e.g., [[r1, r2]]) and is typically prefixed by a SUCCESS status in the response.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "a": {
+                "type": "integer",
+                "description": "The first coefficient."
+              },
+              "b": {
+                "type": "integer",
+                "description": "The second coefficient."
+              },
+              "c": {
+                "type": "integer",
+                "description": "The third coefficient."
+              }
+            },
+            "required": [
+              "a",
+              "b",
+              "c"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "quadratic_roots(a=3, b=7, c=-10)"
+      ],
+      "name_mapping": {
+        "quadratic_roots": "quadratic_roots"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 73,
+      "question": "I'm working on a program that's supposed to solve quadratic equations, and I need to test out a function that calculates the roots. Right now, I need to find the roots for the equation 5x^2 - 8x + 2 = 0. I'll use the coefficients 5 for a, -8 for b, and 2 for c. Can we run this through the function to see what the roots are?",
+      "tools": [
+        {
+          "name": "quadratic_roots",
+          "description": "Computes the two solutions to the quadratic equation ax^2 + bx + c = 0 using the provided integer coefficients a, b, and c (requirement: a \u2260 0). Call as quadratic_roots(a, b, c) or with named arguments; returns a nested list containing the two roots as floating-point numbers, e.g., [[root1, root2]] (order not guaranteed).",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "a": {
+                "type": "integer",
+                "description": "The first coefficient."
+              },
+              "b": {
+                "type": "integer",
+                "description": "The second coefficient."
+              },
+              "c": {
+                "type": "integer",
+                "description": "The third coefficient."
+              }
+            },
+            "required": [
+              "a",
+              "b",
+              "c"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "quadratic_roots(a=5, b=-8, c=2)"
+      ],
+      "name_mapping": {
+        "quadratic_roots": "quadratic_roots"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 74,
+      "question": "I'm deep into this demographic analysis project and I've got a pile of zip codes to work through. Right now, I'm focused on 90210, and I need to match it with its city. Could you provide me with the city name for zip code 90210?",
+      "tools": [
+        {
+          "name": "retrieve_city_based_on_zipcode",
+          "description": "Looks up the city name(s) associated with a given 5-digit US ZIP code and returns them as a list of uppercase strings (e.g., ['BEVERLY HILLS']). Call it as retrieve_city_based_on_zipcode(zipcode=\"90210\"); zipcode should be provided as a 5-digit string.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "zipcode": {
+                "type": "string",
+                "description": "The zipcode of the city."
+              }
+            },
+            "required": [
+              "zipcode"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "retrieve_city_based_on_zipcode(zipcode='90210')"
+      ],
+      "name_mapping": {
+        "retrieve_city_based_on_zipcode": "retrieve_city_based_on_zipcode"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 75,
+      "question": "I'm currently working on a project where I'm analyzing population distribution patterns in various cities. Part of the process involves matching zip codes to their corresponding cities. Right now, I need to find out which city the zip code '10001' belongs to. Could you give me the name of the city that matches this zip code?",
+      "tools": [
+        {
+          "name": "retrieve_city_based_on_zipcode",
+          "description": "Looks up the city or cities associated with a U.S. 5-digit ZIP code and returns them as a list of city names. Call as retrieve_city_based_on_zipcode(zipcode='10001') (zipcode may be a string or integer); the function returns a list like ['NEW YORK'] when a match is found.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "zipcode": {
+                "type": "string",
+                "description": "The zipcode of the city."
+              }
+            },
+            "required": [
+              "zipcode"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "retrieve_city_based_on_zipcode(zipcode='10001')"
+      ],
+      "name_mapping": {
+        "retrieve_city_based_on_zipcode": "retrieve_city_based_on_zipcode"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 76,
+      "question": "I'm working on a project about how holidays are celebrated across different nations and how these celebrations have evolved. Right now, I'm focusing on France, specifically the year 2010. I need a list of all the public holidays that were observed in France during that year. Can you help me out with that?",
+      "tools": [
+        {
+          "name": "retrieve_holiday_by_year",
+          "description": "Retrieves all public holidays for a specified year and country. Call retrieve_holiday_by_year('YYYY', 'CC') with year as a 4-digit string and country as one of US, AT, DE, ES, FR, GB, IT, NL, PL, RO, SK, UA; returns a list of holiday records (each including date YYYY-MM-DD, localName, name, countryCode, and flags such as fixed, global, counties, launchYear, types).",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "year": {
+                "type": "string",
+                "description": "The year of the holidays."
+              },
+              "country": {
+                "type": "string",
+                "description": "The country of the holidays. Possible options: US, AT, DE, ES, FR, GB, IT, NL, PL, RO, SK, UA."
+              }
+            },
+            "required": [
+              "year",
+              "country"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "retrieve_holiday_by_year(year='2010', country='FR')"
+      ],
+      "name_mapping": {
+        "retrieve_holiday_by_year": "retrieve_holiday_by_year"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 77,
+      "question": "I'm currently delving into the cultural traditions across Europe for a historical comparison, focusing on the year 2005. Germany, with its rich history and diverse celebrations, has drawn my attention. I'd like to know which holidays were observed in Germany that year. Could you provide me with a list of the 2005 holidays in Germany?",
+      "tools": [
+        {
+          "name": "retrieve_holiday_by_year",
+          "description": "Retrieves all public holidays for a specified year and country code, returning a list of holiday objects/dictionaries with fields such as date (YYYY-MM-DD), localName, name, countryCode, fixed, global, counties (if regional or null), launchYear (if available), and types. Call as retrieve_holiday_by_year(year, country) where year is a 4-digit year (string or integer) and country is one of: US, AT, DE, ES, FR, GB, IT, NL, PL, RO, SK, UA.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "year": {
+                "type": "string",
+                "description": "The year of the holidays."
+              },
+              "country": {
+                "type": "string",
+                "description": "The country of the holidays. Possible options: US, AT, DE, ES, FR, GB, IT, NL, PL, RO, SK, UA."
+              }
+            },
+            "required": [
+              "year",
+              "country"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "retrieve_holiday_by_year(year='2005', country='DE')"
+      ],
+      "name_mapping": {
+        "retrieve_holiday_by_year": "retrieve_holiday_by_year"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 78,
+      "question": "As a data analyst, I'm dealing with a dataset that needs to be sorted for my analysis. I have these numbers [34, 2, 56, 7, 9, 12], but they need to be in descending order for the report I'm preparing. Could you sort this array for me?",
+      "tools": [
+        {
+          "name": "sort_array",
+          "description": "Sorts a list of numeric values and returns a new array in ascending order by default, or in descending order when reverse=True; array must be a list of numbers and reverse is an optional boolean. Usage: sort_array(array=[34, 2, 56], reverse=True) -> [56, 34, 2].",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "array": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                },
+                "description": "The array of numbers."
+              },
+              "reverse": {
+                "type": "boolean",
+                "description": "Whether to sort the array in reverse order, i.e., descending order.",
+                "default": false
+              }
+            },
+            "required": [
+              "array"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "sort_array(array=[34, 2, 56, 7, 9, 12], reverse=True)"
+      ],
+      "name_mapping": {
+        "sort_array": "sort_array"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 79,
+      "question": "I'm currently handling a dataset for my analysis project and need to organize the numbers in ascending order. The dataset I'm working with right now is [1, 2, 2, 7, 7, 10]. Can you sort this array for me?",
+      "tools": [
+        {
+          "name": "sort_array",
+          "description": "Returns a new array of numbers sorted in ascending order by default; set reverse=true to sort in descending order. Call as sort_array(array=[...], reverse=<optional boolean>) and receive the sorted array as the result (duplicates preserved).",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "array": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                },
+                "description": "The array of numbers."
+              },
+              "reverse": {
+                "type": "boolean",
+                "description": "Whether to sort the array in reverse order, i.e., descending order.",
+                "default": false
+              }
+            },
+            "required": [
+              "array"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "sort_array(array=[1, 2, 2, 7, 7, 10], reverse=False)"
+      ],
+      "name_mapping": {
+        "sort_array": "sort_array"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 80,
+      "question": "Could you calculate the sum of two binary numbers '0011' and '1100' for me?",
+      "tools": [
+        {
+          "name": "add_binary_numbers",
+          "description": "Adds two binary numbers provided as strings of 0s and 1s (inputs may include leading zeros) and returns their sum as a binary string without a '0b' prefix (e.g., '0011' + '1100' -> '1111'). Call as add_binary_numbers(a, b) where both a and b are required binary strings.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "a": {
+                "type": "string",
+                "description": "The first binary number."
+              },
+              "b": {
+                "type": "string",
+                "description": "The second binary number."
+              }
+            },
+            "required": [
+              "a",
+              "b"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "add_binary_numbers(a='0011',b='1100')"
+      ],
+      "name_mapping": {
+        "add_binary_numbers": "add_binary_numbers"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 81,
+      "question": "I'm working on a small project in which I need to perform binary calculations. Could you help me with adding the binary numbers '10011' and '1100' together?",
+      "tools": [
+        {
+          "name": "add_binary_numbers",
+          "description": "Adds two binary numbers given as strings of 0s and 1s and returns their sum as a binary string (e.g., add_binary_numbers('10011', '1100') -> '11111'). Call as add_binary_numbers(a, b) where a and b are non-empty strings containing only '0' and '1'.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "a": {
+                "type": "string",
+                "description": "The first binary number."
+              },
+              "b": {
+                "type": "string",
+                "description": "The second binary number."
+              }
+            },
+            "required": [
+              "a",
+              "b"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "add_binary_numbers(a='10011',b='1100')"
+      ],
+      "name_mapping": {
+        "add_binary_numbers": "add_binary_numbers"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 82,
+      "question": "I've been plotting some data and it looks like there's a linear trend. I've got these x-coordinates [1, 2, 3] and corresponding y-values [4, 5, 6]. I need to predict the y-value for when x is 10. Can you apply a linear regression to this and give me that predicted value?",
+      "tools": [
+        {
+          "name": "linear_regression",
+          "description": "Fits a least-squares straight line to the provided data (x and y must be equal-length numeric arrays) and returns the predicted y-value at the specified x (point, a numeric scalar). Call as linear_regression(x=[...], y=[...], point=...), which returns the prediction as a single-element array (e.g., [13.0]).",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "x": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                },
+                "description": "The x coordinates of the points."
+              },
+              "y": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                },
+                "description": "The y coordinates of the points."
+              },
+              "point": {
+                "type": "integer",
+                "description": "The point to calculate the linear regression at."
+              }
+            },
+            "required": [
+              "x",
+              "y",
+              "point"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "linear_regression(x=[1,2,3],y=[4,5,6],point=10)"
+      ],
+      "name_mapping": {
+        "linear_regression": "linear_regression"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 83,
+      "question": "I'm working on a data analysis project and need to model the relationship between two variables. I have a set of data points with x-coordinates as [1, 2, -3] and corresponding y-coordinates as [4, -5, 6]. I need to establish a linear regression model based on these points. Once the model is in place, I'd like to predict the y-value when x is 10. Can you do that for me?",
+      "tools": [
+        {
+          "name": "linear_regression",
+          "description": "Fits an ordinary least squares line y = m x + b to the given numeric x and y arrays (same length, at least two points) and returns the model\u2019s prediction at a specified x value. Call as linear_regression(x=[...], y=[...], point=<number>) and it returns a one-element list containing the predicted y-value for that point.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "x": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                },
+                "description": "The x coordinates of the points."
+              },
+              "y": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                },
+                "description": "The y coordinates of the points."
+              },
+              "point": {
+                "type": "integer",
+                "description": "The point to calculate the linear regression at."
+              }
+            },
+            "required": [
+              "x",
+              "y",
+              "point"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "linear_regression(x=[1,2,-3],y=[4,-5,6],point=10)"
+      ],
+      "name_mapping": {
+        "linear_regression": "linear_regression"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 84,
+      "question": "I need to identify the straight line that contains the most points from a set of coordinates I have. The coordinates I'm looking at are [[1,1], [2,2], [3,4], [5,5]]. Could you determine the maximum number of points that align on a single line from this dataset?",
+      "tools": [
+        {
+          "name": "maxPoints",
+          "description": "Computes the maximum number of 2D points that lie on a single straight line. Provide points as an array/list of [x, y] numeric pairs (e.g., maxPoints(points=[[1,1],[2,2],[3,4],[5,5]])); returns an integer count of the most collinear points (e.g., 3).",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "points": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  },
+                  "description": "A point represented by a 2 element list [x, y]."
+                },
+                "description": "The list of points. Points are 2 element lists."
+              }
+            },
+            "required": [
+              "points"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "maxPoints(points=[[1,1],[2,2],[3,4],[5,5]])"
+      ],
+      "name_mapping": {
+        "maxPoints": "maxPoints"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 85,
+      "question": "I've been working on an algorithm that's supposed to identify the largest subset of points that align on a single straight line. I've plotted out a few points: [[1,1], [2,3], [4,6], [5,5]]. I need to determine the maximum number of points from this set that fall on the same line. Can you help me with that?",
+      "tools": [
+        {
+          "name": "maxPoints",
+          "description": "Computes the maximum number of points that lie on a single straight line among a set of 2D points. Call as maxPoints(points=[[x1, y1], ...]) with points as a list/array of numeric [x, y] pairs; returns the maximum count of collinear points as an integer.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "points": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  },
+                  "description": "A point represented by a 2 element list [x, y]."
+                },
+                "description": "The list of points. Points are 2 element lists."
+              }
+            },
+            "required": [
+              "points"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "maxPoints(points=[[1,1],[2,3],[4,6],[5,5]])"
+      ],
+      "name_mapping": {
+        "maxPoints": "maxPoints"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 86,
+      "question": "I want to assess the growth of my investment portfolio. I started with $10,000 and I've been adding $1,000 to it every year. It's been five years now, and my portfolio has been growing at an annual interest rate of 5%. However, I know inflation can impact the real value of my money, and the rates have been 1%, 2%, 3%, 4%, and 4% respectively for each of the past five years. Can you calculate the current value of my investment, taking inflation into account?",
+      "tools": [
+        {
+          "name": "calculate_investment_value",
+          "description": "Computes the ending value of an investment over a given number of years with annual compounding and a fixed yearly contribution, optionally adjusting the balance each year using the provided year-by-year inflation rates (as decimals). Call as calculate_investment_value(initial_investment: int, annual_contribution: int, years: int, annual_return: float 0\u20131, inflation_rate: list[float 0\u20131] of length years, adjust_for_inflation: bool=False); returns a single-element array containing the final investment value (inflation-adjusted if requested) as a number.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "initial_investment": {
+                "type": "integer",
+                "description": "The initial investment amount."
+              },
+              "annual_contribution": {
+                "type": "integer",
+                "description": "The annual contribution amount."
+              },
+              "years": {
+                "type": "integer",
+                "description": "The number of years to calculate the investment value for."
+              },
+              "annual_return": {
+                "type": "number",
+                "description": "The annual return rate, ranging from 0 to 1."
+              },
+              "inflation_rate": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "description": "The inflation rate for each year in percentage, ranging from 0 to 1."
+              },
+              "adjust_for_inflation": {
+                "type": "boolean",
+                "default": true,
+                "description": "Whether to adjust the investment value for inflation."
+              }
+            },
+            "required": [
+              "initial_investment",
+              "annual_contribution",
+              "years",
+              "annual_return",
+              "inflation_rate"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "calculate_investment_value(initial_investment=10000,annual_contribution=1000,years=5,annual_return=0.05,inflation_rate=[0.01,0.02,0.03,0.04,0.04])"
+      ],
+      "name_mapping": {
+        "calculate_investment_value": "calculate_investment_value"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 87,
+      "question": "I've got $1,000,000 set aside as an initial investment and plan to contribute $1,000 each year. I'm looking at a timeframe of 3 years and expecting an annual return of about 10%. However, I also want to consider the inflation rates for these years which I predict to be 1%, 4%, and 4% respectively. Can you calculate what the value of my investment will be at the end of this period, taking into account the inflation?",
+      "tools": [
+        {
+          "name": "calculate_investment_value",
+          "description": "Computes the ending value of an investment over a given number of years with annual compounding and yearly contributions, optionally adjusting the final amount to real (inflation-adjusted) dollars using a per-year inflation series. Call calculate_investment_value(initial_investment: int, annual_contribution: int, years: int, annual_return: float in [0,1], inflation_rate: list[float] of length == years with values in [0,1], adjust_for_inflation: bool=False); returns a single-element list [final_value: float] representing the ending balance (inflation-adjusted if True).",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "initial_investment": {
+                "type": "integer",
+                "description": "The initial investment amount."
+              },
+              "annual_contribution": {
+                "type": "integer",
+                "description": "The annual contribution amount."
+              },
+              "years": {
+                "type": "integer",
+                "description": "The number of years to calculate the investment value for."
+              },
+              "annual_return": {
+                "type": "number",
+                "description": "The annual return rate, ranging from 0 to 1."
+              },
+              "inflation_rate": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "description": "The inflation rate for each year in percentage, ranging from 0 to 1."
+              },
+              "adjust_for_inflation": {
+                "type": "boolean",
+                "default": true,
+                "description": "Whether to adjust the investment value for inflation."
+              }
+            },
+            "required": [
+              "initial_investment",
+              "annual_contribution",
+              "years",
+              "annual_return",
+              "inflation_rate"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "calculate_investment_value(initial_investment=1000000,annual_contribution=1000,years=3,annual_return=0.1,inflation_rate=[0.01,0.04,0.04])"
+      ],
+      "name_mapping": {
+        "calculate_investment_value": "calculate_investment_value"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 88,
+      "question": "I've been trying to adjust my diet and fitness plan, and I really need to get my nutritional needs dialed in. I'm a 30-year-old guy, weigh about 100 kilograms, and I'm 170 centimeters tall. I'm not the most active person \u2013 my activity level is pretty low, around 1. I want to lose weight. Can you calculate what my daily nutritional intake should be?",
+      "tools": [
+        {
+          "name": "calculate_nutritional_needs",
+          "description": "Computes daily calorie and macronutrient targets (calories in kcal/day; proteins_g, fats_g, carbohydrates_g in grams/day) based on weight (number, kg), height (number, cm), age (number, years), gender ('male'|'female'|'other'), activity_level (integer 1\u20135), and goal ('lose'|'gain'|'maintain'); call as calculate_nutritional_needs(weight, height, age, gender, activity_level, goal) and it returns a dictionary with keys: calories, proteins_g, fats_g, and carbohydrates_g.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "weight": {
+                "type": "number",
+                "description": "The weight of the person in kilograms."
+              },
+              "height": {
+                "type": "number",
+                "description": "The height of the person in centimeters."
+              },
+              "age": {
+                "type": "number",
+                "description": "The age of the person in years."
+              },
+              "gender": {
+                "type": "string",
+                "description": "The gender of the person. Possible options [male, female, other]."
+              },
+              "activity_level": {
+                "type": "integer",
+                "description": "The activity level of the person. Possible options [1,2,3,4,5]."
+              },
+              "goal": {
+                "type": "string",
+                "description": "The goal of the person. Possible options [lose, gain, maintain]."
+              }
+            },
+            "required": [
+              "weight",
+              "height",
+              "age",
+              "gender",
+              "activity_level",
+              "goal"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "calculate_nutritional_needs(weight=100,height=170,age=30,gender='male',activity_level=1,goal='lose')"
+      ],
+      "name_mapping": {
+        "calculate_nutritional_needs": "calculate_nutritional_needs"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 89,
+      "question": "I have an 80-year-old female client who is 170 cm tall, weighs 59 kg, and is quite active with an activity level of 4. She's looking to reduce her weight. Could you calculate her daily nutritional needs based on these details?",
+      "tools": [
+        {
+          "name": "calculate_nutritional_needs",
+          "description": "Computes daily energy needs and macronutrient targets adjusted for activity level and goal, taking weight (kg), height (cm), age (years), gender ('male'|'female'|'other'), activity_level (1\u20135), and goal ('lose'|'gain'|'maintain') as inputs, and returns a list with one dictionary containing {'calories': number, 'proteins_g': number, 'fats_g': number, 'carbohydrates_g': number}. Call with named arguments, e.g., calculate_nutritional_needs(weight=59, height=170, age=80, gender='female', activity_level=4, goal='lose').",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "weight": {
+                "type": "number",
+                "description": "The weight of the person in kilograms."
+              },
+              "height": {
+                "type": "number",
+                "description": "The height of the person in centimeters."
+              },
+              "age": {
+                "type": "number",
+                "description": "The age of the person in years."
+              },
+              "gender": {
+                "type": "string",
+                "description": "The gender of the person. Possible options [male, female, other]."
+              },
+              "activity_level": {
+                "type": "integer",
+                "description": "The activity level of the person. Possible options [1,2,3,4,5]."
+              },
+              "goal": {
+                "type": "string",
+                "description": "The goal of the person. Possible options [lose, gain, maintain]."
+              }
+            },
+            "required": [
+              "weight",
+              "height",
+              "age",
+              "gender",
+              "activity_level",
+              "goal"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "calculate_nutritional_needs(weight=59,height=170,age=80,gender='female',activity_level=4,goal='lose')"
+      ],
+      "name_mapping": {
+        "calculate_nutritional_needs": "calculate_nutritional_needs"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 90,
+      "question": "I'm planning a business trip to New York, and I've decided to extend my stay to enjoy the city a bit more. I'd like to book a deluxe room for the duration of my trip. The dates I'm looking at are from August 11, 2024, to August 15, 2024. I've got a budget set aside for accommodation, and I'm willing to spend up to $1000 for a comfortable stay. My customer ID is 123. Could you go ahead and book that room for me?",
+      "tools": [
+        {
+          "name": "book_room",
+          "description": "Books a hotel room of the specified room_type for a customer between check_in_date and check_out_date; requires room_type (string), check_in_date and check_out_date (MM-DD-YYYY strings), and customer_id (string), with optional price (number, max budget, default 0.0) and discount_code (string). Call as book_room(room_type, price?, check_in_date, check_out_date, customer_id, discount_code?) and it returns a success response containing a list of booking records with customer_id, room_number (same as room_type), check_in_date, check_out_date, and total_price.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "room_type": {
+                "type": "string",
+                "description": "The room type to book."
+              },
+              "price": {
+                "type": "number",
+                "description": "The max price of the room. Default 0.0"
+              },
+              "check_in_date": {
+                "type": "string",
+                "description": "The check-in date in format of MM-DD-YYYY. "
+              },
+              "check_out_date": {
+                "type": "string",
+                "description": "The check-out date in format of MM-DD-YYYY."
+              },
+              "customer_id": {
+                "type": "string",
+                "description": "The customer ID."
+              },
+              "discount_code": {
+                "type": "string",
+                "description": "The discount code (if any).",
+                "default": null
+              }
+            },
+            "required": [
+              "room_type",
+              "check_in_date",
+              "check_out_date",
+              "customer_id"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "book_room(room_type='deluxe',price=1000,check_in_date='08-11-2024',check_out_date='08-15-2024',customer_id='123')"
+      ],
+      "name_mapping": {
+        "book_room": "book_room"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 91,
+      "question": "I'd like to reserve a king room for a customer with the ID 123. The booking is from December 11, 2023, to August 15, 2024. The price we're looking at is $10,000. No discount codes will be applied for this reservation. Can you process this booking for me?",
+      "tools": [
+        {
+          "name": "book_room",
+          "description": "Reserves a room of the specified room_type for a given customer_id between check_in_date and check_out_date (both strings in MM-DD-YYYY), optionally including a price (number; max budget; default 0.0) and a discount_code (string). Call as book_room(room_type, price?, check_in_date, check_out_date, customer_id, discount_code?) and on success it returns a message like \"SUCCESS: [...]\" containing a list with one booking record including customer_id, room_number (matching room_type), check_in_date, check_out_date, and total_price.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "room_type": {
+                "type": "string",
+                "description": "The room type to book."
+              },
+              "price": {
+                "type": "number",
+                "description": "The max price of the room. Default 0.0"
+              },
+              "check_in_date": {
+                "type": "string",
+                "description": "The check-in date in format of MM-DD-YYYY. "
+              },
+              "check_out_date": {
+                "type": "string",
+                "description": "The check-out date in format of MM-DD-YYYY."
+              },
+              "customer_id": {
+                "type": "string",
+                "description": "The customer ID."
+              },
+              "discount_code": {
+                "type": "string",
+                "description": "The discount code (if any).",
+                "default": null
+              }
+            },
+            "required": [
+              "room_type",
+              "check_in_date",
+              "check_out_date",
+              "customer_id"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "book_room(room_type='king',price=10000,check_in_date='12-11-2023',check_out_date='08-15-2024',customer_id='123')"
+      ],
+      "name_mapping": {
+        "book_room": "book_room"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 92,
+      "question": "I'm organizing a small get-together at my place tonight and I'm looking to order some food for the guests. I'd like to get 10 burgers, each costing $5, and also 7 ice creams, with each being $2. Could you place this order for me and let me know what the total price would be?",
+      "tools": [
+        {
+          "name": "order_food",
+          "description": "Submits a food order by pairing each item name with its corresponding quantity and unit price, then returns the total cost as a single number (sum of quantity[i] \u00d7 price[i]). Call as order_food(item=[str, ...], quantity=[number, ...], price=[number, ...]) using same-length arrays in matching order for items, quantities, and prices.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "item": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "description": "the name of the product, possible options ['fries', 'dumplings', 'pizza', 'soda', 'salad', 'rice bowl', 'burger', 'cake', 'cookie', 'ice cream', 'sandwich', 'hot dog', 'noodles', 'chicken', 'beef', 'pork', 'fish', 'shrimp', 'lobster', 'crab', 'steak']."
+                }
+              },
+              "quantity": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "description": "the number of the product purchased."
+                }
+              },
+              "price": {
+                "type": "array",
+                "items": {
+                  "type": "number",
+                  "description": "the number of the product purchased."
+                }
+              }
+            },
+            "required": [
+              "item",
+              "quantity",
+              "price"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "order_food(item=['burger','ice cream'], quantity=[10,7], price=[5,2])"
+      ],
+      "name_mapping": {
+        "order_food": "order_food"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 93,
+      "question": "I'd like to place an order for some food. Could you get me 101 dumplings priced at $0.1 each, and also 20 rice bowls at $10 per bowl? Please calculate the total for me as well.",
+      "tools": [
+        {
+          "name": "order_food",
+          "description": "Calculates the grand total for an order by summing quantity[i] * price[i] across parallel arrays of equal length: item (strings), quantity (integers), and price (numbers). Call as order_food(item=[...], quantity=[...], price=[...]); returns the total cost as a single-element array [total].",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "item": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "description": "the name of the product, possible options ['fries', 'dumplings', 'pizza', 'soda', 'salad', 'rice bowl', 'burger', 'cake', 'cookie', 'ice cream', 'sandwich', 'hot dog', 'noodles', 'chicken', 'beef', 'pork', 'fish', 'shrimp', 'lobster', 'crab', 'steak']."
+                }
+              },
+              "quantity": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "description": "the number of the product purchased."
+                }
+              },
+              "price": {
+                "type": "array",
+                "items": {
+                  "type": "number",
+                  "description": "the number of the product purchased."
+                }
+              }
+            },
+            "required": [
+              "item",
+              "quantity",
+              "price"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "order_food(item=['dumplings','rice bowl'], quantity=[101,20], price=[0.1,10])"
+      ],
+      "name_mapping": {
+        "order_food": "order_food"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 94,
+      "question": "I was discussing movies with my friend last night, and we started talking about \"Avatar.\" I realized I don't remember who directed it. Can you find out the director's name for me?",
+      "tools": [
+        {
+          "name": "get_movie_director",
+          "description": "Returns the director name(s) for a given movie title by querying the OMDb API. Call as get_movie_director(movie_name=\"Movie Title\") with movie_name as a required string; the function returns a list of director names (strings), e.g., [\"James Cameron\"].",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "movie_name": {
+                "type": "string",
+                "description": "The name of the movie."
+              }
+            },
+            "required": [
+              "movie_name"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "get_movie_director(movie_name='Avatar')"
+      ],
+      "name_mapping": {
+        "get_movie_director": "get_movie_director"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 95,
+      "question": "I was having a debate with a friend about iconic movies, and naturally, 'Pulp Fiction' came up. We started discussing the unique directorial style that really defined the film, but embarrassingly, I blanked on the director's name. Could you please find out who directed 'Pulp Fiction'?",
+      "tools": [
+        {
+          "name": "get_movie_director",
+          "description": "Queries the OMDb API for a given movie title and returns the director name(s) as a list of strings. Usage: get_movie_director(movie_name: str), where movie_name is the exact movie title (e.g., 'Pulp Fiction'); returns a list like ['Quentin Tarantino'].",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "movie_name": {
+                "type": "string",
+                "description": "The name of the movie."
+              }
+            },
+            "required": [
+              "movie_name"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "get_movie_director(movie_name='Pulp Fiction')"
+      ],
+      "name_mapping": {
+        "get_movie_director": "get_movie_director"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 96,
+      "question": "I'm considering showing the movie \"Avatar\" at my family's movie night this weekend, but I need to make sure it's appropriate for all ages. Can you find out the age rating for \"Avatar\" for me?",
+      "tools": [
+        {
+          "name": "get_movie_rating",
+          "description": "Looks up a movie by title using the OMDB API and returns its age/parental rating(s). Call get_movie_rating(movie_name: string) with the movie\u2019s title (required), and it returns a list of rating strings (e.g., ['PG-13']).",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "movie_name": {
+                "type": "string",
+                "description": "The name of the movie."
+              }
+            },
+            "required": [
+              "movie_name"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "get_movie_rating(movie_name='Avatar')"
+      ],
+      "name_mapping": {
+        "get_movie_rating": "get_movie_rating"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 97,
+      "question": "Could you find out what the age rating is for \"Pulp Fiction\"? I'm trying to decide if it's suitable for my teenage kids to watch.",
+      "tools": [
+        {
+          "name": "get_movie_rating",
+          "description": "Retrieves the age rating for a movie from the OMDb API using the provided title; pass movie_name as a non-empty string (e.g., get_movie_rating(movie_name='Pulp Fiction')), and receive a list of rating codes as strings (e.g., ['R']).",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "movie_name": {
+                "type": "string",
+                "description": "The name of the movie."
+              }
+            },
+            "required": [
+              "movie_name"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "get_movie_rating(movie_name='Pulp Fiction')"
+      ],
+      "name_mapping": {
+        "get_movie_rating": "get_movie_rating"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 98,
+      "question": "I'm working on some land survey data and need to calculate the area of a particular triangular plot. I've got the coordinates of the vertices of the triangle, which are (1,2), (3,4), and (1,3). Can you help me figure out the area of this triangle using these points?",
+      "tools": [
+        {
+          "name": "polygon_area",
+          "description": "Computes the non-negative area of a simple polygon from an ordered list of its vertices using the shoelace formula (no need to repeat the first vertex). Provide vertices as a list/array of at least three [x, y] numeric pairs in clockwise or counterclockwise order, and it returns the area as a float; for example: polygon_area(vertices=[[1, 2], [3, 4], [1, 3]]) -> 1.0.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "vertices": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  },
+                  "description": "A single vertex represented by a 2 element list [x, y]."
+                },
+                "description": "The vertices of the polygon, where each vertex is a 2 element list [x, y]."
+              }
+            },
+            "required": [
+              "vertices"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "polygon_area(vertices=[[1,2],[3,4],[1,3]])"
+      ],
+      "name_mapping": {
+        "polygon_area": "polygon_area"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 99,
+      "question": "I was reviewing the basics of geometry and ended up with a challenge to calculate the area of a polygon. The polygon is defined by these vertices: [[1,2],[3,4],[1,4],[3,7]]. Can you help me determine the area of this polygon using the shoelace formula?",
+      "tools": [
+        {
+          "name": "polygon_area",
+          "description": "Computes the non-negative area of a polygon from an ordered list of its vertices using the shoelace formula. Provide vertices as a list of numeric [x, y] pairs (at least 3, in clockwise or counterclockwise order; no need to repeat the first point); returns a single float area (0 for degenerate or self-intersecting input); call as polygon_area(vertices=[[x1, y1], [x2, y2], ...]).",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "vertices": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  },
+                  "description": "A single vertex represented by a 2 element list [x, y]."
+                },
+                "description": "The vertices of the polygon, where each vertex is a 2 element list [x, y]."
+              }
+            },
+            "required": [
+              "vertices"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "polygon_area(vertices=[[1,2],[3,4],[1,4],[3,7]])"
+      ],
+      "name_mapping": {
+        "polygon_area": "polygon_area"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    }
+  ],
+  "generation_metadata": {
+    "model": "gpt-5",
+    "prompt_key": "basic_improved",
+    "temperature": 1.0,
+    "max_tokens": 8192,
+    "source_result_dir": "runs/bfcl/tool_observer/executable_simple_base/gpt5mini_medium_req_8192_must_call_tool_seed0",
+    "improvement_version": 1,
+    "generated_timestamp": "2026-02-10T23:45:26.237346Z"
+  }
+}

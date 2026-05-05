@@ -8,6 +8,8 @@ Generation → Evaluation → Description rewrite → (repeat)
 
 Evaluation executes model calls against BFCL ground truth. The rewrite step conditions on failed calls and execution errors to propose better descriptions, which feed the next iteration.
 
+> **Reproducing paper numbers without spending API credits:** the trajectories from the paper's BFCL runs are committed at [`sample_traces/bfcl/`](../../../sample_traces/bfcl/). You can re-grade any run with `evaluate.py` against the shipped function-call cache; no live API calls needed. See `sample_traces/bfcl/README.md` for the layout.
+
 ## Test categories
 
 | Category | Description |

@@ -1,0 +1,2127 @@
+{
+  "config_name": "executable_multiple_function_name[all:increasing_number]_param[all:remove_all]",
+  "config_description": "Tool configurations for executable_multiple_function tests",
+  "test_category": "executable_multiple_function",
+  "num_tests": 50,
+  "modifications": {
+    "names": {
+      "all": "increasing_number"
+    },
+    "descriptions": {},
+    "parameters": {
+      "all": "remove_all"
+    }
+  },
+  "tests": [
+    {
+      "test_id": 0,
+      "question": "I'm playing a dice game and want to calculate my chances. I roll the die 20 times, and I'm trying to figure out the probability of landing on a 6 exactly five times, considering each roll has a one in six chance of being a 6. Could you help me with that?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Fetches weather data from the Open-Meteo API for the given latitude and longitude."
+        },
+        {
+          "name": "function_2",
+          "description": "Calculates the binomial probability of observing exactly k successes in n independent Bernoulli trials; call as function_2(n, k, p) where n (int) is the total number of trials, k (int) is the desired number of successes (0 \u2264 k \u2264 n), and p (float between 0 and 1) is the probability of success on a single trial; returns a float representing that probability."
+        }
+      ],
+      "ground_truth": [
+        "calc_binomial_probability(n=20, k=5, p=1/6)"
+      ],
+      "name_mapping": {
+        "get_weather_data": "function_1",
+        "calc_binomial_probability": "function_2"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        0.1294102919789905
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 1,
+      "question": "I'm working on a machine learning model, comparing the characteristics of two objects. The feature vectors for these objects are [0.5, 0.7, 0.2, 0.9, 0.1] for the first object and [0.4, 0.6, 0.3, 0.8, 0.2] for the second. To understand how similar these objects are, I need to calculate the cosine similarity between these two vectors. Can you help me with that?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Compute the cosine similarity between two equal-length 1-D numeric sequences. Call as `function_1(vectorA, vectorB)` where `vectorA` and `vectorB` are lists, tuples, or other iterable sequences of numbers of identical length; the function returns a single float (sometimes wrapped in a one-element list by the host environment) in the range \u22121 to 1 representing the cosine similarity of the two vectors."
+        },
+        {
+          "name": "function_2",
+          "description": "Finds the price of a stock by its stock name."
+        }
+      ],
+      "ground_truth": [
+        "calculate_cosine_similarity(vectorA=[0.5, 0.7, 0.2, 0.9, 0.1], vectorB=[0.4, 0.6, 0.3, 0.8, 0.2])"
+      ],
+      "name_mapping": {
+        "calculate_cosine_similarity": "function_1",
+        "get_stock_price_by_stock_name": "function_2"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        0.9884017323417256
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 2,
+      "question": "I'm currently conducting a physics experiment, and I have this object that weighs 50 kilograms and takes up a space of about 10 cubic meters. Could you help me calculate the density of this object?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Calculates the density of an object by dividing its mass by its volume. Call as `function_1(mass, volume)` where `mass` is the object\u2019s mass (numeric, e.g., kilograms) and `volume` is its volume (numeric, e.g., cubic meters); returns a numeric value equal to `mass / volume`, representing density in the corresponding mass-per-volume units."
+        },
+        {
+          "name": "function_2",
+          "description": "Calculates the future value of an investment."
+        },
+        {
+          "name": "function_3",
+          "description": "Finds the price of a stock by its stock name."
+        },
+        {
+          "name": "function_4",
+          "description": "Finds the rating of a product by its Amazon ASIN."
+        }
+      ],
+      "ground_truth": [
+        "calculate_density(mass=50, volume=10)"
+      ],
+      "name_mapping": {
+        "calculate_density": "function_1",
+        "calculate_future_value": "function_2",
+        "get_stock_price_by_stock_name": "function_3",
+        "get_rating_by_amazon_ASIN": "function_4"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        5.0
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 3,
+      "question": "I'm working on a physics experiment where we're tracking the movement of a special object. It starts off at 15 m/s, and we're accelerating it at a rate of 9.8 m/s\u00b2. I need to calculate how far it will have traveled after 10 seconds. Can you crunch those numbers for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Finds the holidays of a year."
+        },
+        {
+          "name": "function_2",
+          "description": "Calculates the linear displacement of an object moving with constant acceleration using the kinematic formula s = v\u2080 \u00d7 t + 0.5 \u00d7 a \u00d7 t\u00b2. Call it as function_2(initial_velocity, acceleration, time) where initial_velocity (float, m/s), acceleration (float, m/s\u00b2), and time (float, s) are required positional arguments; the function returns a single float representing the distance traveled in meters."
+        }
+      ],
+      "ground_truth": [
+        "calculate_displacement(initial_velocity=15.0, acceleration=9.8, time=10)"
+      ],
+      "name_mapping": {
+        "retrieve_holiday_by_year": "function_1",
+        "calculate_displacement": "function_2"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        640.0
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 4,
+      "question": "I'm conducting a physics experiment involving charged particles and electric fields. There's a particle that I've introduced into the field, and it carries a charge of exactly 5 coulombs. The electric field itself has a potential difference of 10 volts. I need to calculate the electrostatic potential energy for this scenario. Can you help me with that calculation?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Finds the zipcode of an IP address."
+        },
+        {
+          "name": "function_2",
+          "description": "Computes the electrostatic potential energy U = q \u00d7 V, where charge (q, numeric in coulombs) and voltage (V, numeric in volts) are supplied as positional arguments. Call it as function_2(charge, voltage) and it returns a float representing the energy in joules."
+        }
+      ],
+      "ground_truth": [
+        "calculate_electrostatic_potential_energy(charge=5.0, voltage=10.0)"
+      ],
+      "name_mapping": {
+        "get_zipcode_by_ip_address": "function_1",
+        "calculate_electrostatic_potential_energy": "function_2"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        50.0
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 5,
+      "question": "During a simulation of a high-speed pursuit, I'm trying to calculate the velocity a suspect's car would reach from a standstill after accelerating continuously for 12 seconds at a rate of 9.8 meters per second squared. Could you compute the final velocity for me based on these figures?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Calculates the cosine similarity of two vectors."
+        },
+        {
+          "name": "function_2",
+          "description": "Calculates the monthly mortgage payment."
+        },
+        {
+          "name": "function_3",
+          "description": "Computes the final velocity of an object undergoing constant linear acceleration. Call as `function_3(initial_velocity, acceleration, time)`, where `initial_velocity` (float) is the starting speed in m/s, `acceleration` (float) is the constant rate of change of velocity in m/s\u00b2, and `time` (float) is the duration of acceleration in seconds; the function returns a float representing the final velocity in m/s."
+        }
+      ],
+      "ground_truth": [
+        "calculate_final_velocity(initial_velocity=0, acceleration=9.8, time=12)"
+      ],
+      "name_mapping": {
+        "calculate_cosine_similarity": "function_1",
+        "mortgage_calculator": "function_2",
+        "calculate_final_velocity": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        117.60000000000001
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 6,
+      "question": "I'm considering the long-term growth of my savings and I've put $5000 into a fixed deposit with a steady annual interest rate of 5%. I'm planning to let it sit for a decade. Could you calculate the future value of my investment after 10 years?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Computes the compound-interest future value of an investment. Call as `function_1(present_value, interest_rate, periods)` where `present_value` is the initial amount (int or float), `interest_rate` is the annual rate expressed as a decimal (e.g., 0.05 for 5 %), and `periods` is the number of compounding periods (typically years, int). The function returns a float equal to the investment\u2019s value after the specified periods."
+        },
+        {
+          "name": "function_2",
+          "description": "Calculates the n numbers of the Fibonacci."
+        },
+        {
+          "name": "function_3",
+          "description": "Sorts an array of numbers."
+        }
+      ],
+      "ground_truth": [
+        "calculate_future_value(present_value=5000, interest_rate=0.05, periods=10)"
+      ],
+      "name_mapping": {
+        "calculate_future_value": "function_1",
+        "get_fibonacci_sequence": "function_2",
+        "sort_array": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        8144.47313388721
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 7,
+      "question": "As a data analyst, I've been tracking the daily temperatures in a particular city over the last month. The temperatures I've logged range from 22 to 80 degrees Celsius, changing by 2 degrees each day. I need to calculate the average monthly temperature from this data set to understand the climate trend better. Can you help me with this?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Finds the timezone of a coordinate."
+        },
+        {
+          "name": "function_2",
+          "description": "Computes the arithmetic mean of a dataset. Call it with one positional argument `numbers`, an iterable (list, tuple, etc.) of int or float values; the function adds all elements, divides by the count, and returns the average as a float\u2014for example, `function_2([22, 24, 26])` \u2192 `24.0`."
+        }
+      ],
+      "ground_truth": [
+        "calculate_mean(numbers=[22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80])"
+      ],
+      "name_mapping": {
+        "get_time_zone_by_coord": "function_1",
+        "calculate_mean": "function_2"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        51.0
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 8,
+      "question": "I'm developing an encryption algorithm and it involves creating permutations from the English alphabet. I need to know the number of different ways I can arrange 5 letters from the total 26. Could you calculate that for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Calculates the future value of an investment."
+        },
+        {
+          "name": "function_2",
+          "description": "Call function_2(n, k) with two non-negative integers\u2014n for the total number of distinct items and k (k \u2264 n) for how many of those items will be arranged; the function returns an integer equal to n! / (n \u2212 k)!, i.e., the total count of possible ordered permutations of k items chosen from n."
+        },
+        {
+          "name": "function_3",
+          "description": "Finds the company name of a stock by its stock name."
+        }
+      ],
+      "ground_truth": [
+        "calculate_permutations(n=26, k=5)"
+      ],
+      "name_mapping": {
+        "calculate_future_value": "function_1",
+        "calculate_permutations": "function_2",
+        "get_company_name_by_stock_name": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        7893600.0
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 9,
+      "question": "I've been tracking the closing prices of a specific stock over the last 10 trading days for a report on market volatility. The figures I've recorded are 1000, 2000, 3000, 4000, 5000, 7000, 9000, 15000, 20000, and 30000. To get a better understanding of the price fluctuation and the risk associated with this stock, I need to calculate the standard deviation of these closing prices. Could you provide me with that statistic?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Computes the population standard deviation of a numeric data set. Call as `function_1(numbers)` where `numbers` is an iterable (e.g., list or tuple) of ints or floats; the function returns a single float representing the standard deviation of those values."
+        },
+        {
+          "name": "function_2",
+          "description": "Calculates the n numbers of the Fibonacci."
+        }
+      ],
+      "ground_truth": [
+        "calculate_standard_deviation(numbers=[1000,2000,3000,4000,5000,7000,9000,15000,20000,30000])"
+      ],
+      "name_mapping": {
+        "calculate_standard_deviation": "function_1",
+        "get_fibonacci_sequence": "function_2"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        8879.189152169245
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 10,
+      "question": "I'm working on an architectural project for a new park, and the design includes a triangular section. I need to calculate the area of this triangle to continue with my planning. The dimensions I have are a base of 500 meters and a height of 300 meters. Can you help me figure out the total area with these measurements?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Finds the company name of a stock by its stock name."
+        },
+        {
+          "name": "function_2",
+          "description": "Calculates the least common multiple of two numbers."
+        },
+        {
+          "name": "function_3",
+          "description": "Calculates the area of a triangle. Call `function_3(base, height)` where `base` and `height` are positive numbers (int or float, in the same units). It returns a float representing the area, computed as 0.5 \u00d7 base \u00d7 height."
+        }
+      ],
+      "ground_truth": [
+        "calculate_triangle_area(base=500, height=300)"
+      ],
+      "name_mapping": {
+        "get_company_name_by_stock_name": "function_1",
+        "math_lcm": "function_2",
+        "calculate_triangle_area": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        75000.0
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 11,
+      "question": "I need to prepare a report for a client who is planning to conduct a business transaction in Japan. They're looking to convert 5,000 Euros into Japanese Yen. To ensure the report is accurate, I need the converted amount in Yen using the current exchange rates. The currency codes I'll be working with are 'EUR' for Euros and 'JPY' for Yen. Can you provide me with the equivalent sum in Yen?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Finds the zipcode of an IP address."
+        },
+        {
+          "name": "function_2",
+          "description": "Converts a monetary amount from one currency to another using up-to-date rates from the ExchangeRate-API. Call it as \u200bfunction_2(amount, from_currency, to_currency)\u200b where \u200bamount\u200b is a number (int or float), and \u200bfrom_currency\u200b and \u200bto_currency\u200b are 3-letter ISO-4217 currency codes (e.g., \"EUR\", \"JPY\"). It returns a float representing the equivalent of \u200bamount\u200b in the target currency."
+        },
+        {
+          "name": "function_3",
+          "description": "Finds the price of a stock by its stock name."
+        }
+      ],
+      "ground_truth": [
+        "convert_currency(amount=5000, from_currency='EUR', to_currency='JPY')"
+      ],
+      "name_mapping": {
+        "get_zipcode_by_ip_address": "function_1",
+        "convert_currency": "function_2",
+        "get_stock_history": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        859533.5
+      ],
+      "execution_result_type": [
+        "real_time_match"
+      ]
+    },
+    {
+      "test_id": 12,
+      "question": "In my physics class, we're delving into kinematics, and I've been tasked with analyzing the motion of a particle. The equation f(x) = 3t^2 + 2t + 1 describes its position over time. I need to determine the velocity of this particle when t is 5 seconds. Velocity is the first derivative of the position function with respect to time, so I need to calculate that. Can you help me find the velocity using the appropriate function?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Calculates the greatest common divisor of two numbers."
+        },
+        {
+          "name": "function_2",
+          "description": "Numerically approximates the first derivative of a single-variable function at a point via the central finite-difference formula `(f(x + dx) - f(x - dx)) / (2*dx)`. Invoke it positionally as `function_2(f, x, dx=1e-6)`\u2014`f` must be a callable `f(t) -> float`, `x` is the numeric location where the derivative is desired, and `dx` is an optional positive step size; the function returns a float giving the estimated derivative at `x`."
+        }
+      ],
+      "ground_truth": [
+        "estimate_derivative(function='lambda x: 3*x**2 + 2*x + 1', x=5)"
+      ],
+      "name_mapping": {
+        "math_gcd": "function_1",
+        "estimate_derivative": "function_2"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        32.00000264769187
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 13,
+      "question": "I've been hearing the slang term \"lit\" quite frequently these days and it's piqued my curiosity. I'm not entirely sure what it means, so I'm looking to find a definition that could shed some light on its usage and connotations. Can you find out what \"lit\" means on Urban Dictionary for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Retrieves the top definition(s) for a given slang word or phrase from Urban Dictionary. Call as `function_1(term: str)` where `term` is the word or phrase; the function returns a list of definition strings ordered by Urban Dictionary\u2019s ranking, and raises an error if the term is not found or the API request fails."
+        },
+        {
+          "name": "function_2",
+          "description": "Calculates the distance between two 2D points."
+        },
+        {
+          "name": "function_3",
+          "description": "Calculates the n numbers of the Fibonacci."
+        },
+        {
+          "name": "function_4",
+          "description": "Converts a given amount from one currency to another using the ExchangeRate-API."
+        }
+      ],
+      "ground_truth": [
+        "find_term_on_urban_dictionary(term=\"lit\")"
+      ],
+      "name_mapping": {
+        "find_term_on_urban_dictionary": "function_1",
+        "get_distance": "function_2",
+        "get_fibonacci_sequence": "function_3",
+        "convert_currency": "function_4"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        "When [something] is [turned up] or [popping] ..."
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 14,
+      "question": "I'm working on a community art project and planning a large circular mural for a public space. To figure out how much paint I need to buy, I need to calculate the area of the circle I'll be painting. The wall space I've been given has a perfect circular area with a radius of 15 feet. Can you help me determine the area of this circle?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Calculates the electrostatic potential energy."
+        },
+        {
+          "name": "function_2",
+          "description": "Computes the area of a circle given its radius. Call as `function_2(radius)` where `radius` is a positive number (int or float, in the units of your choice); the function returns a float representing the circle\u2019s area (\u03c0 \u00d7 radius\u00b2) in the same squared units."
+        }
+      ],
+      "ground_truth": [
+        "geometry_area_circle(radius=15)"
+      ],
+      "name_mapping": {
+        "calculate_electrostatic_potential_energy": "function_1",
+        "geometry_area_circle": "function_2"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        706.8583470577034
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 15,
+      "question": "I'm working on an in-depth article covering the current COVID-19 situation in Brazil, and it's crucial to have the latest figures to ensure the information I present is factual and up to date. I need to include the number of active COVID-19 cases in the country. Could you provide me with the most recent active case count for Brazil?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Finds the most up to date total deaths of a country result from COVID."
+        },
+        {
+          "name": "function_2",
+          "description": "Returns the latest reported number of active COVID-19 cases for a specified country. Call it with the country\u2019s name as a single string argument (e.g., `function_2(\"Brazil\")`); the function responds with an integer representing the up-to-date active-case count (raises an error if the country is not recognized or data is unavailable)."
+        }
+      ],
+      "ground_truth": [
+        "get_active_covid_case_by_country(country='Brazil')"
+      ],
+      "name_mapping": {
+        "get_covid_death_by_country": "function_1",
+        "get_active_covid_case_by_country": "function_2"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        1783377
+      ],
+      "execution_result_type": [
+        "real_time_match"
+      ]
+    },
+    {
+      "test_id": 16,
+      "question": "While doing some financial analysis, I've been looking into the details of certain stocks, and 'AAPL' caught my attention. I'd like to know which company it represents. Could you help me find out the company name associated with the stock symbol 'AAPL'?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Finds the price of a stock by its stock name."
+        },
+        {
+          "name": "function_2",
+          "description": "Multiplies two matrices."
+        },
+        {
+          "name": "function_3",
+          "description": "Look up a single stock ticker symbol and return the matching company name. \u2022 Parameters: stock_name (str) \u2013 the exact ticker symbol, e.g., \"AAPL\". \u2022 Returns: list[str] \u2013 a one-element list containing the official company name that corresponds to the provided ticker. \u2022 Example: company = function_3(\"AAPL\")  \u279c  [\"Apple Inc.\"]"
+        },
+        {
+          "name": "function_4",
+          "description": "Calculates the greatest common divisor of two numbers."
+        }
+      ],
+      "ground_truth": [
+        "get_company_name_by_stock_name(stock_name='AAPL')"
+      ],
+      "name_mapping": {
+        "get_stock_price_by_stock_name": "function_1",
+        "mat_mul": "function_2",
+        "get_company_name_by_stock_name": "function_3",
+        "math_gcd": "function_4"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        "Apple Inc."
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 17,
+      "question": "I'm currently investigating a security alert that flagged some unusual activity in our network. The IP address '192.168.1.1' was identified in the logs, and I suspect it could be related to the breach. To understand the origin of this potential threat, I need to pinpoint the geographical coordinates of this IP. Could you provide me with the latitude and longitude for the IP address '192.168.1.1'?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Accepts one **positional** argument \u00ad\u2013 a string containing an IPv4 or IPv6 address (e.g., `\"8.8.8.8\"`). Call it as `function_1(\"address\")`, *not* with a keyword (`ip=`). Returns `{\"latitude\": float, \"longitude\": float}` for publicly routable addresses, or `[\"private range\"]` for private, loopback, or otherwise non-geolocatable blocks."
+        },
+        {
+          "name": "function_2",
+          "description": "Finds the most up to date total deaths of a country result from COVID."
+        }
+      ],
+      "ground_truth": [
+        "get_coordinate_by_ip_address(ip_address='192.168.1.1')"
+      ],
+      "name_mapping": {
+        "get_coordinate_by_ip_address": "function_1",
+        "get_covid_death_by_country": "function_2"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        "private range"
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 18,
+      "question": "I have a client who's planning a trip to Paris and they're looking for some detailed travel plans. Could we find out the exact latitude and longitude of Paris for this purpose? They're really into the specifics and would appreciate having the coordinates for their personal itinerary.",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Calculates the mean of a list of numbers."
+        },
+        {
+          "name": "function_2",
+          "description": "Finds the price of a stock by its stock name."
+        },
+        {
+          "name": "function_3",
+          "description": "Queries the Maps.co Geocoding API for the given city name (pass as a single string, e.g., `function_3(city_name=\"Paris\")`) and returns the coordinates as a list containing one two-element list `[[latitude, longitude]]`, where both values are strings."
+        }
+      ],
+      "ground_truth": [
+        "get_coordinates_from_city(city_name='Paris')"
+      ],
+      "name_mapping": {
+        "calculate_mean": "function_1",
+        "get_stock_history": "function_2",
+        "get_coordinates_from_city": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        [
+          "48.8588897",
+          "2.3200410217200766"
+        ]
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 19,
+      "question": "I'm currently conducting research on the impact of COVID-19 and my focus is on Brazil. I need the latest total death count for the country to analyze the severity of the pandemic there. Could you provide me with this information?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Finds the price of a product by its Amazon ASIN."
+        },
+        {
+          "name": "function_2",
+          "description": "Calculates the electrostatic potential energy."
+        },
+        {
+          "name": "function_3",
+          "description": "Finds the holidays of a year."
+        },
+        {
+          "name": "function_4",
+          "description": "Returns the most up-to-date cumulative number of COVID-19\u2013related deaths for a specified country. Call it with one required argument, country (a string with the country\u2019s English name, e.g., `function_4(\"Brazil\")`), and it returns the current total deaths as a numeric value."
+        }
+      ],
+      "ground_truth": [
+        "get_covid_death_by_country(country='Brazil')"
+      ],
+      "name_mapping": {
+        "get_product_name_by_amazon_ASIN": "function_1",
+        "calculate_electrostatic_potential_energy": "function_2",
+        "retrieve_holiday_by_year": "function_3",
+        "get_covid_death_by_country": "function_4"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        711380
+      ],
+      "execution_result_type": [
+        "real_time_match"
+      ]
+    },
+    {
+      "test_id": 20,
+      "question": "While I was updating a city map today, I needed to figure out how far apart two landmarks were. The first point is at coordinates (45.76, 4.85), and the second is at (48.85, 2.35). Could you calculate the distance between these two points for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Calculates the n numbers of the Fibonacci."
+        },
+        {
+          "name": "function_2",
+          "description": "Calculates the greatest common divisor of two numbers."
+        },
+        {
+          "name": "function_3",
+          "description": "Call as function_3(pointA, pointB) where pointA and pointB are each an (x, y) tuple or list of numbers; the function computes and returns the Euclidean distance between the two points as a float."
+        }
+      ],
+      "ground_truth": [
+        "get_distance(pointA=(45.76, 4.85), pointB=(48.85, 2.35))"
+      ],
+      "name_mapping": {
+        "get_fibonacci_sequence": "function_1",
+        "math_gcd": "function_2",
+        "get_distance": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        3.9746823772472712
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 21,
+      "question": "I'm currently delving into the Fibonacci sequence for my mathematical research and I'd like to examine the first 20 numbers of the sequence. Could you generate that for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Generates the first n terms of the Fibonacci sequence and returns them as a list of integers. Call it as `function_1(n)` where `n` is a positive integer specifying how many Fibonacci numbers to produce; the function returns a list of length `n` starting with `[0, 1, \u2026]`."
+        },
+        {
+          "name": "function_2",
+          "description": "Finds the price of a stock by its stock name."
+        }
+      ],
+      "ground_truth": [
+        "get_fibonacci_sequence(n=20)"
+      ],
+      "name_mapping": {
+        "get_fibonacci_sequence": "function_1",
+        "get_stock_price_by_stock_name": "function_2"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        [
+          0,
+          1,
+          1,
+          2,
+          3,
+          5,
+          8,
+          13,
+          21,
+          34,
+          55,
+          89,
+          144,
+          233,
+          377,
+          610,
+          987,
+          1597,
+          2584,
+          4181
+        ]
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 22,
+      "question": "I'm overseeing a new project where we're monitoring competitor pricing on Amazon to stay competitive. There's this particular product we've been keeping an eye on, and I need the latest price for it. The ASIN for the product is 'B08PPDJWC8'. Could you fetch the current price for this ASIN from Amazon for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Finds the most up to date total deaths of a country result from COVID."
+        },
+        {
+          "name": "function_2",
+          "description": "Returns the current Amazon listing price for a single product. Call it with one argument \u2013 the product\u2019s ASIN code as a string (e.g., function_2(\"B08PPDJWC8\")) \u2013 and it returns the price, typically as a string that includes currency symbol and amount (e.g., \"$24.99\")."
+        },
+        {
+          "name": "function_3",
+          "description": "Finds the definition of a term on Urban Dictionary."
+        }
+      ],
+      "ground_truth": [
+        "get_price_by_amazon_ASIN(ASIN='B08PPDJWC8')"
+      ],
+      "name_mapping": {
+        "get_covid_death_by_country": "function_1",
+        "get_price_by_amazon_ASIN": "function_2",
+        "find_term_on_urban_dictionary": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        "$180.00"
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 23,
+      "question": "I'm a mathematics teacher, and I'm currently putting together my lesson plan on prime factorization. For tomorrow's class, I've chosen the number 4567 as a practical example to illustrate the concept to my students. I need to break it down into its prime factors.",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Calculates the standard deviation of a list of numbers."
+        },
+        {
+          "name": "function_2",
+          "description": "Calculates the monthly mortgage payment."
+        },
+        {
+          "name": "function_3",
+          "description": "Decomposes a positive integer \u2265 2 into its prime factors. Call it as function_3(number) where number is int; the function returns a list containing a single list of the factors in non-decreasing order (e.g., function_3(12) \u2192 [[2, 2, 3]])."
+        },
+        {
+          "name": "function_4",
+          "description": "Fetches the latitude and longitude of a given city name using the Maps.co Geocoding API."
+        }
+      ],
+      "ground_truth": [
+        "get_prime_factors(number=4567)"
+      ],
+      "name_mapping": {
+        "calculate_standard_deviation": "function_1",
+        "mortgage_calculator": "function_2",
+        "get_prime_factors": "function_3",
+        "get_coordinates_from_city": "function_4"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        [
+          4567
+        ]
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 24,
+      "question": "I'm working on a product review article and I need some information about an item sold on Amazon. The only detail I have is the ASIN: 'B08BHXG144'. I need to find out the product's name associated with this ASIN to include in my write-up. Can you help me retrieve the name of this product?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Retrieves the current price of an Amazon product given its 10-character ASIN code. Call the function with a single positional argument\u2014function_1(asin: str)\u2014and it returns the price as a string (e.g., \"$29.99\") or numeric value representing the product\u2019s current listing price."
+        },
+        {
+          "name": "function_2",
+          "description": "Calculates the number of permutations of k elements from a set of n elements."
+        },
+        {
+          "name": "function_3",
+          "description": "Calculates the greatest common divisor of two numbers."
+        },
+        {
+          "name": "function_4",
+          "description": "Calculates the monthly mortgage payment."
+        }
+      ],
+      "ground_truth": [
+        "get_product_name_by_amazon_ASIN(ASIN='B08BHXG144')"
+      ],
+      "name_mapping": {
+        "get_product_name_by_amazon_ASIN": "function_1",
+        "calculate_permutations": "function_2",
+        "math_gcd": "function_3",
+        "mortgage_calculator": "function_4"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        "Apple iPhone 11 Pro Max, 64GB, Midnight Green - Unlocked (Renewed Premium)"
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 25,
+      "question": "While browsing Amazon, I stumbled upon a product that really piqued my interest. However, I'm quite particular about the quality and general consensus on items before I consider adding them to my cart. The product has an ASIN of 'B07ZPKBL9V', and I would like to know what its average customer rating is. Could you find that information for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Returns the average Amazon customer rating (0.0 \u2013 5.0) for a given product. Call it with exactly one **positional** argument: `function_1(<asin_string>)`, where `<asin_string>` is the product\u2019s ASIN such as `\"B07ZPKBL9V\"`. The function does not accept keyword arguments; providing one or omitting the positional ASIN will raise a `TypeError`."
+        },
+        {
+          "name": "function_2",
+          "description": "Calculates the distance between two 2D points."
+        },
+        {
+          "name": "function_3",
+          "description": "Calculates the area of a circle."
+        },
+        {
+          "name": "function_4",
+          "description": "Finds the zipcode of an IP address."
+        }
+      ],
+      "ground_truth": [
+        "get_rating_by_amazon_ASIN(ASIN='B07ZPKBL9V')"
+      ],
+      "name_mapping": {
+        "get_rating_by_amazon_ASIN": "function_1",
+        "get_distance": "function_2",
+        "geometry_area_circle": "function_3",
+        "get_zipcode_by_ip_address": "function_4"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        "4.2"
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 26,
+      "question": "I'm currently analyzing different investment options and I've taken a particular interest in Apple Inc. I want to review the company's stock performance over the past month. Additionally, it's important for me to know if there have been any stock splits or dividends in that time. Could you pull up the monthly history for Apple's stock and ensure that the information includes any splits or dividends?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Estimate the derivative of a function at a given point."
+        },
+        {
+          "name": "function_2",
+          "description": "Calculates the area of a circle."
+        },
+        {
+          "name": "function_3",
+          "description": "Retrieve historical market data for a given security. Call as `function_3(stock_name: str, interval: str)` where \u2022 `stock_name` is the ticker symbol (e.g., \"AAPL\", \"GOOGL\") and \u2022 `interval` specifies the time span or candle size to pull (e.g., \"1d\" for daily bars, \"1mo\" for the last month, etc.). The function returns a JSON/dictionary object containing timestamped open-high-low-close (OHLC) prices for the requested period and, when applicable, arrays of dividend and stock-split events that fell within that range."
+        },
+        {
+          "name": "function_4",
+          "description": "Finds the most up to date active cases of a country result from COVID."
+        }
+      ],
+      "ground_truth": [
+        "get_stock_history(stock_name='AAPL', interval='1mo', diffandsplits='true')"
+      ],
+      "name_mapping": {
+        "estimate_derivative": "function_1",
+        "geometry_area_circle": "function_2",
+        "get_stock_history": "function_3",
+        "get_active_covid_case_by_country": "function_4"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        {
+          "1730433600": {
+            "date": "2024-11-01",
+            "date_utc": 1730433600,
+            "open": 220.97,
+            "high": 237.81,
+            "low": 219.71,
+            "close": 237.33,
+            "volume": 891640600,
+            "adjclose": 236.5
+          },
+          "1733029200": {
+            "date": "2024-12-01",
+            "date_utc": 1733029200,
+            "open": 237.27,
+            "high": 260.1,
+            "low": 237.16,
+            "close": 250.42,
+            "volume": 977916100,
+            "adjclose": 249.82
+          },
+          "1735707600": {
+            "date": "2025-01-01",
+            "date_utc": 1735707600,
+            "open": 248.93,
+            "high": 249.1,
+            "low": 219.38,
+            "close": 236,
+            "volume": 1200291700,
+            "adjclose": 235.43
+          },
+          "1738386000": {
+            "date": "2025-02-01",
+            "date_utc": 1738386000,
+            "open": 229.99,
+            "high": 250,
+            "low": 225.7,
+            "close": 241.84,
+            "volume": 862272300,
+            "adjclose": 241.26
+          },
+          "1740805200": {
+            "date": "2025-03-01",
+            "date_utc": 1740805200,
+            "open": 241.79,
+            "high": 244.03,
+            "low": 208.42,
+            "close": 222.13,
+            "volume": 1115239500,
+            "adjclose": 221.84
+          },
+          "1743480000": {
+            "date": "2025-04-01",
+            "date_utc": 1743480000,
+            "open": 219.81,
+            "high": 225.19,
+            "low": 169.21,
+            "close": 212.5,
+            "volume": 1606488200,
+            "adjclose": 212.22
+          },
+          "1746072000": {
+            "date": "2025-05-01",
+            "date_utc": 1746072000,
+            "open": 209.08,
+            "high": 214.56,
+            "low": 193.25,
+            "close": 200.85,
+            "volume": 1195728200,
+            "adjclose": 200.59
+          },
+          "1748750400": {
+            "date": "2025-06-01",
+            "date_utc": 1748750400,
+            "open": 200.28,
+            "high": 207.39,
+            "low": 195.07,
+            "close": 205.17,
+            "volume": 1100409300,
+            "adjclose": 205.17
+          },
+          "1751342400": {
+            "date": "2025-07-01",
+            "date_utc": 1751342400,
+            "open": 206.67,
+            "high": 216.23,
+            "low": 206.14,
+            "close": 211.16,
+            "volume": 407676700,
+            "adjclose": 211.16
+          },
+          "1752523201": {
+            "date": "2025-07-14",
+            "date_utc": 1752523201,
+            "open": 209.91,
+            "high": 210.91,
+            "low": 207.54,
+            "close": 208.62,
+            "volume": 37683849,
+            "adjclose": 208.62
+          }
+        }
+      ],
+      "execution_result_type": [
+        "structural_match"
+      ]
+    },
+    {
+      "test_id": 27,
+      "question": "I'm working on a portfolio analysis, and my client is particularly interested in the latest performance of Apple Inc.'s stock. To provide them with the most up-to-date information, I need to check the current stock price for Apple. Could you pull up the latest figures for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Calculates the monthly mortgage payment."
+        },
+        {
+          "name": "function_2",
+          "description": "Retrieves the latest market price for a specific stock. Call `function_2(stock_name)` where `stock_name` is a string containing the stock\u2019s ticker symbol or full company name (e.g., \"AAPL\" or \"Apple Inc.\"); the function returns a float with the current price in U.S. dollars for that equity."
+        },
+        {
+          "name": "function_3",
+          "description": "Calculates the standard deviation of a list of numbers."
+        }
+      ],
+      "ground_truth": [
+        "get_stock_price_by_stock_name(stock_name='AAPL')"
+      ],
+      "name_mapping": {
+        "mortgage_calculator": "function_1",
+        "get_stock_price_by_stock_name": "function_2",
+        "calculate_standard_deviation": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        211.16
+      ],
+      "execution_result_type": [
+        "real_time_match"
+      ]
+    },
+    {
+      "test_id": 28,
+      "question": "I'm currently working on a geography project that involves mapping out time zones for different locations around the globe. As part of this project, I need to know the time zone for a specific coordinate. Could you provide me with the time zone for the location at longitude 123.45 and latitude -67.89?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Returns the IANA time-zone identifier for a geographic point. Invoke as function_1(longitude, latitude) with two positional float values in decimal degrees (east/north positive, west/south negative); keyword arguments are not accepted. The function returns a string such as \"America/Los_Angeles\"."
+        },
+        {
+          "name": "function_2",
+          "description": "Calculates the area of a circle."
+        },
+        {
+          "name": "function_3",
+          "description": "Finds the price of a stock by its stock name."
+        }
+      ],
+      "ground_truth": [
+        "get_time_zone_by_coord(long='123.45', lat='-67.89')"
+      ],
+      "name_mapping": {
+        "get_time_zone_by_coord": "function_1",
+        "geometry_area_circle": "function_2",
+        "get_stock_price_by_stock_name": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        "Antarctica/DumontDUrville"
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 29,
+      "question": "I'm in the middle of a climate study focusing on temperature changes in the Arctic, and I need the latest temperature readings at the North Pole. Specifically, I'm looking at the point with coordinates 90.00 latitude and 0.00 longitude. I need to access the current temperature data for this precise location using the Open-Meteo API. Could you help me get this information?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Calculates the probability of getting k successes in n trials."
+        },
+        {
+          "name": "function_2",
+          "description": "Finds the most up to date total deaths of a country result from COVID."
+        },
+        {
+          "name": "function_3",
+          "description": "Calls the Open-Meteo API to fetch the latest weather reading for a single point. Invoke as `function_3(coordinates)` where `coordinates` is a list or tuple of two floats `[latitude, longitude]` (e.g., `[90.0, 0.0]`). The call returns a one-element list whose sole value is the current air temperature in \u00b0C for the specified location."
+        }
+      ],
+      "ground_truth": [
+        "get_weather_data(coordinates=[90.00, 0.00])"
+      ],
+      "name_mapping": {
+        "calc_binomial_probability": "function_1",
+        "get_covid_death_by_country": "function_2",
+        "get_weather_data": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        31.5
+      ],
+      "execution_result_type": [
+        "structural_match"
+      ]
+    },
+    {
+      "test_id": 30,
+      "question": "I'm currently in the middle of a cybersecurity investigation and have come across a suspicious IP address that we suspect might be the source of a recent cyber attack. The IP address is 192.168.1.1, and I need to track down the physical location it's associated with to proceed with the investigation. To start with, could you find out the zipcode for where this IP address is registered?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Performs a Geo-IP lookup for a single IPv4 or IPv6 address. Call as `function_1(ip_address=\"<ip>\")`. The function returns a one-element list: `['<ZIP>']` containing the 5-digit U.S. ZIP code linked to the address, or `['private range']` when the supplied IP belongs to a reserved/private network block. It raises an error if the IP string is malformed or if a lookup succeeds but no ZIP information is available."
+        },
+        {
+          "name": "function_2",
+          "description": "Finds the city of a zipcode."
+        },
+        {
+          "name": "function_3",
+          "description": "Calculates the displacement of an object."
+        }
+      ],
+      "ground_truth": [
+        "get_zipcode_by_ip_address(ip_address=\"192.168.1.1\")"
+      ],
+      "name_mapping": {
+        "get_zipcode_by_ip_address": "function_1",
+        "retrieve_city_based_on_zipcode": "function_2",
+        "calculate_displacement": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        "private range"
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 31,
+      "question": "I'm working on a data analysis project where I need to multiply two matrices as part of my computations. The first matrix I need to work with is [[1, 2], [3, 4]], and the second one is [[5, 6], [7, 8]]. I need to calculate the product of these two matrices to proceed with my analysis. Can you help me with this calculation?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Performs standard matrix multiplication. Call function_1(matA, matB) where matA and matB are 2-D lists/tuples (or other iterable rows) of numbers with compatible inner dimensions (matA is n \u00d7 m, matB is m \u00d7 p); the function returns a new 2-D list containing the resulting n \u00d7 p product matrix."
+        },
+        {
+          "name": "function_2",
+          "description": "Calculates the mean of a list of numbers."
+        }
+      ],
+      "ground_truth": [
+        "mat_mul(matA=[[1, 2], [3, 4]], matB=[[5, 6], [7, 8]])"
+      ],
+      "name_mapping": {
+        "mat_mul": "function_1",
+        "calculate_mean": "function_2"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        [
+          [
+            19,
+            22
+          ],
+          [
+            43,
+            50
+          ]
+        ]
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 32,
+      "question": "In the midst of solving a combinatorics problem, I've hit a step that requires me to calculate the factorial of 7. Could you help me with that?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Converts a given amount from one currency to another using the ExchangeRate-API."
+        },
+        {
+          "name": "function_2",
+          "description": "Computes the factorial of a non-negative integer n. Call it as function_2(n) where n is an int \u2265 0; the function returns an int equal to n! (e.g., function_2(5) \u2192 120)."
+        }
+      ],
+      "ground_truth": [
+        "math_factorial(n=7)"
+      ],
+      "name_mapping": {
+        "convert_currency": "function_1",
+        "math_factorial": "function_2"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        5040
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 33,
+      "question": "As a historian delving into ancient Roman political alliances, I've stumbled upon an interesting numerical challenge. I need to determine the greatest common divisor for the number of senators during two distinct time periods, one with 450 senators and the other with 300. This will help me understand the commonalities in their political structures. Could you help me calculate that?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Calculates the density of an object."
+        },
+        {
+          "name": "function_2",
+          "description": "Calculates the n numbers of the Fibonacci."
+        },
+        {
+          "name": "function_3",
+          "description": "Computes and returns the greatest common divisor (GCD) of two integers. Call it as `function_3(a, b)` where `a` and `b` are the two integer values; the function returns a single integer equal to their GCD."
+        }
+      ],
+      "ground_truth": [
+        "math_gcd(a=450, b=300)"
+      ],
+      "name_mapping": {
+        "calculate_density": "function_1",
+        "get_fibonacci_sequence": "function_2",
+        "math_gcd": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        150
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 34,
+      "question": "I'm working on a new track and I've got these two drum loops that I'm trying to synchronize. The first loop repeats every 18 beats, while the second one comes back around every 24 beats. I need them to align perfectly so that the patterns create a seamless rhythm in the song. Could you calculate the least common multiple for 18 and 24 beats to find out after how many beats they'll sync up?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Computes the least common multiple (LCM) of two positive integers. Call it as `function_1(a, b)` where `a` and `b` are positive whole numbers; the function returns one numeric value equal to their LCM."
+        },
+        {
+          "name": "function_2",
+          "description": "Finds the price of a stock by its stock name."
+        },
+        {
+          "name": "function_3",
+          "description": "Calculates the number of permutations of k elements from a set of n elements."
+        },
+        {
+          "name": "function_4",
+          "description": "Calculates the displacement of an object."
+        }
+      ],
+      "ground_truth": [
+        "math_lcm(a=24, b=18)"
+      ],
+      "name_mapping": {
+        "math_lcm": "function_1",
+        "get_stock_price_by_stock_name": "function_2",
+        "calculate_permutations": "function_3",
+        "calculate_displacement": "function_4"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        72.0
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 35,
+      "question": "I'm assisting a client who's in the process of buying a house. They're looking at a mortgage for the amount of $350,000. The interest rate they've been offered is 3.5%, and they plan to pay it off over 30 years. I need to provide them with an estimate of what their monthly payment would be. Can you work that out for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Computes the fixed monthly payment for a fully-amortizing loan (e.g., a mortgage). Call `function_1(loan_amount, interest_rate, loan_period)` where `loan_amount` is the principal (int or float, in currency units), `interest_rate` is the nominal annual rate expressed as a decimal (e.g., 0.035 for 3.5 %), and `loan_period` is the term in years (int or float). The function returns a float equal to the standard amortization formula result: payment = P \u00b7 r_monthly \u00b7 (1 + r_monthly)^(n) / ((1 + r_monthly)^(n) \u2013 1), where r_monthly = interest_rate / 12 and n = loan_period \u00d7 12, giving the monthly principal-and-interest payment in the same units as `loan_amount`."
+        },
+        {
+          "name": "function_2",
+          "description": "Calculates the least common multiple of two numbers."
+        },
+        {
+          "name": "function_3",
+          "description": "Calculates the factorial of a number."
+        },
+        {
+          "name": "function_4",
+          "description": "Estimate the derivative of a function at a given point."
+        }
+      ],
+      "ground_truth": [
+        "mortgage_calculator(loan_amount=350000, interest_rate=0.035, loan_period=30)"
+      ],
+      "name_mapping": {
+        "mortgage_calculator": "function_1",
+        "math_lcm": "function_2",
+        "math_factorial": "function_3",
+        "estimate_derivative": "function_4"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        1571.656407330882
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 36,
+      "question": "For my next algebra class, I'm planning to cover the topic of quadratic equations. I want to provide a practical example to help my students understand the concept of finding roots. So, I've chosen the equation 3x^2 + 7x - 10 = 0 to work through with the class. Could you calculate the roots for this specific equation?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Calculates the distance between two 2D points."
+        },
+        {
+          "name": "function_2",
+          "description": "Solve the quadratic equation a x\u00b2 + b x + c = 0. Call syntax: function_2(a, b, c) where a, b and c are numeric (a \u2260 0). The function returns a single-element list containing another list with the two roots: [[root1, root2]]. Each root is a float when the discriminant is non-negative or a complex number when it is negative."
+        },
+        {
+          "name": "function_3",
+          "description": "Estimate the derivative of a function at a given point."
+        }
+      ],
+      "ground_truth": [
+        "quadratic_roots(a=3, b=7, c=-10)"
+      ],
+      "name_mapping": {
+        "get_distance": "function_1",
+        "quadratic_roots": "function_2",
+        "estimate_derivative": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        [
+          1.0,
+          -3.3333333333333335
+        ]
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 37,
+      "question": "I'm in the middle of analyzing demographic data for a project and need to cross-reference some information based on zip codes. I've got a specific zip code, let's say 90210, and I need to find out which city it corresponds to. Can you help me retrieve the city name for this zip code?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Calculates the future value of an investment."
+        },
+        {
+          "name": "function_2",
+          "description": "Call `function_2(zipcode)` with a 5-digit U.S. ZIP code supplied as either an `int` or zero-padded `str`; the function returns a list of one or more matching city names in uppercase (e.g., `['BEVERLY HILLS']`) and raises an error if the ZIP code is invalid or not in the database."
+        },
+        {
+          "name": "function_3",
+          "description": "Estimate the derivative of a function at a given point."
+        },
+        {
+          "name": "function_4",
+          "description": "Finds the price of a product by its Amazon ASIN."
+        }
+      ],
+      "ground_truth": [
+        "retrieve_city_based_on_zipcode(zipcode='90210')"
+      ],
+      "name_mapping": {
+        "calculate_future_value": "function_1",
+        "retrieve_city_based_on_zipcode": "function_2",
+        "estimate_derivative": "function_3",
+        "get_price_by_amazon_ASIN": "function_4"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        "BEVERLY HILLS"
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 38,
+      "question": "I'm currently engaged in a study that requires me to investigate the holidays celebrated across different cultures and how they've evolved over the years. As part of this research, I'm compiling data on the national holidays in various countries for specific years. At the moment, I'm focusing on France. I need to know the list of holidays that were observed in France in the year 2010. Can you provide that information for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Finds the timezone of a coordinate."
+        },
+        {
+          "name": "function_2",
+          "description": "Call `function_2(country, year)` to retrieve the national public-holiday calendar for a given country (`str`, full name or ISO-3166 alpha-2 code) and four-digit `year` (`int`). On success the function returns a list (iterable) of dictionaries, each typically containing the holiday\u2019s name and date; if no calendar is available it instead returns an error dictionary with HTTP-style keys such as `status` and `title`."
+        }
+      ],
+      "ground_truth": [
+        "retrieve_holiday_by_year(year='2010', country='FR')"
+      ],
+      "name_mapping": {
+        "get_time_zone_by_coord": "function_1",
+        "retrieve_holiday_by_year": "function_2"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        [
+          {
+            "date": "2010-01-01",
+            "localName": "Jour de l'an",
+            "name": "New Year's Day",
+            "countryCode": "FR",
+            "fixed": false,
+            "global": true,
+            "counties": null,
+            "launchYear": null,
+            "types": [
+              "Public"
+            ]
+          },
+          {
+            "date": "2010-04-05",
+            "localName": "Lundi de P\u00e2ques",
+            "name": "Easter Monday",
+            "countryCode": "FR",
+            "fixed": false,
+            "global": true,
+            "counties": null,
+            "launchYear": null,
+            "types": [
+              "Public"
+            ]
+          },
+          {
+            "date": "2010-05-01",
+            "localName": "F\u00eate du Travail",
+            "name": "Labour Day",
+            "countryCode": "FR",
+            "fixed": false,
+            "global": true,
+            "counties": null,
+            "launchYear": null,
+            "types": [
+              "Public"
+            ]
+          },
+          {
+            "date": "2010-05-08",
+            "localName": "Victoire 1945",
+            "name": "Victory in Europe Day",
+            "countryCode": "FR",
+            "fixed": false,
+            "global": true,
+            "counties": null,
+            "launchYear": null,
+            "types": [
+              "Public"
+            ]
+          },
+          {
+            "date": "2010-05-13",
+            "localName": "Ascension",
+            "name": "Ascension Day",
+            "countryCode": "FR",
+            "fixed": false,
+            "global": true,
+            "counties": null,
+            "launchYear": null,
+            "types": [
+              "Public"
+            ]
+          },
+          {
+            "date": "2010-05-24",
+            "localName": "Lundi de Pentec\u00f4te",
+            "name": "Whit Monday",
+            "countryCode": "FR",
+            "fixed": false,
+            "global": true,
+            "counties": null,
+            "launchYear": null,
+            "types": [
+              "Public"
+            ]
+          },
+          {
+            "date": "2010-07-14",
+            "localName": "F\u00eate nationale",
+            "name": "Bastille Day",
+            "countryCode": "FR",
+            "fixed": false,
+            "global": true,
+            "counties": null,
+            "launchYear": null,
+            "types": [
+              "Public"
+            ]
+          },
+          {
+            "date": "2010-08-15",
+            "localName": "Assomption",
+            "name": "Assumption Day",
+            "countryCode": "FR",
+            "fixed": false,
+            "global": true,
+            "counties": null,
+            "launchYear": null,
+            "types": [
+              "Public"
+            ]
+          },
+          {
+            "date": "2010-11-01",
+            "localName": "Toussaint",
+            "name": "All Saints' Day",
+            "countryCode": "FR",
+            "fixed": false,
+            "global": true,
+            "counties": null,
+            "launchYear": null,
+            "types": [
+              "Public"
+            ]
+          },
+          {
+            "date": "2010-11-11",
+            "localName": "Armistice 1918",
+            "name": "Armistice Day",
+            "countryCode": "FR",
+            "fixed": false,
+            "global": true,
+            "counties": null,
+            "launchYear": null,
+            "types": [
+              "Public"
+            ]
+          },
+          {
+            "date": "2010-12-25",
+            "localName": "No\u00ebl",
+            "name": "Christmas Day",
+            "countryCode": "FR",
+            "fixed": false,
+            "global": true,
+            "counties": null,
+            "launchYear": null,
+            "types": [
+              "Public"
+            ]
+          }
+        ]
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 39,
+      "question": "I've got a dataset here that needs to be ordered from highest to lowest value. The numbers I'm working with are 34, 2, 56, 7, 9, and 12. Could you help me sort these in descending order?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Finds the definition of a term on Urban Dictionary."
+        },
+        {
+          "name": "function_2",
+          "description": "Calculates the density of an object."
+        },
+        {
+          "name": "function_3",
+          "description": "Finds the price of a stock by its stock name."
+        },
+        {
+          "name": "function_4",
+          "description": "Call `function_4(array)` with `array` set to a Python list of numbers (ints or floats). The function returns a new list containing the same numeric values sorted in ascending order (lowest-to-highest), leaving the original list unchanged."
+        }
+      ],
+      "ground_truth": [
+        "sort_array(array=[34, 2, 56, 7, 9, 12], reverse=True)"
+      ],
+      "name_mapping": {
+        "find_term_on_urban_dictionary": "function_1",
+        "calculate_density": "function_2",
+        "get_stock_history": "function_3",
+        "sort_array": "function_4"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        [
+          56,
+          34,
+          12,
+          9,
+          7,
+          2
+        ]
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 40,
+      "question": "I need to calculate the sum of the binary numbers '10011' and '1100'. Could you help me with that?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Adds two binary numbers supplied as strings consisting of `'0'` and `'1'` (e.g., `\"10011\"`). Call as `function_1(a, b)` where `a` and `b` are the binary strings; the function returns a list whose sole element is the resulting binary string representing `a + b`, with no leading zeros unless the sum is `\"0\"`."
+        },
+        {
+          "name": "function_2",
+          "description": "Converts a binary number to a decimal number."
+        },
+        {
+          "name": "function_3",
+          "description": "Converts a decimal number to a hexadecimal number."
+        }
+      ],
+      "ground_truth": [
+        "add_binary_numbers(a='10011',b='1100')"
+      ],
+      "name_mapping": {
+        "add_binary_numbers": "function_1",
+        "convert_binary_to_decimal": "function_2",
+        "convert_decimal_to_hex": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        "11111"
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 41,
+      "question": "I've been working on some data analysis and I need to fit a linear regression model. I have these data points with x-coordinates as [1, 2, -3] and corresponding y-coordinates as [4, -5, 6]. I want to understand the relationship between these variables and make a prediction for when x is 10. Can you help me with that?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Performs simple linear regression on two equal-length numeric sequences (xs, ys) to find the best-fit line y = m\u00b7x + b, then evaluates that line at a supplied x\u2080. Call it with three positional arguments only\u2014`function_1(xs, ys, x0)`\u2014and it returns a one-element list `[predicted_y]` containing the float prediction."
+        },
+        {
+          "name": "function_2",
+          "description": "Calculates the slope of the linear regression line from a set of points."
+        },
+        {
+          "name": "function_3",
+          "description": "Calculates the y-intercept of the linear regression line from a set of points and a given slope."
+        },
+        {
+          "name": "function_4",
+          "description": "Predicts the value of y given the slope, intercept, and an x value."
+        }
+      ],
+      "ground_truth": [
+        "linear_regression(x=[1,2,-3],y=[4,-5,6],point=10)"
+      ],
+      "name_mapping": {
+        "linear_regression": "function_1",
+        "calculate_slope": "function_2",
+        "calculate_intercept": "function_3",
+        "predict_value": "function_4"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        -15.476190476190476
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 42,
+      "question": "I've been planning my financial future and I've decided to make an initial investment of $10,000, followed by an annual contribution of $1,000. My investment plan will run for 5 years, and I'm expecting an annual return of 5%. However, I'm also aware that inflation can impact the value of my investment, so I've projected an inflation rate that changes year over year: 1% for the first year, 2% for the second, and so on, up to 4% for the last two years. I need to calculate the real value of my investment after accounting for these inflation rates. Can you provide me with the adjusted value of my investment over this 5-year period?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Calculates the value of an investment over time."
+        },
+        {
+          "name": "function_2",
+          "description": "Calculates compound interest over time."
+        },
+        {
+          "name": "function_3",
+          "description": "Calculates the inflation-adjusted (real) value of a lump-sum payment by discounting it for a given number of years. Call `function_3(amount, inflation_rate, years)` with `amount` as a number, `inflation_rate` as a single annual rate in decimal form, and `years` as a positive integer; the function returns a one-element list containing the discounted amount computed as `amount / (1 + inflation_rate) ** years`."
+        }
+      ],
+      "ground_truth": [
+        "calculate_investment_value(initial_investment=10000, annual_contribution=1000, years=5, annual_return=0.05, inflation_rate=[0.01,0.02,0.03,0.04,0.04])"
+      ],
+      "name_mapping": {
+        "calculate_investment_value": "function_1",
+        "compound_interest": "function_2",
+        "inflation_adjustment": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        16145.646273400002
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 43,
+      "question": "I've got $1,000,000 set aside as an initial investment and plan to add $1,000 to it every year. I'm looking at a potential annual interest rate of 10% over the next three years. However, I also want to consider the inflation rates, which I expect to be 1% in the first year and 4% for the next two years. I need to calculate what the investment's value would be at the end of three years, factoring in these inflation rates. Can you help me with that?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Computes the future value of a lump-sum investment that compounds at a constant rate: call as function_1(present_value, interest_rate, periods) where present_value (float) is the starting balance, interest_rate (float, e.g., 0.10 for 10 %), and periods (int) is the number of compounding periods; the function returns a single float representing the account balance at the end of the final period."
+        },
+        {
+          "name": "function_2",
+          "description": "Adjusts the investment value for inflation for each year."
+        },
+        {
+          "name": "function_3",
+          "description": "Calculates the inflation-adjusted future value of an investment that receives the same contribution each year. Call as function_3(initial_investment: float, annual_contribution: float, years: int, annual_return: float, inflation_rate: float | Sequence[float]) \u2192 float, where initial_investment is the starting balance, annual_contribution is added at the end of every year, years is the investment horizon, annual_return is the nominal growth rate expressed as a decimal (e.g., 0.10 for 10 %), and inflation_rate is either one rate applied to every year or a list of per-year rates. The function returns a single float giving the portfolio\u2019s real (inflation-adjusted) value at the end of the final year."
+        }
+      ],
+      "ground_truth": [
+        "calculate_investment_value(initial_investment=1000000, annual_contribution=1000, years=3, annual_return=0.10, inflation_rate=[0.01, 0.04, 0.04])"
+      ],
+      "name_mapping": {
+        "calculate_future_value": "function_1",
+        "adjust_for_inflation": "function_2",
+        "calculate_investment_value": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        1227813.9640000002
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 44,
+      "question": "I've been helping my grandmother to adopt a healthier lifestyle. She's 80 years old, and we've been quite active together lately. She's 170 cm tall and weighs 59 kg. Given that we're maintaining an activity level of 4 on the scale you've provided, we're aiming for a weight loss goal. Could you calculate her nutritional needs based on these details?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Calculates the Basal Metabolic Rate (BMR) of a person."
+        },
+        {
+          "name": "function_2",
+          "description": "Calculates the daily energy expenditure based on BMR and activity level."
+        },
+        {
+          "name": "function_3",
+          "description": "Computes an individual\u2019s estimated total daily calorie needs (and, if implemented, a macronutrient breakdown) based on weight, height, age, gender, activity level, and goal. The function must be called with six positional arguments in the exact order: 1) weight_kg (float or int), 2) height_cm (float or int), 3) age_years (int), 4) gender (str: \"male\" or \"female\"), 5) activity_level (numeric scale such as 1-5), 6) goal (str: \"maintain\", \"lose\", or \"gain\"). It returns either a single number representing the required daily calories or a dictionary/tuple whose first element is that calorie value (subsequent elements, when present, give protein, carbohydrate, and fat gram targets). Keyword arguments are not supported\u2014pass all values positionally."
+        }
+      ],
+      "ground_truth": [
+        "calculate_nutritional_needs(weight=59,height=170,age=80,gender='female',activity_level=4,goal='lose')"
+      ],
+      "name_mapping": {
+        "calculate_basal_metabolic_rate": "function_1",
+        "calculate_daily_energy_expenditure": "function_2",
+        "calculate_nutritional_needs": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        {
+          "calories": 1524.15985,
+          "proteins_g": 114.31198875,
+          "fats_g": 42.33777361111111,
+          "carbohydrates_g": 171.46798312500002
+        }
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 45,
+      "question": "I'm looking to reserve a deluxe room for a client whose ID is 123. They'll be staying from August 11th to August 15th, 2024. The room's nightly rate is $1000. Can you handle the booking for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Creates a single reservation record and immediately returns it. Call as `function_1(room_type: str, price: float, check_in_date: \"YYYY-MM-DD\", check_out_date: \"YYYY-MM-DD\", customer_id: int) -> list[dict]`. The function stores the booking and gives back a one-item list containing a dictionary: `{'customer_id': customer_id, 'room_number': room_type, 'check_in_date': check_in_date, 'check_out_date': check_out_date, 'total_price': price}`. Note that `total_price` is the nightly rate you passed in; if you need the full stay cost, multiply it by the number of nights with `function_2`."
+        },
+        {
+          "name": "function_2",
+          "description": "Computes the full cost of a stay. Call as function_2(room_price: float, nights: int) \u279e float, and the function returns the total_price (room_price \u00d7 nights)."
+        },
+        {
+          "name": "function_3",
+          "description": "Finalises a reservation by linking the customer to the assigned room and issuing a confirmation. Call as function_3(customer_id: int, room_number: int, total_price: float) \u279e str, and it returns a human-readable confirmation message (e.g., an email body or booking reference) indicating the booking is complete."
+        }
+      ],
+      "ground_truth": [
+        "book_room(room_type='deluxe',price=1000,check_in_date='08-11-2024',check_out_date='08-15-2024',customer_id='123')"
+      ],
+      "name_mapping": {
+        "book_room": "function_1",
+        "calculate_total_price": "function_2",
+        "confirm_booking": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        {
+          "customer_id": "123",
+          "room_number": "deluxe",
+          "check_in_date": "08-11-2024",
+          "check_out_date": "08-15-2024",
+          "total_price": 1000
+        }
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 46,
+      "question": "I'm planning to host a dinner party tonight and thought of serving some delicious dumplings and rice bowls. I need to order 101 dumplings at $0.1 each and 20 rice bowls at $10 per bowl. Can you calculate the total price for this order for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Orders food for a customer. Return the total price."
+        },
+        {
+          "name": "function_2",
+          "description": "Calculates the grand total for an order. Call `function_2(quantities, prices)` where `quantities` and `prices` are equal-length iterables of numbers; the function multiplies each quantity by its corresponding unit price, sums all subtotals, and returns the result as a float inside a single-element list (e.g., `[210.1]`)."
+        },
+        {
+          "name": "function_3",
+          "description": "Applies a discount to the total price."
+        }
+      ],
+      "ground_truth": [
+        "order_food(item=['dumplings','rice bowl'], quantity=[101,20], price=[0.1,10])"
+      ],
+      "name_mapping": {
+        "order_food": "function_1",
+        "calculate_total": "function_2",
+        "apply_discount": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        210.1
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 47,
+      "question": "I just rewatched \"Pulp Fiction,\" and I'm curious about the mastermind behind its direction. Could you find out who directed this iconic movie for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Queries the OMDB API for the exact film title you pass in `movie_name` (str) and returns a list of one or more director names, e.g., `['Quentin Tarantino']`; if the title is not found, the function raises an error. Call it as `function_1(movie_name=\"Pulp Fiction\")`."
+        },
+        {
+          "name": "function_2",
+          "description": "Calculates the interest rate for a given principal, rate, and time."
+        },
+        {
+          "name": "function_3",
+          "description": "Converts temperature from Celsius to Fahrenheit or vice versa."
+        },
+        {
+          "name": "function_4",
+          "description": "Generates a random number within a specified range."
+        }
+      ],
+      "ground_truth": [
+        "get_movie_director(movie_name='Pulp Fiction')"
+      ],
+      "name_mapping": {
+        "get_movie_director": "function_1",
+        "calculate_interest_rate": "function_2",
+        "convert_temperature": "function_3",
+        "generate_random_number": "function_4"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        "Quentin Tarantino"
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 48,
+      "question": "I'm planning a movie night for my family this weekend, and I want to make sure the film is appropriate for all ages. We've settled on the idea of watching \"Avatar\", but I need to confirm its age rating before we proceed. Could you find out the age rating for the movie \"Avatar\"?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Queries the OMDB API for the given film title (pass as the single positional or keyword argument `movie_name: str`) and returns a list containing the movie\u2019s official age-rating string, e.g., `[\"PG-13\"]`. If the title cannot be resolved or the API request fails, the function raises an exception."
+        },
+        {
+          "name": "function_2",
+          "description": "Retrieves the genre of a movie from the OMDB API."
+        },
+        {
+          "name": "function_3",
+          "description": "Gets the director of a movie."
+        }
+      ],
+      "ground_truth": [
+        "get_movie_rating(movie_name='Avatar')"
+      ],
+      "name_mapping": {
+        "get_movie_rating": "function_1",
+        "get_movie_genre": "function_2",
+        "get_director_by_movie_name": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        "PG-13"
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 49,
+      "question": "I have a set of vertices: [[1,2],[3,4],[1,4],[3,7]], and I'm curious about the area that these points, when connected in order, would enclose to form a polygon. Could you calculate the area of this polygon for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Converts a list of tuples into a list of lists."
+        },
+        {
+          "name": "function_2",
+          "description": "Computes the area enclosed by a simple polygon using the Shoelace formula. Call as `function_2(vertices)` where `vertices` is an ordered list or tuple of 2-element coordinate pairs, e.g. `[[x1, y1], [x2, y2], \u2026]`; returns a float representing the absolute area of the polygon in the units of the input coordinates."
+        },
+        {
+          "name": "function_3",
+          "description": "Validates whether an ordered set of points can form a proper polygon. Call as `function_3(vertices)` with `vertices` provided as a list/tuple of at least three 2-element coordinate pairs; returns `True` if the points constitute a non-degenerate polygon (e.g., not collinear and with sufficient distinct vertices), otherwise `False`."
+        }
+      ],
+      "ground_truth": [
+        "polygon_area(vertices=[[1,2],[3,4],[1,4],[3,7]])"
+      ],
+      "name_mapping": {
+        "convert_coordinates": "function_1",
+        "polygon_area": "function_2",
+        "validate_polygon": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        0.0
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    }
+  ],
+  "generation_metadata": {
+    "model": "o3",
+    "prompt_key": "basic_improved",
+    "temperature": 1.0,
+    "max_tokens": 8192,
+    "source_result_dir": "runs/bfcl/tool_observer/executable_multiple_function_name[all:increasing_number]_param[all:remove_all]/gpt5mini_medium_req_8192_must_call_tool_seed0/improvements/o3_medium_basic_improved_8192/v6",
+    "improvement_version": 7,
+    "generated_timestamp": "2026-02-04T21:53:09.008629Z"
+  }
+}
