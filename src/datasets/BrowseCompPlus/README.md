@@ -8,7 +8,11 @@ Generation → Evaluation (LLM-as-judge) → Description rewrite (batch + synthe
 
 The rewrite step is two-phase: per-batch trajectory analysis (default 10 trajectories per minibatch) followed by cross-batch synthesis into final tool descriptions.
 
-> **Reproducing paper numbers without spending API credits or running retrieval:** trajectories from the paper's BrowseCompPlus runs are available as a [GitHub Release asset](https://github.com/shallinan1/OpaqueToolsBench/releases/tag/v0.1-bcp-trajectories) (~720 MB compressed). Includes the train trajectory at v0–v3, the v1 and v4 test-split evaluations, the transparent-config ceiling, and the EasyTool / Play2Prompt baselines. The pre-computed `v0_scored.json` files in each run dir contain the headline numbers, so reading them is free. Re-grading with `evaluate.py` is optional and only needs an OpenAI key for the LLM judge; no retrieval or RapidAPI keys required.
+> **Reproducing paper numbers without spending API credits or running retrieval:** trajectories from the paper's BrowseCompPlus runs are available as a [GitHub Release asset](https://github.com/shallinan1/OpaqueToolsBench/releases/tag/v0.1-bcp-trajectories) (~720 MB compressed). Includes the train trajectory at v0–v3, the v1 and v4 test-split evaluations, the transparent-config ceiling, and the EasyTool / Play2Prompt baselines.
+>
+> **Verifying without API/dataset access:** every leaf's `v0_scored.json` already contains both the aggregate (`summary.accuracy`, `summary.tool_usage`, etc.) and per-query judge transcripts (`detailed_evaluations[].judge_result.reasoning`). Reading these is free. The headline numbers in the paper come straight from `summary.accuracy`.
+>
+> **Independently re-grading:** running `evaluate.py` on a result_dir reads the shipped `v0_results.json` and re-invokes the LLM judge. Requires an OpenAI key (~cents per query) **and** the BrowseComp-Plus held-out answers file `browsecomp_plus_decrypted.jsonl`, which is part of the gated BrowseComp-Plus dataset on HuggingFace (cloned via `setup_database.sh`).
 
 ## Reproducing Table 4 (BrowseCompPlus paper results)
 

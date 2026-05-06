@@ -2,7 +2,7 @@
 name = "opaquetoolsbench"
 version = "0.1.0"
 description = "Tool use evaluation and analysis project"
-requires-python = "==3.10"
+requires-python = "==3.10.*"
 dependencies = [
     # Additional packages for your analysis scripts
     "pandas>=2.0.0",

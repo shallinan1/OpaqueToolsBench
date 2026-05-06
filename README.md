@@ -25,6 +25,8 @@ uv sync
 source .venv/bin/activate
 ```
 
+> **Apple Silicon note:** if `uv sync` fails on torch wheels with a hint about `macosx_*_x86_64`, your `uv` / Python is Intel-emulated under Rosetta 2 (common with `~/opt/anaconda3` installations). Install ARM-native uv via Homebrew (`arch -arm64 brew install uv`) and let it resolve a fresh ARM Python.
+
 ## LLM API keys
 
 Create a `.env` file at the repo root (auto-loaded by `python-dotenv` at startup):
