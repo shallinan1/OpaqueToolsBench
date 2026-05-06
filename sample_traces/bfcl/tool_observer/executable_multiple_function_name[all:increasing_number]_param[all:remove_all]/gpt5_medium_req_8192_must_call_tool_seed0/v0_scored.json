@@ -1,0 +1,2947 @@
+{
+  "summary": {
+    "accuracy": 0.0,
+    "correct": 0,
+    "total": 50,
+    "by_category": {
+      "executable_multiple_function": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 50
+      }
+    },
+    "parameter_accuracy_avg": 0.0,
+    "parameter_accuracy_distribution": {
+      "0%": 1.0,
+      "1-25%": 0.0,
+      "26-50%": 0.0,
+      "51-75%": 0.0,
+      "76-99%": 0.0,
+      "100%": 0.0
+    },
+    "ast_format_score_avg": 0.6000000000000005,
+    "ast_format_valid_rate": 1.0,
+    "ast_structure_valid_rate": 1.0,
+    "common_errors": {
+      "missing_parameters": [
+        [
+          "n",
+          4
+        ],
+        [
+          "a",
+          4
+        ],
+        [
+          "b",
+          4
+        ],
+        [
+          "country",
+          3
+        ],
+        [
+          "stock_name",
+          3
+        ]
+      ],
+      "extra_parameters": [],
+      "wrong_value_parameters": [],
+      "type_mismatches": {}
+    }
+  },
+  "detailed_evaluations": [
+    {
+      "index": 0,
+      "question": "I'm playing a dice game and want to calculate my chances. I roll the die 20 times, and I'm trying to figure out the probability of landing on a 6 exactly five times, considering each roll has a one in six chance of being a 6. Could you help me with that?",
+      "model_result": "[{\"function\": \"function_2\", \"args\": {}}]",
+      "ground_truth": [
+        "calc_binomial_probability(n=20, k=5, p=1/6)"
+      ],
+      "ground_truth_execution": [
+        0.1294102919789905
+      ],
+      "valid": false,
+      "error": [
+        "Could not find a matching function among index [0] of model output for index 0 of possible answers.",
+        {
+          "Model Result Index 0": {
+            "sub_error": [
+              "Error in execution: 'function_2()'. Error: function_2() missing 3 required positional arguments: 'n', 'k', and 'p'"
+            ],
+            "sub_error_type": "executable_checker:execution_error",
+            "executed_result": null
+          }
+        }
+      ],
+      "error_type": "executable_checker:cannot_find_match",
+      "executed_result": [
+        {
+          "error": "function_2() missing 3 required positional arguments: 'n', 'k', and 'p'",
+          "function_call": "function_2()"
+        }
+      ],
+      "parameter_metrics": {
+        "accuracy": 0.0,
+        "total_params": 3,
+        "correct_params": 0,
+        "missing_params": [
+          "n",
+          "p",
+          "k"
+        ],
+        "extra_params": [],
+        "wrong_value_params": []
+      },
+      "ast_metrics": {
+        "format_valid": true,
+        "structure_valid": true,
+        "type_correctness": 0.0,
+        "schema_compliant": false,
+        "has_hallucinated_params": false,
+        "type_errors": [],
+        "score": 0.6
+      },
+      "category": "executable_multiple_function"
+    },
+    {
+      "index": 1,
+      "question": "I'm working on a machine learning model, comparing the characteristics of two objects. The feature vectors for these objects are [0.5, 0.7, 0.2, 0.9, 0.1] for the first object and [0.4, 0.6, 0.3, 0.8, 0.2] for the second. To understand how similar these objects are, I need to calculate the cosine similarity between these two vectors. Can you help me with that?",
+      "model_result": "[{\"function\": \"function_1\", \"args\": {}}]",
+      "ground_truth": [
+        "calculate_cosine_similarity(vectorA=[0.5, 0.7, 0.2, 0.9, 0.1], vectorB=[0.4, 0.6, 0.3, 0.8, 0.2])"
+      ],
+      "ground_truth_execution": [
+        0.9884017323417256
+      ],
+      "valid": false,
+      "error": [
+        "Could not find a matching function among index [0] of model output for index 0 of possible answers.",
+        {
+          "Model Result Index 0": {
+            "sub_error": [
+              "Error in execution: 'function_1()'. Error: function_1() missing 2 required positional arguments: 'vectorA' and 'vectorB'"
+            ],
+            "sub_error_type": "executable_checker:execution_error",
+            "executed_result": null
+          }
+        }
+      ],
+      "error_type": "executable_checker:cannot_find_match",
+      "executed_result": [
+        {
+          "error": "function_1() missing 2 required positional arguments: 'vectorA' and 'vectorB'",
+          "function_call": "function_1()"
+        }
+      ],
+      "parameter_metrics": {
+        "accuracy": 0.0,
+        "total_params": 2,
+        "correct_params": 0,
+        "missing_params": [
+          "vectorA",
+          "vectorB"
+        ],
+        "extra_params": [],
+        "wrong_value_params": []
+      },
+      "ast_metrics": {
+        "format_valid": true,
+        "structure_valid": true,
+        "type_correctness": 0.0,
+        "schema_compliant": false,
+        "has_hallucinated_params": false,
+        "type_errors": [],
+        "score": 0.6
+      },
+      "category": "executable_multiple_function"
+    },
+    {
+      "index": 2,
+      "question": "I'm currently conducting a physics experiment, and I have this object that weighs 50 kilograms and takes up a space of about 10 cubic meters. Could you help me calculate the density of this object?",
+      "model_result": "[{\"function\": \"function_1\", \"args\": {}}]",
+      "ground_truth": [
+        "calculate_density(mass=50, volume=10)"
+      ],
+      "ground_truth_execution": [
+        5.0
+      ],
+      "valid": false,
+      "error": [
+        "Could not find a matching function among index [0] of model output for index 0 of possible answers.",
+        {
+          "Model Result Index 0": {
+            "sub_error": [
+              "Error in execution: 'function_1()'. Error: function_1() missing 2 required positional arguments: 'mass' and 'volume'"
+            ],
+            "sub_error_type": "executable_checker:execution_error",
+            "executed_result": null
+          }
+        }
+      ],
+      "error_type": "executable_checker:cannot_find_match",
+      "executed_result": [
+        {
+          "error": "function_1() missing 2 required positional arguments: 'mass' and 'volume'",
+          "function_call": "function_1()"
+        }
+      ],
+      "parameter_metrics": {
+        "accuracy": 0.0,
+        "total_params": 2,
+        "correct_params": 0,
+        "missing_params": [
+          "volume",
+          "mass"
+        ],
+        "extra_params": [],
+        "wrong_value_params": []
+      },
+      "ast_metrics": {
+        "format_valid": true,
+        "structure_valid": true,
+        "type_correctness": 0.0,
+        "schema_compliant": false,
+        "has_hallucinated_params": false,
+        "type_errors": [],
+        "score": 0.6
+      },
+      "category": "executable_multiple_function"
+    },
+    {
+      "index": 3,
+      "question": "I'm working on a physics experiment where we're tracking the movement of a special object. It starts off at 15 m/s, and we're accelerating it at a rate of 9.8 m/s\u00b2. I need to calculate how far it will have traveled after 10 seconds. Can you crunch those numbers for me?",
+      "model_result": "[{\"function\": \"function_2\", \"args\": {}}]",
+      "ground_truth": [
+        "calculate_displacement(initial_velocity=15.0, acceleration=9.8, time=10)"
+      ],
+      "ground_truth_execution": [
+        640.0
+      ],
+      "valid": false,
+      "error": [
+        "Could not find a matching function among index [0] of model output for index 0 of possible answers.",
+        {
+          "Model Result Index 0": {
+            "sub_error": [
+              "Error in execution: 'function_2()'. Error: function_2() missing 3 required positional arguments: 'initial_velocity', 'acceleration', and 'time'"
+            ],
+            "sub_error_type": "executable_checker:execution_error",
+            "executed_result": null
+          }
+        }
+      ],
+      "error_type": "executable_checker:cannot_find_match",
+      "executed_result": [
+        {
+          "error": "function_2() missing 3 required positional arguments: 'initial_velocity', 'acceleration', and 'time'",
+          "function_call": "function_2()"
+        }
+      ],
+      "parameter_metrics": {
+        "accuracy": 0.0,
+        "total_params": 3,
+        "correct_params": 0,
+        "missing_params": [
+          "acceleration",
+          "initial_velocity",
+          "time"
+        ],
+        "extra_params": [],
+        "wrong_value_params": []
+      },
+      "ast_metrics": {
+        "format_valid": true,
+        "structure_valid": true,
+        "type_correctness": 0.0,
+        "schema_compliant": false,
+        "has_hallucinated_params": false,
+        "type_errors": [],
+        "score": 0.6
+      },
+      "category": "executable_multiple_function"
+    },
+    {
+      "index": 4,
+      "question": "I'm conducting a physics experiment involving charged particles and electric fields. There's a particle that I've introduced into the field, and it carries a charge of exactly 5 coulombs. The electric field itself has a potential difference of 10 volts. I need to calculate the electrostatic potential energy for this scenario. Can you help me with that calculation?",
+      "model_result": "[{\"function\": \"function_2\", \"args\": {}}]",
+      "ground_truth": [
+        "calculate_electrostatic_potential_energy(charge=5.0, voltage=10.0)"
+      ],
+      "ground_truth_execution": [
+        50.0
+      ],
+      "valid": false,
+      "error": [
+        "Could not find a matching function among index [0] of model output for index 0 of possible answers.",
+        {
+          "Model Result Index 0": {
+            "sub_error": [
+              "Error in execution: 'function_2()'. Error: function_2() missing 2 required positional arguments: 'charge' and 'voltage'"
+            ],
+            "sub_error_type": "executable_checker:execution_error",
+            "executed_result": null
+          }
+        }
+      ],
+      "error_type": "executable_checker:cannot_find_match",
+      "executed_result": [
+        {
+          "error": "function_2() missing 2 required positional arguments: 'charge' and 'voltage'",
+          "function_call": "function_2()"
+        }
+      ],
+      "parameter_metrics": {
+        "accuracy": 0.0,
+        "total_params": 2,
+        "correct_params": 0,
+        "missing_params": [
+          "charge",
+          "voltage"
+        ],
+        "extra_params": [],
+        "wrong_value_params": []
+      },
+      "ast_metrics": {
+        "format_valid": true,
+        "structure_valid": true,
+        "type_correctness": 0.0,
+        "schema_compliant": false,
+        "has_hallucinated_params": false,
+        "type_errors": [],
+        "score": 0.6
+      },
+      "category": "executable_multiple_function"
+    },
+    {
+      "index": 5,
+      "question": "During a simulation of a high-speed pursuit, I'm trying to calculate the velocity a suspect's car would reach from a standstill after accelerating continuously for 12 seconds at a rate of 9.8 meters per second squared. Could you compute the final velocity for me based on these figures?",
+      "model_result": "[{\"function\": \"function_3\", \"args\": {}}]",
+      "ground_truth": [
+        "calculate_final_velocity(initial_velocity=0, acceleration=9.8, time=12)"
+      ],
+      "ground_truth_execution": [
+        117.60000000000001
+      ],
+      "valid": false,
+      "error": [
+        "Could not find a matching function among index [0] of model output for index 0 of possible answers.",
+        {
+          "Model Result Index 0": {
+            "sub_error": [
+              "Error in execution: 'function_3()'. Error: function_3() missing 3 required positional arguments: 'initial_velocity', 'acceleration', and 'time'"
+            ],
+            "sub_error_type": "executable_checker:execution_error",
+            "executed_result": null
+          }
+        }
+      ],
+      "error_type": "executable_checker:cannot_find_match",
+      "executed_result": [
+        {
+          "error": "function_3() missing 3 required positional arguments: 'initial_velocity', 'acceleration', and 'time'",
+          "function_call": "function_3()"
+        }
+      ],
+      "parameter_metrics": {
+        "accuracy": 0.0,
+        "total_params": 3,
+        "correct_params": 0,
+        "missing_params": [
+          "acceleration",
+          "initial_velocity",
+          "time"
+        ],
+        "extra_params": [],
+        "wrong_value_params": []
+      },
+      "ast_metrics": {
+        "format_valid": true,
+        "structure_valid": true,
+        "type_correctness": 0.0,
+        "schema_compliant": false,
+        "has_hallucinated_params": false,
+        "type_errors": [],
+        "score": 0.6
+      },
+      "category": "executable_multiple_function"
+    },
+    {
+      "index": 6,
+      "question": "I'm considering the long-term growth of my savings and I've put $5000 into a fixed deposit with a steady annual interest rate of 5%. I'm planning to let it sit for a decade. Could you calculate the future value of my investment after 10 years?",
+      "model_result": "[{\"function\": \"function_1\", \"args\": {}}]",
+      "ground_truth": [
+        "calculate_future_value(present_value=5000, interest_rate=0.05, periods=10)"
+      ],
+      "ground_truth_execution": [
+        8144.47313388721
+      ],
+      "valid": false,
+      "error": [
+        "Could not find a matching function among index [0] of model output for index 0 of possible answers.",
+        {
+          "Model Result Index 0": {
+            "sub_error": [
+              "Error in execution: 'function_1()'. Error: function_1() missing 3 required positional arguments: 'present_value', 'interest_rate', and 'periods'"
+            ],
+            "sub_error_type": "executable_checker:execution_error",
+            "executed_result": null
+          }
+        }
+      ],
+      "error_type": "executable_checker:cannot_find_match",
+      "executed_result": [
+        {
+          "error": "function_1() missing 3 required positional arguments: 'present_value', 'interest_rate', and 'periods'",
+          "function_call": "function_1()"
+        }
+      ],
+      "parameter_metrics": {
+        "accuracy": 0.0,
+        "total_params": 3,
+        "correct_params": 0,
+        "missing_params": [
+          "periods",
+          "interest_rate",
+          "present_value"
+        ],
+        "extra_params": [],
+        "wrong_value_params": []
+      },
+      "ast_metrics": {
+        "format_valid": true,
+        "structure_valid": true,
+        "type_correctness": 0.0,
+        "schema_compliant": false,
+        "has_hallucinated_params": false,
+        "type_errors": [],
+        "score": 0.6
+      },
+      "category": "executable_multiple_function"
+    },
+    {
+      "index": 7,
+      "question": "As a data analyst, I've been tracking the daily temperatures in a particular city over the last month. The temperatures I've logged range from 22 to 80 degrees Celsius, changing by 2 degrees each day. I need to calculate the average monthly temperature from this data set to understand the climate trend better. Can you help me with this?",
+      "model_result": "[{\"function\": \"function_2\", \"args\": {}}]",
+      "ground_truth": [
+        "calculate_mean(numbers=[22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80])"
+      ],
+      "ground_truth_execution": [
+        51.0
+      ],
+      "valid": false,
+      "error": [
+        "Could not find a matching function among index [0] of model output for index 0 of possible answers.",
+        {
+          "Model Result Index 0": {
+            "sub_error": [
+              "Error in execution: 'function_2()'. Error: function_2() missing 1 required positional argument: 'numbers'"
+            ],
+            "sub_error_type": "executable_checker:execution_error",
+            "executed_result": null
+          }
+        }
+      ],
+      "error_type": "executable_checker:cannot_find_match",
+      "executed_result": [
+        {
+          "error": "function_2() missing 1 required positional argument: 'numbers'",
+          "function_call": "function_2()"
+        }
+      ],
+      "parameter_metrics": {
+        "accuracy": 0.0,
+        "total_params": 1,
+        "correct_params": 0,
+        "missing_params": [
+          "numbers"
+        ],
+        "extra_params": [],
+        "wrong_value_params": []
+      },
+      "ast_metrics": {
+        "format_valid": true,
+        "structure_valid": true,
+        "type_correctness": 0.0,
+        "schema_compliant": false,
+        "has_hallucinated_params": false,
+        "type_errors": [],
+        "score": 0.6
+      },
+      "category": "executable_multiple_function"
+    },
+    {
+      "index": 8,
+      "question": "I'm developing an encryption algorithm and it involves creating permutations from the English alphabet. I need to know the number of different ways I can arrange 5 letters from the total 26. Could you calculate that for me?",
+      "model_result": "[{\"function\": \"function_2\", \"args\": {}}]",
+      "ground_truth": [
+        "calculate_permutations(n=26, k=5)"
+      ],
+      "ground_truth_execution": [
+        7893600.0
+      ],
+      "valid": false,
+      "error": [
+        "Could not find a matching function among index [0] of model output for index 0 of possible answers.",
+        {
+          "Model Result Index 0": {
+            "sub_error": [
+              "Error in execution: 'function_2()'. Error: function_2() missing 2 required positional arguments: 'n' and 'k'"
+            ],
+            "sub_error_type": "executable_checker:execution_error",
+            "executed_result": null
+          }
+        }
+      ],
+      "error_type": "executable_checker:cannot_find_match",
+      "executed_result": [
+        {
+          "error": "function_2() missing 2 required positional arguments: 'n' and 'k'",
+          "function_call": "function_2()"
+        }
+      ],
+      "parameter_metrics": {
+        "accuracy": 0.0,
+        "total_params": 2,
+        "correct_params": 0,
+        "missing_params": [
+          "n",
+          "k"
+        ],
+        "extra_params": [],
+        "wrong_value_params": []
+      },
+      "ast_metrics": {
+        "format_valid": true,
+        "structure_valid": true,
+        "type_correctness": 0.0,
+        "schema_compliant": false,
+        "has_hallucinated_params": false,
+        "type_errors": [],
+        "score": 0.6
+      },
+      "category": "executable_multiple_function"
+    },
+    {
+      "index": 9,
+      "question": "I've been tracking the closing prices of a specific stock over the last 10 trading days for a report on market volatility. The figures I've recorded are 1000, 2000, 3000, 4000, 5000, 7000, 9000, 15000, 20000, and 30000. To get a better understanding of the price fluctuation and the risk associated with this stock, I need to calculate the standard deviation of these closing prices. Could you provide me with that statistic?",
+      "model_result": "[{\"function\": \"function_1\", \"args\": {}}]",
+      "ground_truth": [
+        "calculate_standard_deviation(numbers=[1000,2000,3000,4000,5000,7000,9000,15000,20000,30000])"
+      ],
+      "ground_truth_execution": [
+        8879.189152169245
+      ],
+      "valid": false,
+      "error": [
+        "Could not find a matching function among index [0] of model output for index 0 of possible answers.",
+        {
+          "Model Result Index 0": {
+            "sub_error": [
+              "Error in execution: 'function_1()'. Error: function_1() missing 1 required positional argument: 'numbers'"
+            ],
+            "sub_error_type": "executable_checker:execution_error",
+            "executed_result": null
+          }
+        }
+      ],
+      "error_type": "executable_checker:cannot_find_match",
+      "executed_result": [
+        {
+          "error": "function_1() missing 1 required positional argument: 'numbers'",
+          "function_call": "function_1()"
+        }
+      ],
+      "parameter_metrics": {
+        "accuracy": 0.0,
+        "total_params": 1,
+        "correct_params": 0,
+        "missing_params": [
+          "numbers"
+        ],
+        "extra_params": [],
+        "wrong_value_params": []
+      },
+      "ast_metrics": {
+        "format_valid": true,
+        "structure_valid": true,
+        "type_correctness": 0.0,
+        "schema_compliant": false,
+        "has_hallucinated_params": false,
+        "type_errors": [],
+        "score": 0.6
+      },
+      "category": "executable_multiple_function"
+    },
+    {
+      "index": 10,
+      "question": "I'm working on an architectural project for a new park, and the design includes a triangular section. I need to calculate the area of this triangle to continue with my planning. The dimensions I have are a base of 500 meters and a height of 300 meters. Can you help me figure out the total area with these measurements?",
+      "model_result": "[{\"function\": \"function_3\", \"args\": {}}]",
+      "ground_truth": [
+        "calculate_triangle_area(base=500, height=300)"
+      ],
+      "ground_truth_execution": [
+        75000.0
+      ],
+      "valid": false,
+      "error": [
+        "Could not find a matching function among index [0] of model output for index 0 of possible answers.",
+        {
+          "Model Result Index 0": {
+            "sub_error": [
+              "Error in execution: 'function_3()'. Error: function_3() missing 2 required positional arguments: 'base' and 'height'"
+            ],
+            "sub_error_type": "executable_checker:execution_error",
+            "executed_result": null
+          }
+        }
+      ],
+      "error_type": "executable_checker:cannot_find_match",
+      "executed_result": [
+        {
+          "error": "function_3() missing 2 required positional arguments: 'base' and 'height'",
+          "function_call": "function_3()"
+        }
+      ],
+      "parameter_metrics": {
+        "accuracy": 0.0,
+        "total_params": 2,
+        "correct_params": 0,
+        "missing_params": [
+          "height",
+          "base"
+        ],
+        "extra_params": [],
+        "wrong_value_params": []
+      },
+      "ast_metrics": {
+        "format_valid": true,
+        "structure_valid": true,
+        "type_correctness": 0.0,
+        "schema_compliant": false,
+        "has_hallucinated_params": false,
+        "type_errors": [],
+        "score": 0.6
+      },
+      "category": "executable_multiple_function"
+    },
+    {
+      "index": 11,
+      "question": "I need to prepare a report for a client who is planning to conduct a business transaction in Japan. They're looking to convert 5,000 Euros into Japanese Yen. To ensure the report is accurate, I need the converted amount in Yen using the current exchange rates. The currency codes I'll be working with are 'EUR' for Euros and 'JPY' for Yen. Can you provide me with the equivalent sum in Yen?",
+      "model_result": "[{\"function\": \"function_2\", \"args\": {}}]",
+      "ground_truth": [
+        "convert_currency(amount=5000, from_currency='EUR', to_currency='JPY')"
+      ],
+      "ground_truth_execution": [
+        859533.5
+      ],
+      "valid": false,
+      "error": [
+        "Could not find a matching function among index [0] of model output for index 0 of possible answers.",
+        {
+          "Model Result Index 0": {
+            "sub_error": [
+              "Error in execution: 'function_2()'. Error: function_2() missing 3 required positional arguments: 'amount', 'from_currency', and 'to_currency'"
+            ],
+            "sub_error_type": "executable_checker:execution_error",
+            "executed_result": null
+          }
+        }
+      ],
+      "error_type": "executable_checker:cannot_find_match",
+      "executed_result": [
+        {
+          "error": "function_2() missing 3 required positional arguments: 'amount', 'from_currency', and 'to_currency'",
+          "function_call": "function_2()"
+        }
+      ],
+      "parameter_metrics": {
+        "accuracy": 0.0,
+        "total_params": 3,
+        "correct_params": 0,
+        "missing_params": [
+          "to_currency",
+          "amount",
+          "from_currency"
+        ],
+        "extra_params": [],
+        "wrong_value_params": []
+      },
+      "ast_metrics": {
+        "format_valid": true,
+        "structure_valid": true,
+        "type_correctness": 0.0,
+        "schema_compliant": false,
+        "has_hallucinated_params": false,
+        "type_errors": [],
+        "score": 0.6
+      },
+      "category": "executable_multiple_function"
+    },
+    {
+      "index": 12,
+      "question": "In my physics class, we're delving into kinematics, and I've been tasked with analyzing the motion of a particle. The equation f(x) = 3t^2 + 2t + 1 describes its position over time. I need to determine the velocity of this particle when t is 5 seconds. Velocity is the first derivative of the position function with respect to time, so I need to calculate that. Can you help me find the velocity using the appropriate function?",
+      "model_result": "[{\"function\": \"function_2\", \"args\": {}}]",
+      "ground_truth": [
+        "estimate_derivative(function='lambda x: 3*x**2 + 2*x + 1', x=5)"
+      ],
+      "ground_truth_execution": [
+        32.00000264769187
+      ],
+      "valid": false,
+      "error": [
+        "Could not find a matching function among index [0] of model output for index 0 of possible answers.",
+        {
+          "Model Result Index 0": {
+            "sub_error": [
+              "Error in execution: 'function_2()'. Error: function_2() missing 2 required positional arguments: 'function' and 'x'"
+            ],
+            "sub_error_type": "executable_checker:execution_error",
+            "executed_result": null
+          }
+        }
+      ],
+      "error_type": "executable_checker:cannot_find_match",
+      "executed_result": [
+        {
+          "error": "function_2() missing 2 required positional arguments: 'function' and 'x'",
+          "function_call": "function_2()"
+        }
+      ],
+      "parameter_metrics": {
+        "accuracy": 0.0,
+        "total_params": 2,
+        "correct_params": 0,
+        "missing_params": [
+          "x",
+          "function"
+        ],
+        "extra_params": [],
+        "wrong_value_params": []
+      },
+      "ast_metrics": {
+        "format_valid": true,
+        "structure_valid": true,
+        "type_correctness": 0.0,
+        "schema_compliant": false,
+        "has_hallucinated_params": false,
+        "type_errors": [],
+        "score": 0.6
+      },
+      "category": "executable_multiple_function"
+    },
+    {
+      "index": 13,
+      "question": "I've been hearing the slang term \"lit\" quite frequently these days and it's piqued my curiosity. I'm not entirely sure what it means, so I'm looking to find a definition that could shed some light on its usage and connotations. Can you find out what \"lit\" means on Urban Dictionary for me?",
+      "model_result": "[{\"function\": \"function_1\", \"args\": {}}]",
+      "ground_truth": [
+        "find_term_on_urban_dictionary(term=\"lit\")"
+      ],
+      "ground_truth_execution": [
+        "When [something] is [turned up] or [popping] ..."
+      ],
+      "valid": false,
+      "error": [
+        "Could not find a matching function among index [0] of model output for index 0 of possible answers.",
+        {
+          "Model Result Index 0": {
+            "sub_error": [
+              "Error in execution: 'function_1()'. Error: function_1() missing 1 required positional argument: 'term'"
+            ],
+            "sub_error_type": "executable_checker:execution_error",
+            "executed_result": null
+          }
+        }
+      ],
+      "error_type": "executable_checker:cannot_find_match",
+      "executed_result": [
+        {
+          "error": "function_1() missing 1 required positional argument: 'term'",
+          "function_call": "function_1()"
+        }
+      ],
+      "parameter_metrics": {
+        "accuracy": 0.0,
+        "total_params": 1,
+        "correct_params": 0,
+        "missing_params": [
+          "term"
+        ],
+        "extra_params": [],
+        "wrong_value_params": []
+      },
+      "ast_metrics": {
+        "format_valid": true,
+        "structure_valid": true,
+        "type_correctness": 0.0,
+        "schema_compliant": false,
+        "has_hallucinated_params": false,
+        "type_errors": [],
+        "score": 0.6
+      },
+      "category": "executable_multiple_function"
+    },
+    {
+      "index": 14,
+      "question": "I'm working on a community art project and planning a large circular mural for a public space. To figure out how much paint I need to buy, I need to calculate the area of the circle I'll be painting. The wall space I've been given has a perfect circular area with a radius of 15 feet. Can you help me determine the area of this circle?",
+      "model_result": "[{\"function\": \"function_2\", \"args\": {}}]",
+      "ground_truth": [
+        "geometry_area_circle(radius=15)"
+      ],
+      "ground_truth_execution": [
+        706.8583470577034
+      ],
+      "valid": false,
+      "error": [
+        "Could not find a matching function among index [0] of model output for index 0 of possible answers.",
+        {
+          "Model Result Index 0": {
+            "sub_error": [
+              "Error in execution: 'function_2()'. Error: function_2() missing 1 required positional argument: 'radius'"
+            ],
+            "sub_error_type": "executable_checker:execution_error",
+            "executed_result": null
+          }
+        }
+      ],
+      "error_type": "executable_checker:cannot_find_match",
+      "executed_result": [
+        {
+          "error": "function_2() missing 1 required positional argument: 'radius'",
+          "function_call": "function_2()"
+        }
+      ],
+      "parameter_metrics": {
+        "accuracy": 0.0,
+        "total_params": 1,
+        "correct_params": 0,
+        "missing_params": [
+          "radius"
+        ],
+        "extra_params": [],
+        "wrong_value_params": []
+      },
+      "ast_metrics": {
+        "format_valid": true,
+        "structure_valid": true,
+        "type_correctness": 0.0,
+        "schema_compliant": false,
+        "has_hallucinated_params": false,
+        "type_errors": [],
+        "score": 0.6
+      },
+      "category": "executable_multiple_function"
+    },
+    {
+      "index": 15,
+      "question": "I'm working on an in-depth article covering the current COVID-19 situation in Brazil, and it's crucial to have the latest figures to ensure the information I present is factual and up to date. I need to include the number of active COVID-19 cases in the country. Could you provide me with the most recent active case count for Brazil?",
+      "model_result": "[{\"function\": \"function_2\", \"args\": {}}]",
+      "ground_truth": [
+        "get_active_covid_case_by_country(country='Brazil')"
+      ],
+      "ground_truth_execution": [
+        1783377
+      ],
+      "valid": false,
+      "error": [
+        "Could not find a matching function among index [0] of model output for index 0 of possible answers.",
+        {
+          "Model Result Index 0": {
+            "sub_error": [
+              "Error in execution: 'function_2()'. Error: function_2() missing 1 required positional argument: 'country'"
+            ],
+            "sub_error_type": "executable_checker:execution_error",
+            "executed_result": null
+          }
+        }
+      ],
+      "error_type": "executable_checker:cannot_find_match",
+      "executed_result": [
+        {
+          "error": "function_2() missing 1 required positional argument: 'country'",
+          "function_call": "function_2()"
+        }
+      ],
+      "parameter_metrics": {
+        "accuracy": 0.0,
+        "total_params": 1,
+        "correct_params": 0,
+        "missing_params": [
+          "country"
+        ],
+        "extra_params": [],
+        "wrong_value_params": []
+      },
+      "ast_metrics": {
+        "format_valid": true,
+        "structure_valid": true,
+        "type_correctness": 0.0,
+        "schema_compliant": false,
+        "has_hallucinated_params": false,
+        "type_errors": [],
+        "score": 0.6
+      },
+      "category": "executable_multiple_function"
+    },
+    {
+      "index": 16,
+      "question": "While doing some financial analysis, I've been looking into the details of certain stocks, and 'AAPL' caught my attention. I'd like to know which company it represents. Could you help me find out the company name associated with the stock symbol 'AAPL'?",
+      "model_result": "[{\"function\": \"function_3\", \"args\": {}}]",
+      "ground_truth": [
+        "get_company_name_by_stock_name(stock_name='AAPL')"
+      ],
+      "ground_truth_execution": [
+        "Apple Inc."
+      ],
+      "valid": false,
+      "error": [
+        "Could not find a matching function among index [0] of model output for index 0 of possible answers.",
+        {
+          "Model Result Index 0": {
+            "sub_error": [
+              "Error in execution: 'function_3()'. Error: function_3() missing 1 required positional argument: 'stock_name'"
+            ],
+            "sub_error_type": "executable_checker:execution_error",
+            "executed_result": null
+          }
+        }
+      ],
+      "error_type": "executable_checker:cannot_find_match",
+      "executed_result": [
+        {
+          "error": "function_3() missing 1 required positional argument: 'stock_name'",
+          "function_call": "function_3()"
+        }
+      ],
+      "parameter_metrics": {
+        "accuracy": 0.0,
+        "total_params": 1,
+        "correct_params": 0,
+        "missing_params": [
+          "stock_name"
+        ],
+        "extra_params": [],
+        "wrong_value_params": []
+      },
+      "ast_metrics": {
+        "format_valid": true,
+        "structure_valid": true,
+        "type_correctness": 0.0,
+        "schema_compliant": false,
+        "has_hallucinated_params": false,
+        "type_errors": [],
+        "score": 0.6
+      },
+      "category": "executable_multiple_function"
+    },
+    {
+      "index": 17,
+      "question": "I'm currently investigating a security alert that flagged some unusual activity in our network. The IP address '192.168.1.1' was identified in the logs, and I suspect it could be related to the breach. To understand the origin of this potential threat, I need to pinpoint the geographical coordinates of this IP. Could you provide me with the latitude and longitude for the IP address '192.168.1.1'?",
+      "model_result": "[{\"function\": \"function_1\", \"args\": {}}]",
+      "ground_truth": [
+        "get_coordinate_by_ip_address(ip_address='192.168.1.1')"
+      ],
+      "ground_truth_execution": [
+        "private range"
+      ],
+      "valid": false,
+      "error": [
+        "Could not find a matching function among index [0] of model output for index 0 of possible answers.",
+        {
+          "Model Result Index 0": {
+            "sub_error": [
+              "Error in execution: 'function_1()'. Error: function_1() missing 1 required positional argument: 'ip_address'"
+            ],
+            "sub_error_type": "executable_checker:execution_error",
+            "executed_result": null
+          }
+        }
+      ],
+      "error_type": "executable_checker:cannot_find_match",
+      "executed_result": [
+        {
+          "error": "function_1() missing 1 required positional argument: 'ip_address'",
+          "function_call": "function_1()"
+        }
+      ],
+      "parameter_metrics": {
+        "accuracy": 0.0,
+        "total_params": 1,
+        "correct_params": 0,
+        "missing_params": [
+          "ip_address"
+        ],
+        "extra_params": [],
+        "wrong_value_params": []
+      },
+      "ast_metrics": {
+        "format_valid": true,
+        "structure_valid": true,
+        "type_correctness": 0.0,
+        "schema_compliant": false,
+        "has_hallucinated_params": false,
+        "type_errors": [],
+        "score": 0.6
+      },
+      "category": "executable_multiple_function"
+    },
+    {
+      "index": 18,
+      "question": "I have a client who's planning a trip to Paris and they're looking for some detailed travel plans. Could we find out the exact latitude and longitude of Paris for this purpose? They're really into the specifics and would appreciate having the coordinates for their personal itinerary.",
+      "model_result": "[{\"function\": \"function_3\", \"args\": {}}]",
+      "ground_truth": [
+        "get_coordinates_from_city(city_name='Paris')"
+      ],
+      "ground_truth_execution": [
+        [
+          "48.8588897",
+          "2.3200410217200766"
+        ]
+      ],
+      "valid": false,
+      "error": [
+        "Could not find a matching function among index [0] of model output for index 0 of possible answers.",
+        {
+          "Model Result Index 0": {
+            "sub_error": [
+              "Error in execution: 'function_3()'. Error: function_3() missing 1 required positional argument: 'city_name'"
+            ],
+            "sub_error_type": "executable_checker:execution_error",
+            "executed_result": null
+          }
+        }
+      ],
+      "error_type": "executable_checker:cannot_find_match",
+      "executed_result": [
+        {
+          "error": "function_3() missing 1 required positional argument: 'city_name'",
+          "function_call": "function_3()"
+        }
+      ],
+      "parameter_metrics": {
+        "accuracy": 0.0,
+        "total_params": 1,
+        "correct_params": 0,
+        "missing_params": [
+          "city_name"
+        ],
+        "extra_params": [],
+        "wrong_value_params": []
+      },
+      "ast_metrics": {
+        "format_valid": true,
+        "structure_valid": true,
+        "type_correctness": 0.0,
+        "schema_compliant": false,
+        "has_hallucinated_params": false,
+        "type_errors": [],
+        "score": 0.6
+      },
+      "category": "executable_multiple_function"
+    },
+    {
+      "index": 19,
+      "question": "I'm currently conducting research on the impact of COVID-19 and my focus is on Brazil. I need the latest total death count for the country to analyze the severity of the pandemic there. Could you provide me with this information?",
+      "model_result": "[{\"function\": \"function_4\", \"args\": {}}]",
+      "ground_truth": [
+        "get_covid_death_by_country(country='Brazil')"
+      ],
+      "ground_truth_execution": [
+        711380
+      ],
+      "valid": false,
+      "error": [
+        "Could not find a matching function among index [0] of model output for index 0 of possible answers.",
+        {
+          "Model Result Index 0": {
+            "sub_error": [
+              "Error in execution: 'function_4()'. Error: function_4() missing 1 required positional argument: 'country'"
+            ],
+            "sub_error_type": "executable_checker:execution_error",
+            "executed_result": null
+          }
+        }
+      ],
+      "error_type": "executable_checker:cannot_find_match",
+      "executed_result": [
+        {
+          "error": "function_4() missing 1 required positional argument: 'country'",
+          "function_call": "function_4()"
+        }
+      ],
+      "parameter_metrics": {
+        "accuracy": 0.0,
+        "total_params": 1,
+        "correct_params": 0,
+        "missing_params": [
+          "country"
+        ],
+        "extra_params": [],
+        "wrong_value_params": []
+      },
+      "ast_metrics": {
+        "format_valid": true,
+        "structure_valid": true,
+        "type_correctness": 0.0,
+        "schema_compliant": false,
+        "has_hallucinated_params": false,
+        "type_errors": [],
+        "score": 0.6
+      },
+      "category": "executable_multiple_function"
+    },
+    {
+      "index": 20,
+      "question": "While I was updating a city map today, I needed to figure out how far apart two landmarks were. The first point is at coordinates (45.76, 4.85), and the second is at (48.85, 2.35). Could you calculate the distance between these two points for me?",
+      "model_result": "[{\"function\": \"function_3\", \"args\": {}}]",
+      "ground_truth": [
+        "get_distance(pointA=(45.76, 4.85), pointB=(48.85, 2.35))"
+      ],
+      "ground_truth_execution": [
+        3.9746823772472712
+      ],
+      "valid": false,
+      "error": [
+        "Could not find a matching function among index [0] of model output for index 0 of possible answers.",
+        {
+          "Model Result Index 0": {
+            "sub_error": [
+              "Error in execution: 'function_3()'. Error: function_3() missing 2 required positional arguments: 'pointA' and 'pointB'"
+            ],
+            "sub_error_type": "executable_checker:execution_error",
+            "executed_result": null
+          }
+        }
+      ],
+      "error_type": "executable_checker:cannot_find_match",
+      "executed_result": [
+        {
+          "error": "function_3() missing 2 required positional arguments: 'pointA' and 'pointB'",
+          "function_call": "function_3()"
+        }
+      ],
+      "parameter_metrics": {
+        "accuracy": 0.0,
+        "total_params": 2,
+        "correct_params": 0,
+        "missing_params": [
+          "pointB",
+          "pointA"
+        ],
+        "extra_params": [],
+        "wrong_value_params": []
+      },
+      "ast_metrics": {
+        "format_valid": true,
+        "structure_valid": true,
+        "type_correctness": 0.0,
+        "schema_compliant": false,
+        "has_hallucinated_params": false,
+        "type_errors": [],
+        "score": 0.6
+      },
+      "category": "executable_multiple_function"
+    },
+    {
+      "index": 21,
+      "question": "I'm currently delving into the Fibonacci sequence for my mathematical research and I'd like to examine the first 20 numbers of the sequence. Could you generate that for me?",
+      "model_result": "[{\"function\": \"function_1\", \"args\": {}}]",
+      "ground_truth": [
+        "get_fibonacci_sequence(n=20)"
+      ],
+      "ground_truth_execution": [
+        [
+          0,
+          1,
+          1,
+          2,
+          3,
+          5,
+          8,
+          13,
+          21,
+          34,
+          55,
+          89,
+          144,
+          233,
+          377,
+          610,
+          987,
+          1597,
+          2584,
+          4181
+        ]
+      ],
+      "valid": false,
+      "error": [
+        "Could not find a matching function among index [0] of model output for index 0 of possible answers.",
+        {
+          "Model Result Index 0": {
+            "sub_error": [
+              "Error in execution: 'function_1()'. Error: function_1() missing 1 required positional argument: 'n'"
+            ],
+            "sub_error_type": "executable_checker:execution_error",
+            "executed_result": null
+          }
+        }
+      ],
+      "error_type": "executable_checker:cannot_find_match",
+      "executed_result": [
+        {
+          "error": "function_1() missing 1 required positional argument: 'n'",
+          "function_call": "function_1()"
+        }
+      ],
+      "parameter_metrics": {
+        "accuracy": 0.0,
+        "total_params": 1,
+        "correct_params": 0,
+        "missing_params": [
+          "n"
+        ],
+        "extra_params": [],
+        "wrong_value_params": []
+      },
+      "ast_metrics": {
+        "format_valid": true,
+        "structure_valid": true,
+        "type_correctness": 0.0,
+        "schema_compliant": false,
+        "has_hallucinated_params": false,
+        "type_errors": [],
+        "score": 0.6
+      },
+      "category": "executable_multiple_function"
+    },
+    {
+      "index": 22,
+      "question": "I'm overseeing a new project where we're monitoring competitor pricing on Amazon to stay competitive. There's this particular product we've been keeping an eye on, and I need the latest price for it. The ASIN for the product is 'B08PPDJWC8'. Could you fetch the current price for this ASIN from Amazon for me?",
+      "model_result": "[{\"function\": \"function_2\", \"args\": {}}]",
+      "ground_truth": [
+        "get_price_by_amazon_ASIN(ASIN='B08PPDJWC8')"
+      ],
+      "ground_truth_execution": [
+        "$180.00"
+      ],
+      "valid": false,
+      "error": [
+        "Could not find a matching function among index [0] of model output for index 0 of possible answers.",
+        {
+          "Model Result Index 0": {
+            "sub_error": [
+              "Error in execution: 'function_2()'. Error: function_2() missing 1 required positional argument: 'ASIN'"
+            ],
+            "sub_error_type": "executable_checker:execution_error",
+            "executed_result": null
+          }
+        }
+      ],
+      "error_type": "executable_checker:cannot_find_match",
+      "executed_result": [
+        {
+          "error": "function_2() missing 1 required positional argument: 'ASIN'",
+          "function_call": "function_2()"
+        }
+      ],
+      "parameter_metrics": {
+        "accuracy": 0.0,
+        "total_params": 1,
+        "correct_params": 0,
+        "missing_params": [
+          "ASIN"
+        ],
+        "extra_params": [],
+        "wrong_value_params": []
+      },
+      "ast_metrics": {
+        "format_valid": true,
+        "structure_valid": true,
+        "type_correctness": 0.0,
+        "schema_compliant": false,
+        "has_hallucinated_params": false,
+        "type_errors": [],
+        "score": 0.6
+      },
+      "category": "executable_multiple_function"
+    },
+    {
+      "index": 23,
+      "question": "I'm a mathematics teacher, and I'm currently putting together my lesson plan on prime factorization. For tomorrow's class, I've chosen the number 4567 as a practical example to illustrate the concept to my students. I need to break it down into its prime factors.",
+      "model_result": "[{\"function\": \"function_3\", \"args\": {}}]",
+      "ground_truth": [
+        "get_prime_factors(number=4567)"
+      ],
+      "ground_truth_execution": [
+        [
+          4567
+        ]
+      ],
+      "valid": false,
+      "error": [
+        "Could not find a matching function among index [0] of model output for index 0 of possible answers.",
+        {
+          "Model Result Index 0": {
+            "sub_error": [
+              "Error in execution: 'function_3()'. Error: function_3() missing 1 required positional argument: 'number'"
+            ],
+            "sub_error_type": "executable_checker:execution_error",
+            "executed_result": null
+          }
+        }
+      ],
+      "error_type": "executable_checker:cannot_find_match",
+      "executed_result": [
+        {
+          "error": "function_3() missing 1 required positional argument: 'number'",
+          "function_call": "function_3()"
+        }
+      ],
+      "parameter_metrics": {
+        "accuracy": 0.0,
+        "total_params": 1,
+        "correct_params": 0,
+        "missing_params": [
+          "number"
+        ],
+        "extra_params": [],
+        "wrong_value_params": []
+      },
+      "ast_metrics": {
+        "format_valid": true,
+        "structure_valid": true,
+        "type_correctness": 0.0,
+        "schema_compliant": false,
+        "has_hallucinated_params": false,
+        "type_errors": [],
+        "score": 0.6
+      },
+      "category": "executable_multiple_function"
+    },
+    {
+      "index": 24,
+      "question": "I'm working on a product review article and I need some information about an item sold on Amazon. The only detail I have is the ASIN: 'B08BHXG144'. I need to find out the product's name associated with this ASIN to include in my write-up. Can you help me retrieve the name of this product?",
+      "model_result": "[{\"function\": \"function_1\", \"args\": {}}]",
+      "ground_truth": [
+        "get_product_name_by_amazon_ASIN(ASIN='B08BHXG144')"
+      ],
+      "ground_truth_execution": [
+        "Apple iPhone 11 Pro Max, 64GB, Midnight Green - Unlocked (Renewed Premium)"
+      ],
+      "valid": false,
+      "error": [
+        "Could not find a matching function among index [0] of model output for index 0 of possible answers.",
+        {
+          "Model Result Index 0": {
+            "sub_error": [
+              "Error in execution: 'function_1()'. Error: function_1() missing 1 required positional argument: 'ASIN'"
+            ],
+            "sub_error_type": "executable_checker:execution_error",
+            "executed_result": null
+          }
+        }
+      ],
+      "error_type": "executable_checker:cannot_find_match",
+      "executed_result": [
+        {
+          "error": "function_1() missing 1 required positional argument: 'ASIN'",
+          "function_call": "function_1()"
+        }
+      ],
+      "parameter_metrics": {
+        "accuracy": 0.0,
+        "total_params": 1,
+        "correct_params": 0,
+        "missing_params": [
+          "ASIN"
+        ],
+        "extra_params": [],
+        "wrong_value_params": []
+      },
+      "ast_metrics": {
+        "format_valid": true,
+        "structure_valid": true,
+        "type_correctness": 0.0,
+        "schema_compliant": false,
+        "has_hallucinated_params": false,
+        "type_errors": [],
+        "score": 0.6
+      },
+      "category": "executable_multiple_function"
+    },
+    {
+      "index": 25,
+      "question": "While browsing Amazon, I stumbled upon a product that really piqued my interest. However, I'm quite particular about the quality and general consensus on items before I consider adding them to my cart. The product has an ASIN of 'B07ZPKBL9V', and I would like to know what its average customer rating is. Could you find that information for me?",
+      "model_result": "[{\"function\": \"function_1\", \"args\": {}}]",
+      "ground_truth": [
+        "get_rating_by_amazon_ASIN(ASIN='B07ZPKBL9V')"
+      ],
+      "ground_truth_execution": [
+        "4.2"
+      ],
+      "valid": false,
+      "error": [
+        "Could not find a matching function among index [0] of model output for index 0 of possible answers.",
+        {
+          "Model Result Index 0": {
+            "sub_error": [
+              "Error in execution: 'function_1()'. Error: function_1() missing 1 required positional argument: 'ASIN'"
+            ],
+            "sub_error_type": "executable_checker:execution_error",
+            "executed_result": null
+          }
+        }
+      ],
+      "error_type": "executable_checker:cannot_find_match",
+      "executed_result": [
+        {
+          "error": "function_1() missing 1 required positional argument: 'ASIN'",
+          "function_call": "function_1()"
+        }
+      ],
+      "parameter_metrics": {
+        "accuracy": 0.0,
+        "total_params": 1,
+        "correct_params": 0,
+        "missing_params": [
+          "ASIN"
+        ],
+        "extra_params": [],
+        "wrong_value_params": []
+      },
+      "ast_metrics": {
+        "format_valid": true,
+        "structure_valid": true,
+        "type_correctness": 0.0,
+        "schema_compliant": false,
+        "has_hallucinated_params": false,
+        "type_errors": [],
+        "score": 0.6
+      },
+      "category": "executable_multiple_function"
+    },
+    {
+      "index": 26,
+      "question": "I'm currently analyzing different investment options and I've taken a particular interest in Apple Inc. I want to review the company's stock performance over the past month. Additionally, it's important for me to know if there have been any stock splits or dividends in that time. Could you pull up the monthly history for Apple's stock and ensure that the information includes any splits or dividends?",
+      "model_result": "[{\"function\": \"function_3\", \"args\": {}}]",
+      "ground_truth": [
+        "get_stock_history(stock_name='AAPL', interval='1mo', diffandsplits='true')"
+      ],
+      "ground_truth_execution": [
+        {
+          "1730433600": {
+            "date": "2024-11-01",
+            "date_utc": 1730433600,
+            "open": 220.97,
+            "high": 237.81,
+            "low": 219.71,
+            "close": 237.33,
+            "volume": 891640600,
+            "adjclose": 236.5
+          },
+          "1733029200": {
+            "date": "2024-12-01",
+            "date_utc": 1733029200,
+            "open": 237.27,
+            "high": 260.1,
+            "low": 237.16,
+            "close": 250.42,
+            "volume": 977916100,
+            "adjclose": 249.82
+          },
+          "1735707600": {
+            "date": "2025-01-01",
+            "date_utc": 1735707600,
+            "open": 248.93,
+            "high": 249.1,
+            "low": 219.38,
+            "close": 236,
+            "volume": 1200291700,
+            "adjclose": 235.43
+          },
+          "1738386000": {
+            "date": "2025-02-01",
+            "date_utc": 1738386000,
+            "open": 229.99,
+            "high": 250,
+            "low": 225.7,
+            "close": 241.84,
+            "volume": 862272300,
+            "adjclose": 241.26
+          },
+          "1740805200": {
+            "date": "2025-03-01",
+            "date_utc": 1740805200,
+            "open": 241.79,
+            "high": 244.03,
+            "low": 208.42,
+            "close": 222.13,
+            "volume": 1115239500,
+            "adjclose": 221.84
+          },
+          "1743480000": {
+            "date": "2025-04-01",
+            "date_utc": 1743480000,
+            "open": 219.81,
+            "high": 225.19,
+            "low": 169.21,
+            "close": 212.5,
+            "volume": 1606488200,
+            "adjclose": 212.22
+          },
+          "1746072000": {
+            "date": "2025-05-01",
+            "date_utc": 1746072000,
+            "open": 209.08,
+            "high": 214.56,
+            "low": 193.25,
+            "close": 200.85,
+            "volume": 1195728200,
+            "adjclose": 200.59
+          },
+          "1748750400": {
+            "date": "2025-06-01",
+            "date_utc": 1748750400,
+            "open": 200.28,
+            "high": 207.39,
+            "low": 195.07,
+            "close": 205.17,
+            "volume": 1100409300,
+            "adjclose": 205.17
+          },
+          "1751342400": {
+            "date": "2025-07-01",
+            "date_utc": 1751342400,
+            "open": 206.67,
+            "high": 216.23,
+            "low": 206.14,
+            "close": 211.16,
+            "volume": 407676700,
+            "adjclose": 211.16
+          },
+          "1752523201": {
+            "date": "2025-07-14",
+            "date_utc": 1752523201,
+            "open": 209.91,
+            "high": 210.91,
+            "low": 207.54,
+            "close": 208.62,
+            "volume": 37683849,
+            "adjclose": 208.62
+          }
+        }
+      ],
+      "valid": false,
+      "error": [
+        "Could not find a matching function among index [0] of model output for index 0 of possible answers.",
+        {
+          "Model Result Index 0": {
+            "sub_error": [
+              "Error in execution: 'function_3()'. Error: function_3() missing 2 required positional arguments: 'stock_name' and 'interval'"
+            ],
+            "sub_error_type": "executable_checker:execution_error",
+            "executed_result": null
+          }
+        }
+      ],
+      "error_type": "executable_checker:cannot_find_match",
+      "executed_result": [
+        {
+          "error": "function_3() missing 2 required positional arguments: 'stock_name' and 'interval'",
+          "function_call": "function_3()"
+        }
+      ],
+      "parameter_metrics": {
+        "accuracy": 0.0,
+        "total_params": 3,
+        "correct_params": 0,
+        "missing_params": [
+          "stock_name",
+          "interval",
+          "diffandsplits"
+        ],
+        "extra_params": [],
+        "wrong_value_params": []
+      },
+      "ast_metrics": {
+        "format_valid": true,
+        "structure_valid": true,
+        "type_correctness": 0.0,
+        "schema_compliant": false,
+        "has_hallucinated_params": false,
+        "type_errors": [],
+        "score": 0.6
+      },
+      "category": "executable_multiple_function"
+    },
+    {
+      "index": 27,
+      "question": "I'm working on a portfolio analysis, and my client is particularly interested in the latest performance of Apple Inc.'s stock. To provide them with the most up-to-date information, I need to check the current stock price for Apple. Could you pull up the latest figures for me?",
+      "model_result": "[{\"function\": \"function_2\", \"args\": {}}]",
+      "ground_truth": [
+        "get_stock_price_by_stock_name(stock_name='AAPL')"
+      ],
+      "ground_truth_execution": [
+        211.16
+      ],
+      "valid": false,
+      "error": [
+        "Could not find a matching function among index [0] of model output for index 0 of possible answers.",
+        {
+          "Model Result Index 0": {
+            "sub_error": [
+              "Error in execution: 'function_2()'. Error: function_2() missing 1 required positional argument: 'stock_name'"
+            ],
+            "sub_error_type": "executable_checker:execution_error",
+            "executed_result": null
+          }
+        }
+      ],
+      "error_type": "executable_checker:cannot_find_match",
+      "executed_result": [
+        {
+          "error": "function_2() missing 1 required positional argument: 'stock_name'",
+          "function_call": "function_2()"
+        }
+      ],
+      "parameter_metrics": {
+        "accuracy": 0.0,
+        "total_params": 1,
+        "correct_params": 0,
+        "missing_params": [
+          "stock_name"
+        ],
+        "extra_params": [],
+        "wrong_value_params": []
+      },
+      "ast_metrics": {
+        "format_valid": true,
+        "structure_valid": true,
+        "type_correctness": 0.0,
+        "schema_compliant": false,
+        "has_hallucinated_params": false,
+        "type_errors": [],
+        "score": 0.6
+      },
+      "category": "executable_multiple_function"
+    },
+    {
+      "index": 28,
+      "question": "I'm currently working on a geography project that involves mapping out time zones for different locations around the globe. As part of this project, I need to know the time zone for a specific coordinate. Could you provide me with the time zone for the location at longitude 123.45 and latitude -67.89?",
+      "model_result": "[{\"function\": \"function_1\", \"args\": {}}]",
+      "ground_truth": [
+        "get_time_zone_by_coord(long='123.45', lat='-67.89')"
+      ],
+      "ground_truth_execution": [
+        "Antarctica/DumontDUrville"
+      ],
+      "valid": false,
+      "error": [
+        "Could not find a matching function among index [0] of model output for index 0 of possible answers.",
+        {
+          "Model Result Index 0": {
+            "sub_error": [
+              "Error in execution: 'function_1()'. Error: function_1() missing 2 required positional arguments: 'long' and 'lat'"
+            ],
+            "sub_error_type": "executable_checker:execution_error",
+            "executed_result": null
+          }
+        }
+      ],
+      "error_type": "executable_checker:cannot_find_match",
+      "executed_result": [
+        {
+          "error": "function_1() missing 2 required positional arguments: 'long' and 'lat'",
+          "function_call": "function_1()"
+        }
+      ],
+      "parameter_metrics": {
+        "accuracy": 0.0,
+        "total_params": 2,
+        "correct_params": 0,
+        "missing_params": [
+          "long",
+          "lat"
+        ],
+        "extra_params": [],
+        "wrong_value_params": []
+      },
+      "ast_metrics": {
+        "format_valid": true,
+        "structure_valid": true,
+        "type_correctness": 0.0,
+        "schema_compliant": false,
+        "has_hallucinated_params": false,
+        "type_errors": [],
+        "score": 0.6
+      },
+      "category": "executable_multiple_function"
+    },
+    {
+      "index": 29,
+      "question": "I'm in the middle of a climate study focusing on temperature changes in the Arctic, and I need the latest temperature readings at the North Pole. Specifically, I'm looking at the point with coordinates 90.00 latitude and 0.00 longitude. I need to access the current temperature data for this precise location using the Open-Meteo API. Could you help me get this information?",
+      "model_result": "[{\"function\": \"function_3\", \"args\": {}}]",
+      "ground_truth": [
+        "get_weather_data(coordinates=[90.00, 0.00])"
+      ],
+      "ground_truth_execution": [
+        31.5
+      ],
+      "valid": false,
+      "error": [
+        "Could not find a matching function among index [0] of model output for index 0 of possible answers.",
+        {
+          "Model Result Index 0": {
+            "sub_error": [
+              "Error in execution: 'function_3()'. Error: function_3() missing 1 required positional argument: 'coordinates'"
+            ],
+            "sub_error_type": "executable_checker:execution_error",
+            "executed_result": null
+          }
+        }
+      ],
+      "error_type": "executable_checker:cannot_find_match",
+      "executed_result": [
+        {
+          "error": "function_3() missing 1 required positional argument: 'coordinates'",
+          "function_call": "function_3()"
+        }
+      ],
+      "parameter_metrics": {
+        "accuracy": 0.0,
+        "total_params": 1,
+        "correct_params": 0,
+        "missing_params": [
+          "coordinates"
+        ],
+        "extra_params": [],
+        "wrong_value_params": []
+      },
+      "ast_metrics": {
+        "format_valid": true,
+        "structure_valid": true,
+        "type_correctness": 0.0,
+        "schema_compliant": false,
+        "has_hallucinated_params": false,
+        "type_errors": [],
+        "score": 0.6
+      },
+      "category": "executable_multiple_function"
+    },
+    {
+      "index": 30,
+      "question": "I'm currently in the middle of a cybersecurity investigation and have come across a suspicious IP address that we suspect might be the source of a recent cyber attack. The IP address is 192.168.1.1, and I need to track down the physical location it's associated with to proceed with the investigation. To start with, could you find out the zipcode for where this IP address is registered?",
+      "model_result": "[{\"function\": \"function_1\", \"args\": {}}]",
+      "ground_truth": [
+        "get_zipcode_by_ip_address(ip_address=\"192.168.1.1\")"
+      ],
+      "ground_truth_execution": [
+        "private range"
+      ],
+      "valid": false,
+      "error": [
+        "Could not find a matching function among index [0] of model output for index 0 of possible answers.",
+        {
+          "Model Result Index 0": {
+            "sub_error": [
+              "Error in execution: 'function_1()'. Error: function_1() missing 1 required positional argument: 'ip_address'"
+            ],
+            "sub_error_type": "executable_checker:execution_error",
+            "executed_result": null
+          }
+        }
+      ],
+      "error_type": "executable_checker:cannot_find_match",
+      "executed_result": [
+        {
+          "error": "function_1() missing 1 required positional argument: 'ip_address'",
+          "function_call": "function_1()"
+        }
+      ],
+      "parameter_metrics": {
+        "accuracy": 0.0,
+        "total_params": 1,
+        "correct_params": 0,
+        "missing_params": [
+          "ip_address"
+        ],
+        "extra_params": [],
+        "wrong_value_params": []
+      },
+      "ast_metrics": {
+        "format_valid": true,
+        "structure_valid": true,
+        "type_correctness": 0.0,
+        "schema_compliant": false,
+        "has_hallucinated_params": false,
+        "type_errors": [],
+        "score": 0.6
+      },
+      "category": "executable_multiple_function"
+    },
+    {
+      "index": 31,
+      "question": "I'm working on a data analysis project where I need to multiply two matrices as part of my computations. The first matrix I need to work with is [[1, 2], [3, 4]], and the second one is [[5, 6], [7, 8]]. I need to calculate the product of these two matrices to proceed with my analysis. Can you help me with this calculation?",
+      "model_result": "[{\"function\": \"function_1\", \"args\": {}}]",
+      "ground_truth": [
+        "mat_mul(matA=[[1, 2], [3, 4]], matB=[[5, 6], [7, 8]])"
+      ],
+      "ground_truth_execution": [
+        [
+          [
+            19,
+            22
+          ],
+          [
+            43,
+            50
+          ]
+        ]
+      ],
+      "valid": false,
+      "error": [
+        "Could not find a matching function among index [0] of model output for index 0 of possible answers.",
+        {
+          "Model Result Index 0": {
+            "sub_error": [
+              "Error in execution: 'function_1()'. Error: function_1() missing 2 required positional arguments: 'matA' and 'matB'"
+            ],
+            "sub_error_type": "executable_checker:execution_error",
+            "executed_result": null
+          }
+        }
+      ],
+      "error_type": "executable_checker:cannot_find_match",
+      "executed_result": [
+        {
+          "error": "function_1() missing 2 required positional arguments: 'matA' and 'matB'",
+          "function_call": "function_1()"
+        }
+      ],
+      "parameter_metrics": {
+        "accuracy": 0.0,
+        "total_params": 2,
+        "correct_params": 0,
+        "missing_params": [
+          "matA",
+          "matB"
+        ],
+        "extra_params": [],
+        "wrong_value_params": []
+      },
+      "ast_metrics": {
+        "format_valid": true,
+        "structure_valid": true,
+        "type_correctness": 0.0,
+        "schema_compliant": false,
+        "has_hallucinated_params": false,
+        "type_errors": [],
+        "score": 0.6
+      },
+      "category": "executable_multiple_function"
+    },
+    {
+      "index": 32,
+      "question": "In the midst of solving a combinatorics problem, I've hit a step that requires me to calculate the factorial of 7. Could you help me with that?",
+      "model_result": "[{\"function\": \"function_2\", \"args\": {}}]",
+      "ground_truth": [
+        "math_factorial(n=7)"
+      ],
+      "ground_truth_execution": [
+        5040
+      ],
+      "valid": false,
+      "error": [
+        "Could not find a matching function among index [0] of model output for index 0 of possible answers.",
+        {
+          "Model Result Index 0": {
+            "sub_error": [
+              "Error in execution: 'function_2()'. Error: function_2() missing 1 required positional argument: 'n'"
+            ],
+            "sub_error_type": "executable_checker:execution_error",
+            "executed_result": null
+          }
+        }
+      ],
+      "error_type": "executable_checker:cannot_find_match",
+      "executed_result": [
+        {
+          "error": "function_2() missing 1 required positional argument: 'n'",
+          "function_call": "function_2()"
+        }
+      ],
+      "parameter_metrics": {
+        "accuracy": 0.0,
+        "total_params": 1,
+        "correct_params": 0,
+        "missing_params": [
+          "n"
+        ],
+        "extra_params": [],
+        "wrong_value_params": []
+      },
+      "ast_metrics": {
+        "format_valid": true,
+        "structure_valid": true,
+        "type_correctness": 0.0,
+        "schema_compliant": false,
+        "has_hallucinated_params": false,
+        "type_errors": [],
+        "score": 0.6
+      },
+      "category": "executable_multiple_function"
+    },
+    {
+      "index": 33,
+      "question": "As a historian delving into ancient Roman political alliances, I've stumbled upon an interesting numerical challenge. I need to determine the greatest common divisor for the number of senators during two distinct time periods, one with 450 senators and the other with 300. This will help me understand the commonalities in their political structures. Could you help me calculate that?",
+      "model_result": "[{\"function\": \"function_3\", \"args\": {}}]",
+      "ground_truth": [
+        "math_gcd(a=450, b=300)"
+      ],
+      "ground_truth_execution": [
+        150
+      ],
+      "valid": false,
+      "error": [
+        "Could not find a matching function among index [0] of model output for index 0 of possible answers.",
+        {
+          "Model Result Index 0": {
+            "sub_error": [
+              "Error in execution: 'function_3()'. Error: function_3() missing 2 required positional arguments: 'a' and 'b'"
+            ],
+            "sub_error_type": "executable_checker:execution_error",
+            "executed_result": null
+          }
+        }
+      ],
+      "error_type": "executable_checker:cannot_find_match",
+      "executed_result": [
+        {
+          "error": "function_3() missing 2 required positional arguments: 'a' and 'b'",
+          "function_call": "function_3()"
+        }
+      ],
+      "parameter_metrics": {
+        "accuracy": 0.0,
+        "total_params": 2,
+        "correct_params": 0,
+        "missing_params": [
+          "a",
+          "b"
+        ],
+        "extra_params": [],
+        "wrong_value_params": []
+      },
+      "ast_metrics": {
+        "format_valid": true,
+        "structure_valid": true,
+        "type_correctness": 0.0,
+        "schema_compliant": false,
+        "has_hallucinated_params": false,
+        "type_errors": [],
+        "score": 0.6
+      },
+      "category": "executable_multiple_function"
+    },
+    {
+      "index": 34,
+      "question": "I'm working on a new track and I've got these two drum loops that I'm trying to synchronize. The first loop repeats every 18 beats, while the second one comes back around every 24 beats. I need them to align perfectly so that the patterns create a seamless rhythm in the song. Could you calculate the least common multiple for 18 and 24 beats to find out after how many beats they'll sync up?",
+      "model_result": "[{\"function\": \"function_1\", \"args\": {}}]",
+      "ground_truth": [
+        "math_lcm(a=24, b=18)"
+      ],
+      "ground_truth_execution": [
+        72.0
+      ],
+      "valid": false,
+      "error": [
+        "Could not find a matching function among index [0] of model output for index 0 of possible answers.",
+        {
+          "Model Result Index 0": {
+            "sub_error": [
+              "Error in execution: 'function_1()'. Error: function_1() missing 2 required positional arguments: 'a' and 'b'"
+            ],
+            "sub_error_type": "executable_checker:execution_error",
+            "executed_result": null
+          }
+        }
+      ],
+      "error_type": "executable_checker:cannot_find_match",
+      "executed_result": [
+        {
+          "error": "function_1() missing 2 required positional arguments: 'a' and 'b'",
+          "function_call": "function_1()"
+        }
+      ],
+      "parameter_metrics": {
+        "accuracy": 0.0,
+        "total_params": 2,
+        "correct_params": 0,
+        "missing_params": [
+          "a",
+          "b"
+        ],
+        "extra_params": [],
+        "wrong_value_params": []
+      },
+      "ast_metrics": {
+        "format_valid": true,
+        "structure_valid": true,
+        "type_correctness": 0.0,
+        "schema_compliant": false,
+        "has_hallucinated_params": false,
+        "type_errors": [],
+        "score": 0.6
+      },
+      "category": "executable_multiple_function"
+    },
+    {
+      "index": 35,
+      "question": "I'm assisting a client who's in the process of buying a house. They're looking at a mortgage for the amount of $350,000. The interest rate they've been offered is 3.5%, and they plan to pay it off over 30 years. I need to provide them with an estimate of what their monthly payment would be. Can you work that out for me?",
+      "model_result": "[{\"function\": \"function_1\", \"args\": {}}]",
+      "ground_truth": [
+        "mortgage_calculator(loan_amount=350000, interest_rate=0.035, loan_period=30)"
+      ],
+      "ground_truth_execution": [
+        1571.656407330882
+      ],
+      "valid": false,
+      "error": [
+        "Could not find a matching function among index [0] of model output for index 0 of possible answers.",
+        {
+          "Model Result Index 0": {
+            "sub_error": [
+              "Error in execution: 'function_1()'. Error: function_1() missing 3 required positional arguments: 'loan_amount', 'interest_rate', and 'loan_period'"
+            ],
+            "sub_error_type": "executable_checker:execution_error",
+            "executed_result": null
+          }
+        }
+      ],
+      "error_type": "executable_checker:cannot_find_match",
+      "executed_result": [
+        {
+          "error": "function_1() missing 3 required positional arguments: 'loan_amount', 'interest_rate', and 'loan_period'",
+          "function_call": "function_1()"
+        }
+      ],
+      "parameter_metrics": {
+        "accuracy": 0.0,
+        "total_params": 3,
+        "correct_params": 0,
+        "missing_params": [
+          "loan_period",
+          "loan_amount",
+          "interest_rate"
+        ],
+        "extra_params": [],
+        "wrong_value_params": []
+      },
+      "ast_metrics": {
+        "format_valid": true,
+        "structure_valid": true,
+        "type_correctness": 0.0,
+        "schema_compliant": false,
+        "has_hallucinated_params": false,
+        "type_errors": [],
+        "score": 0.6
+      },
+      "category": "executable_multiple_function"
+    },
+    {
+      "index": 36,
+      "question": "For my next algebra class, I'm planning to cover the topic of quadratic equations. I want to provide a practical example to help my students understand the concept of finding roots. So, I've chosen the equation 3x^2 + 7x - 10 = 0 to work through with the class. Could you calculate the roots for this specific equation?",
+      "model_result": "[{\"function\": \"function_2\", \"args\": {}}]",
+      "ground_truth": [
+        "quadratic_roots(a=3, b=7, c=-10)"
+      ],
+      "ground_truth_execution": [
+        [
+          1.0,
+          -3.3333333333333335
+        ]
+      ],
+      "valid": false,
+      "error": [
+        "Could not find a matching function among index [0] of model output for index 0 of possible answers.",
+        {
+          "Model Result Index 0": {
+            "sub_error": [
+              "Error in execution: 'function_2()'. Error: function_2() missing 3 required positional arguments: 'a', 'b', and 'c'"
+            ],
+            "sub_error_type": "executable_checker:execution_error",
+            "executed_result": null
+          }
+        }
+      ],
+      "error_type": "executable_checker:cannot_find_match",
+      "executed_result": [
+        {
+          "error": "function_2() missing 3 required positional arguments: 'a', 'b', and 'c'",
+          "function_call": "function_2()"
+        }
+      ],
+      "parameter_metrics": {
+        "accuracy": 0.0,
+        "total_params": 3,
+        "correct_params": 0,
+        "missing_params": [
+          "a",
+          "b",
+          "c"
+        ],
+        "extra_params": [],
+        "wrong_value_params": []
+      },
+      "ast_metrics": {
+        "format_valid": true,
+        "structure_valid": true,
+        "type_correctness": 0.0,
+        "schema_compliant": false,
+        "has_hallucinated_params": false,
+        "type_errors": [],
+        "score": 0.6
+      },
+      "category": "executable_multiple_function"
+    },
+    {
+      "index": 37,
+      "question": "I'm in the middle of analyzing demographic data for a project and need to cross-reference some information based on zip codes. I've got a specific zip code, let's say 90210, and I need to find out which city it corresponds to. Can you help me retrieve the city name for this zip code?",
+      "model_result": "[{\"function\": \"function_2\", \"args\": {}}]",
+      "ground_truth": [
+        "retrieve_city_based_on_zipcode(zipcode='90210')"
+      ],
+      "ground_truth_execution": [
+        "BEVERLY HILLS"
+      ],
+      "valid": false,
+      "error": [
+        "Could not find a matching function among index [0] of model output for index 0 of possible answers.",
+        {
+          "Model Result Index 0": {
+            "sub_error": [
+              "Error in execution: 'function_2()'. Error: function_2() missing 1 required positional argument: 'zipcode'"
+            ],
+            "sub_error_type": "executable_checker:execution_error",
+            "executed_result": null
+          }
+        }
+      ],
+      "error_type": "executable_checker:cannot_find_match",
+      "executed_result": [
+        {
+          "error": "function_2() missing 1 required positional argument: 'zipcode'",
+          "function_call": "function_2()"
+        }
+      ],
+      "parameter_metrics": {
+        "accuracy": 0.0,
+        "total_params": 1,
+        "correct_params": 0,
+        "missing_params": [
+          "zipcode"
+        ],
+        "extra_params": [],
+        "wrong_value_params": []
+      },
+      "ast_metrics": {
+        "format_valid": true,
+        "structure_valid": true,
+        "type_correctness": 0.0,
+        "schema_compliant": false,
+        "has_hallucinated_params": false,
+        "type_errors": [],
+        "score": 0.6
+      },
+      "category": "executable_multiple_function"
+    },
+    {
+      "index": 38,
+      "question": "I'm currently engaged in a study that requires me to investigate the holidays celebrated across different cultures and how they've evolved over the years. As part of this research, I'm compiling data on the national holidays in various countries for specific years. At the moment, I'm focusing on France. I need to know the list of holidays that were observed in France in the year 2010. Can you provide that information for me?",
+      "model_result": "[{\"function\": \"function_2\", \"args\": {}}]",
+      "ground_truth": [
+        "retrieve_holiday_by_year(year='2010', country='FR')"
+      ],
+      "ground_truth_execution": [
+        [
+          {
+            "date": "2010-01-01",
+            "localName": "Jour de l'an",
+            "name": "New Year's Day",
+            "countryCode": "FR",
+            "fixed": false,
+            "global": true,
+            "counties": null,
+            "launchYear": null,
+            "types": [
+              "Public"
+            ]
+          },
+          {
+            "date": "2010-04-05",
+            "localName": "Lundi de P\u00e2ques",
+            "name": "Easter Monday",
+            "countryCode": "FR",
+            "fixed": false,
+            "global": true,
+            "counties": null,
+            "launchYear": null,
+            "types": [
+              "Public"
+            ]
+          },
+          {
+            "date": "2010-05-01",
+            "localName": "F\u00eate du Travail",
+            "name": "Labour Day",
+            "countryCode": "FR",
+            "fixed": false,
+            "global": true,
+            "counties": null,
+            "launchYear": null,
+            "types": [
+              "Public"
+            ]
+          },
+          {
+            "date": "2010-05-08",
+            "localName": "Victoire 1945",
+            "name": "Victory in Europe Day",
+            "countryCode": "FR",
+            "fixed": false,
+            "global": true,
+            "counties": null,
+            "launchYear": null,
+            "types": [
+              "Public"
+            ]
+          },
+          {
+            "date": "2010-05-13",
+            "localName": "Ascension",
+            "name": "Ascension Day",
+            "countryCode": "FR",
+            "fixed": false,
+            "global": true,
+            "counties": null,
+            "launchYear": null,
+            "types": [
+              "Public"
+            ]
+          },
+          {
+            "date": "2010-05-24",
+            "localName": "Lundi de Pentec\u00f4te",
+            "name": "Whit Monday",
+            "countryCode": "FR",
+            "fixed": false,
+            "global": true,
+            "counties": null,
+            "launchYear": null,
+            "types": [
+              "Public"
+            ]
+          },
+          {
+            "date": "2010-07-14",
+            "localName": "F\u00eate nationale",
+            "name": "Bastille Day",
+            "countryCode": "FR",
+            "fixed": false,
+            "global": true,
+            "counties": null,
+            "launchYear": null,
+            "types": [
+              "Public"
+            ]
+          },
+          {
+            "date": "2010-08-15",
+            "localName": "Assomption",
+            "name": "Assumption Day",
+            "countryCode": "FR",
+            "fixed": false,
+            "global": true,
+            "counties": null,
+            "launchYear": null,
+            "types": [
+              "Public"
+            ]
+          },
+          {
+            "date": "2010-11-01",
+            "localName": "Toussaint",
+            "name": "All Saints' Day",
+            "countryCode": "FR",
+            "fixed": false,
+            "global": true,
+            "counties": null,
+            "launchYear": null,
+            "types": [
+              "Public"
+            ]
+          },
+          {
+            "date": "2010-11-11",
+            "localName": "Armistice 1918",
+            "name": "Armistice Day",
+            "countryCode": "FR",
+            "fixed": false,
+            "global": true,
+            "counties": null,
+            "launchYear": null,
+            "types": [
+              "Public"
+            ]
+          },
+          {
+            "date": "2010-12-25",
+            "localName": "No\u00ebl",
+            "name": "Christmas Day",
+            "countryCode": "FR",
+            "fixed": false,
+            "global": true,
+            "counties": null,
+            "launchYear": null,
+            "types": [
+              "Public"
+            ]
+          }
+        ]
+      ],
+      "valid": false,
+      "error": [
+        "Could not find a matching function among index [0] of model output for index 0 of possible answers.",
+        {
+          "Model Result Index 0": {
+            "sub_error": [
+              "Error in execution: 'function_2()'. Error: function_2() missing 2 required positional arguments: 'country' and 'year'"
+            ],
+            "sub_error_type": "executable_checker:execution_error",
+            "executed_result": null
+          }
+        }
+      ],
+      "error_type": "executable_checker:cannot_find_match",
+      "executed_result": [
+        {
+          "error": "function_2() missing 2 required positional arguments: 'country' and 'year'",
+          "function_call": "function_2()"
+        }
+      ],
+      "parameter_metrics": {
+        "accuracy": 0.0,
+        "total_params": 2,
+        "correct_params": 0,
+        "missing_params": [
+          "year",
+          "country"
+        ],
+        "extra_params": [],
+        "wrong_value_params": []
+      },
+      "ast_metrics": {
+        "format_valid": true,
+        "structure_valid": true,
+        "type_correctness": 0.0,
+        "schema_compliant": false,
+        "has_hallucinated_params": false,
+        "type_errors": [],
+        "score": 0.6
+      },
+      "category": "executable_multiple_function"
+    },
+    {
+      "index": 39,
+      "question": "I've got a dataset here that needs to be ordered from highest to lowest value. The numbers I'm working with are 34, 2, 56, 7, 9, and 12. Could you help me sort these in descending order?",
+      "model_result": "[{\"function\": \"function_4\", \"args\": {}}]",
+      "ground_truth": [
+        "sort_array(array=[34, 2, 56, 7, 9, 12], reverse=True)"
+      ],
+      "ground_truth_execution": [
+        [
+          56,
+          34,
+          12,
+          9,
+          7,
+          2
+        ]
+      ],
+      "valid": false,
+      "error": [
+        "Could not find a matching function among index [0] of model output for index 0 of possible answers.",
+        {
+          "Model Result Index 0": {
+            "sub_error": [
+              "Error in execution: 'function_4()'. Error: function_4() missing 1 required positional argument: 'array'"
+            ],
+            "sub_error_type": "executable_checker:execution_error",
+            "executed_result": null
+          }
+        }
+      ],
+      "error_type": "executable_checker:cannot_find_match",
+      "executed_result": [
+        {
+          "error": "function_4() missing 1 required positional argument: 'array'",
+          "function_call": "function_4()"
+        }
+      ],
+      "parameter_metrics": {
+        "accuracy": 0.0,
+        "total_params": 2,
+        "correct_params": 0,
+        "missing_params": [
+          "array",
+          "reverse"
+        ],
+        "extra_params": [],
+        "wrong_value_params": []
+      },
+      "ast_metrics": {
+        "format_valid": true,
+        "structure_valid": true,
+        "type_correctness": 0.0,
+        "schema_compliant": false,
+        "has_hallucinated_params": false,
+        "type_errors": [],
+        "score": 0.6
+      },
+      "category": "executable_multiple_function"
+    },
+    {
+      "index": 40,
+      "question": "I need to calculate the sum of the binary numbers '10011' and '1100'. Could you help me with that?",
+      "model_result": "[{\"function\": \"function_1\", \"args\": {}}]",
+      "ground_truth": [
+        "add_binary_numbers(a='10011',b='1100')"
+      ],
+      "ground_truth_execution": [
+        "11111"
+      ],
+      "valid": false,
+      "error": [
+        "Could not find a matching function among index [0] of model output for index 0 of possible answers.",
+        {
+          "Model Result Index 0": {
+            "sub_error": [
+              "Error in execution: 'function_1()'. Error: function_1() missing 2 required positional arguments: 'a' and 'b'"
+            ],
+            "sub_error_type": "executable_checker:execution_error",
+            "executed_result": null
+          }
+        }
+      ],
+      "error_type": "executable_checker:cannot_find_match",
+      "executed_result": [
+        {
+          "error": "function_1() missing 2 required positional arguments: 'a' and 'b'",
+          "function_call": "function_1()"
+        }
+      ],
+      "parameter_metrics": {
+        "accuracy": 0.0,
+        "total_params": 2,
+        "correct_params": 0,
+        "missing_params": [
+          "a",
+          "b"
+        ],
+        "extra_params": [],
+        "wrong_value_params": []
+      },
+      "ast_metrics": {
+        "format_valid": true,
+        "structure_valid": true,
+        "type_correctness": 0.0,
+        "schema_compliant": false,
+        "has_hallucinated_params": false,
+        "type_errors": [],
+        "score": 0.6
+      },
+      "category": "executable_multiple_function"
+    },
+    {
+      "index": 41,
+      "question": "I've been working on some data analysis and I need to fit a linear regression model. I have these data points with x-coordinates as [1, 2, -3] and corresponding y-coordinates as [4, -5, 6]. I want to understand the relationship between these variables and make a prediction for when x is 10. Can you help me with that?",
+      "model_result": "[{\"function\": \"function_1\", \"args\": {}}]",
+      "ground_truth": [
+        "linear_regression(x=[1,2,-3],y=[4,-5,6],point=10)"
+      ],
+      "ground_truth_execution": [
+        -15.476190476190476
+      ],
+      "valid": false,
+      "error": [
+        "Could not find a matching function among index [0] of model output for index 0 of possible answers.",
+        {
+          "Model Result Index 0": {
+            "sub_error": [
+              "Error in execution: 'function_1()'. Error: function_1() missing 3 required positional arguments: 'x', 'y', and 'point'"
+            ],
+            "sub_error_type": "executable_checker:execution_error",
+            "executed_result": null
+          }
+        }
+      ],
+      "error_type": "executable_checker:cannot_find_match",
+      "executed_result": [
+        {
+          "error": "function_1() missing 3 required positional arguments: 'x', 'y', and 'point'",
+          "function_call": "function_1()"
+        }
+      ],
+      "parameter_metrics": {
+        "accuracy": 0.0,
+        "total_params": 3,
+        "correct_params": 0,
+        "missing_params": [
+          "point",
+          "x",
+          "y"
+        ],
+        "extra_params": [],
+        "wrong_value_params": []
+      },
+      "ast_metrics": {
+        "format_valid": true,
+        "structure_valid": true,
+        "type_correctness": 0.0,
+        "schema_compliant": false,
+        "has_hallucinated_params": false,
+        "type_errors": [],
+        "score": 0.6
+      },
+      "category": "executable_multiple_function"
+    },
+    {
+      "index": 42,
+      "question": "I've been planning my financial future and I've decided to make an initial investment of $10,000, followed by an annual contribution of $1,000. My investment plan will run for 5 years, and I'm expecting an annual return of 5%. However, I'm also aware that inflation can impact the value of my investment, so I've projected an inflation rate that changes year over year: 1% for the first year, 2% for the second, and so on, up to 4% for the last two years. I need to calculate the real value of my investment after accounting for these inflation rates. Can you provide me with the adjusted value of my investment over this 5-year period?",
+      "model_result": "[{\"function\": \"function_1\", \"args\": {}}, {\"function\": \"function_2\", \"args\": {}}, {\"function\": \"function_3\", \"args\": {}}]",
+      "ground_truth": [
+        "calculate_investment_value(initial_investment=10000, annual_contribution=1000, years=5, annual_return=0.05, inflation_rate=[0.01,0.02,0.03,0.04,0.04])"
+      ],
+      "ground_truth_execution": [
+        16145.646273400002
+      ],
+      "valid": false,
+      "error": [
+        "Wrong number of functions. Expected 1, got 3."
+      ],
+      "error_type": "simple_exec_checker:wrong_count",
+      "executed_result": [
+        {
+          "error": "function_1() missing 5 required positional arguments: 'initial_investment', 'annual_contribution', 'years', 'annual_return', and 'inflation_rate'",
+          "function_call": "function_1()"
+        },
+        {
+          "error": "function_2() missing 4 required positional arguments: 'principal', 'rate', 'times_compounded', and 'years'",
+          "function_call": "function_2()"
+        },
+        {
+          "error": "function_3() missing 3 required positional arguments: 'amount', 'inflation_rate', and 'years'",
+          "function_call": "function_3()"
+        }
+      ],
+      "parameter_metrics": {
+        "accuracy": 0.0,
+        "total_params": 5,
+        "correct_params": 0,
+        "missing_params": [
+          "initial_investment",
+          "annual_contribution",
+          "years",
+          "inflation_rate",
+          "annual_return"
+        ],
+        "extra_params": [],
+        "wrong_value_params": []
+      },
+      "ast_metrics": {
+        "format_valid": true,
+        "structure_valid": true,
+        "type_correctness": 0.0,
+        "schema_compliant": false,
+        "has_hallucinated_params": false,
+        "type_errors": [],
+        "score": 0.6
+      },
+      "category": "executable_multiple_function"
+    },
+    {
+      "index": 43,
+      "question": "I've got $1,000,000 set aside as an initial investment and plan to add $1,000 to it every year. I'm looking at a potential annual interest rate of 10% over the next three years. However, I also want to consider the inflation rates, which I expect to be 1% in the first year and 4% for the next two years. I need to calculate what the investment's value would be at the end of three years, factoring in these inflation rates. Can you help me with that?",
+      "model_result": "[{\"function\": \"function_3\", \"args\": {}}, {\"function\": \"function_2\", \"args\": {}}]",
+      "ground_truth": [
+        "calculate_investment_value(initial_investment=1000000, annual_contribution=1000, years=3, annual_return=0.10, inflation_rate=[0.01, 0.04, 0.04])"
+      ],
+      "ground_truth_execution": [
+        1227813.9640000002
+      ],
+      "valid": false,
+      "error": [
+        "Wrong number of functions. Expected 1, got 2."
+      ],
+      "error_type": "simple_exec_checker:wrong_count",
+      "executed_result": [
+        {
+          "error": "function_3() missing 5 required positional arguments: 'initial_investment', 'annual_contribution', 'years', 'annual_return', and 'inflation_rate'",
+          "function_call": "function_3()"
+        },
+        {
+          "error": "function_2() missing 2 required positional arguments: 'investment_value' and 'inflation_rates'",
+          "function_call": "function_2()"
+        }
+      ],
+      "parameter_metrics": {
+        "accuracy": 0.0,
+        "total_params": 5,
+        "correct_params": 0,
+        "missing_params": [
+          "initial_investment",
+          "annual_contribution",
+          "years",
+          "inflation_rate",
+          "annual_return"
+        ],
+        "extra_params": [],
+        "wrong_value_params": []
+      },
+      "ast_metrics": {
+        "format_valid": true,
+        "structure_valid": true,
+        "type_correctness": 0.0,
+        "schema_compliant": false,
+        "has_hallucinated_params": false,
+        "type_errors": [],
+        "score": 0.6
+      },
+      "category": "executable_multiple_function"
+    },
+    {
+      "index": 44,
+      "question": "I've been helping my grandmother to adopt a healthier lifestyle. She's 80 years old, and we've been quite active together lately. She's 170 cm tall and weighs 59 kg. Given that we're maintaining an activity level of 4 on the scale you've provided, we're aiming for a weight loss goal. Could you calculate her nutritional needs based on these details?",
+      "model_result": "[{\"function\": \"function_3\", \"args\": {}}]",
+      "ground_truth": [
+        "calculate_nutritional_needs(weight=59,height=170,age=80,gender='female',activity_level=4,goal='lose')"
+      ],
+      "ground_truth_execution": [
+        {
+          "calories": 1524.15985,
+          "proteins_g": 114.31198875,
+          "fats_g": 42.33777361111111,
+          "carbohydrates_g": 171.46798312500002
+        }
+      ],
+      "valid": false,
+      "error": [
+        "Could not find a matching function among index [0] of model output for index 0 of possible answers.",
+        {
+          "Model Result Index 0": {
+            "sub_error": [
+              "Error in execution: 'function_3()'. Error: function_3() missing 6 required positional arguments: 'weight', 'height', 'age', 'gender', 'activity_level', and 'goal'"
+            ],
+            "sub_error_type": "executable_checker:execution_error",
+            "executed_result": null
+          }
+        }
+      ],
+      "error_type": "executable_checker:cannot_find_match",
+      "executed_result": [
+        {
+          "error": "function_3() missing 6 required positional arguments: 'weight', 'height', 'age', 'gender', 'activity_level', and 'goal'",
+          "function_call": "function_3()"
+        }
+      ],
+      "parameter_metrics": {
+        "accuracy": 0.0,
+        "total_params": 6,
+        "correct_params": 0,
+        "missing_params": [
+          "weight",
+          "height",
+          "age",
+          "gender",
+          "goal",
+          "activity_level"
+        ],
+        "extra_params": [],
+        "wrong_value_params": []
+      },
+      "ast_metrics": {
+        "format_valid": true,
+        "structure_valid": true,
+        "type_correctness": 0.0,
+        "schema_compliant": false,
+        "has_hallucinated_params": false,
+        "type_errors": [],
+        "score": 0.6
+      },
+      "category": "executable_multiple_function"
+    },
+    {
+      "index": 45,
+      "question": "I'm looking to reserve a deluxe room for a client whose ID is 123. They'll be staying from August 11th to August 15th, 2024. The room's nightly rate is $1000. Can you handle the booking for me?",
+      "model_result": "[{\"function\": \"function_1\", \"args\": {}}]",
+      "ground_truth": [
+        "book_room(room_type='deluxe',price=1000,check_in_date='08-11-2024',check_out_date='08-15-2024',customer_id='123')"
+      ],
+      "ground_truth_execution": [
+        {
+          "customer_id": "123",
+          "room_number": "deluxe",
+          "check_in_date": "08-11-2024",
+          "check_out_date": "08-15-2024",
+          "total_price": 1000
+        }
+      ],
+      "valid": false,
+      "error": [
+        "Could not find a matching function among index [0] of model output for index 0 of possible answers.",
+        {
+          "Model Result Index 0": {
+            "sub_error": [
+              "Error in execution: 'function_1()'. Error: function_1() missing 5 required positional arguments: 'room_type', 'price', 'check_in_date', 'check_out_date', and 'customer_id'"
+            ],
+            "sub_error_type": "executable_checker:execution_error",
+            "executed_result": null
+          }
+        }
+      ],
+      "error_type": "executable_checker:cannot_find_match",
+      "executed_result": [
+        {
+          "error": "function_1() missing 5 required positional arguments: 'room_type', 'price', 'check_in_date', 'check_out_date', and 'customer_id'",
+          "function_call": "function_1()"
+        }
+      ],
+      "parameter_metrics": {
+        "accuracy": 0.0,
+        "total_params": 5,
+        "correct_params": 0,
+        "missing_params": [
+          "check_out_date",
+          "customer_id",
+          "price",
+          "room_type",
+          "check_in_date"
+        ],
+        "extra_params": [],
+        "wrong_value_params": []
+      },
+      "ast_metrics": {
+        "format_valid": true,
+        "structure_valid": true,
+        "type_correctness": 0.0,
+        "schema_compliant": false,
+        "has_hallucinated_params": false,
+        "type_errors": [],
+        "score": 0.6
+      },
+      "category": "executable_multiple_function"
+    },
+    {
+      "index": 46,
+      "question": "I'm planning to host a dinner party tonight and thought of serving some delicious dumplings and rice bowls. I need to order 101 dumplings at $0.1 each and 20 rice bowls at $10 per bowl. Can you calculate the total price for this order for me?",
+      "model_result": "[{\"function\": \"function_2\", \"args\": {}}]",
+      "ground_truth": [
+        "order_food(item=['dumplings','rice bowl'], quantity=[101,20], price=[0.1,10])"
+      ],
+      "ground_truth_execution": [
+        210.1
+      ],
+      "valid": false,
+      "error": [
+        "Could not find a matching function among index [0] of model output for index 0 of possible answers.",
+        {
+          "Model Result Index 0": {
+            "sub_error": [
+              "Error in execution: 'function_2()'. Error: function_2() missing 2 required positional arguments: 'quantities' and 'prices'"
+            ],
+            "sub_error_type": "executable_checker:execution_error",
+            "executed_result": null
+          }
+        }
+      ],
+      "error_type": "executable_checker:cannot_find_match",
+      "executed_result": [
+        {
+          "error": "function_2() missing 2 required positional arguments: 'quantities' and 'prices'",
+          "function_call": "function_2()"
+        }
+      ],
+      "parameter_metrics": {
+        "accuracy": 0.0,
+        "total_params": 3,
+        "correct_params": 0,
+        "missing_params": [],
+        "extra_params": [],
+        "wrong_value_params": []
+      },
+      "ast_metrics": {
+        "format_valid": true,
+        "structure_valid": true,
+        "type_correctness": 0.0,
+        "schema_compliant": false,
+        "has_hallucinated_params": false,
+        "type_errors": [],
+        "score": 0.6
+      },
+      "category": "executable_multiple_function"
+    },
+    {
+      "index": 47,
+      "question": "I just rewatched \"Pulp Fiction,\" and I'm curious about the mastermind behind its direction. Could you find out who directed this iconic movie for me?",
+      "model_result": "[{\"function\": \"function_1\", \"args\": {}}]",
+      "ground_truth": [
+        "get_movie_director(movie_name='Pulp Fiction')"
+      ],
+      "ground_truth_execution": [
+        "Quentin Tarantino"
+      ],
+      "valid": false,
+      "error": [
+        "Could not find a matching function among index [0] of model output for index 0 of possible answers.",
+        {
+          "Model Result Index 0": {
+            "sub_error": [
+              "Error in execution: 'function_1()'. Error: function_1() missing 1 required positional argument: 'movie_name'"
+            ],
+            "sub_error_type": "executable_checker:execution_error",
+            "executed_result": null
+          }
+        }
+      ],
+      "error_type": "executable_checker:cannot_find_match",
+      "executed_result": [
+        {
+          "error": "function_1() missing 1 required positional argument: 'movie_name'",
+          "function_call": "function_1()"
+        }
+      ],
+      "parameter_metrics": {
+        "accuracy": 0.0,
+        "total_params": 1,
+        "correct_params": 0,
+        "missing_params": [
+          "movie_name"
+        ],
+        "extra_params": [],
+        "wrong_value_params": []
+      },
+      "ast_metrics": {
+        "format_valid": true,
+        "structure_valid": true,
+        "type_correctness": 0.0,
+        "schema_compliant": false,
+        "has_hallucinated_params": false,
+        "type_errors": [],
+        "score": 0.6
+      },
+      "category": "executable_multiple_function"
+    },
+    {
+      "index": 48,
+      "question": "I'm planning a movie night for my family this weekend, and I want to make sure the film is appropriate for all ages. We've settled on the idea of watching \"Avatar\", but I need to confirm its age rating before we proceed. Could you find out the age rating for the movie \"Avatar\"?",
+      "model_result": "[{\"function\": \"function_1\", \"args\": {}}]",
+      "ground_truth": [
+        "get_movie_rating(movie_name='Avatar')"
+      ],
+      "ground_truth_execution": [
+        "PG-13"
+      ],
+      "valid": false,
+      "error": [
+        "Could not find a matching function among index [0] of model output for index 0 of possible answers.",
+        {
+          "Model Result Index 0": {
+            "sub_error": [
+              "Error in execution: 'function_1()'. Error: function_1() missing 1 required positional argument: 'movie_name'"
+            ],
+            "sub_error_type": "executable_checker:execution_error",
+            "executed_result": null
+          }
+        }
+      ],
+      "error_type": "executable_checker:cannot_find_match",
+      "executed_result": [
+        {
+          "error": "function_1() missing 1 required positional argument: 'movie_name'",
+          "function_call": "function_1()"
+        }
+      ],
+      "parameter_metrics": {
+        "accuracy": 0.0,
+        "total_params": 1,
+        "correct_params": 0,
+        "missing_params": [
+          "movie_name"
+        ],
+        "extra_params": [],
+        "wrong_value_params": []
+      },
+      "ast_metrics": {
+        "format_valid": true,
+        "structure_valid": true,
+        "type_correctness": 0.0,
+        "schema_compliant": false,
+        "has_hallucinated_params": false,
+        "type_errors": [],
+        "score": 0.6
+      },
+      "category": "executable_multiple_function"
+    },
+    {
+      "index": 49,
+      "question": "I have a set of vertices: [[1,2],[3,4],[1,4],[3,7]], and I'm curious about the area that these points, when connected in order, would enclose to form a polygon. Could you calculate the area of this polygon for me?",
+      "model_result": "[{\"function\": \"function_2\", \"args\": {}}]",
+      "ground_truth": [
+        "polygon_area(vertices=[[1,2],[3,4],[1,4],[3,7]])"
+      ],
+      "ground_truth_execution": [
+        0.0
+      ],
+      "valid": false,
+      "error": [
+        "Could not find a matching function among index [0] of model output for index 0 of possible answers.",
+        {
+          "Model Result Index 0": {
+            "sub_error": [
+              "Error in execution: 'function_2()'. Error: function_2() missing 1 required positional argument: 'vertices'"
+            ],
+            "sub_error_type": "executable_checker:execution_error",
+            "executed_result": null
+          }
+        }
+      ],
+      "error_type": "executable_checker:cannot_find_match",
+      "executed_result": [
+        {
+          "error": "function_2() missing 1 required positional argument: 'vertices'",
+          "function_call": "function_2()"
+        }
+      ],
+      "parameter_metrics": {
+        "accuracy": 0.0,
+        "total_params": 1,
+        "correct_params": 0,
+        "missing_params": [
+          "vertices"
+        ],
+        "extra_params": [],
+        "wrong_value_params": []
+      },
+      "ast_metrics": {
+        "format_valid": true,
+        "structure_valid": true,
+        "type_correctness": 0.0,
+        "schema_compliant": false,
+        "has_hallucinated_params": false,
+        "type_errors": [],
+        "score": 0.6
+      },
+      "category": "executable_multiple_function"
+    }
+  ]
+}

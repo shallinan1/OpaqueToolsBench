@@ -1,0 +1,33 @@
+{
+  "timestamp": "2026-02-11 09:11:25 UTC",
+  "timestamp_utc": "20260211T091125630483Z",
+  "model": "gpt-5",
+  "temperature": 0.001,
+  "top_p": 1.0,
+  "max_tokens": 8192,
+  "tool_choice": "required",
+  "prompt_key": "must_call_tool",
+  "reasoning_effort": "medium",
+  "seed": 0,
+  "num_tests": 100,
+  "num_completed": 100,
+  "processing_time_seconds": 84.63579487800598,
+  "hyperparam_dirname": "gpt5_medium_req_8192_must_call_tool_seed0",
+  "command": "src/datasets/bfcl/run.py --config-source src/datasets/bfcl/tool_configs/play2prompt/executable_simple_name[all:increasing_number]_desc[all:blank]_param[all:blank_descriptions]/gpt-5_init3_beam1_expand1_iter1_refine1_topk1_json5/gpt-5_desc_beam1_iter1_expand1_topk1_examples1/optimized_config.json --model gpt-5 --reasoning-effort medium --max-tokens 8192 --output-dir runs/bfcl/play2prompt --prompt-key must_call_tool --tool-choice required",
+  "config_source": "src/datasets/bfcl/tool_configs/play2prompt/executable_simple_name[all:increasing_number]_desc[all:blank]_param[all:blank_descriptions]/gpt-5_init3_beam1_expand1_iter1_refine1_topk1_json5/gpt-5_desc_beam1_iter1_expand1_topk1_examples1/optimized_config.json",
+  "config_name": "executable_simple_name[all:increasing_number]_desc[all:blank]_param[all:blank_descriptions]",
+  "config_modifications": {
+    "names": {
+      "all": "increasing_number"
+    },
+    "descriptions": {
+      "all": "blank"
+    },
+    "parameters": {
+      "all": "blank_descriptions"
+    }
+  },
+  "config_test_category": "executable_simple",
+  "version": 0,
+  "is_improvement": false
+}

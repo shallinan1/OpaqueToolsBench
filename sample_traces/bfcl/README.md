@@ -56,11 +56,30 @@ Open-source model rows (`gpt-oss`, `Kimi`, `Qwen`) and dev-only prompt sweeps we
 
 ## How to use
 
-The repo's `evaluate.py` can re-grade any run directory in this tree:
+The repo's `evaluate.py` can re-grade any run directory in this tree. **The level you point `--result-dir` at depends on whether the run is a base run or an iteration:**
+
+| Run type | Point `--result-dir` at | Files at that level |
+|---|---|---|
+| Base run (paper "Base" or "Gold" column) | `<config>/<gen_hypers>/` | `v0_results.json`, `v0_scored.json`, `v0_metadata.json` |
+| ToolObserver iteration (paper "+TO" column) | `<config>/<gen_hypers>/improvements/<edit_hypers>/v{N}/` | `config.json`, `results.json`, `scored.json`, `metadata.json` |
+| EasyTool / Play2Prompt baselines | `<config>/<gen_hypers>/` (one-shot, no iteration tree) | `v0_results.json`, `v0_scored.json`, `v0_metadata.json` |
+
+Examples:
 
 ```bash
+# Base run (Gold or Base column)
 python -m src.datasets.bfcl.evaluate \
   --result-dir sample_traces/bfcl/tool_observer/executable_simple_base/gpt5_medium_req_8192_must_call_tool_seed0
+
+# ToolObserver iteration leaf (the v{N}/ matters; converged N varies per config)
+python -m src.datasets.bfcl.evaluate \
+  --result-dir 'sample_traces/bfcl/tool_observer/executable_simple_name[all:increasing_number]_desc[all:blank]_param[all:remove_all]/gpt5mini_medium_req_8192_must_call_tool_seed0/improvements/gpt5_medium_basic_improved_8192/v6'
+
+# EasyTool / Play2Prompt baseline (same shape as base run)
+python -m src.datasets.bfcl.evaluate \
+  --result-dir 'sample_traces/bfcl/easytool/executable_simple_name[all:increasing_number]_param[all:remove_all]/gpt5_medium_req_8192_must_call_tool_seed0'
 ```
+
+Common mistake: pointing `--result-dir` at `improvements/<edit_hypers>/` (the parent of the v{N} dirs). That level has no results files and the script will fail — go one deeper into the specific `v{N}/`.
 
 Cached function-call results live in `src/datasets/bfcl/function_call_cache.json` and cover every executable lookup the paper made, so re-grading does not require RapidAPI / OMDB / etc. credentials.

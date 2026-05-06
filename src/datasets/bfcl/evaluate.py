@@ -289,13 +289,24 @@ def load_test_prompt(result_dir: Path) -> List[Dict]:
     with open(metadata_file, 'r') as f:
         metadata = json.load(f)
     
-    config_source = metadata.get("config_source")
-    if not config_source:
-        raise ValueError("No config_source found in metadata")
-    
-    config_path = Path(config_source)
-    if not config_path.exists():
-        raise FileNotFoundError(f"Config file not found: {config_path}")
+    # Improvement dirs (v1, v2, ...) ship a sibling config.json; prefer that
+    # when present so re-grading works from any location (e.g. shipped trajectory
+    # bundles). Fall back to metadata.config_source for base runs that have
+    # no sibling config.
+    sibling_config = result_dir / "config.json"
+    if sibling_config.exists():
+        config_path = sibling_config
+    else:
+        config_source = metadata.get("config_source")
+        if not config_source:
+            raise ValueError("No config_source found in metadata")
+        config_path = Path(config_source)
+        if not config_path.exists():
+            raise FileNotFoundError(
+                f"Config file not found at {sibling_config} or {config_path}. "
+                f"For improvements, point --result-dir at the leaf v{{N}}/ dir; "
+                f"for base runs, point at the <gen_hypers>/ dir."
+            )
     
     # Load the config file
     with open(config_path, 'r') as f:

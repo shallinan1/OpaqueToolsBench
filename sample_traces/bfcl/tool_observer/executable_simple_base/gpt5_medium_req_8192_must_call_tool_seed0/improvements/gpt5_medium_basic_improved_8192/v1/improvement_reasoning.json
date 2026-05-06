@@ -1,0 +1,1189 @@
+{
+  "generation_metadata": {
+    "editing_model": "gpt-5",
+    "editing_temperature": 1.0,
+    "editing_prompt_key": "basic_improved",
+    "editing_max_tokens": 8192,
+    "source_result_dir": "runs/bfcl/tool_observer/executable_simple_base/gpt5_medium_req_8192_must_call_tool_seed0",
+    "improvement_version": 1,
+    "num_functions_updated": 82,
+    "generated_timestamp": "2026-02-10T23:28:02.228894Z"
+  },
+  "prompt_key_used": "basic_improved",
+  "test_reasoning": [
+    {
+      "test_index": 0,
+      "question": "I've been playing a game where rolling a six is somehow more likely than usual, and the chance of it happening on a single roll is 60%. I'm curious, if I roll the die 20 times, what are the odds that I'll get exactly five sixes?",
+      "functions_updated": [
+        {
+          "function_name": "calc_binomial_probability",
+          "original_description": "Calculates the probability of getting k successes in n trials.",
+          "new_description": "Computes the binomial probability mass function P(X = k) for exactly k successes in n independent trials with per\u2011trial success probability p. Call as calc_binomial_probability(n, k, p) with n and k as integers (0 \u2264 k \u2264 n) and p in [0, 1]; returns a single floating\u2011point probability between 0 and 1.",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "## Updated Descriptions (only for functions that need improvement):\n\nFUNCTION: calc_binomial_probability\nDESCRIPTION: Computes the binomial probability mass function P(X = k) for exactly k successes in n independent trials with per\u2011trial success probability p. Call as calc_binomial_probability(n, k, p) with n and k as integers (0 \u2264 k \u2264 n) and p in [0, 1]; returns a single floating\u2011point probability between 0 and 1."
+    },
+    {
+      "test_index": 1,
+      "question": "During last night's basketball game, one of the star players was on fire, attempting a whopping 30 free throws. It's generally known that the average success rate for free throws hovers around 50%. I'm curious, with that success probability, what are the chances that the player made exactly 15 out of those 30 attempts?",
+      "functions_updated": [],
+      "llm_reasoning": "## Updated Descriptions (only for functions that need improvement):"
+    },
+    {
+      "test_index": 2,
+      "question": "I'm currently tweaking a machine learning model and I need to understand the similarity between two objects in my dataset. Their characteristics are expressed in the feature vectors [0.5, 0.7, 0.2, 0.9, 0.1] for the first object and [0.4, 0.6, 0.3, 0.8, 0.2] for the second one. Could you calculate the cosine similarity between these two feature vectors to help me determine how similar these objects are?",
+      "functions_updated": [
+        {
+          "function_name": "calculate_cosine_similarity",
+          "original_description": "Calculates the cosine similarity of two vectors.",
+          "new_description": "Computes the cosine similarity between two equal-length numeric vectors as dot(A, B) divided by the product of their magnitudes, returning a single similarity score (float) in the range [-1, 1]. Call as calculate_cosine_similarity(vectorA=[...], vectorB=[...]) with both inputs provided as arrays/lists of numbers of the same length.",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "## Updated Descriptions (only for functions that need improvement):\n\nFUNCTION: calculate_cosine_similarity\nDESCRIPTION: Computes the cosine similarity between two equal-length numeric vectors as dot(A, B) divided by the product of their magnitudes, returning a single similarity score (float) in the range [-1, 1]. Call as calculate_cosine_similarity(vectorA=[...], vectorB=[...]) with both inputs provided as arrays/lists of numbers of the same length."
+    },
+    {
+      "test_index": 3,
+      "question": "I'm working on a project that involves comparing the attributes of different entities to determine how similar they are. I have two entities represented by numerical arrays, and I need to use cosine similarity as a measure of similarity between them. The attributes for the first entity are [0.3, 0.8, 0.1, 0.6, 0.2], and for the second entity, they are [0.5, 0.7, 0.4, 0.9, 0.3]. Could you calculate the cosine similarity for these two vectors for me?",
+      "functions_updated": [
+        {
+          "function_name": "calculate_cosine_similarity",
+          "original_description": "Calculates the cosine similarity of two vectors.",
+          "new_description": "Computes the cosine similarity between two equal-length numeric vectors as dot(A,B)/(||A||\u00b7||B||), returning a single float in the range [-1, 1]. Provide vectorA and vectorB as non-empty, non-zero arrays/lists of the same length and call as calculate_cosine_similarity(vectorA=[...], vectorB=[...]).",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "## Updated Descriptions (only for functions that need improvement):\nFUNCTION: calculate_cosine_similarity\nDESCRIPTION: Computes the cosine similarity between two equal-length numeric vectors as dot(A,B)/(||A||\u00b7||B||), returning a single float in the range [-1, 1]. Provide vectorA and vectorB as non-empty, non-zero arrays/lists of the same length and call as calculate_cosine_similarity(vectorA=[...], vectorB=[...])."
+    },
+    {
+      "test_index": 4,
+      "question": "I'm working on a physics experiment and need to calculate the density of an object I have. It weighs 50 kilograms and takes up a space of 10 cubic meters. Could you help me figure out its density?",
+      "functions_updated": [],
+      "llm_reasoning": "## Updated Descriptions (only for functions that need improvement):\n\nNone. The existing description for calculate_density is accurate based on the observed usage and output."
+    },
+    {
+      "test_index": 5,
+      "question": "I've got this strange object we've come across in our scientific research. It's pretty hefty, weighing in at 120 kilograms, and it takes up about 30 cubic meters of space. Can you help me calculate its density?",
+      "functions_updated": [],
+      "llm_reasoning": "## Updated Descriptions (only for functions that need improvement):"
+    },
+    {
+      "test_index": 6,
+      "question": "During our advanced physics experiment, we've been tracking this unique object which initially was moving at 15 m/s. It's been accelerating at a rate of 9.8 m/s\u00b2, and this has been going on for exactly 10 seconds. I need to calculate the total displacement of the object over this period. Can you help me with that?",
+      "functions_updated": [
+        {
+          "function_name": "calculate_displacement",
+          "original_description": "Calculates the displacement of an object.",
+          "new_description": "Computes the linear displacement (in meters) of an object under constant acceleration using s = initial_velocity * time + 0.5 * acceleration * time^2. Call as calculate_displacement(initial_velocity: number in m/s, acceleration: number in m/s\u00b2, time: number in s); returns the displacement as a single number (meters).",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "FUNCTION: calculate_displacement\nDESCRIPTION: Computes the linear displacement (in meters) of an object under constant acceleration using s = initial_velocity * time + 0.5 * acceleration * time^2. Call as calculate_displacement(initial_velocity: number in m/s, acceleration: number in m/s\u00b2, time: number in s); returns the displacement as a single number (meters)."
+    },
+    {
+      "test_index": 7,
+      "question": "During the high-speed chase, when the driver accelerated the vehicle, it was initially moving at 25 meters per second. With the sudden push on the gas pedal, the car accelerated at 15 meters per second squared, and this went on for 8 seconds. I need to calculate the displacement of the vehicle over that time. Can you provide me with that information?",
+      "functions_updated": [
+        {
+          "function_name": "calculate_displacement",
+          "original_description": "Calculates the displacement of an object.",
+          "new_description": "Computes the displacement for motion under constant acceleration using the kinematic formula s = u*t + 0.5*a*t^2. Call calculate_displacement(initial_velocity, acceleration, time) with numeric values in SI units (m/s, m/s\u00b2, s); it returns a single number giving the displacement in meters (sign follows your chosen direction convention).",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "## Updated Descriptions (only for functions that need improvement):\n\nFUNCTION: calculate_displacement\nDESCRIPTION: Computes the displacement for motion under constant acceleration using the kinematic formula s = u*t + 0.5*a*t^2. Call calculate_displacement(initial_velocity, acceleration, time) with numeric values in SI units (m/s, m/s\u00b2, s); it returns a single number giving the displacement in meters (sign follows your chosen direction convention)."
+    },
+    {
+      "test_index": 8,
+      "question": "During our physics lab session, we're experimenting with electric fields and their effects on charged particles. We've placed a particle that carries a charge of 5 coulombs within a field where there's a voltage of 10 volts. I need to calculate the electrostatic potential energy for this scenario. Could you work that out for me?",
+      "functions_updated": [],
+      "llm_reasoning": "## Updated Descriptions (only for functions that need improvement):\n\nNone."
+    },
+    {
+      "test_index": 9,
+      "question": "I'm working on a physics simulation and I have a micro-particle here charged at 7.8 coulombs. It's placed in an electromagnetic field with a voltage of 15.2 volts. Can you calculate the electrostatic potential energy for this particle in the given field?",
+      "functions_updated": [
+        {
+          "function_name": "calculate_electrostatic_potential_energy",
+          "original_description": "Calculates the electrostatic potential energy.",
+          "new_description": "Computes the electrostatic potential energy U = q \u00d7 V for a charge in an electric potential and returns the energy in joules. Provide charge (number, in coulombs) and voltage (number, in volts), and call as calculate_electrostatic_potential_energy(charge, voltage) to receive a numeric joule value.",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "FUNCTION: calculate_electrostatic_potential_energy\nDESCRIPTION: Computes the electrostatic potential energy U = q \u00d7 V for a charge in an electric potential and returns the energy in joules. Provide charge (number, in coulombs) and voltage (number, in volts), and call as calculate_electrostatic_potential_energy(charge, voltage) to receive a numeric joule value."
+    },
+    {
+      "test_index": 10,
+      "question": "During a training exercise, we're analyzing a simulation of a high-speed chase where a vehicle starts from a standstill and then accelerates constantly. We've clocked the acceleration at 9.8 meters per second squared and the time span for this acceleration is 12 seconds. I need to calculate the final velocity of the vehicle at the end of this time frame. Can you give me that figure?",
+      "functions_updated": [],
+      "llm_reasoning": "## Updated Descriptions (only for functions that need improvement):"
+    },
+    {
+      "test_index": 11,
+      "question": "I've got a physics experiment where I'm dropping a ball from a certain height, and I know that the initial velocity is zero because I'm letting it fall freely. Gravity is doing all the work here at 9.8 m/s\u00b2. After 7 seconds, I want to calculate what the final velocity will be. Can we get that sorted out?",
+      "functions_updated": [
+        {
+          "function_name": "calculate_final_velocity",
+          "original_description": "Calculates the final velocity of an object.",
+          "new_description": "Computes the final velocity under constant acceleration using v = initial_velocity + acceleration * time. Call as calculate_final_velocity(initial_velocity, acceleration, time) with numbers in SI units (m/s, m/s\u00b2, s); returns a single number: the final velocity in meters per second (sign follows the provided directions).",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "## Updated Descriptions (only for functions that need improvement):\n\nFUNCTION: calculate_final_velocity\nDESCRIPTION: Computes the final velocity under constant acceleration using v = initial_velocity + acceleration * time. Call as calculate_final_velocity(initial_velocity, acceleration, time) with numbers in SI units (m/s, m/s\u00b2, s); returns a single number: the final velocity in meters per second (sign follows the provided directions)."
+    },
+    {
+      "test_index": 12,
+      "question": "I've put $5000 into a fixed deposit offering a 5% annual interest rate, and I'm planning to let it grow for 10 years. Could you calculate the future value of this investment for me?",
+      "functions_updated": [
+        {
+          "function_name": "calculate_future_value",
+          "original_description": "Calculates the future value of an investment.",
+          "new_description": "Computes the future value of an investment using compound interest: FV = present_value * (1 + interest_rate) ** periods. Call as calculate_future_value(present_value, interest_rate, periods) where present_value is a dollar amount, interest_rate is a decimal per period (e.g., 0.05 for 5%), and periods is a non-negative integer count of periods (e.g., years); returns the future value as a number.",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "## Updated Descriptions (only for functions that need improvement):\n\nFUNCTION: calculate_future_value\nDESCRIPTION: Computes the future value of an investment using compound interest: FV = present_value * (1 + interest_rate) ** periods. Call as calculate_future_value(present_value, interest_rate, periods) where present_value is a dollar amount, interest_rate is a decimal per period (e.g., 0.05 for 5%), and periods is a non-negative integer count of periods (e.g., years); returns the future value as a number."
+    },
+    {
+      "test_index": 13,
+      "question": "I've got $8000 that I'm planning to drop into a savings account with a sweet annual interest rate of 4%. I'm not touching it for 15 years. I'm curious about the future value of this investment after that time. Can you crunch the numbers for me?",
+      "functions_updated": [],
+      "llm_reasoning": "## Updated Descriptions (only for functions that need improvement):\n\nNone."
+    },
+    {
+      "test_index": 14,
+      "question": "As part of my data analysis project, I've been tasked with examining the temperature trends over the past month. I've collected a set of daily temperature readings that I need to interpret. The dataset includes temperatures ranging from 22 to 80 degrees Celsius, incrementing by 2 each day. To gain a better understanding of the overall climate patterns, could you calculate the average temperature for this period using these values?",
+      "functions_updated": [],
+      "llm_reasoning": "## Updated Descriptions (only for functions that need improvement):"
+    },
+    {
+      "test_index": 15,
+      "question": "I'm working on a report about a basketball player's average performance throughout the season. The data I have includes the points they scored in each game: 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130, 135, 140, 145, 150, 155, 160. To complete my analysis, I need to calculate the mean score per game. Can you help me with that?",
+      "functions_updated": [
+        {
+          "function_name": "calculate_mean",
+          "original_description": "Calculates the mean of a list of numbers.",
+          "new_description": "Computes the arithmetic mean of an array of numeric values (integers or floats). Call calculate_mean(numbers=[n1, n2, ...]) and it returns a single floating-point number representing the average of the provided numbers.",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "FUNCTION: calculate_mean\nDESCRIPTION: Computes the arithmetic mean of an array of numeric values (integers or floats). Call calculate_mean(numbers=[n1, n2, ...]) and it returns a single floating-point number representing the average of the provided numbers."
+    },
+    {
+      "test_index": 16,
+      "question": "I'm developing a new encryption algorithm and I'm currently focused on the permutations aspect. I need to know how many unique arrangements are possible if I take 5 characters from the standard English alphabet, which has 26 letters. This calculation is crucial for understanding the complexity of the encryption. Can you run the permutations calculation with these values?",
+      "functions_updated": [
+        {
+          "function_name": "calculate_permutations",
+          "original_description": "Calculates the number of permutations of k elements from a set of n elements.",
+          "new_description": "Computes the number of ordered arrangements (permutations) of k items chosen without replacement from n distinct items using nPk = n!/(n\u2212k)!. Provide integers n and k with 0 \u2264 k \u2264 n; the function returns the permutation count as a numeric value (e.g., calculate_permutations(n=26, k=5) \u2192 7893600).",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "## Updated Descriptions (only for functions that need improvement):\n\nFUNCTION: calculate_permutations\nDESCRIPTION: Computes the number of ordered arrangements (permutations) of k items chosen without replacement from n distinct items using nPk = n!/(n\u2212k)!. Provide integers n and k with 0 \u2264 k \u2264 n; the function returns the permutation count as a numeric value (e.g., calculate_permutations(n=26, k=5) \u2192 7893600)."
+    },
+    {
+      "test_index": 17,
+      "question": "In my current research on plant genetics, I'm exploring the genetic diversity within a specific species. It's fascinating work, and I've managed to isolate 30 unique genes. The next step in my study involves figuring out the possible combinations if I were to select 7 of these genes at a time for a more detailed analysis. Could you calculate the number of different permutations for 7 genes out of the total 30?",
+      "functions_updated": [],
+      "llm_reasoning": "## Updated Descriptions (only for functions that need improvement):"
+    },
+    {
+      "test_index": 18,
+      "question": "To better understand the volatility and risk associated with this particular stock, I need to calculate the standard deviation of its daily closing prices over the past 10 trading days. Here are the figures I've gathered: 1000, 2000, 3000, 4000, 5000, 7000, 9000, 15000, 20000, and 30000. Can you provide me with the standard deviation for these closing prices?",
+      "functions_updated": [
+        {
+          "function_name": "calculate_standard_deviation",
+          "original_description": "Calculates the standard deviation of a list of numbers.",
+          "new_description": "Computes the population standard deviation (ddof=0) of a non-empty array of numeric values (ints or floats). Call as calculate_standard_deviation(numbers=[v1, v2, ...]); returns a single floating-point number representing the standard deviation of the provided values.",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "FUNCTION: calculate_standard_deviation\nDESCRIPTION: Computes the population standard deviation (ddof=0) of a non-empty array of numeric values (ints or floats). Call as calculate_standard_deviation(numbers=[v1, v2, ...]); returns a single floating-point number representing the standard deviation of the provided values."
+    },
+    {
+      "test_index": 19,
+      "question": "I've been tracking the scoring performance of a certain basketball player across the last 12 games to get insights into his consistency. The points he scored in each game are as follows: 30, 20, 25, 12, 59, 23, 64, 21, 67, 12, 23, and 43. I need to calculate the standard deviation of this scoring to better understand the variability and predictability of his performance. Could you help me with that?",
+      "functions_updated": [
+        {
+          "function_name": "calculate_standard_deviation",
+          "original_description": "Calculates the standard deviation of a list of numbers.",
+          "new_description": "Computes the population standard deviation (square root of the average of squared deviations, dividing by N) for a non-empty array/list of numeric values. Call as calculate_standard_deviation(numbers=[x1, x2, ...]) and it returns a single float representing the standard deviation.",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "FUNCTION: calculate_standard_deviation\nDESCRIPTION: Computes the population standard deviation (square root of the average of squared deviations, dividing by N) for a non-empty array/list of numeric values. Call as calculate_standard_deviation(numbers=[x1, x2, ...]) and it returns a single float representing the standard deviation."
+    },
+    {
+      "test_index": 20,
+      "question": "I'm currently working on an architectural project where we're designing a new triangular-shaped park. We've finally settled on the dimensions, and we're planning for the base to be 500 meters long with a height of 300 meters. Could you calculate the area of this park for me?",
+      "functions_updated": [
+        {
+          "function_name": "calculate_triangle_area",
+          "original_description": "Calculates the area of a triangle given its base and height.",
+          "new_description": "Computes the area of a triangle using 0.5 \u00d7 base \u00d7 height and returns the result as a float in square meters. Call as calculate_triangle_area(base=<int>, height=<int>) with base and height provided as positive integers representing meters.",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "FUNCTION: calculate_triangle_area\nDESCRIPTION: Computes the area of a triangle using 0.5 \u00d7 base \u00d7 height and returns the result as a float in square meters. Call as calculate_triangle_area(base=<int>, height=<int>) with base and height provided as positive integers representing meters."
+    },
+    {
+      "test_index": 21,
+      "question": "I'm working on the design for a triangular dam, and I've settled on the dimensions. The base is going to be 700 meters, and the height will be at 450 meters. I need to calculate the total area that the face of this dam will cover. Can you help me figure out what that area would be with these measurements?",
+      "functions_updated": [
+        {
+          "function_name": "calculate_triangle_area",
+          "original_description": "Calculates the area of a triangle given its base and height.",
+          "new_description": "Computes the area of a triangle using 0.5 \u00d7 base \u00d7 height and returns the result as a float in square meters. Provide base and height as required integers representing meters; call as calculate_triangle_area(base=<int>, height=<int>) and receive the area (e.g., calculate_triangle_area(700, 450) -> 157500.0).",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "## Updated Descriptions (only for functions that need improvement):\n\nFUNCTION: calculate_triangle_area\nDESCRIPTION: Computes the area of a triangle using 0.5 \u00d7 base \u00d7 height and returns the result as a float in square meters. Provide base and height as required integers representing meters; call as calculate_triangle_area(base=<int>, height=<int>) and receive the area (e.g., calculate_triangle_area(700, 450) -> 157500.0)."
+    },
+    {
+      "test_index": 22,
+      "question": "I'm working on a financial analysis for an upcoming business transaction, and I need to convert 5,000 Euros into Japanese Yen. Could you provide me with the converted amount using the current exchange rates?",
+      "functions_updated": [
+        {
+          "function_name": "convert_currency",
+          "original_description": "Converts a given amount from one currency to another using the ExchangeRate-API.",
+          "new_description": "Converts a monetary amount from one currency to another using current ExchangeRate-API rates; call as convert_currency(amount, from_currency, to_currency) where amount is a number and from_currency/to_currency are 3-letter ISO 4217 codes (e.g., \"EUR\", \"JPY\"). Returns the converted amount as a decimal number (in this API, the response is formatted as SUCCESS: [converted_amount]).",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "FUNCTION: convert_currency\nDESCRIPTION: Converts a monetary amount from one currency to another using current ExchangeRate-API rates; call as convert_currency(amount, from_currency, to_currency) where amount is a number and from_currency/to_currency are 3-letter ISO 4217 codes (e.g., \"EUR\", \"JPY\"). Returns the converted amount as a decimal number (in this API, the response is formatted as SUCCESS: [converted_amount])."
+    },
+    {
+      "test_index": 23,
+      "question": "I have a client preparing for a vacation in the United Kingdom, and they've set aside a budget of 3000 US Dollars for the trip. They've asked me to get a clear idea of how much they will have in British Pounds so they can plan their expenses accordingly. Could you convert $3000 from USD to GBP for me?",
+      "functions_updated": [
+        {
+          "function_name": "convert_currency",
+          "original_description": "Converts a given amount from one currency to another using the ExchangeRate-API.",
+          "new_description": "Converts a specified amount from one ISO 4217 currency to another using ExchangeRate-API rates. Call as convert_currency(amount, from_currency, to_currency) with amount as a number and currencies as 3\u2011letter codes (e.g., \"USD\", \"GBP\"); returns a success message containing the converted amount as a number, typically in a single\u2011element list (e.g., SUCCESS: [2195.4]).",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "FUNCTION: convert_currency\nDESCRIPTION: Converts a specified amount from one ISO 4217 currency to another using ExchangeRate-API rates. Call as convert_currency(amount, from_currency, to_currency) with amount as a number and currencies as 3\u2011letter codes (e.g., \"USD\", \"GBP\"); returns a success message containing the converted amount as a number, typically in a single\u2011element list (e.g., SUCCESS: [2195.4])."
+    },
+    {
+      "test_index": 24,
+      "question": "While working on my physics assignment, I've been examining the motion of a particle on a linear trajectory. The equation f(x) = 3t^2 + 2t + 1 represents the particle's position over time. To grasp the particle's behavior better, I need to figure out its velocity at precisely 5 seconds. Could you help me calculate the derivative of the position function to find the velocity at that moment?",
+      "functions_updated": [
+        {
+          "function_name": "estimate_derivative",
+          "original_description": "Estimate the derivative of a function at a given point.",
+          "new_description": "Numerically estimates the derivative f'(x) of a single-variable function at a specified point using a provided Python callable. Provide function as a Python lambda or function that accepts one numeric argument and returns a numeric value, and x as a number (int or float); call it like estimate_derivative(function=lambda x: 3*x**2 + 2*x + 1, x=5) and it returns a float with the approximate derivative at that point.",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "## Updated Descriptions (only for functions that need improvement):\n\nFUNCTION: estimate_derivative\nDESCRIPTION: Numerically estimates the derivative f'(x) of a single-variable function at a specified point using a provided Python callable. Provide function as a Python lambda or function that accepts one numeric argument and returns a numeric value, and x as a number (int or float); call it like estimate_derivative(function=lambda x: 3*x**2 + 2*x + 1, x=5) and it returns a float with the approximate derivative at that point."
+    },
+    {
+      "test_index": 25,
+      "question": "I'm working on a financial analysis for a company, trying to understand the intricacies of their revenue growth. The revenue function over time can be described by a mathematical function, specifically f(x) = 4x^3 + 3x^2 + 2x + 1. My current task is to determine the rate at which the company's revenue is changing at the 7-year mark. Can you calculate the derivative of the revenue function for me?",
+      "functions_updated": [
+        {
+          "function_name": "estimate_derivative",
+          "original_description": "Estimate the derivative of a function at a given point.",
+          "new_description": "Numerically estimates the derivative f\u2019(x) of a real-valued function at a given point using finite differences. Provide a Python callable (e.g., a lambda like function=lambda x: ...) and a numeric x (int or float); returns a floating-point estimate of the derivative, for example: estimate_derivative(function=lambda x: 4*x**3 + 3*x**2 + 2*x + 1, x=7).",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "FUNCTION: estimate_derivative\nDESCRIPTION: Numerically estimates the derivative f\u2019(x) of a real-valued function at a given point using finite differences. Provide a Python callable (e.g., a lambda like function=lambda x: ...) and a numeric x (int or float); returns a floating-point estimate of the derivative, for example: estimate_derivative(function=lambda x: 4*x**3 + 3*x**2 + 2*x + 1, x=7)."
+    },
+    {
+      "test_index": 26,
+      "question": "I've been expanding my slang vocabulary, and I keep hearing the word \"lit\" pop up in conversations. It's not a term I'm familiar with, and I'm curious about its meaning. Can you find out what \"lit\" means on Urban Dictionary for me?",
+      "functions_updated": [
+        {
+          "function_name": "find_term_on_urban_dictionary",
+          "original_description": "Finds the definition of a term on Urban Dictionary.",
+          "new_description": "Looks up a slang term on Urban Dictionary and returns one or more definition texts as a list of strings (empty if none found). Call as find_term_on_urban_dictionary(term='your_term'), where term is a required string.",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "FUNCTION: find_term_on_urban_dictionary\nDESCRIPTION: Looks up a slang term on Urban Dictionary and returns one or more definition texts as a list of strings (empty if none found). Call as find_term_on_urban_dictionary(term='your_term'), where term is a required string."
+    },
+    {
+      "test_index": 27,
+      "question": "While listening to the latest hip-hop tracks, I've noticed that the word \"flex\" keeps popping up in the lyrics. It seems to be used in a way that's different from the traditional meaning I'm familiar with. To get a better grasp of the slang, can you look up what \"flex\" means in the context of hip-hop on Urban Dictionary for me?",
+      "functions_updated": [
+        {
+          "function_name": "find_term_on_urban_dictionary",
+          "original_description": "Finds the definition of a term on Urban Dictionary.",
+          "new_description": "Looks up a slang term on Urban Dictionary and retrieves matching entry content; call as find_term_on_urban_dictionary(term=\"<term>\") with a non-empty string term. On success it returns a plain-text status starting with \"SUCCESS:\" followed by a Python-style list of one or more strings representing the retrieved result(s); on failure it returns an error status.",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "FUNCTION: find_term_on_urban_dictionary\nDESCRIPTION: Looks up a slang term on Urban Dictionary and retrieves matching entry content; call as find_term_on_urban_dictionary(term=\"<term>\") with a non-empty string term. On success it returns a plain-text status starting with \"SUCCESS:\" followed by a Python-style list of one or more strings representing the retrieved result(s); on failure it returns an error status."
+    },
+    {
+      "test_index": 28,
+      "question": "I'm planning a new art project - a circular mural on one of the downtown walls. It's going to be quite large, with a 15-foot radius. To make sure I buy enough paint without overspending, I need to figure out the area of this circle. Can you help me with that calculation?",
+      "functions_updated": [],
+      "llm_reasoning": "## Updated Descriptions (only for functions that need improvement):"
+    },
+    {
+      "test_index": 29,
+      "question": "I'm working on the design for a client's circular garden and I need to figure out how much sod to order. The garden's radius is 20 feet. Can you calculate the area for me?",
+      "functions_updated": [],
+      "llm_reasoning": "## Updated Descriptions (only for functions that need improvement):"
+    },
+    {
+      "test_index": 30,
+      "question": "I'm in the middle of composing an article on the COVID-19 situation, focusing on Brazil's ongoing response and how it's affecting the local population. Accurate data is crucial for my analysis. Could you give me the latest figures on the active COVID-19 cases in Brazil?",
+      "functions_updated": [
+        {
+          "function_name": "get_active_covid_case_by_country",
+          "original_description": "Finds the most up to date active cases of a country result from COVID.",
+          "new_description": "Retrieves the latest reported number of active COVID-19 cases for a specified country. Call as get_active_covid_case_by_country(country='<full country name>'); expects a string with the country\u2019s full name (e.g., \"Brazil\") and returns the active case count as an integer (often delivered in a success wrapper, e.g., SUCCESS: [1783377]).",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "FUNCTION: get_active_covid_case_by_country\nDESCRIPTION: Retrieves the latest reported number of active COVID-19 cases for a specified country. Call as get_active_covid_case_by_country(country='<full country name>'); expects a string with the country\u2019s full name (e.g., \"Brazil\") and returns the active case count as an integer (often delivered in a success wrapper, e.g., SUCCESS: [1783377])."
+    },
+    {
+      "test_index": 31,
+      "question": "I'm currently compiling a report on the COVID-19 status in various countries, and I need to include the latest figures on active cases in Spain. Can you get me the updated active case count for Spain?",
+      "functions_updated": [
+        {
+          "function_name": "get_active_covid_case_by_country",
+          "original_description": "Finds the most up to date active cases of a country result from COVID.",
+          "new_description": "Returns the most up-to-date active COVID-19 case count for the specified country as a single-element list containing the integer count (e.g., [30634]). Call with country set to the country\u2019s full English name as a string, for example: get_active_covid_case_by_country(country=\"Spain\").",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "FUNCTION: get_active_covid_case_by_country\nDESCRIPTION: Returns the most up-to-date active COVID-19 case count for the specified country as a single-element list containing the integer count (e.g., [30634]). Call with country set to the country\u2019s full English name as a string, for example: get_active_covid_case_by_country(country=\"Spain\")."
+    },
+    {
+      "test_index": 32,
+      "question": "I'm currently compiling a report on various key players in the tech industry, and I'm looking into the origins and ownerships of some of the most traded stocks. Apple's stock, 'AAPL', has been on my radar, and it's vital for my analysis to confirm the exact name of the company trading under this stock symbol. Could you provide me with the company name for 'AAPL'?",
+      "functions_updated": [
+        {
+          "function_name": "get_company_name_by_stock_name",
+          "original_description": "Finds the company name of a stock by its stock name.",
+          "new_description": "Looks up the official company name(s) associated with a given stock ticker symbol. Call get_company_name_by_stock_name(stock_name='AAPL') with a non-empty string ticker; it returns a list of matching company names (e.g., ['Apple Inc.']).",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "FUNCTION: get_company_name_by_stock_name\nDESCRIPTION: Looks up the official company name(s) associated with a given stock ticker symbol. Call get_company_name_by_stock_name(stock_name='AAPL') with a non-empty string ticker; it returns a list of matching company names (e.g., ['Apple Inc.'])."
+    },
+    {
+      "test_index": 33,
+      "question": "I'm expanding my investment portfolio and I've been closely following a few tech stocks. 'GOOGL' has shown promising trends, and I'm thinking about investing in it. However, I want to be thorough with my research. Could you provide me with the name of the company that 'GOOGL' represents?",
+      "functions_updated": [
+        {
+          "function_name": "get_company_name_by_stock_name",
+          "original_description": "Finds the company name of a stock by its stock name.",
+          "new_description": "Looks up the official company name(s) associated with a given stock ticker symbol. Call get_company_name_by_stock_name(stock_name=\"GOOGL\") with a string ticker; returns a list of company name strings (e.g., [\"Alphabet Inc.\"]).",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "FUNCTION: get_company_name_by_stock_name\nDESCRIPTION: Looks up the official company name(s) associated with a given stock ticker symbol. Call get_company_name_by_stock_name(stock_name=\"GOOGL\") with a string ticker; returns a list of company name strings (e.g., [\"Alphabet Inc.\"])."
+    },
+    {
+      "test_index": 34,
+      "question": "We've been tracking potential security breaches and '192.168.1.1' keeps popping up in our logs. I need to pinpoint the geographical origin of this IP. Could you determine the latitude and longitude for this address?",
+      "functions_updated": [
+        {
+          "function_name": "get_coordinate_by_ip_address",
+          "original_description": "Finds the latitude and longitude of an IP address.",
+          "new_description": "Looks up the geographic coordinates (latitude and longitude) for a given IP address string; provide a public, routable IPv4 or IPv6 (e.g., '8.8.8.8') in ip_address. Returns a pair [latitude, longitude] when found, or a descriptive status (such as 'private range') if the IP is private/reserved/invalid; call as get_coordinate_by_ip_address(ip_address='8.8.8.8').",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "## Updated Descriptions (only for functions that need improvement):\n\nFUNCTION: get_coordinate_by_ip_address\nDESCRIPTION: Looks up the geographic coordinates (latitude and longitude) for a given IP address string; provide a public, routable IPv4 or IPv6 (e.g., '8.8.8.8') in ip_address. Returns a pair [latitude, longitude] when found, or a descriptive status (such as 'private range') if the IP is private/reserved/invalid; call as get_coordinate_by_ip_address(ip_address='8.8.8.8')."
+    },
+    {
+      "test_index": 35,
+      "question": "Could you track down the latitude and longitude for this IP address I'm concerned about? It's 172.16.254.1. I've been monitoring the network and this one's been popping up with some strange activity.",
+      "functions_updated": [
+        {
+          "function_name": "get_coordinate_by_ip_address",
+          "original_description": "Finds the latitude and longitude of an IP address.",
+          "new_description": "Looks up the geographic coordinates for a given IP address string (IPv4 or IPv6), returning [latitude, longitude] for geolocatable public IPs or an explanatory value such as 'private range' when the address cannot be geolocated (e.g., private/reserved). Call as get_coordinate_by_ip_address(ip_address=\"<ip_address>\").",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "## Updated Descriptions (only for functions that need improvement):\n\nFUNCTION: get_coordinate_by_ip_address\nDESCRIPTION: Looks up the geographic coordinates for a given IP address string (IPv4 or IPv6), returning [latitude, longitude] for geolocatable public IPs or an explanatory value such as 'private range' when the address cannot be geolocated (e.g., private/reserved). Call as get_coordinate_by_ip_address(ip_address=\"<ip_address>\")."
+    },
+    {
+      "test_index": 36,
+      "question": "I have a client planning a trip to Paris, and they're quite keen on details. They want to know the exact latitude and longitude for the city to plan their itinerary with precision. Could you look up the geographical coordinates for Paris for me?",
+      "functions_updated": [
+        {
+          "function_name": "get_coordinates_from_city",
+          "original_description": "Fetches the latitude and longitude of a given city name using the Maps.co Geocoding API.",
+          "new_description": "Retrieves the geographic coordinates for a given city by querying the Maps.co Geocoding API; call as get_coordinates_from_city(city_name=\"Paris\") with a non-empty city name string. Returns a list containing one [latitude, longitude] pair as strings in that order (e.g., [['48.8588897', '2.3200410217200766']]).",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "## Updated Descriptions (only for functions that need improvement):\n\nFUNCTION: get_coordinates_from_city\nDESCRIPTION: Retrieves the geographic coordinates for a given city by querying the Maps.co Geocoding API; call as get_coordinates_from_city(city_name=\"Paris\") with a non-empty city name string. Returns a list containing one [latitude, longitude] pair as strings in that order (e.g., [['48.8588897', '2.3200410217200766']])."
+    },
+    {
+      "test_index": 37,
+      "question": "I'm currently working on a wildlife research project that involves tracking the migration patterns of a bird species known to pass through various cities. The next phase of my study will focus on their activity around Cairo. To ensure the precision of my tracking equipment, I need the exact latitude and longitude coordinates of Cairo. Could you provide me with these details for Cairo?",
+      "functions_updated": [
+        {
+          "function_name": "get_coordinates_from_city",
+          "original_description": "Fetches the latitude and longitude of a given city name using the Maps.co Geocoding API.",
+          "new_description": "Retrieves the geographic coordinates for a specified city by querying the Maps.co Geocoding API. Provide city_name as a string (you may include country/state for disambiguation, e.g., \"Cairo, Egypt\"); the function returns a list of one or more matches, each as [latitude, longitude] strings (e.g., [['30.0443879', '31.2357257']]), and is called as get_coordinates_from_city(city_name=\"Cairo, Egypt\").",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "## Updated Descriptions (only for functions that need improvement):\n\nFUNCTION: get_coordinates_from_city\nDESCRIPTION: Retrieves the geographic coordinates for a specified city by querying the Maps.co Geocoding API. Provide city_name as a string (you may include country/state for disambiguation, e.g., \"Cairo, Egypt\"); the function returns a list of one or more matches, each as [latitude, longitude] strings (e.g., [['30.0443879', '31.2357257']]), and is called as get_coordinates_from_city(city_name=\"Cairo, Egypt\")."
+    },
+    {
+      "test_index": 38,
+      "question": "I'm currently conducting a study on the impact of COVID-19 and I'm focusing on Brazil's situation. I need the latest figures on the total number of deaths attributed to the virus in Brazil. Could you provide me with that information?",
+      "functions_updated": [
+        {
+          "function_name": "get_covid_death_by_country",
+          "original_description": "Finds the most up to date total deaths of a country result from COVID.",
+          "new_description": "Returns the most recent cumulative number of COVID-19 deaths for a specified country. Call as get_covid_death_by_country(country='Country Full Name') and receive the total deaths as an integer (e.g., get_covid_death_by_country(country='Brazil') -> 711380).",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "## Updated Descriptions (only for functions that need improvement):\n\nFUNCTION: get_covid_death_by_country\nDESCRIPTION: Returns the most recent cumulative number of COVID-19 deaths for a specified country. Call as get_covid_death_by_country(country='Country Full Name') and receive the total deaths as an integer (e.g., get_covid_death_by_country(country='Brazil') -> 711380)."
+    },
+    {
+      "test_index": 39,
+      "question": "I'm an epidemiologist tracking the impact of COVID-19, and right now, I'm focused on the situation in India. I need the latest figures on the death toll there. Can you get me the updated total number of deaths from COVID in India?",
+      "functions_updated": [
+        {
+          "function_name": "get_covid_death_by_country",
+          "original_description": "Finds the most up to date total deaths of a country result from COVID.",
+          "new_description": "Returns the latest available cumulative number of COVID-19 deaths for a specified country; call as get_covid_death_by_country(country='India') with country provided as the country's full name string. The function returns a single integer representing the total deaths for that country.",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "## Updated Descriptions (only for functions that need improvement):\n\nFUNCTION: get_covid_death_by_country\nDESCRIPTION: Returns the latest available cumulative number of COVID-19 deaths for a specified country; call as get_covid_death_by_country(country='India') with country provided as the country's full name string. The function returns a single integer representing the total deaths for that country."
+    },
+    {
+      "test_index": 40,
+      "question": "I'm currently working on a detailed city map, and I've got two key locations that I need to measure the distance between. The first location is at coordinates (45.76, 4.85), and the second one is at (48.85, 2.35). Could you help me figure out how far apart these two points are?",
+      "functions_updated": [],
+      "llm_reasoning": "## Updated Descriptions (only for functions that need improvement):"
+    },
+    {
+      "test_index": 41,
+      "question": "During my fieldwork in the forest, I've been closely monitoring a certain animal's movement patterns. Just recently, I've noted two specific spots where it's been sighted. The first location is marked by the coordinates (32.71, -117.16), and the second one is at (34.05, -118.25). To better understand its roaming area, I need to calculate the distance it traveled between these two points. Can you help me determine this distance using the coordinates I provided for the two locations?",
+      "functions_updated": [
+        {
+          "function_name": "get_distance",
+          "original_description": "Calculates the distance between two 2D points.",
+          "new_description": "Computes the straight-line (Euclidean) distance between two 2D points. Call as get_distance(pointA=[x1, y1], pointB=[x2, y2]) where each is a two-number array in the same units/coordinate system; it returns a single-element array [distance] as a float in those units.",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "FUNCTION: get_distance\nDESCRIPTION: Computes the straight-line (Euclidean) distance between two 2D points. Call as get_distance(pointA=[x1, y1], pointB=[x2, y2]) where each is a two-number array in the same units/coordinate system; it returns a single-element array [distance] as a float in those units."
+    },
+    {
+      "test_index": 42,
+      "question": "I'm deep into my research on the Fibonacci sequence, and I need to analyze the first 20 numbers of the sequence for my study. Could you generate that for me?",
+      "functions_updated": [
+        {
+          "function_name": "get_fibonacci_sequence",
+          "original_description": "Calculates the n numbers of the Fibonacci.",
+          "new_description": "Generates the first n terms of the Fibonacci sequence starting with 0, 1 and returns them as a list of integers in order. Call as get_fibonacci_sequence(n: int) with n being a positive integer specifying how many terms to produce; the function returns a list of length n (e.g., n=20 -> [0, 1, 1, 2, 3, ... , 4181]).",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "FUNCTION: get_fibonacci_sequence\nDESCRIPTION: Generates the first n terms of the Fibonacci sequence starting with 0, 1 and returns them as a list of integers in order. Call as get_fibonacci_sequence(n: int) with n being a positive integer specifying how many terms to produce; the function returns a list of length n (e.g., n=20 -> [0, 1, 1, 2, 3, ... , 4181])."
+    },
+    {
+      "test_index": 43,
+      "question": "For my computer science project, I need to generate the Fibonacci sequence. Specifically, the assignment requires the first 50 numbers. Could you calculate that for me?",
+      "functions_updated": [
+        {
+          "function_name": "get_fibonacci_sequence",
+          "original_description": "Calculates the n numbers of the Fibonacci.",
+          "new_description": "Generates the first n Fibonacci numbers in order (starting with F0=0, F1=1) and returns them as a list of length n. Call with a positive integer n, e.g., get_fibonacci_sequence(n=50), to receive the sequence [0, 1, 1, 2, ...].",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "## Updated Descriptions (only for functions that need improvement):\n\nFUNCTION: get_fibonacci_sequence\nDESCRIPTION: Generates the first n Fibonacci numbers in order (starting with F0=0, F1=1) and returns them as a list of length n. Call with a positive integer n, e.g., get_fibonacci_sequence(n=50), to receive the sequence [0, 1, 1, 2, ...]."
+    },
+    {
+      "test_index": 44,
+      "question": "I'm tasked with monitoring competitor pricing, and I need to keep tabs on a certain item listed on Amazon. Its ASIN is 'B08PPDJWC8'. Could you fetch the latest price for this product for me?",
+      "functions_updated": [],
+      "llm_reasoning": "## Updated Descriptions (only for functions that need improvement):"
+    },
+    {
+      "test_index": 45,
+      "question": "I manage inventory for our online store, and it's crucial to keep track of our competitors' pricing, particularly on Amazon. We're currently selling a product that is also listed there, and I want to ensure our prices are competitive. Could you find out the latest price for the product with the Amazon ASIN 'B08PPDJWC8'?",
+      "functions_updated": [
+        {
+          "function_name": "get_price_by_amazon_ASIN",
+          "original_description": "Finds the price of a product by its Amazon ASIN.",
+          "new_description": "Retrieves the current Amazon listing price(s) for a product identified by its ASIN and returns them as a list of currency-formatted strings (e.g., [\"$180.00\"]). Call get_price_by_amazon_ASIN(ASIN=\"<10-character ASIN>\") with the required ASIN string (e.g., \"B08PPDJWC8\").",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "FUNCTION: get_price_by_amazon_ASIN\nDESCRIPTION: Retrieves the current Amazon listing price(s) for a product identified by its ASIN and returns them as a list of currency-formatted strings (e.g., [\"$180.00\"]). Call get_price_by_amazon_ASIN(ASIN=\"<10-character ASIN>\") with the required ASIN string (e.g., \"B08PPDJWC8\")."
+    },
+    {
+      "test_index": 46,
+      "question": "I'm prepping for tomorrow's math class on prime factorization and need to come up with some clear examples. Can you break down the number 4567 into its prime factors for me? This will be a great way to demonstrate the concept to the students.",
+      "functions_updated": [
+        {
+          "function_name": "get_prime_factors",
+          "original_description": "Calculates the prime factors of a number.",
+          "new_description": "Computes the prime factorization of a positive integer. Usage: get_prime_factors(number=<int>) -> list[list[int]]; returns the prime factors grouped as inner lists (e.g., [[4567]] for a prime input, with composites producing multiple inner lists).",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "## Updated Descriptions (only for functions that need improvement):\n\nFUNCTION: get_prime_factors\nDESCRIPTION: Computes the prime factorization of a positive integer. Usage: get_prime_factors(number=<int>) -> list[list[int]]; returns the prime factors grouped as inner lists (e.g., [[4567]] for a prime input, with composites producing multiple inner lists)."
+    },
+    {
+      "test_index": 47,
+      "question": "I'm developing a new encryption algorithm and I'm currently focusing on prime factorization as part of the process. To test the algorithm's effectiveness, I need to calculate the prime factors of the number 7891. Can you help me with that?",
+      "functions_updated": [
+        {
+          "function_name": "get_prime_factors",
+          "original_description": "Calculates the prime factors of a number.",
+          "new_description": "Returns the prime factorization of a positive integer as a list of its prime factors in non-decreasing order (including repeated factors when applicable). Call as get_prime_factors(number=<int>=2 or greater); for example, get_prime_factors(number=7891) returns [13, 607].",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "FUNCTION: get_prime_factors\nDESCRIPTION: Returns the prime factorization of a positive integer as a list of its prime factors in non-decreasing order (including repeated factors when applicable). Call as get_prime_factors(number=<int>=2 or greater); for example, get_prime_factors(number=7891) returns [13, 607]."
+    },
+    {
+      "test_index": 48,
+      "question": "I'm working on a product review article and there's a particular item on Amazon I'm focusing on. Its ASIN is 'B08BHXG144'. I need to include the current price in my article, so could you help me find out what it's selling for?",
+      "functions_updated": [
+        {
+          "function_name": "get_product_name_by_amazon_ASIN",
+          "original_description": "Finds the price of a product by its Amazon ASIN.",
+          "new_description": "Retrieves the Amazon product title for the given ASIN. Call as get_product_name_by_amazon_ASIN(ASIN='<10-character ASIN>'); returns the matching product name/title as a list (typically a single-element list), e.g., ['Apple iPhone 11 Pro Max, 64GB, Midnight Green - Unlocked (Renewed Premium)'].",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "## Updated Descriptions (only for functions that need improvement):\n\nFUNCTION: get_product_name_by_amazon_ASIN\nDESCRIPTION: Retrieves the Amazon product title for the given ASIN. Call as get_product_name_by_amazon_ASIN(ASIN='<10-character ASIN>'); returns the matching product name/title as a list (typically a single-element list), e.g., ['Apple iPhone 11 Pro Max, 64GB, Midnight Green - Unlocked (Renewed Premium)']."
+    },
+    {
+      "test_index": 49,
+      "question": "While browsing Amazon, I came across a product that piqued my interest, but I didn't catch its name. The ASIN is 'B07ZPKBL9V'. Can you help me find out the name of this product?",
+      "functions_updated": [
+        {
+          "function_name": "get_product_name_by_amazon_ASIN",
+          "original_description": "Finds the price of a product by its Amazon ASIN.",
+          "new_description": "Retrieves the product name for a given Amazon ASIN; call as get_product_name_by_amazon_ASIN(ASIN='<ASIN>') with the ASIN provided as a required string (e.g., 'B07ZPKBL9V'). Returns a SUCCESS status with a list containing the matched product name (typically a single-item list), or an empty list if no match is found.",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "## Updated Descriptions (only for functions that need improvement):\n\nFUNCTION: get_product_name_by_amazon_ASIN\nDESCRIPTION: Retrieves the product name for a given Amazon ASIN; call as get_product_name_by_amazon_ASIN(ASIN='<ASIN>') with the ASIN provided as a required string (e.g., 'B07ZPKBL9V'). Returns a SUCCESS status with a list containing the matched product name (typically a single-item list), or an empty list if no match is found."
+    },
+    {
+      "test_index": 50,
+      "question": "I'm considering purchasing a product from Amazon, and before I make a decision, I'd like to check its rating. The product has an ASIN of 'B08BHXG144'. Could you find that information for me?",
+      "functions_updated": [
+        {
+          "function_name": "get_rating_by_amazon_ASIN",
+          "original_description": "Finds the rating of a product by its Amazon ASIN.",
+          "new_description": "Retrieves the product\u2019s current average Amazon star rating by ASIN; call as get_rating_by_amazon_ASIN(ASIN='<10-character ASIN>') using a 10-character alphanumeric string (e.g., 'B08BHXG144'). Returns the rating as a string (e.g., '4.2'); in this interface the value is wrapped in a single-element list.",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "FUNCTION: get_rating_by_amazon_ASIN\nDESCRIPTION: Retrieves the product\u2019s current average Amazon star rating by ASIN; call as get_rating_by_amazon_ASIN(ASIN='<10-character ASIN>') using a 10-character alphanumeric string (e.g., 'B08BHXG144'). Returns the rating as a string (e.g., '4.2'); in this interface the value is wrapped in a single-element list."
+    },
+    {
+      "test_index": 51,
+      "question": "I'm considering purchasing a product I found on Amazon, but I want to make sure it's well-received by others before I commit. It has the ASIN 'B07ZPKBL9V'. Can you tell me what the current average customer rating is for this item?",
+      "functions_updated": [
+        {
+          "function_name": "get_rating_by_amazon_ASIN",
+          "original_description": "Finds the rating of a product by its Amazon ASIN.",
+          "new_description": "Retrieves the current average customer star rating for an Amazon product by its 10-character ASIN. Call get_rating_by_amazon_ASIN(ASIN='<ASIN>') with the ASIN string (e.g., 'B07ZPKBL9V'); returns the rating as a string (e.g., '4.2'), typically wrapped as a single-item list in the tool response.",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "FUNCTION: get_rating_by_amazon_ASIN\nDESCRIPTION: Retrieves the current average customer star rating for an Amazon product by its 10-character ASIN. Call get_rating_by_amazon_ASIN(ASIN='<ASIN>') with the ASIN string (e.g., 'B07ZPKBL9V'); returns the rating as a string (e.g., '4.2'), typically wrapped as a single-item list in the tool response."
+    },
+    {
+      "test_index": 52,
+      "question": "I've been tracking the performance of Apple's stock and I'm interested in taking a deeper dive into its history. I want to see the monthly trends and also check if there have been any splits or dividends issued recently. Can you pull up the history of AAPL for me with a monthly interval and include the stock splits and dividends information?",
+      "functions_updated": [
+        {
+          "function_name": "get_stock_history",
+          "original_description": "Finds the price of a stock by its stock name.",
+          "new_description": "Retrieves historical OHLCV data for a given stock symbol at a specified interval and returns a mapping keyed by Unix epoch timestamps (seconds) with fields: date, date_utc, open, high, low, close, volume, and adjclose; set diffandsplits='true' to include prices adjusted for dividends and splits (default 'false'). Call as get_stock_history(stock_name='<SYMBOL>', interval='5m'|'15m'|'30m'|'1h'|'1d'|'1wk'|'1mo'|'3mo', diffandsplits='true'|'false').",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "## Updated Descriptions (only for functions that need improvement):\n\nFUNCTION: get_stock_history\nDESCRIPTION: Retrieves historical OHLCV data for a given stock symbol at a specified interval and returns a mapping keyed by Unix epoch timestamps (seconds) with fields: date, date_utc, open, high, low, close, volume, and adjclose; set diffandsplits='true' to include prices adjusted for dividends and splits (default 'false'). Call as get_stock_history(stock_name='<SYMBOL>', interval='5m'|'15m'|'30m'|'1h'|'1d'|'1wk'|'1mo'|'3mo', diffandsplits='true'|'false')."
+    },
+    {
+      "test_index": 53,
+      "question": "I need to analyze Microsoft's stock performance over the past few months without the noise from dividends or stock splits. Can you pull up the weekly historical data for the stock symbol 'MSFT' making sure to exclude splits and dividends in the data set?",
+      "functions_updated": [
+        {
+          "function_name": "get_stock_history",
+          "original_description": "Finds the price of a stock by its stock name.",
+          "new_description": "Retrieves historical price bars (open, high, low, close, volume, adjclose) for a stock symbol at a specified interval (5m, 15m, 30m, 1h, 1d, 1wk, 1mo, 3mo); set diffandsplits to 'true' to include dividend/split adjustments or 'false' (default) to exclude them. Call as get_stock_history(stock_name='MSFT', interval='1wk', diffandsplits='false'); returns a list containing a dictionary keyed by UNIX-epoch timestamps, each mapping to an object with date (YYYY-MM-DD), date_utc, open, high, low, close, volume, and adjclose.",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "FUNCTION: get_stock_history\nDESCRIPTION: Retrieves historical price bars (open, high, low, close, volume, adjclose) for a stock symbol at a specified interval (5m, 15m, 30m, 1h, 1d, 1wk, 1mo, 3mo); set diffandsplits to 'true' to include dividend/split adjustments or 'false' (default) to exclude them. Call as get_stock_history(stock_name='MSFT', interval='1wk', diffandsplits='false'); returns a list containing a dictionary keyed by UNIX-epoch timestamps, each mapping to an object with date (YYYY-MM-DD), date_utc, open, high, low, close, volume, and adjclose."
+    },
+    {
+      "test_index": 54,
+      "question": "I need to check the latest price for Apple Inc.'s stock. Can you get that information for me?",
+      "functions_updated": [
+        {
+          "function_name": "get_stock_price_by_stock_name",
+          "original_description": "Finds the price of a stock by its stock name.",
+          "new_description": "Retrieves the latest quoted price for a stock by its ticker symbol (e.g., \"AAPL\"). Call as get_stock_price_by_stock_name(stock_name=\"AAPL\"); returns the most recent price as a numeric value, typically presented as a single-element list containing the price.",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "## Updated Descriptions (only for functions that need improvement):\n\nFUNCTION: get_stock_price_by_stock_name\nDESCRIPTION: Retrieves the latest quoted price for a stock by its ticker symbol (e.g., \"AAPL\"). Call as get_stock_price_by_stock_name(stock_name=\"AAPL\"); returns the most recent price as a numeric value, typically presented as a single-element list containing the price."
+    },
+    {
+      "test_index": 55,
+      "question": "I need to check the current price of Microsoft Corporation's stock. Could you get me the latest stock price for Microsoft?",
+      "functions_updated": [
+        {
+          "function_name": "get_stock_price_by_stock_name",
+          "original_description": "Finds the price of a stock by its stock name.",
+          "new_description": "Retrieves the latest trading price for a stock given its ticker symbol (e.g., \"MSFT\"). Call get_stock_price_by_stock_name(stock_name=\"TICKER\") with a string ticker symbol; it returns the current price as a floating-point number in the stock\u2019s quote currency.",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "FUNCTION: get_stock_price_by_stock_name\nDESCRIPTION: Retrieves the latest trading price for a stock given its ticker symbol (e.g., \"MSFT\"). Call get_stock_price_by_stock_name(stock_name=\"TICKER\") with a string ticker symbol; it returns the current price as a floating-point number in the stock\u2019s quote currency."
+    },
+    {
+      "test_index": 56,
+      "question": "I'm currently knee-deep in a geography project where understanding the time zones for different coordinates is crucial. I've got this particular location with longitude 123.45 and latitude -67.89. I need to determine its time zone. Can you help me with this?",
+      "functions_updated": [
+        {
+          "function_name": "get_time_zone_by_coord",
+          "original_description": "Finds the timezone of a coordinate.",
+          "new_description": "Returns the IANA time zone identifier(s) for a geographic coordinate in decimal degrees. Call as get_time_zone_by_coord(long=<longitude>, lat=<latitude>) with longitude (-180 to 180) and latitude (-90 to 90) provided as floats or numeric strings; the function returns a list of matching time zone names (e.g., ['Antarctica/DumontDUrville']).",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "## Updated Descriptions (only for functions that need improvement):\n\nFUNCTION: get_time_zone_by_coord\nDESCRIPTION: Returns the IANA time zone identifier(s) for a geographic coordinate in decimal degrees. Call as get_time_zone_by_coord(long=<longitude>, lat=<latitude>) with longitude (-180 to 180) and latitude (-90 to 90) provided as floats or numeric strings; the function returns a list of matching time zone names (e.g., ['Antarctica/DumontDUrville'])."
+    },
+    {
+      "test_index": 57,
+      "question": "I'm tracking a storm system for my weather report, and I need to provide updates based on the local time where the storm is currently. The storm is right now at latitude 35.22 and longitude -80.75. Can you help me figure out the timezone for this location?",
+      "functions_updated": [
+        {
+          "function_name": "get_time_zone_by_coord",
+          "original_description": "Finds the timezone of a coordinate.",
+          "new_description": "Returns the IANA time zone for a geographic point specified by longitude and latitude in decimal degrees, with longitude provided first and latitude second. Call as get_time_zone_by_coord(long=<longitude>, lat=<latitude>) using strings or numbers within valid ranges (long -180..180, lat -90..90); returns a list containing the matching time zone ID (e.g., ['America/New_York']).",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "## Updated Descriptions (only for functions that need improvement):\n\nFUNCTION: get_time_zone_by_coord\nDESCRIPTION: Returns the IANA time zone for a geographic point specified by longitude and latitude in decimal degrees, with longitude provided first and latitude second. Call as get_time_zone_by_coord(long=<longitude>, lat=<latitude>) using strings or numbers within valid ranges (long -180..180, lat -90..90); returns a list containing the matching time zone ID (e.g., ['America/New_York'])."
+    },
+    {
+      "test_index": 58,
+      "question": "I'm working on a climate study focusing on temperature fluctuations in the Arctic and need the latest temperature readings for the North Pole. Can you get the current weather data for me, specifically at 90.00 latitude and 0.00 longitude, using the Open-Meteo API?",
+      "functions_updated": [
+        {
+          "function_name": "get_weather_data",
+          "original_description": "Fetches weather data from the Open-Meteo API for the given latitude and longitude.",
+          "new_description": "Retrieves the current temperature for a given location from the Open-Meteo API. Call as get_weather_data(coordinates=[latitude, longitude]) with both values as decimal-degree numbers; returns a single-element array [temperature] containing the latest temperature reading for that point.",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "## Updated Descriptions (only for functions that need improvement):\n\nFUNCTION: get_weather_data\nDESCRIPTION: Retrieves the current temperature for a given location from the Open-Meteo API. Call as get_weather_data(coordinates=[latitude, longitude]) with both values as decimal-degree numbers; returns a single-element array [temperature] containing the latest temperature reading for that point."
+    },
+    {
+      "test_index": 59,
+      "question": "I'm working on a study about climate change in the Sahara Desert, and part of my research requires analyzing real-time temperature data from specific locations. I need to access the current temperature for a point in the desert with a latitude of 25.00 and a longitude of 13.00. Could we use our weather data retrieval system to get this information from the Open-Meteo API for these coordinates?",
+      "functions_updated": [
+        {
+          "function_name": "get_weather_data",
+          "original_description": "Fetches weather data from the Open-Meteo API for the given latitude and longitude.",
+          "new_description": "Retrieves the current temperature for a given location from the Open-Meteo API. Call get_weather_data(coordinates=[latitude, longitude]) with a two-number array; it returns a single-element array containing the current temperature for those coordinates.",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "FUNCTION: get_weather_data\nDESCRIPTION: Retrieves the current temperature for a given location from the Open-Meteo API. Call get_weather_data(coordinates=[latitude, longitude]) with a two-number array; it returns a single-element array containing the current temperature for those coordinates."
+    },
+    {
+      "test_index": 60,
+      "question": "During my investigation into a recent security breach, I've pinpointed a suspicious IP address that could be the source of the attack. The address is 192.168.1.1. To narrow down the physical location of the potential hacker, I need to find out the zipcode associated with this IP. Can you provide me with that information?",
+      "functions_updated": [
+        {
+          "function_name": "get_zipcode_by_ip_address",
+          "original_description": "Finds the zipcode of an IP address.",
+          "new_description": "Given an IP address string (IPv4 or IPv6), this function returns the U.S. ZIP code(s) geolocated for that public IP as a list of strings; for private/reserved or unmapped IPs it returns a list with a status such as 'private range' or an empty list. Call get_zipcode_by_ip_address(ip_address='8.8.8.8') with a valid, public IP to receive ZIP codes.",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "## Updated Descriptions (only for functions that need improvement):\n\nFUNCTION: get_zipcode_by_ip_address\nDESCRIPTION: Given an IP address string (IPv4 or IPv6), this function returns the U.S. ZIP code(s) geolocated for that public IP as a list of strings; for private/reserved or unmapped IPs it returns a list with a status such as 'private range' or an empty list. Call get_zipcode_by_ip_address(ip_address='8.8.8.8') with a valid, public IP to receive ZIP codes."
+    },
+    {
+      "test_index": 61,
+      "question": "I'm tracking some unusual activity on our company's network, and I need to pinpoint the source. The IP in question is 172.16.254.1. Could you find out the associated zipcode for this IP address?",
+      "functions_updated": [
+        {
+          "function_name": "get_zipcode_by_ip_address",
+          "original_description": "Finds the zipcode of an IP address.",
+          "new_description": "Looks up the U.S. ZIP code for a given IP address string (IPv4 or IPv6); for public IPs it returns a single-element list containing the 5-digit ZIP code, while for private/reserved or unresolvable IPs it returns a single-element list with a status label such as 'private range'. Call as get_zipcode_by_ip_address(ip_address=\"8.8.8.8\").",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "## Updated Descriptions (only for functions that need improvement):\n\nFUNCTION: get_zipcode_by_ip_address\nDESCRIPTION: Looks up the U.S. ZIP code for a given IP address string (IPv4 or IPv6); for public IPs it returns a single-element list containing the 5-digit ZIP code, while for private/reserved or unresolvable IPs it returns a single-element list with a status label such as 'private range'. Call as get_zipcode_by_ip_address(ip_address=\"8.8.8.8\")."
+    },
+    {
+      "test_index": 62,
+      "question": "I'm working on some data analysis and need to perform a matrix multiplication as part of the process. The matrices I have are: the first one is [[1, 2], [3, 4]] and the second is [[5, 6], [7, 8]]. Could you help me with the multiplication of these two matrices?",
+      "functions_updated": [
+        {
+          "function_name": "mat_mul",
+          "original_description": "Multiplies two matrices.",
+          "new_description": "Performs standard matrix multiplication of two 2D numeric arrays: multiplies an m\u00d7n matA by an n\u00d7p matB (inner dimensions must match) and returns the m\u00d7p product as a 2D array of numbers. Call as mat_mul(matA=[[...], ...], matB=[[...], ...]), where each inner list represents a row.",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "FUNCTION: mat_mul\nDESCRIPTION: Performs standard matrix multiplication of two 2D numeric arrays: multiplies an m\u00d7n matA by an n\u00d7p matB (inner dimensions must match) and returns the m\u00d7p product as a 2D array of numbers. Call as mat_mul(matA=[[...], ...], matB=[[...], ...]), where each inner list represents a row."
+    },
+    {
+      "test_index": 63,
+      "question": "I'm currently deep into a complex quantum mechanics simulation, and part of the process involves a bit of linear algebra. I need to multiply two matrices to proceed with my calculations. The first matrix I have is [[2, 3], [4, 5]], and the second one is [[6, 7], [8, 9]]. Could you help me with the result of multiplying these two matrices?",
+      "functions_updated": [
+        {
+          "function_name": "mat_mul",
+          "original_description": "Multiplies two matrices.",
+          "new_description": "Performs standard matrix multiplication of two 2D numeric arrays: given matA of shape m\u00d7n and matB of shape n\u00d7p (inner dimensions must match), it returns the m\u00d7p product matrix as a list of lists. Call as mat_mul(matA=[[...]], matB=[[...]]), where each input is a list of equal-length numeric rows; the result is not element-wise multiplication.",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "FUNCTION: mat_mul\nDESCRIPTION: Performs standard matrix multiplication of two 2D numeric arrays: given matA of shape m\u00d7n and matB of shape n\u00d7p (inner dimensions must match), it returns the m\u00d7p product matrix as a list of lists. Call as mat_mul(matA=[[...]], matB=[[...]]), where each input is a list of equal-length numeric rows; the result is not element-wise multiplication."
+    },
+    {
+      "test_index": 64,
+      "question": "I'm working on a combinatorics problem and I've hit a step where I need to calculate the factorial of 7. Can you help me get that result?",
+      "functions_updated": [],
+      "llm_reasoning": "## Updated Descriptions (only for functions that need improvement):"
+    },
+    {
+      "test_index": 65,
+      "question": "While I was delving into some quantum mechanics problems for my physics class, I stumbled upon a particularly challenging equation. It turns out I need to figure out the factorial of the number 12 to proceed with my calculations. Could you help me out by computing the factorial of 12?",
+      "functions_updated": [],
+      "llm_reasoning": "## Updated Descriptions (only for functions that need improvement):"
+    },
+    {
+      "test_index": 66,
+      "question": "While researching the political alliances of ancient Rome, I discovered that during two separate periods, the Senate was comprised of 450 and then 300 members. To analyze the data further, I need to calculate the greatest common divisor of these two senate sizes. Could you help me find the GCD for these numbers?",
+      "functions_updated": [
+        {
+          "function_name": "math_gcd",
+          "original_description": "Calculates the greatest common divisor of two numbers.",
+          "new_description": "Computes the greatest common divisor (GCD) of two integers a and b and returns the GCD as a single integer; the order of a and b does not matter. Call as math_gcd(a=<int>, b=<int>).",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "FUNCTION: math_gcd\nDESCRIPTION: Computes the greatest common divisor (GCD) of two integers a and b and returns the GCD as a single integer; the order of a and b does not matter. Call as math_gcd(a=<int>, b=<int>)."
+    },
+    {
+      "test_index": 67,
+      "question": "While working on the urban planning project, I've decided to use a grid layout for the city's design. The grid is based on block numbers with the length spanning 360 blocks and the width covering 240 blocks. To ensure the layout is as efficient as possible, I need to find the largest block size that can be uniformly used across both dimensions. Can you calculate the greatest common divisor for these two numbers, 360 and 240, to help me optimize the city's block design?",
+      "functions_updated": [
+        {
+          "function_name": "math_gcd",
+          "original_description": "Calculates the greatest common divisor of two numbers.",
+          "new_description": "Computes the greatest common divisor (GCD) of two integers. Call as math_gcd(a=<int>, b=<int>) with any integer inputs (order does not matter); returns the GCD as a single integer (e.g., math_gcd(a=360, b=240) -> 120).",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "FUNCTION: math_gcd\nDESCRIPTION: Computes the greatest common divisor (GCD) of two integers. Call as math_gcd(a=<int>, b=<int>) with any integer inputs (order does not matter); returns the GCD as a single integer (e.g., math_gcd(a=360, b=240) -> 120)."
+    },
+    {
+      "test_index": 68,
+      "question": "In the studio working on a new track, I've got these two drum loops that I'm trying to synchronize. One loop repeats every 18 beats and the other every 24 beats. I need to figure out after how many beats they'll both line up perfectly so the rhythm stays consistent throughout the song. Could you calculate the least common multiple for these two numbers for me?",
+      "functions_updated": [
+        {
+          "function_name": "math_lcm",
+          "original_description": "Calculates the least common multiple of two numbers.",
+          "new_description": "Computes the least common multiple (LCM) of two integers; call as math_lcm(a=<int>, b=<int>) in any order. Returns the LCM as a single numeric value (e.g., math_lcm(a=24, b=18) -> 72).",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "## Updated Descriptions (only for functions that need improvement):\n\nFUNCTION: math_lcm\nDESCRIPTION: Computes the least common multiple (LCM) of two integers; call as math_lcm(a=<int>, b=<int>) in any order. Returns the LCM as a single numeric value (e.g., math_lcm(a=24, b=18) -> 72)."
+    },
+    {
+      "test_index": 69,
+      "question": "I'm currently working on a traffic light system for a busy crossroads, and we've got two lights that are on different timers. One cycles every 35 seconds, and the other every 45 seconds. For optimal traffic flow, I need to synchronize these lights so they change at the same time. Could you help me calculate the least common multiple for these two cycle times?",
+      "functions_updated": [
+        {
+          "function_name": "math_lcm",
+          "original_description": "Calculates the least common multiple of two numbers.",
+          "new_description": "Computes the least common multiple (LCM) of two integers a and b (provide two integers; a is typically the larger). Returns the LCM as a numeric value; call as math_lcm(a=<int>, b=<int>) (e.g., math_lcm(a=45, b=35) \u2192 315).",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "FUNCTION: math_lcm\nDESCRIPTION: Computes the least common multiple (LCM) of two integers a and b (provide two integers; a is typically the larger). Returns the LCM as a numeric value; call as math_lcm(a=<int>, b=<int>) (e.g., math_lcm(a=45, b=35) \u2192 315)."
+    },
+    {
+      "test_index": 70,
+      "question": "I'm currently working with a client who's looking to purchase their first home and we're trying to map out their budget. They have their eyes set on a lovely suburban house priced at $350,000. To finance this purchase, they're considering a 30-year mortgage with an interest rate of about 3.5%. Could you help us figure out what their monthly payment would be with these details in mind?",
+      "functions_updated": [
+        {
+          "function_name": "mortgage_calculator",
+          "original_description": "Calculates the monthly mortgage payment.",
+          "new_description": "Computes the fixed monthly principal-and-interest payment for an amortizing mortgage using the standard formula with monthly compounding, given the loan principal (loan_amount), the annual interest rate as a decimal between 0 and 1 (interest_rate), and the loan term in years (loan_period). Call as mortgage_calculator(loan_amount=<number>, interest_rate=<annual_rate_decimal>, loan_period=<years>) and it returns a single numeric monthly payment amount (excluding taxes, insurance, and fees).",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "FUNCTION: mortgage_calculator\nDESCRIPTION: Computes the fixed monthly principal-and-interest payment for an amortizing mortgage using the standard formula with monthly compounding, given the loan principal (loan_amount), the annual interest rate as a decimal between 0 and 1 (interest_rate), and the loan term in years (loan_period). Call as mortgage_calculator(loan_amount=<number>, interest_rate=<annual_rate_decimal>, loan_period=<years>) and it returns a single numeric monthly payment amount (excluding taxes, insurance, and fees)."
+    },
+    {
+      "test_index": 71,
+      "question": "A couple I'm working with has found their dream home valued at $500,000, and they're weighing their financing options. To help them out, I need to calculate their monthly mortgage payments. They're considering a 25-year loan with a 4.5% interest rate. Could you calculate their monthly payment for a loan amount of $500,000 at 4.5% interest over a 25-year period?",
+      "functions_updated": [
+        {
+          "function_name": "mortgage_calculator",
+          "original_description": "Calculates the monthly mortgage payment.",
+          "new_description": "Computes the fixed monthly payment for a fully amortizing mortgage using the standard amortization formula. Call as mortgage_calculator(loan_amount=<principal number>, interest_rate=<annual rate as a decimal between 0 and 1>, loan_period=<term in years as an integer>); returns a single numeric value representing the monthly payment amount.",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "## Updated Descriptions (only for functions that need improvement):\n\nFUNCTION: mortgage_calculator\nDESCRIPTION: Computes the fixed monthly payment for a fully amortizing mortgage using the standard amortization formula. Call as mortgage_calculator(loan_amount=<principal number>, interest_rate=<annual rate as a decimal between 0 and 1>, loan_period=<term in years as an integer>); returns a single numeric value representing the monthly payment amount."
+    },
+    {
+      "test_index": 72,
+      "question": "I'm prepping for tomorrow's algebra class about quadratic equations, and I want to show the students how to calculate the roots using an example. Let's use the equation 3x^2 + 7x - 10 = 0. I need to find the roots for this, with coefficients 3 for a, 7 for b, and -10 for c. Can we run this through the calculation process to get the roots?",
+      "functions_updated": [],
+      "llm_reasoning": "## Updated Descriptions (only for functions that need improvement):"
+    },
+    {
+      "test_index": 73,
+      "question": "I'm working on a program that's supposed to solve quadratic equations, and I need to test out a function that calculates the roots. Right now, I need to find the roots for the equation 5x^2 - 8x + 2 = 0. I'll use the coefficients 5 for a, -8 for b, and 2 for c. Can we run this through the function to see what the roots are?",
+      "functions_updated": [
+        {
+          "function_name": "quadratic_roots",
+          "original_description": "Calculates the roots of a quadratic equation.",
+          "new_description": "Computes the two roots of the quadratic equation ax^2 + bx + c = 0 using the provided integer coefficients a, b, and c (with a \u2260 0). Call as quadratic_roots(a, b, c); returns a two-element list of floats [x1, x2] containing the real roots (e.g., quadratic_roots(5, -8, 2) -> [1.2898979485566355, 0.31010205144336445]).",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "## Updated Descriptions (only for functions that need improvement):\n\nFUNCTION: quadratic_roots\nDESCRIPTION: Computes the two roots of the quadratic equation ax^2 + bx + c = 0 using the provided integer coefficients a, b, and c (with a \u2260 0). Call as quadratic_roots(a, b, c); returns a two-element list of floats [x1, x2] containing the real roots (e.g., quadratic_roots(5, -8, 2) -> [1.2898979485566355, 0.31010205144336445])."
+    },
+    {
+      "test_index": 74,
+      "question": "I'm deep into this demographic analysis project and I've got a pile of zip codes to work through. Right now, I'm focused on 90210, and I need to match it with its city. Could you provide me with the city name for zip code 90210?",
+      "functions_updated": [
+        {
+          "function_name": "retrieve_city_based_on_zipcode",
+          "original_description": "Finds the city of a zipcode.",
+          "new_description": "Looks up the city or cities associated with a U.S. ZIP code; pass the 5-digit code as a string via zipcode (e.g., \"90210\") and receive a list of matching city names (e.g., [\"BEVERLY HILLS\"]). Call as retrieve_city_based_on_zipcode(zipcode=\"90210\").",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "## Updated Descriptions (only for functions that need improvement):\n\nFUNCTION: retrieve_city_based_on_zipcode\nDESCRIPTION: Looks up the city or cities associated with a U.S. ZIP code; pass the 5-digit code as a string via zipcode (e.g., \"90210\") and receive a list of matching city names (e.g., [\"BEVERLY HILLS\"]). Call as retrieve_city_based_on_zipcode(zipcode=\"90210\")."
+    },
+    {
+      "test_index": 75,
+      "question": "I'm currently working on a project where I'm analyzing population distribution patterns in various cities. Part of the process involves matching zip codes to their corresponding cities. Right now, I need to find out which city the zip code '10001' belongs to. Could you give me the name of the city that matches this zip code?",
+      "functions_updated": [
+        {
+          "function_name": "retrieve_city_based_on_zipcode",
+          "original_description": "Finds the city of a zipcode.",
+          "new_description": "Retrieves the U.S. city or cities associated with a given 5-digit ZIP code and returns them as a list of city name strings. Call retrieve_city_based_on_zipcode(zipcode=\"10001\") with the ZIP code as a string (numeric is also accepted), and it returns a list of matching city names, e.g., ['NEW YORK'].",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "FUNCTION: retrieve_city_based_on_zipcode\nDESCRIPTION: Retrieves the U.S. city or cities associated with a given 5-digit ZIP code and returns them as a list of city name strings. Call retrieve_city_based_on_zipcode(zipcode=\"10001\") with the ZIP code as a string (numeric is also accepted), and it returns a list of matching city names, e.g., ['NEW YORK']."
+    },
+    {
+      "test_index": 76,
+      "question": "I'm working on a project about how holidays are celebrated across different nations and how these celebrations have evolved. Right now, I'm focusing on France, specifically the year 2010. I need a list of all the public holidays that were observed in France during that year. Can you help me out with that?",
+      "functions_updated": [
+        {
+          "function_name": "retrieve_holiday_by_year",
+          "original_description": "Finds the holidays of a year.",
+          "new_description": "Returns all public holidays for a specified country and year. Call retrieve_holiday_by_year(year, country) with a 4-digit year (string or number) and a country code from {US, AT, DE, ES, FR, GB, IT, NL, PL, RO, SK, UA}; it returns a list of holiday objects (e.g., date in YYYY-MM-DD, localName, name, countryCode, types, and related metadata).",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "## Updated Descriptions (only for functions that need improvement):\n\nFUNCTION: retrieve_holiday_by_year\nDESCRIPTION: Returns all public holidays for a specified country and year. Call retrieve_holiday_by_year(year, country) with a 4-digit year (string or number) and a country code from {US, AT, DE, ES, FR, GB, IT, NL, PL, RO, SK, UA}; it returns a list of holiday objects (e.g., date in YYYY-MM-DD, localName, name, countryCode, types, and related metadata)."
+    },
+    {
+      "test_index": 77,
+      "question": "I'm currently delving into the cultural traditions across Europe for a historical comparison, focusing on the year 2005. Germany, with its rich history and diverse celebrations, has drawn my attention. I'd like to know which holidays were observed in Germany that year. Could you provide me with a list of the 2005 holidays in Germany?",
+      "functions_updated": [
+        {
+          "function_name": "retrieve_holiday_by_year",
+          "original_description": "Finds the holidays of a year.",
+          "new_description": "Retrieves the list of public holidays for a given year and country, returning an array of holiday objects (date YYYY-MM-DD, localName, name, countryCode, fixed, global, counties, launchYear, types), typically in chronological order. Call as retrieve_holiday_by_year(year=<4-digit year as string or integer>, country=<two-letter code from US, AT, DE, ES, FR, GB, IT, NL, PL, RO, SK, UA>), for example: retrieve_holiday_by_year(year=2005, country='DE').",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "FUNCTION: retrieve_holiday_by_year\nDESCRIPTION: Retrieves the list of public holidays for a given year and country, returning an array of holiday objects (date YYYY-MM-DD, localName, name, countryCode, fixed, global, counties, launchYear, types), typically in chronological order. Call as retrieve_holiday_by_year(year=<4-digit year as string or integer>, country=<two-letter code from US, AT, DE, ES, FR, GB, IT, NL, PL, RO, SK, UA>), for example: retrieve_holiday_by_year(year=2005, country='DE')."
+    },
+    {
+      "test_index": 78,
+      "question": "As a data analyst, I'm dealing with a dataset that needs to be sorted for my analysis. I have these numbers [34, 2, 56, 7, 9, 12], but they need to be in descending order for the report I'm preparing. Could you sort this array for me?",
+      "functions_updated": [
+        {
+          "function_name": "sort_array",
+          "original_description": "Sorts an array of numbers.",
+          "new_description": "Sorts an array of numbers in ascending order by default, or in descending order when reverse=True, and returns the sorted array. Call as sort_array(array=[num1, num2, ...], reverse=False|True).",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "## Updated Descriptions (only for functions that need improvement):\n\nFUNCTION: sort_array\nDESCRIPTION: Sorts an array of numbers in ascending order by default, or in descending order when reverse=True, and returns the sorted array. Call as sort_array(array=[num1, num2, ...], reverse=False|True)."
+    },
+    {
+      "test_index": 79,
+      "question": "I'm currently handling a dataset for my analysis project and need to organize the numbers in ascending order. The dataset I'm working with right now is [1, 2, 2, 7, 7, 10]. Can you sort this array for me?",
+      "functions_updated": [],
+      "llm_reasoning": "## Updated Descriptions (only for functions that need improvement):"
+    },
+    {
+      "test_index": 80,
+      "question": "Could you calculate the sum of two binary numbers '0011' and '1100' for me?",
+      "functions_updated": [
+        {
+          "function_name": "add_binary_numbers",
+          "original_description": "Adds two binary numbers.",
+          "new_description": "Adds two binary numbers given as strings of '0' and '1' (leading zeros allowed) and returns their sum as a binary string without any prefix. Call as add_binary_numbers(a='<binary>', b='<binary>') and receive the summed binary string (e.g., add_binary_numbers(a='0011', b='1100') -> '1111').",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "## Updated Descriptions (only for functions that need improvement):\n\nFUNCTION: add_binary_numbers\nDESCRIPTION: Adds two binary numbers given as strings of '0' and '1' (leading zeros allowed) and returns their sum as a binary string without any prefix. Call as add_binary_numbers(a='<binary>', b='<binary>') and receive the summed binary string (e.g., add_binary_numbers(a='0011', b='1100') -> '1111')."
+    },
+    {
+      "test_index": 81,
+      "question": "I'm working on a small project in which I need to perform binary calculations. Could you help me with adding the binary numbers '10011' and '1100' together?",
+      "functions_updated": [
+        {
+          "function_name": "add_binary_numbers",
+          "original_description": "Adds two binary numbers.",
+          "new_description": "Computes the sum of two binary numbers and returns the result in binary. Call add_binary_numbers(a, b) with a and b as strings containing only '0' and '1' (no prefixes or spaces); the function returns a single-element list with the resulting binary string (e.g., ['11111']).",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "FUNCTION: add_binary_numbers\nDESCRIPTION: Computes the sum of two binary numbers and returns the result in binary. Call add_binary_numbers(a, b) with a and b as strings containing only '0' and '1' (no prefixes or spaces); the function returns a single-element list with the resulting binary string (e.g., ['11111'])."
+    },
+    {
+      "test_index": 82,
+      "question": "I've been plotting some data and it looks like there's a linear trend. I've got these x-coordinates [1, 2, 3] and corresponding y-values [4, 5, 6]. I need to predict the y-value for when x is 10. Can you apply a linear regression to this and give me that predicted value?",
+      "functions_updated": [
+        {
+          "function_name": "linear_regression",
+          "original_description": "Finds the linear regression of a set of points and evaluates it at a given point.",
+          "new_description": "Fits a simple least-squares line y = m x + b to the given data and returns the predicted y-value at a specified x. Call as linear_regression(x=[...], y=[...], point=<number>), where x and y are equal-length numeric arrays and point is the x-value to predict at; returns a single numeric prediction.",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "FUNCTION: linear_regression\nDESCRIPTION: Fits a simple least-squares line y = m x + b to the given data and returns the predicted y-value at a specified x. Call as linear_regression(x=[...], y=[...], point=<number>), where x and y are equal-length numeric arrays and point is the x-value to predict at; returns a single numeric prediction."
+    },
+    {
+      "test_index": 83,
+      "question": "I'm working on a data analysis project and need to model the relationship between two variables. I have a set of data points with x-coordinates as [1, 2, -3] and corresponding y-coordinates as [4, -5, 6]. I need to establish a linear regression model based on these points. Once the model is in place, I'd like to predict the y-value when x is 10. Can you do that for me?",
+      "functions_updated": [
+        {
+          "function_name": "linear_regression",
+          "original_description": "Finds the linear regression of a set of points and evaluates it at a given point.",
+          "new_description": "Fits an ordinary least squares line y = m\u00b7x + b to the paired data in x and y, then evaluates the fitted line at the specified x value. Provide x and y as equal-length numeric arrays (at least two points) and point as a numeric scalar; the function returns a one-element array containing the predicted y-value, called as linear_regression(x=[...], y=[...], point=<number>).",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "FUNCTION: linear_regression\nDESCRIPTION: Fits an ordinary least squares line y = m\u00b7x + b to the paired data in x and y, then evaluates the fitted line at the specified x value. Provide x and y as equal-length numeric arrays (at least two points) and point as a numeric scalar; the function returns a one-element array containing the predicted y-value, called as linear_regression(x=[...], y=[...], point=<number>)."
+    },
+    {
+      "test_index": 84,
+      "question": "I need to identify the straight line that contains the most points from a set of coordinates I have. The coordinates I'm looking at are [[1,1], [2,2], [3,4], [5,5]]. Could you determine the maximum number of points that align on a single line from this dataset?",
+      "functions_updated": [
+        {
+          "function_name": "maxPoints",
+          "original_description": "Finds the maximum number of points on a line.",
+          "new_description": "Computes the maximum number of input points that lie on a single straight line (are collinear). Call as maxPoints(points=[[x1, y1], [x2, y2], ...]) with points being a list of 2-element numeric coordinate pairs; returns an integer count of the maximum number of collinear points.",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "## Updated Descriptions (only for functions that need improvement):\n\nFUNCTION: maxPoints\nDESCRIPTION: Computes the maximum number of input points that lie on a single straight line (are collinear). Call as maxPoints(points=[[x1, y1], [x2, y2], ...]) with points being a list of 2-element numeric coordinate pairs; returns an integer count of the maximum number of collinear points."
+    },
+    {
+      "test_index": 85,
+      "question": "I've been working on an algorithm that's supposed to identify the largest subset of points that align on a single straight line. I've plotted out a few points: [[1,1], [2,3], [4,6], [5,5]]. I need to determine the maximum number of points from this set that fall on the same line. Can you help me with that?",
+      "functions_updated": [],
+      "llm_reasoning": "No functions require updated descriptions."
+    },
+    {
+      "test_index": 86,
+      "question": "I want to assess the growth of my investment portfolio. I started with $10,000 and I've been adding $1,000 to it every year. It's been five years now, and my portfolio has been growing at an annual interest rate of 5%. However, I know inflation can impact the real value of my money, and the rates have been 1%, 2%, 3%, 4%, and 4% respectively for each of the past five years. Can you calculate the current value of my investment, taking inflation into account?",
+      "functions_updated": [
+        {
+          "function_name": "calculate_investment_value",
+          "original_description": "Calculates the value of an investment over time.",
+          "new_description": "Computes the final value of an investment over a specified number of years by compounding the initial amount at the given annual return and adding the annual contribution at the start of each year; if adjust_for_inflation is true, the final amount is deflated by the cumulative product of the provided per-year inflation rates (each as a decimal between 0 and 1). Call as calculate_investment_value(initial_investment: int, annual_contribution: int, years: int, annual_return: float in [0,1], inflation_rate: list[float] of length=years, adjust_for_inflation: bool=False) and it returns a single number (float) representing the final portfolio value (inflation-adjusted if requested).",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "FUNCTION: calculate_investment_value\nDESCRIPTION: Computes the final value of an investment over a specified number of years by compounding the initial amount at the given annual return and adding the annual contribution at the start of each year; if adjust_for_inflation is true, the final amount is deflated by the cumulative product of the provided per-year inflation rates (each as a decimal between 0 and 1). Call as calculate_investment_value(initial_investment: int, annual_contribution: int, years: int, annual_return: float in [0,1], inflation_rate: list[float] of length=years, adjust_for_inflation: bool=False) and it returns a single number (float) representing the final portfolio value (inflation-adjusted if requested)."
+    },
+    {
+      "test_index": 87,
+      "question": "I've got $1,000,000 set aside as an initial investment and plan to contribute $1,000 each year. I'm looking at a timeframe of 3 years and expecting an annual return of about 10%. However, I also want to consider the inflation rates for these years which I predict to be 1%, 4%, and 4% respectively. Can you calculate what the value of my investment will be at the end of this period, taking into account the inflation?",
+      "functions_updated": [
+        {
+          "function_name": "calculate_investment_value",
+          "original_description": "Calculates the value of an investment over time.",
+          "new_description": "Computes the investment\u2019s value at the end of the given number of years from an initial amount with annual contributions and an annual return, optionally adjusting to real (inflation-adjusted) dollars using per-year inflation rates. Call as calculate_investment_value(initial_investment=int, annual_contribution=int, years=int, annual_return=float 0\u20131, inflation_rate=list[float 0\u20131] with length=years, adjust_for_inflation=bool) and it returns a single float: the final nominal or inflation-adjusted value.",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "FUNCTION: calculate_investment_value\nDESCRIPTION: Computes the investment\u2019s value at the end of the given number of years from an initial amount with annual contributions and an annual return, optionally adjusting to real (inflation-adjusted) dollars using per-year inflation rates. Call as calculate_investment_value(initial_investment=int, annual_contribution=int, years=int, annual_return=float 0\u20131, inflation_rate=list[float 0\u20131] with length=years, adjust_for_inflation=bool) and it returns a single float: the final nominal or inflation-adjusted value."
+    },
+    {
+      "test_index": 88,
+      "question": "I've been trying to adjust my diet and fitness plan, and I really need to get my nutritional needs dialed in. I'm a 30-year-old guy, weigh about 100 kilograms, and I'm 170 centimeters tall. I'm not the most active person \u2013 my activity level is pretty low, around 1. I want to lose weight. Can you calculate what my daily nutritional intake should be?",
+      "functions_updated": [
+        {
+          "function_name": "calculate_nutritional_needs",
+          "original_description": "Calculates the nutritional needs of a person based on their weight, height, age, gender, activity level, and goal.",
+          "new_description": "Computes daily calorie and macronutrient targets from weight (kg), height (cm), age (years), gender ('male'|'female'|'other'), activity_level (1\u20135), and goal ('lose'|'gain'|'maintain'). Call calculate_nutritional_needs(weight, height, age, gender, activity_level, goal) to receive a list with one object containing calories (kcal), proteins_g (g), fats_g (g), and carbohydrates_g (g).",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "## Updated Descriptions (only for functions that need improvement):\n\nFUNCTION: calculate_nutritional_needs\nDESCRIPTION: Computes daily calorie and macronutrient targets from weight (kg), height (cm), age (years), gender ('male'|'female'|'other'), activity_level (1\u20135), and goal ('lose'|'gain'|'maintain'). Call calculate_nutritional_needs(weight, height, age, gender, activity_level, goal) to receive a list with one object containing calories (kcal), proteins_g (g), fats_g (g), and carbohydrates_g (g)."
+    },
+    {
+      "test_index": 89,
+      "question": "I have an 80-year-old female client who is 170 cm tall, weighs 59 kg, and is quite active with an activity level of 4. She's looking to reduce her weight. Could you calculate her daily nutritional needs based on these details?",
+      "functions_updated": [
+        {
+          "function_name": "calculate_nutritional_needs",
+          "original_description": "Calculates the nutritional needs of a person based on their weight, height, age, gender, activity level, and goal.",
+          "new_description": "Calculates daily calorie and macronutrient needs from weight (kg), height (cm), age (years), gender ('male'|'female'|'other'), activity_level (1\u20135), and goal ('lose'|'gain'|'maintain'); all parameters are required. Call calculate_nutritional_needs(weight, height, age, gender, activity_level, goal) and it returns a dictionary with daily targets: calories (kcal), proteins_g (g), fats_g (g), and carbohydrates_g (g).",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "FUNCTION: calculate_nutritional_needs\nDESCRIPTION: Calculates daily calorie and macronutrient needs from weight (kg), height (cm), age (years), gender ('male'|'female'|'other'), activity_level (1\u20135), and goal ('lose'|'gain'|'maintain'); all parameters are required. Call calculate_nutritional_needs(weight, height, age, gender, activity_level, goal) and it returns a dictionary with daily targets: calories (kcal), proteins_g (g), fats_g (g), and carbohydrates_g (g)."
+    },
+    {
+      "test_index": 90,
+      "question": "I'm planning a business trip to New York, and I've decided to extend my stay to enjoy the city a bit more. I'd like to book a deluxe room for the duration of my trip. The dates I'm looking at are from August 11, 2024, to August 15, 2024. I've got a budget set aside for accommodation, and I'm willing to spend up to $1000 for a comfortable stay. My customer ID is 123. Could you go ahead and book that room for me?",
+      "functions_updated": [
+        {
+          "function_name": "book_room",
+          "original_description": "Books a room for a customer.",
+          "new_description": "Books a hotel room of the specified room_type for customer_id for the given check_in_date to check_out_date range, optionally limiting cost with price (number, default 0.0 as a max budget) and applying an optional discount_code. Call as book_room(room_type, price?, check_in_date, check_out_date, customer_id, discount_code?) with dates in MM-DD-YYYY; returns a status string (e.g., \"SUCCESS: [...]\") containing a list with one booking record including customer_id, room_number (same as room_type), check_in_date, check_out_date, and total_price.",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "FUNCTION: book_room\nDESCRIPTION: Books a hotel room of the specified room_type for customer_id for the given check_in_date to check_out_date range, optionally limiting cost with price (number, default 0.0 as a max budget) and applying an optional discount_code. Call as book_room(room_type, price?, check_in_date, check_out_date, customer_id, discount_code?) with dates in MM-DD-YYYY; returns a status string (e.g., \"SUCCESS: [...]\") containing a list with one booking record including customer_id, room_number (same as room_type), check_in_date, check_out_date, and total_price."
+    },
+    {
+      "test_index": 91,
+      "question": "I'd like to reserve a king room for a customer with the ID 123. The booking is from December 11, 2023, to August 15, 2024. The price we're looking at is $10,000. No discount codes will be applied for this reservation. Can you process this booking for me?",
+      "functions_updated": [
+        {
+          "function_name": "book_room",
+          "original_description": "Books a room for a customer.",
+          "new_description": "Creates a reservation for a customer for the specified room_type between check_in_date and check_out_date, accepting room_type (string), check_in_date and check_out_date (strings in MM-DD-YYYY), customer_id (string), and optional price (number; maximum acceptable total price, default 0.0) and discount_code (string). Call as book_room(room_type='<type>', check_in_date='MM-DD-YYYY', check_out_date='MM-DD-YYYY', customer_id='<id>', price=<number>, discount_code='<code>'); returns a SUCCESS status with a list containing the reservation details (customer_id, room_number equal to the requested room_type, check_in_date, check_out_date, total_price).",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "## Updated Descriptions (only for functions that need improvement):\n\nFUNCTION: book_room\nDESCRIPTION: Creates a reservation for a customer for the specified room_type between check_in_date and check_out_date, accepting room_type (string), check_in_date and check_out_date (strings in MM-DD-YYYY), customer_id (string), and optional price (number; maximum acceptable total price, default 0.0) and discount_code (string). Call as book_room(room_type='<type>', check_in_date='MM-DD-YYYY', check_out_date='MM-DD-YYYY', customer_id='<id>', price=<number>, discount_code='<code>'); returns a SUCCESS status with a list containing the reservation details (customer_id, room_number equal to the requested room_type, check_in_date, check_out_date, total_price)."
+    },
+    {
+      "test_index": 92,
+      "question": "I'm organizing a small get-together at my place tonight and I'm looking to order some food for the guests. I'd like to get 10 burgers, each costing $5, and also 7 ice creams, with each being $2. Could you place this order for me and let me know what the total price would be?",
+      "functions_updated": [
+        {
+          "function_name": "order_food",
+          "original_description": "Orders food for a customer.Return the total price.",
+          "new_description": "Submits a food order by aligning parallel arrays of item names, quantities, and per-item prices and computes the total cost as the sum of quantity[i] * price[i] for each item; supply three arrays of equal length: item (strings), quantity (integers), and price (numbers) in corresponding order. Call as order_food(item=[...], quantity=[...], price=[...]); returns the total price as a single number (delivered as a single-element array in the response, e.g., [64]).",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "## Updated Descriptions (only for functions that need improvement):\n\nFUNCTION: order_food\nDESCRIPTION: Submits a food order by aligning parallel arrays of item names, quantities, and per-item prices and computes the total cost as the sum of quantity[i] * price[i] for each item; supply three arrays of equal length: item (strings), quantity (integers), and price (numbers) in corresponding order. Call as order_food(item=[...], quantity=[...], price=[...]); returns the total price as a single number (delivered as a single-element array in the response, e.g., [64])."
+    },
+    {
+      "test_index": 93,
+      "question": "I'd like to place an order for some food. Could you get me 101 dumplings priced at $0.1 each, and also 20 rice bowls at $10 per bowl? Please calculate the total for me as well.",
+      "functions_updated": [
+        {
+          "function_name": "order_food",
+          "original_description": "Orders food for a customer.Return the total price.",
+          "new_description": "Calculates the total cost of a food order by multiplying each item's quantity by its corresponding unit price and summing the results; provide three aligned arrays of equal length: item (strings), quantity (numbers), and price (numbers). Call as order_food(item=[...], quantity=[...], price=[...]); returns a single-element array [total] where total is the numeric grand total.",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "FUNCTION: order_food\nDESCRIPTION: Calculates the total cost of a food order by multiplying each item's quantity by its corresponding unit price and summing the results; provide three aligned arrays of equal length: item (strings), quantity (numbers), and price (numbers). Call as order_food(item=[...], quantity=[...], price=[...]); returns a single-element array [total] where total is the numeric grand total."
+    },
+    {
+      "test_index": 94,
+      "question": "I was discussing movies with my friend last night, and we started talking about \"Avatar.\" I realized I don't remember who directed it. Can you find out the director's name for me?",
+      "functions_updated": [
+        {
+          "function_name": "get_movie_director",
+          "original_description": "Fetches the director of a movie from the OMDB API.",
+          "new_description": "Retrieves the credited director(s) for a given movie title from the OMDB API and returns them as a list of strings. Call as get_movie_director(movie_name=\"<movie title>\"), where movie_name is the film\u2019s title (e.g., get_movie_director(movie_name=\"Avatar\")) and the result will be a list like [\"James Cameron\"].",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "FUNCTION: get_movie_director\nDESCRIPTION: Retrieves the credited director(s) for a given movie title from the OMDB API and returns them as a list of strings. Call as get_movie_director(movie_name=\"<movie title>\"), where movie_name is the film\u2019s title (e.g., get_movie_director(movie_name=\"Avatar\")) and the result will be a list like [\"James Cameron\"]."
+    },
+    {
+      "test_index": 95,
+      "question": "I was having a debate with a friend about iconic movies, and naturally, 'Pulp Fiction' came up. We started discussing the unique directorial style that really defined the film, but embarrassingly, I blanked on the director's name. Could you please find out who directed 'Pulp Fiction'?",
+      "functions_updated": [
+        {
+          "function_name": "get_movie_director",
+          "original_description": "Fetches the director of a movie from the OMDB API.",
+          "new_description": "Retrieves the director name(s) for a given movie title from the OMDb API; pass movie_name as a required string (e.g., \"Pulp Fiction\") and it returns a list of director names as strings (e.g., [\"Quentin Tarantino\"]). Call as get_movie_director(movie_name=\"Movie Title\").",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "FUNCTION: get_movie_director\nDESCRIPTION: Retrieves the director name(s) for a given movie title from the OMDb API; pass movie_name as a required string (e.g., \"Pulp Fiction\") and it returns a list of director names as strings (e.g., [\"Quentin Tarantino\"]). Call as get_movie_director(movie_name=\"Movie Title\")."
+    },
+    {
+      "test_index": 96,
+      "question": "I'm considering showing the movie \"Avatar\" at my family's movie night this weekend, but I need to make sure it's appropriate for all ages. Can you find out the age rating for \"Avatar\" for me?",
+      "functions_updated": [
+        {
+          "function_name": "get_movie_rating",
+          "original_description": "Fetches the age rating of a movie from the OMDB API.",
+          "new_description": "Looks up a movie by title using the OMDB API and returns its age rating(s). Call as get_movie_rating(movie_name='<title>') with movie_name as a string; on success it returns a status string like \"SUCCESS: ['PG-13']\" containing a list of rating strings.",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "FUNCTION: get_movie_rating\nDESCRIPTION: Looks up a movie by title using the OMDB API and returns its age rating(s). Call as get_movie_rating(movie_name='<title>') with movie_name as a string; on success it returns a status string like \"SUCCESS: ['PG-13']\" containing a list of rating strings."
+    },
+    {
+      "test_index": 97,
+      "question": "Could you find out what the age rating is for \"Pulp Fiction\"? I'm trying to decide if it's suitable for my teenage kids to watch.",
+      "functions_updated": [
+        {
+          "function_name": "get_movie_rating",
+          "original_description": "Fetches the age rating of a movie from the OMDB API.",
+          "new_description": "Looks up a movie by title in the OMDb API and returns its age/certification rating. Call as get_movie_rating(movie_name='<title>') with a movie title string; on success it returns a list of rating codes (e.g., ['R']).",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "## Updated Descriptions (only for functions that need improvement):\n\nFUNCTION: get_movie_rating\nDESCRIPTION: Looks up a movie by title in the OMDb API and returns its age/certification rating. Call as get_movie_rating(movie_name='<title>') with a movie title string; on success it returns a list of rating codes (e.g., ['R'])."
+    },
+    {
+      "test_index": 98,
+      "question": "I'm working on some land survey data and need to calculate the area of a particular triangular plot. I've got the coordinates of the vertices of the triangle, which are (1,2), (3,4), and (1,3). Can you help me figure out the area of this triangle using these points?",
+      "functions_updated": [],
+      "llm_reasoning": "## Updated Descriptions (only for functions that need improvement):"
+    },
+    {
+      "test_index": 99,
+      "question": "I was reviewing the basics of geometry and ended up with a challenge to calculate the area of a polygon. The polygon is defined by these vertices: [[1,2],[3,4],[1,4],[3,7]]. Can you help me determine the area of this polygon using the shoelace formula?",
+      "functions_updated": [
+        {
+          "function_name": "polygon_area",
+          "original_description": "Calculate the area of a polygon given its vertices using the shoelace formula.",
+          "new_description": "Computes the non-negative area of a polygon from an ordered list of 2D vertices using the shoelace formula; pass vertices as a list/array of numeric [x, y] pairs in clockwise or counterclockwise order (do not repeat the first point), noting that degenerate or self-intersecting inputs may yield 0.0. Call as polygon_area(vertices=[[x1, y1], [x2, y2], ...]) and it returns a float area.",
+          "changed": true
+        }
+      ],
+      "llm_reasoning": "## Updated Descriptions (only for functions that need improvement):\n\nFUNCTION: polygon_area\nDESCRIPTION: Computes the non-negative area of a polygon from an ordered list of 2D vertices using the shoelace formula; pass vertices as a list/array of numeric [x, y] pairs in clockwise or counterclockwise order (do not repeat the first point), noting that degenerate or self-intersecting inputs may yield 0.0. Call as polygon_area(vertices=[[x1, y1], [x2, y2], ...]) and it returns a float area."
+    }
+  ]
+}

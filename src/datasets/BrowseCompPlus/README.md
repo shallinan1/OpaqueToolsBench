@@ -8,7 +8,38 @@ Generation → Evaluation (LLM-as-judge) → Description rewrite (batch + synthe
 
 The rewrite step is two-phase: per-batch trajectory analysis (default 10 trajectories per minibatch) followed by cross-batch synthesis into final tool descriptions.
 
-> **Reproducing paper numbers without spending API credits or running retrieval:** trajectories from the paper's BrowseCompPlus runs are available as a [GitHub Release asset](https://github.com/shallinan1/OpaqueToolsBench/releases/tag/v0.1-bcp-trajectories) (~720 MB compressed). Includes the train trajectory at v0–v3, the v1 and v4 test-split evaluations, the transparent-config ceiling, and the EasyTool / Play2Prompt baselines. README inside the tarball explains the layout. Re-grading with `evaluate.py` only needs an OpenAI key for the LLM judge; no retrieval or RapidAPI keys required.
+> **Reproducing paper numbers without spending API credits or running retrieval:** trajectories from the paper's BrowseCompPlus runs are available as a [GitHub Release asset](https://github.com/shallinan1/OpaqueToolsBench/releases/tag/v0.1-bcp-trajectories) (~720 MB compressed). Includes the train trajectory at v0–v3, the v1 and v4 test-split evaluations, the transparent-config ceiling, and the EasyTool / Play2Prompt baselines. The pre-computed `v0_scored.json` files in each run dir contain the headline numbers, so reading them is free. Re-grading with `evaluate.py` is optional and only needs an OpenAI key for the LLM judge; no retrieval or RapidAPI keys required.
+
+## Reproducing Table 4 (BrowseCompPlus paper results)
+
+After downloading and extracting the trajectories tarball, paper rows map as follows:
+
+| Paper row (Tool Setting) | Config base name |
+|---|---|
+| Domain-specific (9) Search | `_no-doc` |
+| Domain-specific (9) + Full Search | `_no-doc_search-all` |
+
+| Paper column | Subtree | Point `--result-dir` at |
+|---|---|---|
+| Gold | `gold_baseline/shared_tools/transparent_faiss_<base>/<gen_hypers>/` | base run dir |
+| Base | `gold_baseline/shared_tools/fully_opaque_faiss_<base>/<gen_hypers>/` | base run dir |
+| `+ TO` | `tool_observer_test_iter4/shared_tools/fully_opaque_faiss_<base>/<gen_hypers>/from_v4/` | `from_v4` dir |
+| `+ P2P` | `play2prompt/shared_tools/fully_opaque_faiss_<base>/<gen_hypers>/` | base run dir |
+| `+ ET` | `easytool/shared_tools/fully_opaque_faiss_<base>/<gen_hypers>/` | base run dir |
+
+`<gen_hypers>` is `gpt5_minimal_auto_mx20000_pkbesttoolfirst_k5_s512_gd0_url1_iter50_emb0p6b` (GPT-5) or `gpt5mini_minimal_auto_mx20000_pkbesttoolfirst_k5_s512_gd0_url1_iter50_emb0p6b` (GPT-5-mini).
+
+Pre-computed scored numbers live in each leaf's `v0_scored.json` (the Acc and #TC columns). To re-grade, point `evaluate.py` at the leaf `--result-dir`.
+
+## Scoring logic
+
+Table 4 cell values come from:
+
+- `evaluate.py::main()` — orchestrates LLM-as-judge grading per query.
+- `evaluation_utils.py::create_judge_prompt()` and `parse_judge_response()` — judge prompt construction and answer extraction.
+- `evaluation_utils.py::compute_citation_metrics()` — derives the per-query correctness flag.
+
+Aggregation across queries (mean accuracy, mean tool-call count) happens at the end of `main()` and is written to the `scored.json` summary in the result dir.
 
 ## Setup
 

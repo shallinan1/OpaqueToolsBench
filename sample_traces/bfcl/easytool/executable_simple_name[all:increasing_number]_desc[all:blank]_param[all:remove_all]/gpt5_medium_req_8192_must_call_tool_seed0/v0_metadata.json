@@ -1,0 +1,33 @@
+{
+  "timestamp": "2026-02-11 08:49:28 UTC",
+  "timestamp_utc": "20260211T084928203630Z",
+  "model": "gpt-5",
+  "temperature": 0.001,
+  "top_p": 1.0,
+  "max_tokens": 8192,
+  "tool_choice": "required",
+  "prompt_key": "must_call_tool",
+  "reasoning_effort": "medium",
+  "seed": 0,
+  "num_tests": 100,
+  "num_completed": 100,
+  "processing_time_seconds": 172.99756526947021,
+  "hyperparam_dirname": "gpt5_medium_req_8192_must_call_tool_seed0",
+  "command": "src/datasets/bfcl/run.py --config-source src/datasets/bfcl/tool_configs/easytool/executable_simple_name[all:increasing_number]_desc[all:blank]_param[all:remove_all]/gpt5_medium_1024/optimized_config.json --model gpt-5 --max-tokens 8192 --output-dir runs/bfcl/easytool --prompt-key must_call_tool --tool-choice required",
+  "config_source": "src/datasets/bfcl/tool_configs/easytool/executable_simple_name[all:increasing_number]_desc[all:blank]_param[all:remove_all]/gpt5_medium_1024/optimized_config.json",
+  "config_name": "executable_simple_name[all:increasing_number]_desc[all:blank]_param[all:remove_all]",
+  "config_modifications": {
+    "names": {
+      "all": "increasing_number"
+    },
+    "descriptions": {
+      "all": "blank"
+    },
+    "parameters": {
+      "all": "remove_all"
+    }
+  },
+  "config_test_category": "executable_simple",
+  "version": 0,
+  "is_improvement": false
+}

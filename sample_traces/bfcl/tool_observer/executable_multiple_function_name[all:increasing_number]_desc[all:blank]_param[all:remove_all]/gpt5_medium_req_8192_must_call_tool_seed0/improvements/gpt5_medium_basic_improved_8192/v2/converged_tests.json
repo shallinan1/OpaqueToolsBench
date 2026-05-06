@@ -1,0 +1,31 @@
+{
+  "converged_tests": [
+    1,
+    6,
+    12,
+    21,
+    24,
+    25,
+    26,
+    31,
+    34,
+    43,
+    49
+  ],
+  "newly_converged_this_iteration": [
+    1,
+    6,
+    12,
+    21,
+    24,
+    25,
+    26,
+    31,
+    34,
+    43,
+    49
+  ],
+  "previously_converged": [],
+  "total_tests": 50,
+  "convergence_rate": 0.22
+}

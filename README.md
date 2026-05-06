@@ -7,7 +7,7 @@ This release covers two domains:
 - **BFCL** (function calling) — the two paper categories `executable_simple` and `executable_multiple_function`.
 - **BrowseCompPlus** (information retrieval) — 9 domain-specialized search tools (Wikipedia, academic, news, etc.) with opaque/transparent variants over BM25 and FAISS retrieval backends.
 
-The chess domain will follow.
+The chess domain (Table 3 of the paper) is a separate follow-up release; the chess pipeline and trajectories are not in this artifact bundle yet.
 
 ## What's shipped
 

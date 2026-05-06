@@ -10,6 +10,48 @@ Evaluation executes model calls against BFCL ground truth. The rewrite step cond
 
 > **Reproducing paper numbers without spending API credits:** the trajectories from the paper's BFCL runs are committed at [`sample_traces/bfcl/`](../../../sample_traces/bfcl/). You can re-grade any run with `evaluate.py` against the shipped function-call cache; no live API calls needed. See `sample_traces/bfcl/README.md` for the layout.
 
+## Reproducing Table 2 (BFCL paper results)
+
+Each cell of Table 2 corresponds to one shipped trajectory directory under `sample_traces/bfcl/`. Map paper rows to opacity configs:
+
+| Paper row | Config dir suffix |
+|---|---|
+| Anon. Fn. Names Only | `_name[all:increasing_number]_desc[all:blank]_param[all:remove_all]` |
+| Anon. Fn. + Real Desc | `_name[all:increasing_number]_param[all:remove_all]` |
+| Anon. Fn. + Param Names | `_name[all:increasing_number]_desc[all:blank]_param[all:blank_descriptions]` |
+| Gold (transparent) | `_base` (under `tool_observer/` only) |
+
+Map paper columns to method subtrees:
+
+| Paper column | Subtree | Point `--result-dir` at |
+|---|---|---|
+| Gold | `sample_traces/bfcl/tool_observer/<config>_base/<gen_hypers>/` | base run dir (has `v0_results.json`) |
+| Base | `sample_traces/bfcl/tool_observer/<opaque_config>/<gen_hypers>/` | base run dir |
+| `+ TO` (ToolObserver) | `sample_traces/bfcl/tool_observer/<opaque_config>/<gen_hypers>/improvements/gpt5_medium_basic_improved_8192/v{N}/` | the **converged leaf** v{N} (per-test convergence; max iteration varies by config) |
+| `+ P2P` (Play2Prompt) | `sample_traces/bfcl/play2prompt/<opaque_config>/<gen_hypers>/` | base run dir (one-shot baseline) |
+| `+ ET` (EasyTool) | `sample_traces/bfcl/easytool/<opaque_config>/<gen_hypers>/` | base run dir (one-shot baseline) |
+
+`<gen_hypers>` is `gpt5_medium_req_8192_must_call_tool_seed0` (GPT-5 row) or `gpt5mini_medium_req_8192_must_call_tool_seed0` (GPT-5-mini row).
+
+Concrete example — Table 2, *Anon. Fn. Names Only*, GPT-5-mini, ToolObserver column:
+
+```bash
+python -m src.datasets.bfcl.evaluate \
+  --result-dir 'sample_traces/bfcl/tool_observer/executable_simple_name[all:increasing_number]_desc[all:blank]_param[all:remove_all]/gpt5mini_medium_req_8192_must_call_tool_seed0/improvements/gpt5_medium_basic_improved_8192/v6'
+```
+
+The shipped `scored.json` in each leaf already contains the cell value; re-running `evaluate.py` reproduces it (uses the function-call cache, no API needed).
+
+ToolObserver convergence depth varies per config — find the highest `v{N}` directory under each `improvements/gpt5_medium_basic_improved_8192/` to get the converged result. Per-config maxima range from v5 to v11 in the shipped bundle.
+
+## Scoring logic
+
+The cell values in Table 2 (E / P / A columns: Execution, Parameter, AST accuracy) are produced by:
+
+- `evaluate.py::evaluate_result()` and `evaluate_category_results()` — execution-based grading using BFCL's vendor `eval_runner`. Produces the **E** (Execution) column.
+- `enhanced_metrics.py::evaluate_enhanced_metrics()` and `aggregate_enhanced_metrics()` — produces the **P** (Parameter accuracy) and **A** (AST accuracy) columns.
+- `evaluate.py::main()` writes the per-leaf `scored.json` aggregating all three.
+
 ## Test categories
 
 | Category | Description |
