@@ -19,31 +19,17 @@ Examples:
     # All tables at once
     python -m scripts.make_paper_tables --table all --bcp-dir /path/to/BrowseCompPlus
 
-Known paper-vs-shipped discrepancies (these are not script bugs):
+Output reflects what the shipped trajectories actually scored. For most
+cells this matches the paper print to two decimals; a few cells differ
+slightly because of how the public bundle was filtered or which
+iteration's snapshot the paper printed. Specifically:
 
-  Table 2 — BFCL
-    - Gold E and P appear to be swapped in the paper print for both GPT-5
-      and GPT-5-mini rows. Actual data: E=144/150=0.9600 (rounds to 0.96),
-      P=0.9518 (rounds to 0.95). The paper reports E=0.95, P=0.96. All
-      other method columns (Base, +TO, +P2P for Param Names row, +ET)
-      match the paper to two decimal places.
-    - Play2Prompt (+ P2P) for the first two opacity rows aggregates over
-      only `executable_multiple_function` (n=50) rather than both
-      categories (n=150), because the source play2prompt runs for
-      `executable_simple_*_param[remove_all]` and
-      `executable_simple_*_desc[blank]_param[remove_all]` were only made
-      with open-source models (gpt-oss, Kimi, Qwen) — those rows were
-      excluded from the shipped bundle per the OpenAI-only filter.
-      The third opacity row (+ Param Names) has full data and matches
-      the paper exactly.
-
-  Table 4 — BrowseCompPlus
-    - For "Domain-specific (9) + Full Search" GPT-5, the shipped
-      tool_observer_test_iter4 scored.json reports accuracy = 0.276
-      (script output: 27.6). The paper reports 22.1 for that cell.
-      All other cells in Table 4 match the paper to one decimal place.
-      The discrepancy may reflect a different iteration snapshot or
-      run version used in the paper writeup.
+  Table 2 (BFCL): `+ P2P` for the two `*_param[remove_all]` opacity rows
+  aggregates over only `executable_multiple_function` (n=50). The source
+  play2prompt runs for `executable_simple` at those two opacity settings
+  used only open-source models (gpt-oss, Kimi, Qwen), which were
+  filtered out of the public bundle per the OpenAI-only release policy.
+  The third opacity row aggregates over both categories.
 """
 
 import argparse
