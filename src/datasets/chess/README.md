@@ -124,11 +124,11 @@ Trajectories from the paper's chess runs will ship in a follow-up release; the i
 
 ## Scoring logic
 
-Cell values in Table 3 come from these functions (verify these names with the actual code; they're the entry-point aggregators):
+Cell values in Table 3 come from these functions:
 
-- `evaluate.py::main()` — Stockfish position evaluation per move.
-- `evaluate_tool_selection.py` — "best tool chosen?" metric per position.
-- `compute_elo.py` — Elo rating computation from W/L/D records.
+- `evaluate.py::score_trajectory_file()` — Stockfish position evaluation per move; writes `v*_scored.json` from `v*_trajectories.json`.
+- `evaluate_tool_selection.py::evaluate_tool_selection()` (entry: `main()`) — "best tool chosen?" metric per position. Produces the **Acc** column.
+- `compute_elo.py::compute_streaming_elo()` and `compute_bootstrap_elo()` (entry: `main()`) — streaming Elo rating with bootstrap confidence intervals. Produces the **ELO** column.
 
 ## Outputs
 
