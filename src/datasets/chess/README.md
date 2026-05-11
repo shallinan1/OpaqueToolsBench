@@ -14,10 +14,24 @@ The rewrite step is two-phase: per-batch trajectory analysis (`generate_descript
 
 Live game-play requires the [Fairy-Stockfish](https://github.com/fairy-stockfish/Fairy-Stockfish) binary (GPLv3, not shipped here). Use this rather than vanilla Stockfish: it exposes the `UCI_Elo` knob for strength-limited play (calibrated 500–2850 at 120s+1s, CCRL 40/4).
 
-Download a release binary, make it executable, and point `FAIRY_STOCKFISH_PATH` at it in your `.env`:
+```bash
+# macOS (Homebrew formula, easiest)
+brew install fairy-stockfish
+
+# Linux / Windows: download a release binary + chmod +x
+# https://github.com/fairy-stockfish/Fairy-Stockfish/releases
+```
+
+Then point at it from your `.env`:
 
 ```
-FAIRY_STOCKFISH_PATH=/abs/path/to/fairy-stockfish-binary
+FAIRY_STOCKFISH_PATH=/abs/path/to/fairy-stockfish
+```
+
+Quick sanity check that the binary works (should print a UCI banner and exit on `quit`):
+
+```bash
+echo -e "uci\nquit" | "$FAIRY_STOCKFISH_PATH"
 ```
 
 ### Data (shipped, no download needed)

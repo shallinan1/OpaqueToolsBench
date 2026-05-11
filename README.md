@@ -132,13 +132,23 @@ Outputs land under `runs/BrowseCompPlus/tool_observer/…`. See [`src/datasets/B
 
 ## Chess setup
 
-Chess requires the **Fairy-Stockfish** binary for live game-play (GPLv3, not redistributed). Download a release binary from [`fairy-stockfish/Fairy-Stockfish`](https://github.com/fairy-stockfish/Fairy-Stockfish/releases), make it executable, and set its absolute path:
+Chess requires the **Fairy-Stockfish** binary for live game-play (GPLv3, not redistributed). Fairy-Stockfish, not vanilla Stockfish: only the Fairy fork exposes the `UCI_Elo` knob required for the Elo-rated tools.
+
+```bash
+# macOS (Homebrew)
+brew install fairy-stockfish
+# binary lands at /opt/homebrew/bin/fairy-stockfish (ARM)
+# or /usr/local/bin/fairy-stockfish (Intel)
+
+# Linux / Windows: download a release binary, chmod +x
+# https://github.com/fairy-stockfish/Fairy-Stockfish/releases
+```
+
+Then point at it from your `.env`:
 
 ```
-FAIRY_STOCKFISH_PATH=/abs/path/to/fairy-stockfish-binary
+FAIRY_STOCKFISH_PATH=/abs/path/to/fairy-stockfish
 ```
-
-in your `.env`. (Fairy-Stockfish, not vanilla Stockfish: only the Fairy fork exposes the `UCI_Elo` knob required for the Elo-rated tools.)
 
 The chess corpus (2000 pre-sampled positions, 200 train + 1800 test) is already shipped under `src/datasets/chess/data/`. No Lichess DB download required for paper reproduction.
 
