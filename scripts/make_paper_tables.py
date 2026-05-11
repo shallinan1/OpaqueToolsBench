@@ -19,17 +19,15 @@ Examples:
     # All tables at once
     python -m scripts.make_paper_tables --table all --bcp-dir /path/to/BrowseCompPlus
 
-Output reflects what the shipped trajectories actually scored. For most
-cells this matches the paper print to two decimals; a few cells differ
-slightly because of how the public bundle was filtered or which
-iteration's snapshot the paper printed. Specifically:
+Output reflects what the shipped trajectories actually scored. One note:
 
   Table 2 (BFCL): `+ P2P` for the two `*_param[remove_all]` opacity rows
-  aggregates over only `executable_multiple_function` (n=50). The source
-  play2prompt runs for `executable_simple` at those two opacity settings
-  used only open-source models (gpt-oss, Kimi, Qwen), which were
-  filtered out of the public bundle per the OpenAI-only release policy.
-  The third opacity row aggregates over both categories.
+  aggregates over only `executable_multiple_function` (n=50). The
+  matching `executable_simple` play2prompt trajectories for those two
+  opacity settings appear to have been deleted from our saved
+  trajectory dump at some point — they're the only two configs missing
+  gpt5 / gpt5-mini runs in the source. The third opacity row is
+  complete and aggregates over both categories normally.
 """
 
 import argparse
