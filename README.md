@@ -2,12 +2,13 @@
 
 A benchmark and pipeline for studying whether LLM agents can **recover the meaning of opacified tools** — tools whose names, descriptions, and parameters have been deliberately obscured — and whether **iterative description improvement** driven by evaluation feedback can recover lost performance.
 
-This release covers two domains:
+This release covers three domains:
 
 - **BFCL** (function calling) — the two paper categories `executable_simple` and `executable_multiple_function`.
 - **BrowseCompPlus** (information retrieval) — 9 domain-specialized search tools (Wikipedia, academic, news, etc.) with opaque/transparent variants over BM25 and FAISS retrieval backends.
+- **Chess** (strategic reasoning) — 4 phase-specialist or 3 Elo-rated stateless move-suggestion tools; the agent plays a Fairy-Stockfish opponent at a target Elo and discovers tool semantics through play.
 
-The chess domain (Table 3 of the paper) is a separate follow-up release; the chess pipeline and trajectories are not in this artifact bundle yet.
+Chess code is now in the repo; paper-canonical trajectories will ship as a separate Release asset.
 
 ## What's shipped
 
@@ -15,6 +16,7 @@ The chess domain (Table 3 of the paper) is a separate follow-up release; the che
 - Iterative description-improvement pipeline (**ToolObserver** in the paper): `v0 (opaque) → evaluate → rewrite descriptions → v1 → …`. Outputs land under `runs/{domain}/tool_observer/`.
 - **BFCL:** ready-to-use opacified configs + pre-populated `function_call_cache.json` (654 entries) so paper scores reproduce exactly even though some BFCL tests hit live REST APIs.
 - **BrowseCompPlus:** 12 ready-to-use shared-tool configs (transparent/opaque × BM25/FAISS × {no-doc, no-doc_search-all, no-doc_search-all-only}) + pre-built `id_to_url.json` and `base_url_counts.json`.
+- **Chess:** 4 paper-canonical shared-tool configs (opaque + Gold variants for both phase-specialist and Elo skill settings) + pre-sampled `train.jsonl` / `test.jsonl` positions (2000 total, ~400 KB).
 
 ## Install
 
@@ -125,6 +127,34 @@ python -m src.datasets.BrowseCompPlus.iterative_improve \
 ```
 
 Outputs land under `runs/BrowseCompPlus/tool_observer/…`. See [`src/datasets/BrowseCompPlus/README.md`](src/datasets/BrowseCompPlus/README.md) for the full workflow and config matrix.
+
+---
+
+## Chess setup
+
+Chess requires the **Fairy-Stockfish** binary for live game-play (GPLv3, not redistributed). Download a release binary from [`fairy-stockfish/Fairy-Stockfish`](https://github.com/fairy-stockfish/Fairy-Stockfish/releases), make it executable, and set its absolute path:
+
+```
+FAIRY_STOCKFISH_PATH=/abs/path/to/fairy-stockfish-binary
+```
+
+in your `.env`. (Fairy-Stockfish, not vanilla Stockfish: only the Fairy fork exposes the `UCI_Elo` knob required for the Elo-rated tools.)
+
+The chess corpus (2000 pre-sampled positions, 200 train + 1800 test) is already shipped under `src/datasets/chess/data/`. No Lichess DB download required for paper reproduction.
+
+### Chess quickstart
+
+```bash
+python -m src.datasets.chess.iterative_improve \
+  --config-source src/datasets/chess/shared_tools/elo_tools_obfuscated.json \
+  --generation-model gpt-5 \
+  --editing-model gpt-5 \
+  --editing-prompt-key detailed \
+  --iterations 10 \
+  --black-type elo_1800
+```
+
+Outputs land under `runs/chess/tool_observer/…`. See [`src/datasets/chess/README.md`](src/datasets/chess/README.md) for the full workflow, the two paper tool settings (phase specialists / Elo skills), and headline-metric scoring (`evaluate_tool_selection.py`, `compute_elo.py`).
 
 ---
 

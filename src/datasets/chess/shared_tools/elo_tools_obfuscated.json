@@ -1,0 +1,40 @@
+{
+  "config_name": "elo_tools_obfuscated",
+  "config_description": "Chess tools with obfuscated names and descriptions: three Elo-rated move generators",
+  "test_category": "chess",
+  "num_tests": 1,
+  "function_mapping": {
+    "function_1": "elo_1200",
+    "function_2": "elo_1800",
+    "function_3": "elo_2400"
+  },
+  "tools": [
+    {
+      "name": "function_1",
+      "description": "Analyzes the current board position and returns a suggested move in algebraic notation. The tool automatically reads the board state — no input is needed.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    },
+    {
+      "name": "function_2",
+      "description": "Analyzes the current board position and returns a suggested move in algebraic notation. The tool automatically reads the board state — no input is needed.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    },
+    {
+      "name": "function_3",
+      "description": "Analyzes the current board position and returns a suggested move in algebraic notation. The tool automatically reads the board state — no input is needed.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    }
+  ]
+}

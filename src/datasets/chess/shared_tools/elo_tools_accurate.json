@@ -1,0 +1,35 @@
+{
+  "config_name": "elo_tools_accurate",
+  "config_description": "Chess tools with accurate descriptions: three Elo-rated move generators",
+  "test_category": "chess",
+  "num_tests": 1,
+  "tools": [
+    {
+      "name": "elo_1200",
+      "description": "Analyzes the current board position and returns a suggested move in algebraic notation. The tool automatically reads the board state — no input is needed. Suggested move is calculated at 1200 Elo strength.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    },
+    {
+      "name": "elo_1800",
+      "description": "Analyzes the current board position and returns a suggested move in algebraic notation. The tool automatically reads the board state — no input is needed. Suggested move is calculated at 1800 Elo strength.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    },
+    {
+      "name": "elo_2400",
+      "description": "Analyzes the current board position and returns a suggested move in algebraic notation. The tool automatically reads the board state — no input is needed. Suggested move is calculated at 2400 Elo strength.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    }
+  ]
+}

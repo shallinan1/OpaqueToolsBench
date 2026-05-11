@@ -1,0 +1,44 @@
+{
+  "config_name": "all_specialists_accurate",
+  "config_description": "Chess tools with accurate descriptions: all four game phase specialists",
+  "test_category": "chess",
+  "num_tests": 1,
+  "tools": [
+    {
+      "name": "opening_specialist",
+      "description": "Analyzes the current board position and returns a suggested move in algebraic notation. The tool automatically reads the board state — no input is needed. Returns a 2400 Elo strength move if the current position is in the opening phase (26+ pieces remaining, excluding kings), otherwise returns a random legal move.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    },
+    {
+      "name": "middlegame_specialist",
+      "description": "Analyzes the current board position and returns a suggested move in algebraic notation. The tool automatically reads the board state — no input is needed. Returns a 2400 Elo strength move if the current position is in the middlegame phase (14-25 pieces remaining, excluding kings), otherwise returns a random legal move.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    },
+    {
+      "name": "endgame_specialist",
+      "description": "Analyzes the current board position and returns a suggested move in algebraic notation. The tool automatically reads the board state — no input is needed. Returns a 2400 Elo strength move if the current position is in the endgame phase (8-13 pieces remaining, excluding kings), otherwise returns a random legal move.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    },
+    {
+      "name": "late_endgame_specialist",
+      "description": "Analyzes the current board position and returns a suggested move in algebraic notation. The tool automatically reads the board state — no input is needed. Returns a 2400 Elo strength move if the current position is in the late endgame phase (fewer than 8 pieces remaining, excluding kings), otherwise returns a random legal move.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    }
+  ]
+}
