@@ -1,0 +1,49 @@
+{
+  "player": "agent",
+  "tool_type": "specialist",
+  "total_tool_calls": 9551,
+  "optimal_tool_calls": 2417,
+  "optimal_selection_rate": 0.2530625065438174,
+  "tool_usage": {
+    "function_3": 2395,
+    "function_1": 2539,
+    "function_2": 2484,
+    "function_4": 2133
+  },
+  "num_games_analyzed": 597,
+  "per_game_accuracy_mean": 0.24319503925241978,
+  "function_mapping": {
+    "function_1": "opening_specialist",
+    "function_2": "middlegame_specialist",
+    "function_3": "endgame_specialist",
+    "function_4": "late_endgame_specialist"
+  },
+  "phase_accuracy": {
+    "middlegame": {
+      "total_calls": 4173,
+      "correct_calls": 1078,
+      "accuracy": 0.25832734243949196
+    },
+    "endgame": {
+      "total_calls": 2108,
+      "correct_calls": 523,
+      "accuracy": 0.24810246679316889
+    },
+    "late_endgame": {
+      "total_calls": 1714,
+      "correct_calls": 389,
+      "accuracy": 0.22695449241540255
+    },
+    "opening": {
+      "total_calls": 1556,
+      "correct_calls": 427,
+      "accuracy": 0.2744215938303342
+    }
+  },
+  "specialists": {
+    "opening": "function_1",
+    "middlegame": "function_2",
+    "endgame": "function_3",
+    "late_endgame": "function_4"
+  }
+}

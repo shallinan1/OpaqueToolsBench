@@ -8,7 +8,7 @@ This release covers three domains:
 - **BrowseCompPlus** (information retrieval) — 9 domain-specialized search tools (Wikipedia, academic, news, etc.) with opaque/transparent variants over BM25 and FAISS retrieval backends.
 - **Chess** (strategic reasoning) — 4 phase-specialist or 3 Elo-rated stateless move-suggestion tools; the agent plays a Fairy-Stockfish opponent at a target Elo and discovers tool semantics through play.
 
-Chess code is now in the repo; paper-canonical trajectories will ship as a separate Release asset.
+Chess code and a (partial) paper-canonical trajectory bundle are both shipped. See [the chess release notes](https://github.com/shallinan1/OpaqueToolsBench/releases/tag/v0.2-chess-trajectories) and [`src/datasets/chess/README.md`](src/datasets/chess/README.md) for the known scope gaps relative to paper Table 3.
 
 ## What's shipped
 

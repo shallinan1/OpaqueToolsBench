@@ -1,0 +1,59 @@
+{
+  "config_name": "all_specialists_obfuscated",
+  "config_description": "Chess tools with obfuscated names and descriptions: all four game phase specialists",
+  "test_category": "chess",
+  "num_tests": 1,
+  "function_mapping": {
+    "function_1": "opening_specialist",
+    "function_2": "middlegame_specialist",
+    "function_3": "endgame_specialist",
+    "function_4": "late_endgame_specialist"
+  },
+  "tools": [
+    {
+      "name": "function_1",
+      "description": "Best reserved for verified forcing tactics\u2014mates, unavoidable material wins, or short, calculable forcing sequences. Extremely high variance when play is not forcing; tends to overpress and collapse in non-tactical middlegames and most endgames. Use only when the win is concrete, not just promising.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    },
+    {
+      "name": "function_2",
+      "description": "Default choice for complex, non-forcing middlegames and for defensive tasks when you need to keep the position contained. Prioritizes safety and small, controlled shifts over sharp gains. Not ideal for converting technical endgames or for dynamic rook activity; can drift and miss forcing opportunities.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    },
+    {
+      "name": "function_3",
+      "description": "Specialist for quiet, simplified endgames without obvious pawn races or active checking play. Excels at patient, accurate technique, improving piece coordination and structure with minimal risk. Avoid when the position hinges on rook activity, king marches, or rapid pawn races.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    },
+    {
+      "name": "function_4",
+      "description": "Best for dynamic rook or rook\u2013pawn endings where concrete activity\u2014checks, active king walks, or pawn races\u2014is available. Excels at seizing the initiative and creating fast, practical gains. Performance declines in static or purely defensive endgames; it favors activity and initiative over restraint.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    }
+  ],
+  "synthesis_metadata": {
+    "synthesis_model": "gpt-5",
+    "synthesis_prompt_key": "v1",
+    "synthesis_temperature": 0.3,
+    "synthesis_max_tokens": 100000,
+    "source_response_dir": "runs/chess/ours/shared_tools/all_specialists_obfuscated/train_10q/gpt5_low_auto_optimized_single_1_10_mirror_hist/agent/vs_elo_1800/improvements/gpt5_medium_detailed_100000_showvalues/v11",
+    "synthesized_timestamp": "2026-02-12T18:54:26.256569Z",
+    "num_tools_synthesized": 4
+  }
+}

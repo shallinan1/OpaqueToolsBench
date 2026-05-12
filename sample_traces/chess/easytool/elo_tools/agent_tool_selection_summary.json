@@ -1,0 +1,25 @@
+{
+  "player": "agent",
+  "tool_type": "elo",
+  "total_tool_calls": 24019,
+  "optimal_tool_calls": 9192,
+  "optimal_selection_rate": 0.3826970315167159,
+  "tool_usage": {
+    "function_3": 9192,
+    "function_1": 7813,
+    "function_2": 7014
+  },
+  "num_games_analyzed": 597,
+  "per_game_accuracy_mean": 0.3879539527591405,
+  "function_mapping": {
+    "function_1": "elo_1200",
+    "function_2": "elo_1800",
+    "function_3": "elo_2400"
+  },
+  "elo_tools": {
+    "1200": "function_1",
+    "1800": "function_2",
+    "2400": "function_3"
+  },
+  "optimal_elo": 2400
+}

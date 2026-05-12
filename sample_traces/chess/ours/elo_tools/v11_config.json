@@ -1,0 +1,49 @@
+{
+  "config_name": "elo_tools_obfuscated",
+  "config_description": "Chess tools with obfuscated names and descriptions: three Elo-rated move generators",
+  "test_category": "chess",
+  "num_tests": 1,
+  "function_mapping": {
+    "function_1": "elo_1200",
+    "function_2": "elo_1800",
+    "function_3": "elo_2400"
+  },
+  "tools": [
+    {
+      "name": "function_1",
+      "description": "Best for forcing tactics or when you must create complications from a worse or stagnant position. Excels at spotting decisive sequences and generating counterplay, but is volatile in quiet middlegames and unreliable for technical endgame conversion or steady defense. Use when concrete calculation clearly justifies action; avoid when the position calls for restraint and risk control.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    },
+    {
+      "name": "function_2",
+      "description": "Best for simplified endgames requiring precise pawn play and king maneuvers. Excels at safe conversion and sturdy holding with low variance, even if it sometimes chooses risk-averse lines that modestly reduce the margin. Not ideal when you must manufacture counterplay from a worse ending or inject complications.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    },
+    {
+      "name": "function_3",
+      "description": "Best for balanced or slightly better middlegames where risk control, consolidation, and maintaining flexibility matter. Keeps variance low and avoids large concessions, but is not the choice for sharp tactical shots or precise endgame conversion. Use to nurse small edges and neutralize counterplay when no clear forcing line exists.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    }
+  ],
+  "synthesis_metadata": {
+    "synthesis_model": "gpt-5",
+    "synthesis_prompt_key": "v1",
+    "synthesis_temperature": 0.3,
+    "synthesis_max_tokens": 100000,
+    "source_response_dir": "runs/chess/ours/shared_tools/elo_tools_obfuscated/train_10q/gpt5_low_auto_optimized_single_1_10_mirror_hist/agent/vs_elo_1800/improvements/gpt5_medium_detailed_100000_showvalues/v11",
+    "synthesized_timestamp": "2026-02-12T13:22:03.712424Z",
+    "num_tools_synthesized": 3
+  }
+}

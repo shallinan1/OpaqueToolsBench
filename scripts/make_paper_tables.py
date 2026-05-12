@@ -9,6 +9,9 @@ Examples:
     # Table 2 (BFCL) — reads from sample_traces/bfcl/ committed in the repo
     python -m scripts.make_paper_tables --table 2
 
+    # Table 3 (Chess, partial) — reads from sample_traces/chess/ committed in the repo
+    python -m scripts.make_paper_tables --table 3
+
     # Table 4 (BCP) — needs the trajectory tarball extracted somewhere
     python -m scripts.make_paper_tables --table 4 \\
         --bcp-dir /path/to/extracted/BrowseCompPlus
@@ -19,7 +22,7 @@ Examples:
     # All tables at once
     python -m scripts.make_paper_tables --table all --bcp-dir /path/to/BrowseCompPlus
 
-Output reflects what the shipped trajectories actually scored. One note:
+Output reflects what the shipped trajectories actually scored. Two notes:
 
   Table 2 (BFCL): `+ P2P` for the two `*_param[remove_all]` opacity rows
   aggregates over only `executable_multiple_function` (n=50). The
@@ -28,6 +31,15 @@ Output reflects what the shipped trajectories actually scored. One note:
   trajectory dump at some point — they're the only two configs missing
   gpt5 / gpt5-mini runs in the source. The third opacity row is
   complete and aggregates over both categories normally.
+
+  Table 3 (Chess): partial only. The paper pooled games against three
+  Stockfish opponents (vs_elo_1200, vs_elo_1800, vs_elo_2400) for the
+  Table 3 numbers; our preserved artifact storage contained only
+  vs_elo_1800. So the cells produced here are single-opponent ELO
+  estimates that run systematically higher than the paper number
+  (single-anchor artifact), and only the `+ ET` / `+ P2P` baselines on
+  GPT-5 are available — Gold, Base, +TO test-set, and the GPT-5-mini
+  rows would need a fresh run.
 """
 
 import argparse
@@ -153,16 +165,75 @@ def render_table_2_markdown(rows: List[Dict]) -> str:
 
 
 # ----- Table 3 (Chess) ----------------------------------------------------------
+#
+# Partial reproduction only. The paper's Table 3 pools games across three Stockfish
+# opponents (vs_elo_1200, vs_elo_1800, vs_elo_2400); the artifact storage on this
+# release preserved only vs_elo_1800. So the cells produced here come from a
+# single-opponent ELO estimator that runs systematically high vs the paper number
+# (single-anchor artifact), and the +TO test-set gameplay was also not preserved.
+# Method ordering is expected to hold; absolute numbers will differ.
 
-def render_table_3_stub() -> str:
-    return (
-        "## Table 3 — Chess\n\n"
-        "Chess trajectories are not yet shipped in this artifact bundle. The chess\n"
-        "pipeline (run.py, evaluate.py, evaluate_tool_selection.py, compute_elo.py) is\n"
-        "in the repo at `src/datasets/chess/`; trajectories will follow as a separate\n"
-        "GitHub Release. Re-run this script with `--table 3 --chess-dir <path>` once\n"
-        "they're available.\n"
-    )
+CHESS_ROWS = [
+    # (display_setting, sample_traces subdir)
+    ("Phase specialists",        "all_specialists"),
+    ("Elo skill tools",          "elo_tools"),
+]
+
+CHESS_BASELINES = [
+    # (method_label, sample_traces subdir)
+    ("+ ET",  "easytool"),
+    ("+ P2P", "play2prompt"),
+]
+
+
+def _chess_cell(chess_dir: Path, method_subdir: str, config_subdir: str
+                ) -> Tuple[Optional[float], Optional[float]]:
+    """Return (acc_per_game_mean, streaming_elo) from shipped 1800-only summaries, or (None, None)."""
+    elo_path  = chess_dir / method_subdir / config_subdir / "agent_elo_evaluation.json"
+    tsel_path = chess_dir / method_subdir / config_subdir / "agent_tool_selection_summary.json"
+    if not elo_path.exists() or not tsel_path.exists():
+        return (None, None)
+    elo  = json.load(elo_path.open())
+    tsel = json.load(tsel_path.open())
+    acc = tsel.get("per_game_accuracy_mean")
+    rating = elo.get("aggregate_streaming_elo", {}).get("final_elo")
+    return (acc, rating)
+
+
+def collect_table_3(chess_dir: Path) -> List[Dict]:
+    """Build Table 3 rows. GPT-5 only (no GPT-5-mini); +ET / +P2P only (no Gold/Base/+TO)."""
+    out: List[Dict] = []
+    for setting_label, config_subdir in CHESS_ROWS:
+        row = {"setting": setting_label, "model": "GPT-5"}
+        for method_label, method_subdir in CHESS_BASELINES:
+            acc, elo = _chess_cell(chess_dir, method_subdir, config_subdir)
+            row[f"{method_label}_Acc"] = acc
+            row[f"{method_label}_ELO"] = elo
+        out.append(row)
+    return out
+
+
+def render_table_3_markdown(rows: List[Dict]) -> str:
+    lines = []
+    lines.append("## Table 3 — Chess (partial)\n")
+    lines.append("Only `+ ET` and `+ P2P` baselines, GPT-5 only, against `vs_elo_1800` only "
+                 "(paper pooled three opponents — see scope note in `src/datasets/chess/README.md`). "
+                 "Gold / Base / +TO / GPT-5-mini cells are pending a re-run.\n")
+    methods = ["+ ET", "+ P2P"]
+    header = ["Setting", "Model"]
+    for m in methods:
+        header += [f"{m} Acc", f"{m} ELO"]
+    lines.append("| " + " | ".join(header) + " |")
+    lines.append("|" + "|".join(["---"] * len(header)) + "|")
+    for r in rows:
+        cells = [r["setting"], r["model"]]
+        for m in methods:
+            acc = r.get(f"{m}_Acc")
+            elo = r.get(f"{m}_ELO")
+            cells.append(f"{acc * 100:.1f}" if acc is not None else "—")
+            cells.append(f"{elo:.0f}" if elo is not None else "—")
+        lines.append("| " + " | ".join(cells) + " |")
+    return "\n".join(lines) + "\n"
 
 
 # ----- Table 4 (BrowseCompPlus) -------------------------------------------------
@@ -255,8 +326,8 @@ def main() -> int:
                    help="Path to sample_traces/bfcl (default: repo-relative).")
     p.add_argument("--bcp-dir",  type=Path, default=None,
                    help="Path to extracted BrowseCompPlus trajectory dir (from the Release tarball).")
-    p.add_argument("--chess-dir", type=Path, default=None,
-                   help="Path to chess trajectories (not yet released; reserved).")
+    p.add_argument("--chess-dir", type=Path, default=Path("sample_traces/chess"),
+                   help="Path to chess summaries (default: sample_traces/chess in this repo).")
     p.add_argument("--csv", action="store_true", help="Output CSV instead of markdown.")
     args = p.parse_args()
 
@@ -277,7 +348,11 @@ def main() -> int:
         emit("Table 2 — BFCL", rows, render_table_2_markdown)
 
     if args.table in ("3", "all"):
-        out.append(render_table_3_stub())
+        if not args.chess_dir.exists():
+            print(f"Chess sample dir not found: {args.chess_dir}", file=sys.stderr)
+            return 2
+        rows = collect_table_3(args.chess_dir)
+        emit("Table 3 — Chess (partial)", rows, render_table_3_markdown)
 
     if args.table in ("4", "all"):
         if args.bcp_dir is None:
