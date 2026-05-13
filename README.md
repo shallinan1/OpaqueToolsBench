@@ -1,5 +1,7 @@
 # OpaqueToolsBench
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20143797.svg)](https://doi.org/10.5281/zenodo.20143797)
+
 A benchmark and pipeline for studying whether LLM agents can **recover the meaning of opacified tools** — tools whose names, descriptions, and parameters have been deliberately obscured — and whether **iterative description improvement** driven by evaluation feedback can recover lost performance.
 
 This release covers three domains:
