@@ -1,0 +1,112 @@
+# Central experiment configuration for OpaqueToolsBench paper results.
+#
+# One block per paper table. Each block records the exact models, hyperparameters,
+# and the `python -m ...` invocation behind that table's numbers, so a run can be
+# reproduced by copying a block rather than reconstructing CLI flags. Values here
+# are the canonical settings; the shipped trajectory metadata (`v0_metadata.json`)
+# carries the same fields per run for cross-checking.
+#
+# Models referenced: gpt-5, gpt-5-mini (OpenAI). O-series / GPT-5 models ignore
+# temperature and use `max_completion_tokens` internally — see src/.../rate_limits.py.
+
+defaults:
+  provider: openai
+  seed: 0
+  # ToolObserver description-editing model (the "editor"); paper uses gpt-5 medium.
+  editing_model: gpt-5
+  editing_reasoning_effort: medium
+
+# --------------------------------------------------------------------------
+# Table 2 — BFCL-Opaque  (executable_simple + executable_multiple_function)
+# --------------------------------------------------------------------------
+table2_bfcl:
+  models: [gpt-5, gpt-5-mini]
+  reasoning_effort: medium
+  max_tokens: 8192
+  tool_choice: required
+  temperature: 0.001            # ignored by gpt-5 family; recorded for non-reasoning models
+  prompt_key: must_call_tool
+  test_categories: [executable_simple, executable_multiple_function]
+  opacity_rows:                 # the three Documentation rows in Table 2
+    - "name[all:increasing_number]_desc[all:blank]_param[all:remove_all]"     # Anon. Fn. Names Only
+    - "name[all:increasing_number]_param[all:remove_all]"                     # Anon. Fn. + Real Desc
+    - "name[all:increasing_number]_desc[all:blank]_param[all:blank_descriptions]"  # Anon. Fn. + Param Names
+  toolobserver_iterations: 3    # per-test convergence; see iterative_improve --stop-on-perfect
+  commands:
+    toolobserver: >-
+      python -m src.datasets.bfcl.iterative_improve
+      --config-source 'src/datasets/bfcl/tool_configs/<category>_<opacity>_config.json'
+      --generation-model gpt-5 --editing-model gpt-5 --iterations 3
+    easytool_config:  "src/datasets/bfcl/tool_configs/easytool/<category>_<opacity>/gpt5_medium_1024/optimized_config.json"
+    play2prompt_config: "src/datasets/bfcl/tool_configs/play2prompt/<category>_<opacity>/.../optimized_config.json"
+    regrade: >-
+      python -m src.datasets.bfcl.evaluate --result-dir <result_dir>
+
+# --------------------------------------------------------------------------
+# Table 3 — Chess  (phase specialists + Elo skill tools)
+# --------------------------------------------------------------------------
+table3_chess:
+  models: [gpt-5, gpt-5-mini]   # NOTE: shipped trajectory bundle is gpt-5 only
+  reasoning_effort: low
+  max_tokens: 100000
+  tool_choice: required
+  prompt_key: optimized_single
+  tool_settings:
+    - all_specialists_obfuscated  # opening / middlegame / endgame / late-endgame
+    - elo_tools_obfuscated        # beginner / intermediate / advanced (1200/1800/2400)
+  opponents: [elo_1200, elo_1800, elo_2400]   # paper pools all three; bundle has elo_1800 only
+  num_queries: 100              # test split; 10 for train (description-iteration)
+  num_trajectories: 3
+  mirror: true                  # play each position as both colors
+  max_moves: 120
+  include_history: true
+  toolobserver_iterations: 10
+  editing_prompt_key: detailed
+  synthesis_prompt_key: v1
+  commands:
+    run: >-
+      python -m src.datasets.chess.run
+      --shared-tools src/datasets/chess/shared_tools/<config>.json
+      --prompt-key optimized_single --model gpt-5 --reasoning-effort low
+      --white-type agent --black-type elo_1800 --mirror --split test
+      --num-queries 100 --num-trajectories 3 --max-moves 120
+      --max-tokens 100000 --tool-choice required --include-history
+      --output-dir runs/chess/tool_observer
+    toolobserver: >-
+      python -m src.datasets.chess.iterative_improve
+      --config-source src/datasets/chess/shared_tools/<config>.json
+      --generation-model gpt-5 --editing-model gpt-5
+      --editing-prompt-key detailed --iterations 10 --black-type elo_1800
+    score_elo:  "python -m src.datasets.chess.compute_elo --results-dir <result_dir>/agent"
+    score_acc:  "python -m src.datasets.chess.evaluate_tool_selection --input_file <traj.json> --config_file <config.json>"
+
+# --------------------------------------------------------------------------
+# Table 4 — BrowseCompPlus  (domain-specific 9 search tools, FAISS / Qwen-0.6B)
+# --------------------------------------------------------------------------
+table4_browsecomp:
+  models: [gpt-5, gpt-5-mini]
+  reasoning_effort: minimal     # generation; editing uses medium (see defaults)
+  retrieval_backend: faiss      # paper's reported BrowseComp results; embedder Qwen3-Embedding-0.6B
+  retrieved_docs_k: 5
+  max_tokens: 20000
+  prompt_key: besttoolfirst
+  settings:                     # the two reported rows
+    - fully_opaque_faiss_no-doc              # Domain-specific (9) Search
+    - fully_opaque_faiss_no-doc_search-all   # Domain-specific (9) + Full Search
+  gold_settings:                # transparent ("Gold") references
+    - transparent_faiss_no-doc
+    - transparent_faiss_no-doc_search-all
+  toolobserver_iterations: 3
+  num_trajectories_batch: 10
+  editing_prompt_type: detailed_v2
+  synthesis_prompt_key: v2
+  commands:
+    toolobserver: >-
+      python -m src.datasets.BrowseCompPlus.iterative_improve
+      --config-source src/datasets/BrowseCompPlus/shared_tools/<setting>.json
+      --generation-model gpt-5 --generation-reasoning-effort medium
+      --editing-model gpt-5 --editing-reasoning-effort medium
+      --editing-prompt-type detailed_v2 --synthesis-prompt-key v2
+      --num-trajectories-batch 10 --iterations 3
+    easytool_config:   "src/datasets/BrowseCompPlus/shared_tools/easytool/<setting>/gpt5_medium_1024/optimized_config.json"
+    play2prompt_config: "src/datasets/BrowseCompPlus/shared_tools/play2prompt/<setting>/.../optimized_config.json"

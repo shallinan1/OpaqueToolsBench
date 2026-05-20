@@ -1,6 +1,6 @@
 version = 1
 revision = 3
-requires-python = "==3.10"
+requires-python = "==3.10.*"
 resolution-markers = [
     "sys_platform == 'darwin'",
     "platform_machine == 'aarch64' and sys_platform == 'linux'",
@@ -1803,7 +1803,7 @@ name = "nvidia-cudnn-cu12"
 version = "9.5.1.17"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "nvidia-cublas-cu12", marker = "(platform_machine != 'aarch64' and sys_platform == 'linux') or (sys_platform != 'darwin' and sys_platform != 'linux')" },
+    { name = "nvidia-cublas-cu12" },
 ]
 wheels = [
     { url = "https://files.pythonhosted.org/packages/2a/78/4535c9c7f859a64781e43c969a3a7e84c54634e319a996d43ef32ce46f83/nvidia_cudnn_cu12-9.5.1.17-py3-none-manylinux_2_28_x86_64.whl", hash = "sha256:30ac3869f6db17d170e0e556dd6cc5eee02647abc31ca856634d5a40f82c15b2", size = 570988386, upload-time = "2024-10-25T19:54:26.39Z" },
@@ -1814,7 +1814,7 @@ name = "nvidia-cufft-cu12"
 version = "11.3.0.4"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "nvidia-nvjitlink-cu12", marker = "(platform_machine != 'aarch64' and sys_platform == 'linux') or (sys_platform != 'darwin' and sys_platform != 'linux')" },
+    { name = "nvidia-nvjitlink-cu12" },
 ]
 wheels = [
     { url = "https://files.pythonhosted.org/packages/8f/16/73727675941ab8e6ffd86ca3a4b7b47065edcca7a997920b831f8147c99d/nvidia_cufft_cu12-11.3.0.4-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:ccba62eb9cef5559abd5e0d54ceed2d9934030f51163df018532142a8ec533e5", size = 200221632, upload-time = "2024-11-20T17:41:32.357Z" },
@@ -1843,9 +1843,9 @@ name = "nvidia-cusolver-cu12"
 version = "11.7.1.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "nvidia-cublas-cu12", marker = "(platform_machine != 'aarch64' and sys_platform == 'linux') or (sys_platform != 'darwin' and sys_platform != 'linux')" },
-    { name = "nvidia-cusparse-cu12", marker = "(platform_machine != 'aarch64' and sys_platform == 'linux') or (sys_platform != 'darwin' and sys_platform != 'linux')" },
-    { name = "nvidia-nvjitlink-cu12", marker = "(platform_machine != 'aarch64' and sys_platform == 'linux') or (sys_platform != 'darwin' and sys_platform != 'linux')" },
+    { name = "nvidia-cublas-cu12" },
+    { name = "nvidia-cusparse-cu12" },
+    { name = "nvidia-nvjitlink-cu12" },
 ]
 wheels = [
     { url = "https://files.pythonhosted.org/packages/f0/6e/c2cf12c9ff8b872e92b4a5740701e51ff17689c4d726fca91875b07f655d/nvidia_cusolver_cu12-11.7.1.2-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:e9e49843a7707e42022babb9bcfa33c29857a93b88020c4e4434656a655b698c", size = 158229790, upload-time = "2024-11-20T17:43:43.211Z" },
@@ -1857,7 +1857,7 @@ name = "nvidia-cusparse-cu12"
 version = "12.5.4.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "nvidia-nvjitlink-cu12", marker = "(platform_machine != 'aarch64' and sys_platform == 'linux') or (sys_platform != 'darwin' and sys_platform != 'linux')" },
+    { name = "nvidia-nvjitlink-cu12" },
 ]
 wheels = [
     { url = "https://files.pythonhosted.org/packages/06/1e/b8b7c2f4099a37b96af5c9bb158632ea9e5d9d27d7391d7eb8fc45236674/nvidia_cusparse_cu12-12.5.4.2-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:7556d9eca156e18184b94947ade0fba5bb47d69cec46bf8660fd2c71a4b48b73", size = 216561367, upload-time = "2024-11-20T17:44:54.824Z" },
@@ -1915,6 +1915,104 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/84/57/901eddbfb59ac4d008822b236450d5765cafcd450c787019416f8d3baf11/onnxruntime-1.22.1-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:bddc75868bcf6f9ed76858a632f65f7b1846bdcefc6d637b1e359c2c68609964", size = 16459905, upload-time = "2025-07-10T19:15:21.749Z" },
     { url = "https://files.pythonhosted.org/packages/de/90/d6a1eb9b47e66a18afe7d1cf7cf0b2ef966ffa6f44d9f32d94c2be2860fb/onnxruntime-1.22.1-cp310-cp310-win_amd64.whl", hash = "sha256:01e2f21b2793eb0c8642d2be3cee34cc7d96b85f45f6615e4e220424158877ce", size = 12689001, upload-time = "2025-07-10T19:15:23.848Z" },
 ]
+
+[[package]]
+name = "opaquetoolsbench"
+version = "0.1.0"
+source = { virtual = "." }
+dependencies = [
+    { name = "aiohttp" },
+    { name = "anthropic" },
+    { name = "cohere" },
+    { name = "matplotlib" },
+    { name = "mistralai" },
+    { name = "numpy" },
+    { name = "openai" },
+    { name = "pandas" },
+    { name = "python-chess" },
+    { name = "python-dotenv" },
+    { name = "requests" },
+    { name = "rich" },
+    { name = "tiktoken" },
+    { name = "together" },
+    { name = "tqdm" },
+    { name = "tree-sitter" },
+    { name = "tree-sitter-java" },
+    { name = "tree-sitter-javascript" },
+]
+
+[package.optional-dependencies]
+local-llm = [
+    { name = "accelerate" },
+    { name = "deepspeed" },
+    { name = "peft" },
+    { name = "protobuf" },
+    { name = "qwen-agent", extra = ["gui", "mcp", "rag"] },
+    { name = "qwen-omni-utils" },
+    { name = "sentencepiece" },
+    { name = "torch" },
+    { name = "torchvision" },
+    { name = "transformers" },
+    { name = "vllm" },
+]
+metrics = [
+    { name = "sentence-transformers" },
+    { name = "torch" },
+    { name = "transformers" },
+]
+retrieval = [
+    { name = "datasets" },
+    { name = "faiss-cpu" },
+    { name = "fastmcp" },
+    { name = "google-genai" },
+    { name = "pyngrok" },
+    { name = "pyserini" },
+    { name = "tevatron" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "accelerate", marker = "extra == 'local-llm'", specifier = ">=1.9.0" },
+    { name = "aiohttp", specifier = ">=3.9.0" },
+    { name = "anthropic", specifier = ">=0.58.2" },
+    { name = "cohere", specifier = "==5.5.8" },
+    { name = "datasets", marker = "extra == 'retrieval'", specifier = ">=4.0.0" },
+    { name = "deepspeed", marker = "extra == 'local-llm'", specifier = ">=0.17.2" },
+    { name = "faiss-cpu", marker = "extra == 'retrieval'", specifier = ">=1.11.0.post1" },
+    { name = "fastmcp", marker = "extra == 'retrieval'", specifier = "==2.9.2" },
+    { name = "google-genai", marker = "extra == 'retrieval'", specifier = ">=1.27.0" },
+    { name = "matplotlib", specifier = ">=3.5.0" },
+    { name = "mistralai", specifier = "==0.4.2" },
+    { name = "numpy", specifier = ">=1.20.0" },
+    { name = "openai", specifier = ">=1.97.0" },
+    { name = "pandas", specifier = ">=2.0.0" },
+    { name = "peft", marker = "extra == 'local-llm'", specifier = ">=0.16.0" },
+    { name = "protobuf", marker = "extra == 'local-llm'", specifier = ">=4.25.1" },
+    { name = "pyngrok", marker = "extra == 'retrieval'", specifier = ">=7.2.12" },
+    { name = "pyserini", marker = "extra == 'retrieval'", specifier = ">=1.2.0" },
+    { name = "python-chess", specifier = ">=1.0.0" },
+    { name = "python-dotenv", specifier = ">=1.1.1" },
+    { name = "qwen-agent", extras = ["gui", "mcp", "rag"], marker = "extra == 'local-llm'", specifier = "==0.0.27" },
+    { name = "qwen-omni-utils", marker = "extra == 'local-llm'", specifier = "==0.0.8" },
+    { name = "requests", specifier = ">=2.31.0" },
+    { name = "rich", specifier = ">=14.0.0" },
+    { name = "sentence-transformers", marker = "extra == 'metrics'", specifier = ">=3.0.0" },
+    { name = "sentencepiece", marker = "extra == 'local-llm'", specifier = ">=0.1.99" },
+    { name = "tevatron", marker = "extra == 'retrieval'", git = "https://github.com/texttron/tevatron.git?rev=main" },
+    { name = "tiktoken", specifier = ">=0.7.0" },
+    { name = "together", specifier = ">=1.5.25" },
+    { name = "torch", marker = "extra == 'local-llm'", specifier = ">=2.0.0" },
+    { name = "torch", marker = "extra == 'metrics'", specifier = ">=2.0.0" },
+    { name = "torchvision", marker = "extra == 'local-llm'" },
+    { name = "tqdm", specifier = ">=4.67.1" },
+    { name = "transformers", marker = "extra == 'local-llm'", specifier = ">=4.53.2" },
+    { name = "transformers", marker = "extra == 'metrics'", specifier = ">=4.53.2" },
+    { name = "tree-sitter", specifier = "==0.21.3" },
+    { name = "tree-sitter-java", specifier = "==0.21.0" },
+    { name = "tree-sitter-javascript", specifier = "==0.21.4" },
+    { name = "vllm", marker = "extra == 'local-llm'", specifier = ">=0.9.0" },
+]
+provides-extras = ["retrieval", "local-llm", "metrics"]
 
 [[package]]
 name = "openai"
@@ -3150,6 +3248,25 @@ wheels = [
 ]
 
 [[package]]
+name = "sentence-transformers"
+version = "5.5.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "huggingface-hub" },
+    { name = "numpy" },
+    { name = "scikit-learn" },
+    { name = "scipy" },
+    { name = "torch" },
+    { name = "tqdm" },
+    { name = "transformers" },
+    { name = "typing-extensions" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/2c/27/16d127a61303e05847d878b23687f3371868c76e738557fa80b4373a8c2b/sentence_transformers-5.5.0.tar.gz", hash = "sha256:9cec675e68bfe09d07466d1f13ab06d1d79d60a0f45b154baf433bde6ae159cb", size = 444908, upload-time = "2026-05-12T14:05:42.383Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/55/20/18416624bcbae866ec0b111979766cebabe8e5ff7563ab953ecbaf3ff9e7/sentence_transformers-5.5.0-py3-none-any.whl", hash = "sha256:75313fdcc2397ec4b58297c25d6187fcca5a6b2aeb09570a72eff5a3223d8d58", size = 588665, upload-time = "2026-05-12T14:05:40.899Z" },
+]
+
+[[package]]
 name = "sentencepiece"
 version = "0.2.0"
 source = { registry = "https://pypi.org/simple" }
@@ -3421,85 +3538,6 @@ wheels = [
 ]
 
 [[package]]
-name = "opaquetoolsbench"
-version = "0.1.0"
-source = { virtual = "." }
-dependencies = [
-    { name = "accelerate" },
-    { name = "anthropic" },
-    { name = "cohere" },
-    { name = "datasets" },
-    { name = "deepspeed" },
-    { name = "faiss-cpu" },
-    { name = "fastmcp" },
-    { name = "google-genai" },
-    { name = "matplotlib" },
-    { name = "mistralai" },
-    { name = "numpy" },
-    { name = "openai" },
-    { name = "pandas" },
-    { name = "peft" },
-    { name = "protobuf" },
-    { name = "pyngrok" },
-    { name = "pyserini" },
-    { name = "python-chess" },
-    { name = "python-dotenv" },
-    { name = "qwen-agent", extra = ["gui", "mcp", "rag"] },
-    { name = "qwen-omni-utils" },
-    { name = "requests" },
-    { name = "rich" },
-    { name = "sentencepiece" },
-    { name = "tevatron" },
-    { name = "together" },
-    { name = "torch" },
-    { name = "torchvision" },
-    { name = "tqdm" },
-    { name = "transformers" },
-    { name = "tree-sitter" },
-    { name = "tree-sitter-java" },
-    { name = "tree-sitter-javascript" },
-    { name = "vllm" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "accelerate", specifier = ">=1.9.0" },
-    { name = "anthropic", specifier = ">=0.58.2" },
-    { name = "cohere", specifier = "==5.5.8" },
-    { name = "datasets", specifier = ">=4.0.0" },
-    { name = "deepspeed", specifier = ">=0.17.2" },
-    { name = "faiss-cpu", specifier = ">=1.11.0.post1" },
-    { name = "fastmcp", specifier = "==2.9.2" },
-    { name = "google-genai", specifier = ">=1.27.0" },
-    { name = "matplotlib", specifier = ">=3.5.0" },
-    { name = "mistralai", specifier = "==0.4.2" },
-    { name = "numpy", specifier = ">=1.20.0" },
-    { name = "openai", specifier = ">=1.97.0" },
-    { name = "pandas", specifier = ">=2.0.0" },
-    { name = "peft", specifier = ">=0.16.0" },
-    { name = "protobuf", specifier = ">=4.25.1" },
-    { name = "pyngrok", specifier = ">=7.2.12" },
-    { name = "pyserini", specifier = ">=1.2.0" },
-    { name = "python-chess", specifier = ">=1.0.0" },
-    { name = "python-dotenv", specifier = ">=1.1.1" },
-    { name = "qwen-agent", extras = ["gui", "mcp", "rag"], specifier = "==0.0.27" },
-    { name = "qwen-omni-utils", specifier = "==0.0.8" },
-    { name = "requests", specifier = ">=2.31.0" },
-    { name = "rich", specifier = ">=14.0.0" },
-    { name = "sentencepiece", specifier = ">=0.1.99" },
-    { name = "tevatron", git = "https://github.com/texttron/tevatron.git?rev=main" },
-    { name = "together", specifier = ">=1.5.25" },
-    { name = "torch", specifier = ">=2.0.0" },
-    { name = "torchvision" },
-    { name = "tqdm", specifier = ">=4.67.1" },
-    { name = "transformers", specifier = ">=4.53.2" },
-    { name = "tree-sitter", specifier = "==0.21.3" },
-    { name = "tree-sitter-java", specifier = "==0.21.0" },
-    { name = "tree-sitter-javascript", specifier = "==0.21.4" },
-    { name = "vllm", specifier = ">=0.9.0" },
-]
-
-[[package]]
 name = "torch"
 version = "2.7.0"
 source = { registry = "https://pypi.org/simple" }
@@ -3645,7 +3683,7 @@ name = "triton"
 version = "3.3.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "setuptools", marker = "(platform_machine != 'aarch64' and sys_platform == 'linux') or (sys_platform != 'darwin' and sys_platform != 'linux')" },
+    { name = "setuptools" },
 ]
 wheels = [
     { url = "https://files.pythonhosted.org/packages/76/04/d54d3a6d077c646624dc9461b0059e23fd5d30e0dbe67471e3654aec81f9/triton-3.3.0-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:fad99beafc860501d7fcc1fb7045d9496cbe2c882b1674640304949165a916e7", size = 156441993, upload-time = "2025-04-09T20:27:25.107Z" },
@@ -3899,8 +3937,8 @@ name = "xformers"
 version = "0.0.30"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "numpy", marker = "(platform_machine != 'aarch64' and sys_platform == 'linux') or (sys_platform != 'darwin' and sys_platform != 'linux')" },
-    { name = "torch", marker = "(platform_machine != 'aarch64' and sys_platform == 'linux') or (sys_platform != 'darwin' and sys_platform != 'linux')" },
+    { name = "numpy" },
+    { name = "torch" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/bf/f7/dd2269cce89fd1221947dd7cc3a60707ffe721ef55c1803ac3b1a1f7ae5c/xformers-0.0.30.tar.gz", hash = "sha256:a12bf3eb39e294cdbe8a7253ac9b665f41bac61d6d98df174e34ef7bdb6f2fc4", size = 10214139, upload-time = "2025-04-28T20:51:02.045Z" }
 wheels = [

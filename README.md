@@ -22,14 +22,31 @@ Chess code and a (partial) paper-canonical trajectory bundle are both shipped. S
 
 ## Install
 
-Python 3.10 with [`uv`](https://docs.astral.sh/uv/):
+Python 3.10 with [`uv`](https://docs.astral.sh/uv/). Dependencies are tiered so the
+**core** install (offline inspection, re-grading shipped trajectories, reproducing
+the paper tables, and API-based agent runs) installs cleanly on macOS, Linux, and
+Windows without a GPU/serving stack:
 
 ```bash
-uv sync
+uv sync                      # core: inspect, re-grade, tables, API agent runs
 source .venv/bin/activate
+
+# Optional, add as needed:
+uv sync --extra retrieval    # BrowseCompPlus FAISS/BM25 retrieval (needs JDK 21)
+uv sync --extra local-llm    # local model serving via vLLM (GPU Linux)
+uv sync --extra metrics      # Table 6 description-similarity metrics (GPU)
 ```
 
-> **Apple Silicon note:** if `uv sync` fails on torch wheels with a hint about `macosx_*_x86_64`, your `uv` / Python is Intel-emulated under Rosetta 2 (common with `~/opt/anaconda3` installations). Install ARM-native uv via Homebrew (`arch -arm64 brew install uv`) and let it resolve a fresh ARM Python.
+See **[`SETUP.md`](SETUP.md)** for the full end-to-end workflow: exact version pins,
+expected resource usage (time/$/GPU per task), API-based vs local-LLM execution, and
+a one-minute verification. Canonical per-table hyperparameters and commands are in
+**[`configs/paper_experiments.yaml`](configs/paper_experiments.yaml)**.
+
+> **Apple Silicon note:** the heavy extras (`local-llm`, `metrics`, `--all-extras`)
+> pull `torch`/`vLLM`. If a sync fails on torch wheels mentioning `macosx_*_x86_64`,
+> your `uv`/Python is Intel-emulated under Rosetta 2 (common with `~/opt/anaconda3`).
+> Install ARM-native uv via Homebrew (`arch -arm64 brew install uv`). The **core**
+> tier is unaffected.
 
 ## LLM API keys
 
