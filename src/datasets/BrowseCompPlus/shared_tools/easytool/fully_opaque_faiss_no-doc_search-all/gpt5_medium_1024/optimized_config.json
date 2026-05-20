@@ -1,0 +1,270 @@
+{
+  "config_name": "fully_opaque",
+  "description": "Full opacity - generic names, minimal descriptions, unclear parameters",
+  "tools": [
+    {
+      "tool_id": "search_all",
+      "searcher_config": {
+        "searcher_type": "faiss",
+        "filter_category": "none"
+      },
+      "tool_definition": {
+        "name": "tool_1",
+        "description": "Search for information using a natural-language query and retrieve the most relevant results.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "A natural-language search query describing the information to find."
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "tool_id": "search_wikipedia",
+      "searcher_config": {
+        "searcher_type": "faiss",
+        "filter_category": "wikipedia"
+      },
+      "tool_definition": {
+        "name": "tool_2",
+        "description": "Search for information using a natural-language query and retrieve the most relevant results.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "A natural-language search query describing the information to find."
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "tool_id": "search_academic",
+      "searcher_config": {
+        "searcher_type": "faiss",
+        "filter_category": "academic"
+      },
+      "tool_definition": {
+        "name": "tool_3",
+        "description": "Performs a natural-language search to retrieve the most relevant results for an information need.\nExample Scenario: A healthcare researcher is preparing a briefing on the effectiveness of GLP-1 receptor agonists for weight loss and needs recent high-quality evidence and guidelines.. Call with {\"query\": \"What does the latest evidence (2023\u20132026) say about the effectiveness and safety of GLP-1 receptor agonists like semaglutide and tirzepatide for weight loss in non-diabetic adults? Summarize major RCTs and meta-analyses, current clinical guideline recommendations, typical dosing, common adverse effects, contraindications, and long-term outcomes.\"}",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "A natural-language search query describing the information to find."
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "tool_id": "search_news",
+      "searcher_config": {
+        "searcher_type": "faiss",
+        "filter_category": "news"
+      },
+      "tool_definition": {
+        "name": "tool_4",
+        "description": "Use to find information by submitting a natural-language search query; returns the most relevant results.\nExample Scenario: A compliance officer needs authoritative, up-to-date details on the EU AI Act's 2026 implementation timeline to plan product compliance.. Call with {\"query\": \"What is the 2026 implementation timeline for the EU AI Act, including key milestones, delegated acts, official guidance from the European Commission, and compliance deadlines for high-risk systems?\"}",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "A natural-language search query describing the information to find."
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "tool_id": "search_entertainment",
+      "searcher_config": {
+        "searcher_type": "faiss",
+        "filter_category": "entertainment"
+      },
+      "tool_definition": {
+        "name": "tool_5",
+        "description": "Use to search for information using a natural-language query and retrieve the most relevant results.\nExample Scenario: A product manager needs authoritative numbers on global smartphone shipments and vendor market share for Q4 2025 to include in a strategy presentation.. Call with {\"query\": \"latest IDC or Canalys report on global smartphone shipments and vendor market share for Q4 2025 with units shipped and rankings\"}",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "A natural-language search query describing the information to find."
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "tool_id": "search_reference",
+      "searcher_config": {
+        "searcher_type": "faiss",
+        "filter_category": "reference"
+      },
+      "tool_definition": {
+        "name": "tool_6",
+        "description": "Find information by issuing a natural-language search query and retrieving the most relevant results.\nExample Scenario: A climate policy analyst needs the most up-to-date, authoritative projections for global mean sea-level rise by 2100 under SSP2-4.5 and SSP5-8.5 to brief policymakers.. Call with {\"query\": \"What are the latest authoritative projections for global mean sea-level rise by 2100 under SSP2-4.5 and SSP5-8.5, according to the IPCC AR6 Synthesis Report and any peer-reviewed updates since 2023?\"}",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "A natural-language search query describing the information to find."
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "tool_id": "search_government",
+      "searcher_config": {
+        "searcher_type": "faiss",
+        "filter_category": "government"
+      },
+      "tool_definition": {
+        "name": "tool_7",
+        "description": "Use to perform a natural-language search and retrieve the most relevant results for a given query.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "A natural-language search query describing the information to find."
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "tool_id": "search_business",
+      "searcher_config": {
+        "searcher_type": "faiss",
+        "filter_category": "business"
+      },
+      "tool_definition": {
+        "name": "tool_8",
+        "description": "Use to search for information on a topic using a natural-language query and retrieve the most relevant results.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "A natural-language search query describing the information to find."
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "tool_id": "search_sports",
+      "searcher_config": {
+        "searcher_type": "faiss",
+        "filter_category": "sports"
+      },
+      "tool_definition": {
+        "name": "tool_9",
+        "description": "Finds information by executing a natural-language search query and returning the most relevant results.\nExample Scenario: A market analyst needs to quickly find authoritative summaries of the latest changes in the EU AI Act to brief executives before a meeting.. Call with {\"query\": \"latest changes and key provisions EU AI Act final text 2024 official summary site:europa.eu\"}",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "A natural-language search query describing the information to find."
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "tool_id": "search_history",
+      "searcher_config": {
+        "searcher_type": "faiss",
+        "filter_category": "history"
+      },
+      "tool_definition": {
+        "name": "tool_10",
+        "description": "Use to search for information with a natural-language query and retrieve the most relevant results.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "A natural-language search query describing the information to find."
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "tool_id": "search_other",
+      "searcher_config": {
+        "searcher_type": "faiss",
+        "filter_category": "other"
+      },
+      "tool_definition": {
+        "name": "tool_11",
+        "description": "Finds the most relevant results for a natural-language search query.\nExample Scenario: A compliance officer at a SaaS company needs authoritative, up-to-date explanations of the EU AI Act obligations for foundation models and general-purpose AI to brief leadership.. Call with {\"query\": \"Find the most authoritative and recent resources that explain EU AI Act obligations for foundation models and general-purpose AI systems in 2025, including compliance timelines, high-risk classifications, transparency and documentation requirements, model evaluation/testing expectations, and penalties. Prioritize official EU sources (European Commission, EU AI Office, EUR-Lex, Parliament/Council pages) and reputable summaries from leading law firms or think tanks. Include updates after Dec 2024.\"}",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "A natural-language search query describing the information to find."
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  ]
+}

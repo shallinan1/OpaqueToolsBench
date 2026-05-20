@@ -1,0 +1,4761 @@
+{
+  "config_name": "executable_multiple_function_name[all:increasing_number]_desc[all:blank]_param[all:blank_descriptions]",
+  "config_description": "Tool configurations for executable_multiple_function tests",
+  "test_category": "executable_multiple_function",
+  "num_tests": 50,
+  "modifications": {
+    "names": {
+      "all": "increasing_number"
+    },
+    "descriptions": {
+      "all": "blank"
+    },
+    "parameters": {
+      "all": "blank_descriptions"
+    }
+  },
+  "tests": [
+    {
+      "test_id": 0,
+      "question": "I'm playing a dice game and want to calculate my chances. I roll the die 20 times, and I'm trying to figure out the probability of landing on a 6 exactly five times, considering each roll has a one in six chance of being a 6. Could you help me with that?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Use this tool to perform operations on a set of coordinates provided as an array.\nExample Scenario: Calculate total distance and bounding box for a GPS track of a runner in San Francisco.. Call with {\"coordinates\": [[37.7749, -122.4194], [37.7793, -122.4192], [37.786, -122.4044], [37.7935, -122.395], [37.8021, -122.4058]]}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "coordinates": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "description": ""
+              }
+            },
+            "required": [
+              "coordinates"
+            ]
+          }
+        },
+        {
+          "name": "function_2",
+          "description": "Calculates the binomial probability of observing exactly k successes in n independent trials with success probability p.\nExample Scenario: Estimating the probability of getting exactly 6 heads in 10 fair coin tosses.. Call with {\"n\": 10, \"k\": 6, \"p\": 0.5}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "n": {
+                "type": "integer",
+                "description": ""
+              },
+              "k": {
+                "type": "integer",
+                "description": ""
+              },
+              "p": {
+                "type": "number",
+                "description": ""
+              }
+            },
+            "required": [
+              "n",
+              "k",
+              "p"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "calc_binomial_probability(n=20, k=5, p=1/6)"
+      ],
+      "name_mapping": {
+        "get_weather_data": "function_1",
+        "calc_binomial_probability": "function_2"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        0.1294102919789905
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 1,
+      "question": "I'm working on a machine learning model, comparing the characteristics of two objects. The feature vectors for these objects are [0.5, 0.7, 0.2, 0.9, 0.1] for the first object and [0.4, 0.6, 0.3, 0.8, 0.2] for the second. To understand how similar these objects are, I need to calculate the cosine similarity between these two vectors. Can you help me with that?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Performs a computation on two input vectors (arrays), combining vectorA and vectorB to produce a result.\nExample Scenario: Compute the net 3D force on a drone by combining the motor thrust vector (vectorA) with the wind disturbance vector (vectorB).. Call with {\"vectorA\": [12.3, -4.8, 27.0], \"vectorB\": [-3.1, 1.5, -5.6]}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "vectorA": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "description": ""
+              },
+              "vectorB": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "description": ""
+              }
+            },
+            "required": [
+              "vectorA",
+              "vectorB"
+            ]
+          }
+        },
+        {
+          "name": "function_2",
+          "description": "Retrieve information about a specific stock using its name.\nExample Scenario: An investor wants to retrieve detailed information about Apple Inc. using its company name.. Call with {\"stock_name\": \"Apple Inc.\"}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "stock_name": {
+                "type": "string",
+                "description": ""
+              }
+            },
+            "required": [
+              "stock_name"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "calculate_cosine_similarity(vectorA=[0.5, 0.7, 0.2, 0.9, 0.1], vectorB=[0.4, 0.6, 0.3, 0.8, 0.2])"
+      ],
+      "name_mapping": {
+        "calculate_cosine_similarity": "function_1",
+        "get_stock_price_by_stock_name": "function_2"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        0.9884017323417256
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 2,
+      "question": "I'm currently conducting a physics experiment, and I have this object that weighs 50 kilograms and takes up a space of about 10 cubic meters. Could you help me calculate the density of this object?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Calculates density (mass divided by volume).\nExample Scenario: A lab technician identifies a metal by calculating its density from mass and displaced volume measured via water displacement.. Call with {\"mass\": 54.0, \"volume\": 20.0}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "mass": {
+                "type": "number",
+                "description": ""
+              },
+              "volume": {
+                "type": "number",
+                "description": ""
+              }
+            },
+            "required": [
+              "mass",
+              "volume"
+            ]
+          }
+        },
+        {
+          "name": "function_2",
+          "description": "Compute the future value of an amount by compounding a present value at a given periodic interest rate over a specified number of periods.\nExample Scenario: An investor deposits $10,000 into a savings account earning 5% annual interest, compounded monthly, and wants to know the value after 3 years.. Call with {\"present_value\": 10000, \"interest_rate\": 0.0041666667, \"periods\": 36}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "present_value": {
+                "type": "number",
+                "description": ""
+              },
+              "interest_rate": {
+                "type": "number",
+                "description": ""
+              },
+              "periods": {
+                "type": "integer",
+                "description": ""
+              }
+            },
+            "required": [
+              "present_value",
+              "interest_rate",
+              "periods"
+            ]
+          }
+        },
+        {
+          "name": "function_3",
+          "description": "Use to retrieve or process information for a specific stock, identified by its stock_name.\nExample Scenario: A portfolio manager requests the latest financial snapshot, recent price movement, and key headlines for Apple Inc. to inform a trading decision ahead of market open.. Call with {\"stock_name\": \"AAPL\"}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "stock_name": {
+                "type": "string",
+                "description": ""
+              }
+            },
+            "required": [
+              "stock_name"
+            ]
+          }
+        },
+        {
+          "name": "function_4",
+          "description": "Retrieve product information for an Amazon item using its ASIN.\nExample Scenario: A shopper wants to verify the full product details of an Amazon Echo Dot using its ASIN before purchasing.. Call with {\"ASIN\": \"B07FZ8S74R\"}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "ASIN": {
+                "type": "string",
+                "description": ""
+              }
+            },
+            "required": [
+              "ASIN"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "calculate_density(mass=50, volume=10)"
+      ],
+      "name_mapping": {
+        "calculate_density": "function_1",
+        "calculate_future_value": "function_2",
+        "get_stock_price_by_stock_name": "function_3",
+        "get_rating_by_amazon_ASIN": "function_4"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        5.0
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 3,
+      "question": "I'm working on a physics experiment where we're tracking the movement of a special object. It starts off at 15 m/s, and we're accelerating it at a rate of 9.8 m/s\u00b2. I need to calculate how far it will have traveled after 10 seconds. Can you crunch those numbers for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Retrieve data for a specific country and year.\nExample Scenario: Look up carbon emissions statistics for a country in a given year to power a sustainability analytics feature. Call with {\"year\": \"2021\", \"country\": \"India\"}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "year": {
+                "type": "string",
+                "description": ""
+              },
+              "country": {
+                "type": "string",
+                "description": ""
+              }
+            },
+            "required": [
+              "year",
+              "country"
+            ]
+          }
+        },
+        {
+          "name": "function_2",
+          "description": "Calculate the final velocity of an object under constant acceleration given its initial velocity and elapsed time.\nExample Scenario: A car merging onto a highway starts at 18 m/s and accelerates at a constant 2 m/s^2 for 6 seconds. Calculate its final velocity.. Call with {\"initial_velocity\": 18, \"acceleration\": 2, \"time\": 6}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "initial_velocity": {
+                "type": "number",
+                "description": ""
+              },
+              "acceleration": {
+                "type": "number",
+                "description": ""
+              },
+              "time": {
+                "type": "number",
+                "description": ""
+              }
+            },
+            "required": [
+              "initial_velocity",
+              "acceleration",
+              "time"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "calculate_displacement(initial_velocity=15.0, acceleration=9.8, time=10)"
+      ],
+      "name_mapping": {
+        "retrieve_holiday_by_year": "function_1",
+        "calculate_displacement": "function_2"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        640.0
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 4,
+      "question": "I'm conducting a physics experiment involving charged particles and electric fields. There's a particle that I've introduced into the field, and it carries a charge of exactly 5 coulombs. The electric field itself has a potential difference of 10 volts. I need to calculate the electrostatic potential energy for this scenario. Can you help me with that calculation?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Look up information for a specified IP address.\nExample Scenario: A security analyst triaging a suspicious admin login wants to look up the IP's ISP, geolocation, and abuse contact to assess risk and decide whether to block it.. Call with {\"ip_address\": \"8.8.8.8\"}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "ip_address": {
+                "type": "string",
+                "description": ""
+              }
+            },
+            "required": [
+              "ip_address"
+            ]
+          }
+        },
+        {
+          "name": "function_2",
+          "description": "Calculates capacitance from charge and voltage.\nExample Scenario: In a lab, you test an unknown capacitor by applying 12 V DC and measuring 120 \u00b5C of stored charge to compute its capacitance.. Call with {\"charge\": 0.00012, \"voltage\": 12}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "charge": {
+                "type": "number",
+                "description": ""
+              },
+              "voltage": {
+                "type": "number",
+                "description": ""
+              }
+            },
+            "required": [
+              "charge",
+              "voltage"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "calculate_electrostatic_potential_energy(charge=5.0, voltage=10.0)"
+      ],
+      "name_mapping": {
+        "get_zipcode_by_ip_address": "function_1",
+        "calculate_electrostatic_potential_energy": "function_2"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        50.0
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 5,
+      "question": "During a simulation of a high-speed pursuit, I'm trying to calculate the velocity a suspect's car would reach from a standstill after accelerating continuously for 12 seconds at a rate of 9.8 meters per second squared. Could you compute the final velocity for me based on these figures?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Operate on two input vectors (arrays). Use when a task requires processing both vectorA and vectorB together.\nExample Scenario: Compute cosine similarity between two document TF-IDF vectors to measure their semantic similarity.. Call with {\"vectorA\": [0.0, 0.12, 0.37, 0.0, 0.25, 0.0, 0.18, 0.08], \"vectorB\": [0.05, 0.1, 0.3, 0.0, 0.2, 0.07, 0.15, 0.13]}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "vectorA": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "description": ""
+              },
+              "vectorB": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "description": ""
+              }
+            },
+            "required": [
+              "vectorA",
+              "vectorB"
+            ]
+          }
+        },
+        {
+          "name": "function_2",
+          "description": "Compute loan repayment details\u2014such as periodic payment and total interest\u2014given loan_amount, interest_rate, and loan_period.\nExample Scenario: An auto buyer wants to estimate the fixed monthly payment and total interest for a $25,000 car loan at 6.9% APR over 60 months.. Call with {\"loan_amount\": 25000, \"interest_rate\": 6.9, \"loan_period\": 60}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "loan_amount": {
+                "type": "number",
+                "description": ""
+              },
+              "interest_rate": {
+                "type": "number",
+                "description": ""
+              },
+              "loan_period": {
+                "type": "integer",
+                "description": ""
+              }
+            },
+            "required": [
+              "loan_amount",
+              "interest_rate",
+              "loan_period"
+            ]
+          }
+        },
+        {
+          "name": "function_3",
+          "description": "Calculates the final velocity of an object under constant acceleration from initial_velocity, acceleration, and time.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "initial_velocity": {
+                "type": "number",
+                "description": ""
+              },
+              "acceleration": {
+                "type": "number",
+                "description": ""
+              },
+              "time": {
+                "type": "number",
+                "description": ""
+              }
+            },
+            "required": [
+              "initial_velocity",
+              "acceleration",
+              "time"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "calculate_final_velocity(initial_velocity=0, acceleration=9.8, time=12)"
+      ],
+      "name_mapping": {
+        "calculate_cosine_similarity": "function_1",
+        "mortgage_calculator": "function_2",
+        "calculate_final_velocity": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        117.60000000000001
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 6,
+      "question": "I'm considering the long-term growth of my savings and I've put $5000 into a fixed deposit with a steady annual interest rate of 5%. I'm planning to let it sit for a decade. Could you calculate the future value of my investment after 10 years?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Calculates the future value of an amount using compound interest given the present value, periodic interest rate, and number of periods.\nExample Scenario: A parent invests $7,500 in a 529 college savings account that compounds annually at 6% for 12 years to estimate the future value at college start.. Call with {\"present_value\": 7500, \"interest_rate\": 0.06, \"periods\": 12}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "present_value": {
+                "type": "number",
+                "description": ""
+              },
+              "interest_rate": {
+                "type": "number",
+                "description": ""
+              },
+              "periods": {
+                "type": "integer",
+                "description": ""
+              }
+            },
+            "required": [
+              "present_value",
+              "interest_rate",
+              "periods"
+            ]
+          }
+        },
+        {
+          "name": "function_2",
+          "description": "Purpose unspecified in the documentation; it only accepts a required integer n.\nExample Scenario: Run a batch operation exactly n times to simulate processing a fixed number of tasks for a performance test.. Call with {\"n\": 1000}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "n": {
+                "type": "integer",
+                "description": ""
+              }
+            },
+            "required": [
+              "n"
+            ]
+          }
+        },
+        {
+          "name": "function_3",
+          "description": "Processes an array input; set reverse=true to output the array in reverse order.\nExample Scenario: A photo gallery app needs to display the newest uploads first by reversing a chronologically ordered list of image IDs.. Call with {\"array\": [\"img_1001\", \"img_1002\", \"img_1003\", \"img_1004\"], \"reverse\": true}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "array": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "description": ""
+              },
+              "reverse": {
+                "type": "boolean",
+                "description": "",
+                "default": false
+              }
+            },
+            "required": [
+              "array"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "calculate_future_value(present_value=5000, interest_rate=0.05, periods=10)"
+      ],
+      "name_mapping": {
+        "calculate_future_value": "function_1",
+        "get_fibonacci_sequence": "function_2",
+        "sort_array": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        8144.47313388721
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 7,
+      "question": "As a data analyst, I've been tracking the daily temperatures in a particular city over the last month. The temperatures I've logged range from 22 to 80 degrees Celsius, changing by 2 degrees each day. I need to calculate the average monthly temperature from this data set to understand the climate trend better. Can you help me with this?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Use to request or operate on location-based data for a specific geographic point by providing longitude (long) and latitude (lat) as strings.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "long": {
+                "type": "string",
+                "description": ""
+              },
+              "lat": {
+                "type": "string",
+                "description": ""
+              }
+            },
+            "required": [
+              "long",
+              "lat"
+            ]
+          }
+        },
+        {
+          "name": "function_2",
+          "description": "Performs numeric computations on a provided array of numbers.\nExample Scenario: Compute summary statistics (sum, average, min, max, standard deviation) for monthly sales figures to evaluate performance over the past year.. Call with {\"numbers\": [12450, 13120, 11875, 14230, 15010, 15680, 14990, 15340, 16025, 15810, 16590, 17240]}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "numbers": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                },
+                "description": ""
+              }
+            },
+            "required": [
+              "numbers"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "calculate_mean(numbers=[22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80])"
+      ],
+      "name_mapping": {
+        "get_time_zone_by_coord": "function_1",
+        "calculate_mean": "function_2"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        51.0
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 8,
+      "question": "I'm developing an encryption algorithm and it involves creating permutations from the English alphabet. I need to know the number of different ways I can arrange 5 letters from the total 26. Could you calculate that for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Calculates the future value of a present amount using compound interest for a given interest rate and number of periods.\nExample Scenario: An investor deposits $10,000 today into an account that compounds annually at 6% for 10 years and wants to know the future value.. Call with {\"present_value\": 10000, \"interest_rate\": 0.06, \"periods\": 10}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "present_value": {
+                "type": "number",
+                "description": ""
+              },
+              "interest_rate": {
+                "type": "number",
+                "description": ""
+              },
+              "periods": {
+                "type": "integer",
+                "description": ""
+              }
+            },
+            "required": [
+              "present_value",
+              "interest_rate",
+              "periods"
+            ]
+          }
+        },
+        {
+          "name": "function_2",
+          "description": "Compute a value based on two required integers n and k.\nExample Scenario: Compute the number of combinations (n choose k) when selecting k items from a set of n.. Call with {\"n\": 10, \"k\": 3}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "n": {
+                "type": "integer",
+                "description": ""
+              },
+              "k": {
+                "type": "integer",
+                "description": ""
+              }
+            },
+            "required": [
+              "n",
+              "k"
+            ]
+          }
+        },
+        {
+          "name": "function_3",
+          "description": "Retrieves information for the specified stock.\nExample Scenario: A retail investor wants to retrieve up-to-date details (current price, market cap, and recent news) about Apple to inform a buy decision.. Call with {\"stock_name\": \"AAPL\"}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "stock_name": {
+                "type": "string",
+                "description": ""
+              }
+            },
+            "required": [
+              "stock_name"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "calculate_permutations(n=26, k=5)"
+      ],
+      "name_mapping": {
+        "calculate_future_value": "function_1",
+        "calculate_permutations": "function_2",
+        "get_company_name_by_stock_name": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        7893600.0
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 9,
+      "question": "I've been tracking the closing prices of a specific stock over the last 10 trading days for a report on market volatility. The figures I've recorded are 1000, 2000, 3000, 4000, 5000, 7000, 9000, 15000, 20000, and 30000. To get a better understanding of the price fluctuation and the risk associated with this stock, I need to calculate the standard deviation of these closing prices. Could you provide me with that statistic?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Use to pass a required array of numbers to the function for processing.\nExample Scenario: Compute basic statistics (sum, average, min, max) from daily step counts for a fitness app dashboard. Call with {\"numbers\": [7321, 8450, 6789, 9102, 10543, 8021, 7560]}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "numbers": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                },
+                "description": ""
+              }
+            },
+            "required": [
+              "numbers"
+            ]
+          }
+        },
+        {
+          "name": "function_2",
+          "description": "Executes function_2\u2019s operation using the required integer n; use when you need to run this function with a specific integer input.\nExample Scenario: Execute function_2 to simulate n iterations of a stress-test loop to validate performance under repeated operations.. Call with {\"n\": 10000}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "n": {
+                "type": "integer",
+                "description": ""
+              }
+            },
+            "required": [
+              "n"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "calculate_standard_deviation(numbers=[1000,2000,3000,4000,5000,7000,9000,15000,20000,30000])"
+      ],
+      "name_mapping": {
+        "calculate_standard_deviation": "function_1",
+        "get_fibonacci_sequence": "function_2"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        8879.189152169245
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 10,
+      "question": "I'm working on an architectural project for a new park, and the design includes a triangular section. I need to calculate the area of this triangle to continue with my planning. The dimensions I have are a base of 500 meters and a height of 300 meters. Can you help me figure out the total area with these measurements?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Retrieve information about a specific stock by its name.\nExample Scenario: An investor wants to retrieve information about Apple to review its latest price, market cap, and recent news before placing an order.. Call with {\"stock_name\": \"Apple Inc.\"}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "stock_name": {
+                "type": "string",
+                "description": ""
+              }
+            },
+            "required": [
+              "stock_name"
+            ]
+          }
+        },
+        {
+          "name": "function_2",
+          "description": "Applies function_2 to two integers (a and b) and returns the result. Use when you need to process or compute a value from two integer inputs.\nExample Scenario: Compute a student's combined score from two test sections using the algorithm implemented by function_2.. Call with {\"a\": 78, \"b\": 84}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "a": {
+                "type": "integer",
+                "description": ""
+              },
+              "b": {
+                "type": "integer",
+                "description": ""
+              }
+            },
+            "required": [
+              "a",
+              "b"
+            ]
+          }
+        },
+        {
+          "name": "function_3",
+          "description": "Calculates area from base and height.\nExample Scenario: A landscaper needs to calculate the area of a rectangular garden bed to determine how much weed barrier fabric to order.. Call with {\"base\": 12, \"height\": 8}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "base": {
+                "type": "integer",
+                "description": ""
+              },
+              "height": {
+                "type": "integer",
+                "description": ""
+              }
+            },
+            "required": [
+              "base",
+              "height"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "calculate_triangle_area(base=500, height=300)"
+      ],
+      "name_mapping": {
+        "get_company_name_by_stock_name": "function_1",
+        "math_lcm": "function_2",
+        "calculate_triangle_area": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        75000.0
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 11,
+      "question": "I need to prepare a report for a client who is planning to conduct a business transaction in Japan. They're looking to convert 5,000 Euros into Japanese Yen. To ensure the report is accurate, I need the converted amount in Yen using the current exchange rates. The currency codes I'll be working with are 'EUR' for Euros and 'JPY' for Yen. Can you provide me with the equivalent sum in Yen?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Use this tool to perform operations that require an IP address input. Provide the target IPv4 or IPv6 string via the required ip_address parameter.\nExample Scenario: Retrieve geolocation and ISP information for a given IP address to aid in security triage.. Call with {\"ip_address\": \"8.8.8.8\"}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "ip_address": {
+                "type": "string",
+                "description": ""
+              }
+            },
+            "required": [
+              "ip_address"
+            ]
+          }
+        },
+        {
+          "name": "function_2",
+          "description": "Convert a monetary amount from one currency to another.\nExample Scenario: A freelancer invoiced a UK client for services and wants to see how much \u00a31,200.50 (GBP) would be in US dollars to report income in their accounting system.. Call with {\"amount\": 1200.5, \"from_currency\": \"GBP\", \"to_currency\": \"USD\"}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "amount": {
+                "type": "number",
+                "description": ""
+              },
+              "from_currency": {
+                "type": "string",
+                "description": ""
+              },
+              "to_currency": {
+                "type": "string",
+                "description": ""
+              }
+            },
+            "required": [
+              "amount",
+              "from_currency",
+              "to_currency"
+            ]
+          }
+        },
+        {
+          "name": "function_3",
+          "description": "Fetch historical stock price data for a specified stock at a chosen interval, optionally adjusted for dividends and stock splits.\nExample Scenario: A fintech app needs to display Apple's daily adjusted historical prices to power its market overview dashboard.. Call with {\"stock_name\": \"AAPL\", \"interval\": \"1d\", \"diffandsplits\": \"adjusted\"}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "stock_name": {
+                "type": "string",
+                "description": ""
+              },
+              "interval": {
+                "type": "string",
+                "description": ""
+              },
+              "diffandsplits": {
+                "type": "string",
+                "description": ""
+              }
+            },
+            "required": [
+              "stock_name",
+              "interval"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "convert_currency(amount=5000, from_currency='EUR', to_currency='JPY')"
+      ],
+      "name_mapping": {
+        "get_zipcode_by_ip_address": "function_1",
+        "convert_currency": "function_2",
+        "get_stock_history": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        859533.5
+      ],
+      "execution_result_type": [
+        "real_time_match"
+      ]
+    },
+    {
+      "test_id": 12,
+      "question": "In my physics class, we're delving into kinematics, and I've been tasked with analyzing the motion of a particle. The equation f(x) = 3t^2 + 2t + 1 describes its position over time. I need to determine the velocity of this particle when t is 5 seconds. Velocity is the first derivative of the position function with respect to time, so I need to calculate that. Can you help me find the velocity using the appropriate function?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Performs an operation on two integers; provide required integers a and b.\nExample Scenario: Run function_1 on two inventory counts (warehouse A and warehouse B) to compute a derived value used in restocking logic.. Call with {\"a\": 120, \"b\": 85}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "a": {
+                "type": "integer",
+                "description": ""
+              },
+              "b": {
+                "type": "integer",
+                "description": ""
+              }
+            },
+            "required": [
+              "a",
+              "b"
+            ]
+          }
+        },
+        {
+          "name": "function_2",
+          "description": "Applies the specified function (by name) to the integer x.\nExample Scenario: Compute the absolute value of a negative integer to get its magnitude. Call with {\"function\": \"abs\", \"x\": -42}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "function": {
+                "type": "string",
+                "description": ""
+              },
+              "x": {
+                "type": "integer",
+                "description": ""
+              }
+            },
+            "required": [
+              "function",
+              "x"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "estimate_derivative(function='lambda x: 3*x**2 + 2*x + 1', x=5)"
+      ],
+      "name_mapping": {
+        "math_gcd": "function_1",
+        "estimate_derivative": "function_2"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        32.00000264769187
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 13,
+      "question": "I've been hearing the slang term \"lit\" quite frequently these days and it's piqued my curiosity. I'm not entirely sure what it means, so I'm looking to find a definition that could shed some light on its usage and connotations. Can you find out what \"lit\" means on Urban Dictionary for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Use to look up or query information by providing a single required string parameter: term.\nExample Scenario: A student needs to quickly look up a concise definition and key facts about photosynthesis for a biology assignment.. Call with {\"term\": \"photosynthesis\"}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "term": {
+                "type": "string",
+                "description": ""
+              }
+            },
+            "required": [
+              "term"
+            ]
+          }
+        },
+        {
+          "name": "function_2",
+          "description": "Performs a calculation involving two points represented as arrays (pointA and pointB).\nExample Scenario: Compute the Euclidean distance between two 3D points to estimate a drone's straight-line travel distance.. Call with {\"pointA\": [12.5, 3.2, 0.0], \"pointB\": [45.0, -8.4, 10.0]}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "pointA": {
+                "type": "array",
+                "description": "",
+                "items": {
+                  "type": "number"
+                }
+              },
+              "pointB": {
+                "type": "array",
+                "description": "",
+                "items": {
+                  "type": "number"
+                }
+              }
+            },
+            "required": [
+              "pointA",
+              "pointB"
+            ]
+          }
+        },
+        {
+          "name": "function_3",
+          "description": "Performs an operation based on a single required integer input n.\nExample Scenario: Compute the n-th Fibonacci number to display in a math learning module.. Call with {\"n\": 13}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "n": {
+                "type": "integer",
+                "description": ""
+              }
+            },
+            "required": [
+              "n"
+            ]
+          }
+        },
+        {
+          "name": "function_4",
+          "description": "Convert a monetary amount from one currency to another.\nExample Scenario: A freelance designer needs to convert a \u20ac1,200 project quote to British pounds before invoicing a UK client.. Call with {\"amount\": 1200, \"from_currency\": \"EUR\", \"to_currency\": \"GBP\"}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "amount": {
+                "type": "number",
+                "description": ""
+              },
+              "from_currency": {
+                "type": "string",
+                "description": ""
+              },
+              "to_currency": {
+                "type": "string",
+                "description": ""
+              }
+            },
+            "required": [
+              "amount",
+              "from_currency",
+              "to_currency"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "find_term_on_urban_dictionary(term=\"lit\")"
+      ],
+      "name_mapping": {
+        "find_term_on_urban_dictionary": "function_1",
+        "get_distance": "function_2",
+        "get_fibonacci_sequence": "function_3",
+        "convert_currency": "function_4"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        "When [something] is [turned up] or [popping] ..."
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 14,
+      "question": "I'm working on a community art project and planning a large circular mural for a public space. To figure out how much paint I need to buy, I need to calculate the area of the circle I'll be painting. The wall space I've been given has a perfect circular area with a radius of 15 feet. Can you help me determine the area of this circle?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Calculate capacitance from electric charge and voltage (C = Q/V).\nExample Scenario: Determine the capacitance of a camera flash capacitor given measured charge and voltage.. Call with {\"charge\": 9e-05, \"voltage\": 9}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "charge": {
+                "type": "number",
+                "description": ""
+              },
+              "voltage": {
+                "type": "number",
+                "description": ""
+              }
+            },
+            "required": [
+              "charge",
+              "voltage"
+            ]
+          }
+        },
+        {
+          "name": "function_2",
+          "description": "Use to perform calculations based on a provided radius.\nExample Scenario: Calculating the area and circumference of a circular garden bed to estimate soil needed and edging length.. Call with {\"radius\": 12}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "radius": {
+                "type": "integer",
+                "description": ""
+              }
+            },
+            "required": [
+              "radius"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "geometry_area_circle(radius=15)"
+      ],
+      "name_mapping": {
+        "calculate_electrostatic_potential_energy": "function_1",
+        "geometry_area_circle": "function_2"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        706.8583470577034
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 15,
+      "question": "I'm working on an in-depth article covering the current COVID-19 situation in Brazil, and it's crucial to have the latest figures to ensure the information I present is factual and up to date. I need to include the number of active COVID-19 cases in the country. Could you provide me with the most recent active case count for Brazil?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Perform country-specific operations or queries.\nExample Scenario: Fetch upcoming public holidays for the specified country to support scheduling. Call with {\"country\": \"Japan\"}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "country": {
+                "type": "string",
+                "description": ""
+              }
+            },
+            "required": [
+              "country"
+            ]
+          }
+        },
+        {
+          "name": "function_2",
+          "description": "Retrieve or process data specific to a given country.\nExample Scenario: Retrieve the latest macroeconomic snapshot (population, GDP, CPI inflation, and unemployment rate) for the specified country to power a country profile page.. Call with {\"country\": \"India\"}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "country": {
+                "type": "string",
+                "description": ""
+              }
+            },
+            "required": [
+              "country"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "get_active_covid_case_by_country(country='Brazil')"
+      ],
+      "name_mapping": {
+        "get_covid_death_by_country": "function_1",
+        "get_active_covid_case_by_country": "function_2"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        1783377
+      ],
+      "execution_result_type": [
+        "real_time_match"
+      ]
+    },
+    {
+      "test_id": 16,
+      "question": "While doing some financial analysis, I've been looking into the details of certain stocks, and 'AAPL' caught my attention. I'd like to know which company it represents. Could you help me find out the company name associated with the stock symbol 'AAPL'?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Retrieve stock information by providing the stock name.\nExample Scenario: An investor wants to retrieve the latest stock information for Apple to decide whether to buy or hold.. Call with {\"stock_name\": \"Apple\"}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "stock_name": {
+                "type": "string",
+                "description": ""
+              }
+            },
+            "required": [
+              "stock_name"
+            ]
+          }
+        },
+        {
+          "name": "function_2",
+          "description": "Performs an operation on two arrays/matrices, combining or comparing them to produce a result.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "matA": {
+                "type": "array",
+                "description": "",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "matB": {
+                "type": "array",
+                "description": "",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  }
+                }
+              }
+            },
+            "required": [
+              "matA",
+              "matB"
+            ]
+          }
+        },
+        {
+          "name": "function_3",
+          "description": "Retrieves information about a specified stock.\nExample Scenario: An investor wants the latest trading information and company details for Tesla to decide whether to buy shares.. Call with {\"stock_name\": \"TSLA\"}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "stock_name": {
+                "type": "string",
+                "description": ""
+              }
+            },
+            "required": [
+              "stock_name"
+            ]
+          }
+        },
+        {
+          "name": "function_4",
+          "description": "Use when you need to compute a result from two required integer inputs (a and b).\nExample Scenario: Calculate the area of a rectangle given width (a) and height (b).. Call with {\"a\": 7, \"b\": 12}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "a": {
+                "type": "integer",
+                "description": ""
+              },
+              "b": {
+                "type": "integer",
+                "description": ""
+              }
+            },
+            "required": [
+              "a",
+              "b"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "get_company_name_by_stock_name(stock_name='AAPL')"
+      ],
+      "name_mapping": {
+        "get_stock_price_by_stock_name": "function_1",
+        "mat_mul": "function_2",
+        "get_company_name_by_stock_name": "function_3",
+        "math_gcd": "function_4"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        "Apple Inc."
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 17,
+      "question": "I'm currently investigating a security alert that flagged some unusual activity in our network. The IP address '192.168.1.1' was identified in the logs, and I suspect it could be related to the breach. To understand the origin of this potential threat, I need to pinpoint the geographical coordinates of this IP. Could you provide me with the latitude and longitude for the IP address '192.168.1.1'?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Use to operate on a specific IP address; provide the target IP as a string via the ip_address parameter.\nExample Scenario: Check reachability and basic responsiveness of the production web server before deploying an update.. Call with {\"ip_address\": \"203.0.113.45\"}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "ip_address": {
+                "type": "string",
+                "description": ""
+              }
+            },
+            "required": [
+              "ip_address"
+            ]
+          }
+        },
+        {
+          "name": "function_2",
+          "description": "Use for country-specific operations; provide the country name (string).\nExample Scenario: Retrieve country-specific VAT rate and public holidays for invoicing and scheduling.. Call with {\"country\": \"Germany\"}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "country": {
+                "type": "string",
+                "description": ""
+              }
+            },
+            "required": [
+              "country"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "get_coordinate_by_ip_address(ip_address='192.168.1.1')"
+      ],
+      "name_mapping": {
+        "get_coordinate_by_ip_address": "function_1",
+        "get_covid_death_by_country": "function_2"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        "private range"
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 18,
+      "question": "I have a client who's planning a trip to Paris and they're looking for some detailed travel plans. Could we find out the exact latitude and longitude of Paris for this purpose? They're really into the specifics and would appreciate having the coordinates for their personal itinerary.",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Processes an array of numbers to perform its computation; supply the required numbers array.\nExample Scenario: Analyze weekly website visits to compute summary stats and detect spikes.. Call with {\"numbers\": [120, 135, 128, 142, 160, 210, 190]}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "numbers": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "description": ""
+              }
+            },
+            "required": [
+              "numbers"
+            ]
+          }
+        },
+        {
+          "name": "function_2",
+          "description": "Retrieve historical stock data for a specified stock and interval, with optional adjustment for dividends and splits.\nExample Scenario: An equity analyst wants to pull daily historical prices for Apple to backtest a dividend-aware strategy, adjusted for dividends and splits.. Call with {\"stock_name\": \"AAPL\", \"interval\": \"1d\", \"diffandsplits\": \"true\"}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "stock_name": {
+                "type": "string",
+                "description": ""
+              },
+              "interval": {
+                "type": "string",
+                "description": ""
+              },
+              "diffandsplits": {
+                "type": "string",
+                "description": ""
+              }
+            },
+            "required": [
+              "stock_name",
+              "interval"
+            ]
+          }
+        },
+        {
+          "name": "function_3",
+          "description": "Use to fetch or process city-specific data by providing the city_name.\nExample Scenario: Fetch and process city-specific data to update the city insights dashboard (demographics snapshot, current weather, transit status, and upcoming public events) for Barcelona.. Call with {\"city_name\": \"Barcelona\"}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "city_name": {
+                "type": "string",
+                "description": ""
+              }
+            },
+            "required": [
+              "city_name"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "get_coordinates_from_city(city_name='Paris')"
+      ],
+      "name_mapping": {
+        "calculate_mean": "function_1",
+        "get_stock_history": "function_2",
+        "get_coordinates_from_city": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        [
+          "48.8588897",
+          "2.3200410217200766"
+        ]
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 19,
+      "question": "I'm currently conducting research on the impact of COVID-19 and my focus is on Brazil. I need the latest total death count for the country to analyze the severity of the pandemic there. Could you provide me with this information?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Retrieve details for a product identified by its ASIN (Amazon Standard Identification Number).\nExample Scenario: A shopper wants to compare features and pricing for an Amazon product they found in-store by retrieving its details using the product's ASIN.. Call with {\"ASIN\": \"B08N5WRWNW\"}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "ASIN": {
+                "type": "string",
+                "description": ""
+              }
+            },
+            "required": [
+              "ASIN"
+            ]
+          }
+        },
+        {
+          "name": "function_2",
+          "description": "Computes electrical energy (work) from charge and voltage (E = Q \u00d7 V).\nExample Scenario: Compute the electrical work done by a 5 mC charge passing through a 9 V potential difference in a sensor circuit pulse.. Call with {\"charge\": 0.005, \"voltage\": 9}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "charge": {
+                "type": "number",
+                "description": ""
+              },
+              "voltage": {
+                "type": "number",
+                "description": ""
+              }
+            },
+            "required": [
+              "charge",
+              "voltage"
+            ]
+          }
+        },
+        {
+          "name": "function_3",
+          "description": "Query data for a specified country and year.\nExample Scenario: Retrieve all available national statistics for Canada for the year 2019.. Call with {\"year\": \"2019\", \"country\": \"Canada\"}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "year": {
+                "type": "string",
+                "description": ""
+              },
+              "country": {
+                "type": "string",
+                "description": ""
+              }
+            },
+            "required": [
+              "year",
+              "country"
+            ]
+          }
+        },
+        {
+          "name": "function_4",
+          "description": "Retrieves or performs operations on country-specific data for a specified country.\nExample Scenario: Retrieve country-specific datasets to populate a dashboard of demographics, GDP, inflation, and trade metrics for Brazil.. Call with {\"country\": \"Brazil\"}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "country": {
+                "type": "string",
+                "description": ""
+              }
+            },
+            "required": [
+              "country"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "get_covid_death_by_country(country='Brazil')"
+      ],
+      "name_mapping": {
+        "get_product_name_by_amazon_ASIN": "function_1",
+        "calculate_electrostatic_potential_energy": "function_2",
+        "retrieve_holiday_by_year": "function_3",
+        "get_covid_death_by_country": "function_4"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        711380
+      ],
+      "execution_result_type": [
+        "real_time_match"
+      ]
+    },
+    {
+      "test_id": 20,
+      "question": "While I was updating a city map today, I needed to figure out how far apart two landmarks were. The first point is at coordinates (45.76, 4.85), and the second is at (48.85, 2.35). Could you calculate the distance between these two points for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Performs an operation that requires a single integer input n; use when a task depends on a required integer parameter.\nExample Scenario: Return the nth Fibonacci number for sequence analysis.. Call with {\"n\": 12}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "n": {
+                "type": "integer",
+                "description": ""
+              }
+            },
+            "required": [
+              "n"
+            ]
+          }
+        },
+        {
+          "name": "function_2",
+          "description": "Executes an operation that requires two integer inputs (a and b).\nExample Scenario: Compute the day's total sales by combining morning sales (a) and afternoon sales (b).. Call with {\"a\": 120, \"b\": 85}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "a": {
+                "type": "integer",
+                "description": ""
+              },
+              "b": {
+                "type": "integer",
+                "description": ""
+              }
+            },
+            "required": [
+              "a",
+              "b"
+            ]
+          }
+        },
+        {
+          "name": "function_3",
+          "description": "Performs computations involving two points represented as arrays (pointA and pointB).\nExample Scenario: Compute the Euclidean distance, midpoint, and direction vector from pointA to pointB for a 2D navigation task.. Call with {\"pointA\": [2.5, -1.0], \"pointB\": [7.0, 3.0]}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "pointA": {
+                "type": "array",
+                "description": "",
+                "items": {
+                  "type": "number"
+                }
+              },
+              "pointB": {
+                "type": "array",
+                "description": "",
+                "items": {
+                  "type": "number"
+                }
+              }
+            },
+            "required": [
+              "pointA",
+              "pointB"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "get_distance(pointA=(45.76, 4.85), pointB=(48.85, 2.35))"
+      ],
+      "name_mapping": {
+        "get_fibonacci_sequence": "function_1",
+        "math_gcd": "function_2",
+        "get_distance": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        3.9746823772472712
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 21,
+      "question": "I'm currently delving into the Fibonacci sequence for my mathematical research and I'd like to examine the first 20 numbers of the sequence. Could you generate that for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Purpose not specified in the available documentation.\nExample Scenario: Calculate the factorial of n (n!) to determine the number of permutations in a set of size n.. Call with {\"n\": 10}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "n": {
+                "type": "integer",
+                "description": ""
+              }
+            },
+            "required": [
+              "n"
+            ]
+          }
+        },
+        {
+          "name": "function_2",
+          "description": "Retrieve stock information for a specified stock name.\nExample Scenario: An investor wants to quickly retrieve the latest details about Apple's stock before market close to decide whether to place a buy order.. Call with {\"stock_name\": \"AAPL\"}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "stock_name": {
+                "type": "string",
+                "description": ""
+              }
+            },
+            "required": [
+              "stock_name"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "get_fibonacci_sequence(n=20)"
+      ],
+      "name_mapping": {
+        "get_fibonacci_sequence": "function_1",
+        "get_stock_price_by_stock_name": "function_2"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        [
+          0,
+          1,
+          1,
+          2,
+          3,
+          5,
+          8,
+          13,
+          21,
+          34,
+          55,
+          89,
+          144,
+          233,
+          377,
+          610,
+          987,
+          1597,
+          2584,
+          4181
+        ]
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 22,
+      "question": "I'm overseeing a new project where we're monitoring competitor pricing on Amazon to stay competitive. There's this particular product we've been keeping an eye on, and I need the latest price for it. The ASIN for the product is 'B08PPDJWC8'. Could you fetch the current price for this ASIN from Amazon for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Retrieves country-specific information for the specified country.\nExample Scenario: A travel planner requests country-specific information to prepare an itinerary.. Call with {\"country\": \"Italy\"}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "country": {
+                "type": "string",
+                "description": ""
+              }
+            },
+            "required": [
+              "country"
+            ]
+          }
+        },
+        {
+          "name": "function_2",
+          "description": "Look up Amazon product information by ASIN.\nExample Scenario: A shopper enters an ASIN to quickly retrieve the product\u2019s title, price, rating, and availability before adding it to a comparison list.. Call with {\"ASIN\": \"B08N5WRWNW\"}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "ASIN": {
+                "type": "string",
+                "description": ""
+              }
+            },
+            "required": [
+              "ASIN"
+            ]
+          }
+        },
+        {
+          "name": "function_3",
+          "description": "Query information for a specified term.\nExample Scenario: A student wants to look up background information and key references on the concept for a physics assignment.. Call with {\"term\": \"quantum entanglement\"}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "term": {
+                "type": "string",
+                "description": ""
+              }
+            },
+            "required": [
+              "term"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "get_price_by_amazon_ASIN(ASIN='B08PPDJWC8')"
+      ],
+      "name_mapping": {
+        "get_covid_death_by_country": "function_1",
+        "get_price_by_amazon_ASIN": "function_2",
+        "find_term_on_urban_dictionary": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        "$180.00"
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 23,
+      "question": "I'm a mathematics teacher, and I'm currently putting together my lesson plan on prime factorization. For tomorrow's class, I've chosen the number 4567 as a practical example to illustrate the concept to my students. I need to break it down into its prime factors.",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Use for operations that take an array of numbers as input.\nExample Scenario: Compute the total distance run over a week from daily distances (in km).. Call with {\"numbers\": [5.2, 7.0, 0.0, 6.3, 5.5, 10.1, 4.9]}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "numbers": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "description": ""
+              }
+            },
+            "required": [
+              "numbers"
+            ]
+          }
+        },
+        {
+          "name": "function_2",
+          "description": "Calculate loan payment amounts based on the loan amount, interest rate, and loan period.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "loan_amount": {
+                "type": "number",
+                "description": ""
+              },
+              "interest_rate": {
+                "type": "number",
+                "description": ""
+              },
+              "loan_period": {
+                "type": "number",
+                "description": ""
+              }
+            },
+            "required": [
+              "loan_amount",
+              "interest_rate",
+              "loan_period"
+            ]
+          }
+        },
+        {
+          "name": "function_3",
+          "description": "Execute an action that takes a single required integer (number) as input.\nExample Scenario: Trigger a batch job that processes the next N items from the task queue.. Call with {\"number\": 100}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "number": {
+                "type": "integer",
+                "description": ""
+              }
+            },
+            "required": [
+              "number"
+            ]
+          }
+        },
+        {
+          "name": "function_4",
+          "description": "Use to obtain city-specific information given a city name.\nExample Scenario: Retrieve city-specific information to help plan a weekend trip.. Call with {\"city_name\": \"Rome\"}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "city_name": {
+                "type": "string",
+                "description": ""
+              }
+            },
+            "required": [
+              "city_name"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "get_prime_factors(number=4567)"
+      ],
+      "name_mapping": {
+        "calculate_standard_deviation": "function_1",
+        "mortgage_calculator": "function_2",
+        "get_prime_factors": "function_3",
+        "get_coordinates_from_city": "function_4"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        [
+          4567
+        ]
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 24,
+      "question": "I'm working on a product review article and I need some information about an item sold on Amazon. The only detail I have is the ASIN: 'B08BHXG144'. I need to find out the product's name associated with this ASIN to include in my write-up. Can you help me retrieve the name of this product?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Retrieve product information using an Amazon ASIN (Amazon Standard Identification Number).\nExample Scenario: A customer wants to verify the specifications, price, and availability of a product on Amazon using its ASIN before deciding to purchase.. Call with {\"ASIN\": \"B08N5WRWNW\"}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "ASIN": {
+                "type": "string",
+                "description": ""
+              }
+            },
+            "required": [
+              "ASIN"
+            ]
+          }
+        },
+        {
+          "name": "function_2",
+          "description": "Computes a result from two integer inputs n and k.\nExample Scenario: Calculate the number of unique 6-number combinations in a 49-number lottery.. Call with {\"n\": 49, \"k\": 6}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "n": {
+                "type": "integer",
+                "description": ""
+              },
+              "k": {
+                "type": "integer",
+                "description": ""
+              }
+            },
+            "required": [
+              "n",
+              "k"
+            ]
+          }
+        },
+        {
+          "name": "function_3",
+          "description": "Operates on two integers (a and b) to compute a result; use when a calculation with two integer inputs is required.\nExample Scenario: Calculate the total tickets sold by combining online sales (a) and box office sales (b).. Call with {\"a\": 125, \"b\": 78}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "a": {
+                "type": "integer",
+                "description": ""
+              },
+              "b": {
+                "type": "integer",
+                "description": ""
+              }
+            },
+            "required": [
+              "a",
+              "b"
+            ]
+          }
+        },
+        {
+          "name": "function_4",
+          "description": "Calculate loan repayment metrics\u2014such as payment amounts and total cost\u2014based on a loan amount, interest rate, and loan period.\nExample Scenario: A first-time homebuyer wants to estimate the monthly payment and total cost for a 30-year fixed-rate mortgage.. Call with {\"loan_amount\": 350000, \"interest_rate\": 7, \"loan_period\": 30}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "loan_amount": {
+                "type": "integer",
+                "description": ""
+              },
+              "interest_rate": {
+                "type": "integer",
+                "description": ""
+              },
+              "loan_period": {
+                "type": "integer",
+                "description": ""
+              }
+            },
+            "required": [
+              "loan_amount",
+              "interest_rate",
+              "loan_period"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "get_product_name_by_amazon_ASIN(ASIN='B08BHXG144')"
+      ],
+      "name_mapping": {
+        "get_product_name_by_amazon_ASIN": "function_1",
+        "calculate_permutations": "function_2",
+        "math_gcd": "function_3",
+        "mortgage_calculator": "function_4"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        "Apple iPhone 11 Pro Max, 64GB, Midnight Green - Unlocked (Renewed Premium)"
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 25,
+      "question": "While browsing Amazon, I stumbled upon a product that really piqued my interest. However, I'm quite particular about the quality and general consensus on items before I consider adding them to my cart. The product has an ASIN of 'B07ZPKBL9V', and I would like to know what its average customer rating is. Could you find that information for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Fetch product information using its ASIN (Amazon Standard Identification Number).\nExample Scenario: An e-commerce support agent needs to fetch up-to-date product details (title, price, availability, images) for an Amazon item during a customer chat.. Call with {\"ASIN\": \"B08N5WRWNW\"}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "ASIN": {
+                "type": "string",
+                "description": ""
+              }
+            },
+            "required": [
+              "ASIN"
+            ]
+          }
+        },
+        {
+          "name": "function_2",
+          "description": "Performs computations involving two points, taking pointA and pointB as coordinate arrays.\nExample Scenario: Calculate the straight-line distance and midpoint between a warehouse and a customer location on a 2D map.. Call with {\"pointA\": [37.7749, -122.4194], \"pointB\": [34.0522, -118.2437]}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "pointA": {
+                "type": "array",
+                "description": "",
+                "items": {
+                  "type": "number"
+                }
+              },
+              "pointB": {
+                "type": "array",
+                "description": "",
+                "items": {
+                  "type": "number"
+                }
+              }
+            },
+            "required": [
+              "pointA",
+              "pointB"
+            ]
+          }
+        },
+        {
+          "name": "function_3",
+          "description": "Performs a calculation based on the provided integer radius.\nExample Scenario: Estimate the area of a circular garden to determine the amount of fertilizer needed.. Call with {\"radius\": 9}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "radius": {
+                "type": "integer",
+                "description": ""
+              }
+            },
+            "required": [
+              "radius"
+            ]
+          }
+        },
+        {
+          "name": "function_4",
+          "description": "Executes operations related to a specified IP address; use this tool when a task targets a particular IP.\nExample Scenario: Investigate and temporarily block a suspicious IP making repeated failed SSH login attempts on a production server. Call with {\"ip_address\": \"203.0.113.42\"}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "ip_address": {
+                "type": "string",
+                "description": ""
+              }
+            },
+            "required": [
+              "ip_address"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "get_rating_by_amazon_ASIN(ASIN='B07ZPKBL9V')"
+      ],
+      "name_mapping": {
+        "get_rating_by_amazon_ASIN": "function_1",
+        "get_distance": "function_2",
+        "geometry_area_circle": "function_3",
+        "get_zipcode_by_ip_address": "function_4"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        "4.2"
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 26,
+      "question": "I'm currently analyzing different investment options and I've taken a particular interest in Apple Inc. I want to review the company's stock performance over the past month. Additionally, it's important for me to know if there have been any stock splits or dividends in that time. Could you pull up the monthly history for Apple's stock and ensure that the information includes any splits or dividends?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Execute a named function with an integer argument.\nExample Scenario: Calculate the factorial of 5 by invoking the 'factorial' function.. Call with {\"function\": \"factorial\", \"x\": 5}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "function": {
+                "type": "string",
+                "description": ""
+              },
+              "x": {
+                "type": "integer",
+                "description": ""
+              }
+            },
+            "required": [
+              "function",
+              "x"
+            ]
+          }
+        },
+        {
+          "name": "function_2",
+          "description": "Use to perform computations that depend on a radius; requires an integer radius.\nExample Scenario: Compute the area of a circular garden bed to estimate mulch required.. Call with {\"radius\": 12}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "radius": {
+                "type": "integer",
+                "description": ""
+              }
+            },
+            "required": [
+              "radius"
+            ]
+          }
+        },
+        {
+          "name": "function_3",
+          "description": "Fetch stock price time-series for a specified stock at a chosen interval, optionally adjusted for dividends and stock splits.\nExample Scenario: A retail trader wants to backtest an intraday strategy on Tesla using 5-minute bars, adjusted for dividends and stock splits.. Call with {\"stock_name\": \"TSLA\", \"interval\": \"5m\", \"diffandsplits\": \"adjusted\"}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "stock_name": {
+                "type": "string",
+                "description": ""
+              },
+              "interval": {
+                "type": "string",
+                "description": ""
+              },
+              "diffandsplits": {
+                "type": "string",
+                "description": ""
+              }
+            },
+            "required": [
+              "stock_name",
+              "interval"
+            ]
+          }
+        },
+        {
+          "name": "function_4",
+          "description": "Purpose not specified in the documentation.\nExample Scenario: Retrieve the upcoming national public holidays for the specified country to assist in scheduling and logistics planning.. Call with {\"country\": \"Japan\"}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "country": {
+                "type": "string",
+                "description": ""
+              }
+            },
+            "required": [
+              "country"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "get_stock_history(stock_name='AAPL', interval='1mo', diffandsplits='true')"
+      ],
+      "name_mapping": {
+        "estimate_derivative": "function_1",
+        "geometry_area_circle": "function_2",
+        "get_stock_history": "function_3",
+        "get_active_covid_case_by_country": "function_4"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        {
+          "1730433600": {
+            "date": "2024-11-01",
+            "date_utc": 1730433600,
+            "open": 220.97,
+            "high": 237.81,
+            "low": 219.71,
+            "close": 237.33,
+            "volume": 891640600,
+            "adjclose": 236.5
+          },
+          "1733029200": {
+            "date": "2024-12-01",
+            "date_utc": 1733029200,
+            "open": 237.27,
+            "high": 260.1,
+            "low": 237.16,
+            "close": 250.42,
+            "volume": 977916100,
+            "adjclose": 249.82
+          },
+          "1735707600": {
+            "date": "2025-01-01",
+            "date_utc": 1735707600,
+            "open": 248.93,
+            "high": 249.1,
+            "low": 219.38,
+            "close": 236,
+            "volume": 1200291700,
+            "adjclose": 235.43
+          },
+          "1738386000": {
+            "date": "2025-02-01",
+            "date_utc": 1738386000,
+            "open": 229.99,
+            "high": 250,
+            "low": 225.7,
+            "close": 241.84,
+            "volume": 862272300,
+            "adjclose": 241.26
+          },
+          "1740805200": {
+            "date": "2025-03-01",
+            "date_utc": 1740805200,
+            "open": 241.79,
+            "high": 244.03,
+            "low": 208.42,
+            "close": 222.13,
+            "volume": 1115239500,
+            "adjclose": 221.84
+          },
+          "1743480000": {
+            "date": "2025-04-01",
+            "date_utc": 1743480000,
+            "open": 219.81,
+            "high": 225.19,
+            "low": 169.21,
+            "close": 212.5,
+            "volume": 1606488200,
+            "adjclose": 212.22
+          },
+          "1746072000": {
+            "date": "2025-05-01",
+            "date_utc": 1746072000,
+            "open": 209.08,
+            "high": 214.56,
+            "low": 193.25,
+            "close": 200.85,
+            "volume": 1195728200,
+            "adjclose": 200.59
+          },
+          "1748750400": {
+            "date": "2025-06-01",
+            "date_utc": 1748750400,
+            "open": 200.28,
+            "high": 207.39,
+            "low": 195.07,
+            "close": 205.17,
+            "volume": 1100409300,
+            "adjclose": 205.17
+          },
+          "1751342400": {
+            "date": "2025-07-01",
+            "date_utc": 1751342400,
+            "open": 206.67,
+            "high": 216.23,
+            "low": 206.14,
+            "close": 211.16,
+            "volume": 407676700,
+            "adjclose": 211.16
+          },
+          "1752523201": {
+            "date": "2025-07-14",
+            "date_utc": 1752523201,
+            "open": 209.91,
+            "high": 210.91,
+            "low": 207.54,
+            "close": 208.62,
+            "volume": 37683849,
+            "adjclose": 208.62
+          }
+        }
+      ],
+      "execution_result_type": [
+        "structural_match"
+      ]
+    },
+    {
+      "test_id": 27,
+      "question": "I'm working on a portfolio analysis, and my client is particularly interested in the latest performance of Apple Inc.'s stock. To provide them with the most up-to-date information, I need to check the current stock price for Apple. Could you pull up the latest figures for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Compute loan repayment metrics (e.g., periodic payment) from the loan amount, interest rate, and loan period.\nExample Scenario: A homebuyer wants to calculate the monthly mortgage payment for a $300,000 loan at a 6% annual interest rate over 360 months.. Call with {\"loan_amount\": 300000, \"interest_rate\": 6, \"loan_period\": 360}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "loan_amount": {
+                "type": "integer",
+                "description": ""
+              },
+              "interest_rate": {
+                "type": "integer",
+                "description": ""
+              },
+              "loan_period": {
+                "type": "integer",
+                "description": ""
+              }
+            },
+            "required": [
+              "loan_amount",
+              "interest_rate",
+              "loan_period"
+            ]
+          }
+        },
+        {
+          "name": "function_2",
+          "description": "Use to retrieve or process stock-related information by providing the stock's name (stock_name).\nExample Scenario: Fetch the latest price, recent news, and a brief performance summary for a specific stock.. Call with {\"stock_name\": \"NVIDIA Corporation\"}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "stock_name": {
+                "type": "string",
+                "description": ""
+              }
+            },
+            "required": [
+              "stock_name"
+            ]
+          }
+        },
+        {
+          "name": "function_3",
+          "description": "Performs computations on a numeric array.\nExample Scenario: Compute aggregate statistics (sum, average, min, max) for a week's daily visitor counts to a website.. Call with {\"numbers\": [1240, 1312, 1198, 1423, 1505, 1601, 1554]}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "numbers": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "description": ""
+              }
+            },
+            "required": [
+              "numbers"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "get_stock_price_by_stock_name(stock_name='AAPL')"
+      ],
+      "name_mapping": {
+        "mortgage_calculator": "function_1",
+        "get_stock_price_by_stock_name": "function_2",
+        "calculate_standard_deviation": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        211.16
+      ],
+      "execution_result_type": [
+        "real_time_match"
+      ]
+    },
+    {
+      "test_id": 28,
+      "question": "I'm currently working on a geography project that involves mapping out time zones for different locations around the globe. As part of this project, I need to know the time zone for a specific coordinate. Could you provide me with the time zone for the location at longitude 123.45 and latitude -67.89?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Performs location-based operations for a geographic point specified by longitude and latitude coordinates.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "long": {
+                "type": "string",
+                "description": ""
+              },
+              "lat": {
+                "type": "string",
+                "description": ""
+              }
+            },
+            "required": [
+              "long",
+              "lat"
+            ]
+          }
+        },
+        {
+          "name": "function_2",
+          "description": "Use when you need to perform an operation based on a given radius (integer).\nExample Scenario: Calculate the area of a circular garden bed to estimate soil needed. Call with {\"radius\": 12}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "radius": {
+                "type": "integer",
+                "description": ""
+              }
+            },
+            "required": [
+              "radius"
+            ]
+          }
+        },
+        {
+          "name": "function_3",
+          "description": "Retrieves information related to a specified stock. Provide the stock\u2019s name via the required stock_name parameter.\nExample Scenario: An investor wants to retrieve the latest information about Tesla, Inc. before making a buy decision.. Call with {\"stock_name\": \"TSLA\"}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "stock_name": {
+                "type": "string",
+                "description": ""
+              }
+            },
+            "required": [
+              "stock_name"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "get_time_zone_by_coord(long='123.45', lat='-67.89')"
+      ],
+      "name_mapping": {
+        "get_time_zone_by_coord": "function_1",
+        "geometry_area_circle": "function_2",
+        "get_stock_price_by_stock_name": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        "Antarctica/DumontDUrville"
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 29,
+      "question": "I'm in the middle of a climate study focusing on temperature changes in the Arctic, and I need the latest temperature readings at the North Pole. Specifically, I'm looking at the point with coordinates 90.00 latitude and 0.00 longitude. I need to access the current temperature data for this precise location using the Open-Meteo API. Could you help me get this information?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Purpose not specified in the available documentation.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "n": {
+                "type": "integer",
+                "description": ""
+              },
+              "k": {
+                "type": "integer",
+                "description": ""
+              },
+              "p": {
+                "type": "integer",
+                "description": ""
+              }
+            },
+            "required": [
+              "n",
+              "k",
+              "p"
+            ]
+          }
+        },
+        {
+          "name": "function_2",
+          "description": "Performs a country-specific operation based on the provided country name.\nExample Scenario: Calculate the standard VAT rate to apply for sales in the specified country. Call with {\"country\": \"United Kingdom\"}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "country": {
+                "type": "string",
+                "description": ""
+              }
+            },
+            "required": [
+              "country"
+            ]
+          }
+        },
+        {
+          "name": "function_3",
+          "description": "Use to process coordinate data by providing a required array of coordinates.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "coordinates": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "description": ""
+              }
+            },
+            "required": [
+              "coordinates"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "get_weather_data(coordinates=[90.00, 0.00])"
+      ],
+      "name_mapping": {
+        "calc_binomial_probability": "function_1",
+        "get_covid_death_by_country": "function_2",
+        "get_weather_data": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        31.5
+      ],
+      "execution_result_type": [
+        "structural_match"
+      ]
+    },
+    {
+      "test_id": 30,
+      "question": "I'm currently in the middle of a cybersecurity investigation and have come across a suspicious IP address that we suspect might be the source of a recent cyber attack. The IP address is 192.168.1.1, and I need to track down the physical location it's associated with to proceed with the investigation. To start with, could you find out the zipcode for where this IP address is registered?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Use for operations that require a specific IP address as input.\nExample Scenario: Check threat reputation and blocklist status of an incoming client's IP before granting access to an admin portal.. Call with {\"ip_address\": \"203.0.113.45\"}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "ip_address": {
+                "type": "string",
+                "description": ""
+              }
+            },
+            "required": [
+              "ip_address"
+            ]
+          }
+        },
+        {
+          "name": "function_2",
+          "description": "Retrieve or process information scoped to a specified ZIP code.\nExample Scenario: Retrieve the weekly trash and recycling pickup schedule for residents in the specified ZIP code.. Call with {\"zipcode\": \"10001\"}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "zipcode": {
+                "type": "string",
+                "description": ""
+              }
+            },
+            "required": [
+              "zipcode"
+            ]
+          }
+        },
+        {
+          "name": "function_3",
+          "description": "Calculates constant-acceleration kinematics\u2014such as final velocity and displacement\u2014given initial_velocity, acceleration, and time.\nExample Scenario: A car traveling on a highway begins braking: starting speed 20 m/s, constant acceleration -4.5 m/s^2 over 3.2 s. Compute final velocity and displacement during this interval.. Call with {\"initial_velocity\": 20, \"acceleration\": -4.5, \"time\": 3.2}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "initial_velocity": {
+                "type": "number",
+                "description": ""
+              },
+              "acceleration": {
+                "type": "number",
+                "description": ""
+              },
+              "time": {
+                "type": "number",
+                "description": ""
+              }
+            },
+            "required": [
+              "initial_velocity",
+              "acceleration",
+              "time"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "get_zipcode_by_ip_address(ip_address=\"192.168.1.1\")"
+      ],
+      "name_mapping": {
+        "get_zipcode_by_ip_address": "function_1",
+        "retrieve_city_based_on_zipcode": "function_2",
+        "calculate_displacement": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        "private range"
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 31,
+      "question": "I'm working on a data analysis project where I need to multiply two matrices as part of my computations. The first matrix I need to work with is [[1, 2], [3, 4]], and the second one is [[5, 6], [7, 8]]. I need to calculate the product of these two matrices to proceed with my analysis. Can you help me with this calculation?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Performs a computation that combines two input matrices (matA and matB) into a resulting matrix.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "matA": {
+                "type": "array",
+                "description": "",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "matB": {
+                "type": "array",
+                "description": "",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  }
+                }
+              }
+            },
+            "required": [
+              "matA",
+              "matB"
+            ]
+          }
+        },
+        {
+          "name": "function_2",
+          "description": "Performs numeric computations on a provided array of numbers.\nExample Scenario: Analyze a week's temperature readings to compute summary statistics (e.g., sum, average, min, max).. Call with {\"numbers\": [68.2, 70.1, 69.5, 71.0, 68.9, 69.8, 70.3]}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "numbers": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "description": ""
+              }
+            },
+            "required": [
+              "numbers"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "mat_mul(matA=[[1, 2], [3, 4]], matB=[[5, 6], [7, 8]])"
+      ],
+      "name_mapping": {
+        "mat_mul": "function_1",
+        "calculate_mean": "function_2"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        [
+          [
+            19,
+            22
+          ],
+          [
+            43,
+            50
+          ]
+        ]
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 32,
+      "question": "In the midst of solving a combinatorics problem, I've hit a step that requires me to calculate the factorial of 7. Could you help me with that?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Converts a specified monetary amount from one currency to another using the provided source and target currency codes.\nExample Scenario: An online store needs to display a product's price in a UK shopper's local currency. The product is priced at \u20ac89.99, and the system must convert it to British pounds.. Call with {\"amount\": 89.99, \"from_currency\": \"EUR\", \"to_currency\": \"GBP\"}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "amount": {
+                "type": "number",
+                "description": ""
+              },
+              "from_currency": {
+                "type": "string",
+                "description": ""
+              },
+              "to_currency": {
+                "type": "string",
+                "description": ""
+              }
+            },
+            "required": [
+              "amount",
+              "from_currency",
+              "to_currency"
+            ]
+          }
+        },
+        {
+          "name": "function_2",
+          "description": "Purpose unspecified in the documentation.\nExample Scenario: Compute the sum of the first n natural numbers to validate an arithmetic pipeline.. Call with {\"n\": 100}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "n": {
+                "type": "integer",
+                "description": ""
+              }
+            },
+            "required": [
+              "n"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "math_factorial(n=7)"
+      ],
+      "name_mapping": {
+        "convert_currency": "function_1",
+        "math_factorial": "function_2"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        5040
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 33,
+      "question": "As a historian delving into ancient Roman political alliances, I've stumbled upon an interesting numerical challenge. I need to determine the greatest common divisor for the number of senators during two distinct time periods, one with 450 senators and the other with 300. This will help me understand the commonalities in their political structures. Could you help me calculate that?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Compute density from mass and volume.\nExample Scenario: A chemistry student computes the density of an aluminum sample using its measured mass (grams) and volume (cm^3).. Call with {\"mass\": 540, \"volume\": 200}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "mass": {
+                "type": "number",
+                "description": ""
+              },
+              "volume": {
+                "type": "number",
+                "description": ""
+              }
+            },
+            "required": [
+              "mass",
+              "volume"
+            ]
+          }
+        },
+        {
+          "name": "function_2",
+          "description": "Purpose not specified in the available documentation.\nExample Scenario: Compute the nth Fibonacci number to benchmark performance with a moderately large input.. Call with {\"n\": 1000}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "n": {
+                "type": "integer",
+                "description": ""
+              }
+            },
+            "required": [
+              "n"
+            ]
+          }
+        },
+        {
+          "name": "function_3",
+          "description": "Performs a computation using two required integers (a and b).\nExample Scenario: Calculate the sum of two daily sales counts.. Call with {\"a\": 58, \"b\": 73}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "a": {
+                "type": "integer",
+                "description": ""
+              },
+              "b": {
+                "type": "integer",
+                "description": ""
+              }
+            },
+            "required": [
+              "a",
+              "b"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "math_gcd(a=450, b=300)"
+      ],
+      "name_mapping": {
+        "calculate_density": "function_1",
+        "get_fibonacci_sequence": "function_2",
+        "math_gcd": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        150
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 34,
+      "question": "I'm working on a new track and I've got these two drum loops that I'm trying to synchronize. The first loop repeats every 18 beats, while the second one comes back around every 24 beats. I need them to align perfectly so that the patterns create a seamless rhythm in the song. Could you calculate the least common multiple for 18 and 24 beats to find out after how many beats they'll sync up?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Use to run an operation that requires two integer inputs: a and b (both required).\nExample Scenario: Compute the sum of two integers. Call with {\"a\": 12, \"b\": 30}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "a": {
+                "type": "integer",
+                "description": ""
+              },
+              "b": {
+                "type": "integer",
+                "description": ""
+              }
+            },
+            "required": [
+              "a",
+              "b"
+            ]
+          }
+        },
+        {
+          "name": "function_2",
+          "description": "Undocumented; use when an operation requires providing a stock_name.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "stock_name": {
+                "type": "string",
+                "description": ""
+              }
+            },
+            "required": [
+              "stock_name"
+            ]
+          }
+        },
+        {
+          "name": "function_3",
+          "description": "Performs a computation based on two required integer inputs n and k. (Specific operation not documented.)",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "n": {
+                "type": "integer",
+                "description": ""
+              },
+              "k": {
+                "type": "integer",
+                "description": ""
+              }
+            },
+            "required": [
+              "n",
+              "k"
+            ]
+          }
+        },
+        {
+          "name": "function_4",
+          "description": "Compute the final velocity of an object under constant acceleration after a specified time, given its initial velocity.\nExample Scenario: A car on a straight road increases its speed to overtake another vehicle. Compute its final speed after accelerating steadily.. Call with {\"initial_velocity\": 15, \"acceleration\": 2, \"time\": 7}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "initial_velocity": {
+                "type": "number",
+                "description": ""
+              },
+              "acceleration": {
+                "type": "number",
+                "description": ""
+              },
+              "time": {
+                "type": "number",
+                "description": ""
+              }
+            },
+            "required": [
+              "initial_velocity",
+              "acceleration",
+              "time"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "math_lcm(a=24, b=18)"
+      ],
+      "name_mapping": {
+        "math_lcm": "function_1",
+        "get_stock_price_by_stock_name": "function_2",
+        "calculate_permutations": "function_3",
+        "calculate_displacement": "function_4"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        72.0
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 35,
+      "question": "I'm assisting a client who's in the process of buying a house. They're looking at a mortgage for the amount of $350,000. The interest rate they've been offered is 3.5%, and they plan to pay it off over 30 years. I need to provide them with an estimate of what their monthly payment would be. Can you work that out for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Computes loan repayment details\u2014such as periodic payment\u2014based on the loan amount, interest rate, and loan period.\nExample Scenario: Calculate the monthly payment for a 30-year fixed-rate mortgage: $350,000 principal at 6.25% APR, paid monthly (360 periods). The interest_rate parameter is the monthly rate (APR/12).. Call with {\"loan_amount\": 350000, \"interest_rate\": 0.0052083333, \"loan_period\": 360}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "loan_amount": {
+                "type": "number",
+                "description": ""
+              },
+              "interest_rate": {
+                "type": "number",
+                "description": ""
+              },
+              "loan_period": {
+                "type": "integer",
+                "description": ""
+              }
+            },
+            "required": [
+              "loan_amount",
+              "interest_rate",
+              "loan_period"
+            ]
+          }
+        },
+        {
+          "name": "function_2",
+          "description": "Use to execute a function that operates on two required integers (a and b), producing a result based on those inputs. Suitable whenever a task needs processing or computation from two integer values.\nExample Scenario: Calculate the total distance of a trip by summing the lengths of two segments (a and b).. Call with {\"a\": 120, \"b\": 85}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "a": {
+                "type": "integer",
+                "description": ""
+              },
+              "b": {
+                "type": "integer",
+                "description": ""
+              }
+            },
+            "required": [
+              "a",
+              "b"
+            ]
+          }
+        },
+        {
+          "name": "function_3",
+          "description": "Executes the tool\u2019s operation with a required integer input n.\nExample Scenario: Return the nth Fibonacci number.. Call with {\"n\": 10}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "n": {
+                "type": "integer",
+                "description": ""
+              }
+            },
+            "required": [
+              "n"
+            ]
+          }
+        },
+        {
+          "name": "function_4",
+          "description": "Invokes a named function (specified by the \"function\" string) with the integer argument \"x\".\nExample Scenario: Calculate the 12th Fibonacci number by invoking a function named 'fibonacci' with the integer argument x=12.. Call with {\"function\": \"fibonacci\", \"x\": 12}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "function": {
+                "type": "string",
+                "description": ""
+              },
+              "x": {
+                "type": "integer",
+                "description": ""
+              }
+            },
+            "required": [
+              "function",
+              "x"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "mortgage_calculator(loan_amount=350000, interest_rate=0.035, loan_period=30)"
+      ],
+      "name_mapping": {
+        "mortgage_calculator": "function_1",
+        "math_lcm": "function_2",
+        "math_factorial": "function_3",
+        "estimate_derivative": "function_4"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        1571.656407330882
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 36,
+      "question": "For my next algebra class, I'm planning to cover the topic of quadratic equations. I want to provide a practical example to help my students understand the concept of finding roots. So, I've chosen the equation 3x^2 + 7x - 10 = 0 to work through with the class. Could you calculate the roots for this specific equation?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Use to perform computations involving two coordinate points represented as arrays (pointA and pointB).\nExample Scenario: Compute the Euclidean distance and displacement vector between two points on a 2D grid for moving a game character from its current position to a target.. Call with {\"pointA\": [3, -1], \"pointB\": [12, 7]}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "pointA": {
+                "type": "array",
+                "description": "",
+                "items": {
+                  "type": "number"
+                }
+              },
+              "pointB": {
+                "type": "array",
+                "description": "",
+                "items": {
+                  "type": "number"
+                }
+              }
+            },
+            "required": [
+              "pointA",
+              "pointB"
+            ]
+          }
+        },
+        {
+          "name": "function_2",
+          "description": "Compute a result based on three required integers: a, b, and c.\nExample Scenario: Calculate the volume of a rectangular prism from three integer dimensions: length (a), width (b), and height (c).. Call with {\"a\": 7, \"b\": 5, \"c\": 2}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "a": {
+                "type": "integer",
+                "description": ""
+              },
+              "b": {
+                "type": "integer",
+                "description": ""
+              },
+              "c": {
+                "type": "integer",
+                "description": ""
+              }
+            },
+            "required": [
+              "a",
+              "b",
+              "c"
+            ]
+          }
+        },
+        {
+          "name": "function_3",
+          "description": "Execute a specified function (by name) on an integer input.\nExample Scenario: Calculate the factorial of a given integer. Call with {\"function\": \"factorial\", \"x\": 5}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "function": {
+                "type": "string",
+                "description": ""
+              },
+              "x": {
+                "type": "integer",
+                "description": ""
+              }
+            },
+            "required": [
+              "function",
+              "x"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "quadratic_roots(a=3, b=7, c=-10)"
+      ],
+      "name_mapping": {
+        "get_distance": "function_1",
+        "quadratic_roots": "function_2",
+        "estimate_derivative": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        [
+          1.0,
+          -3.3333333333333335
+        ]
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 37,
+      "question": "I'm in the middle of analyzing demographic data for a project and need to cross-reference some information based on zip codes. I've got a specific zip code, let's say 90210, and I need to find out which city it corresponds to. Can you help me retrieve the city name for this zip code?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Calculates the future value of an amount using compound interest, given a present value, interest rate, and number of periods.\nExample Scenario: An investor wants to know how much their $12,500 deposit will grow after 7 years at an annual interest rate of 4.2%, compounded once per year.. Call with {\"present_value\": 12500, \"interest_rate\": 0.042, \"periods\": 7}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "present_value": {
+                "type": "number",
+                "description": ""
+              },
+              "interest_rate": {
+                "type": "number",
+                "description": ""
+              },
+              "periods": {
+                "type": "integer",
+                "description": ""
+              }
+            },
+            "required": [
+              "present_value",
+              "interest_rate",
+              "periods"
+            ]
+          }
+        },
+        {
+          "name": "function_2",
+          "description": "Retrieve information associated with a given ZIP code.\nExample Scenario: Validate a customer's shipping address by retrieving the city and state for a provided ZIP code.. Call with {\"zipcode\": \"10001\"}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "zipcode": {
+                "type": "string",
+                "description": ""
+              }
+            },
+            "required": [
+              "zipcode"
+            ]
+          }
+        },
+        {
+          "name": "function_3",
+          "description": "Calls a specified function (by name) with a single integer argument x.\nExample Scenario: Compute the 10th Fibonacci number by calling the 'fibonacci' function with input x.. Call with {\"function\": \"fibonacci\", \"x\": 10}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "function": {
+                "type": "string",
+                "description": ""
+              },
+              "x": {
+                "type": "integer",
+                "description": ""
+              }
+            },
+            "required": [
+              "function",
+              "x"
+            ]
+          }
+        },
+        {
+          "name": "function_4",
+          "description": "Fetch data for an Amazon product using its ASIN.\nExample Scenario: A shopper enters an ASIN in a price-tracking app to fetch the latest Amazon product details (title, price, availability) before making a purchase decision.. Call with {\"ASIN\": \"B07FZ8S74R\"}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "ASIN": {
+                "type": "string",
+                "description": ""
+              }
+            },
+            "required": [
+              "ASIN"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "retrieve_city_based_on_zipcode(zipcode='90210')"
+      ],
+      "name_mapping": {
+        "calculate_future_value": "function_1",
+        "retrieve_city_based_on_zipcode": "function_2",
+        "estimate_derivative": "function_3",
+        "get_price_by_amazon_ASIN": "function_4"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        "BEVERLY HILLS"
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 38,
+      "question": "I'm currently engaged in a study that requires me to investigate the holidays celebrated across different cultures and how they've evolved over the years. As part of this research, I'm compiling data on the national holidays in various countries for specific years. At the moment, I'm focusing on France. I need to know the list of holidays that were observed in France in the year 2010. Can you provide that information for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Use this tool to perform location-based operations by providing a geographic point via longitude (long) and latitude (lat).\nExample Scenario: Reverse geocoding to identify the nearest street address for an incident location on the map. Call with {\"long\": \"-73.985656\", \"lat\": \"40.748433\"}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "long": {
+                "type": "string",
+                "description": ""
+              },
+              "lat": {
+                "type": "string",
+                "description": ""
+              }
+            },
+            "required": [
+              "long",
+              "lat"
+            ]
+          }
+        },
+        {
+          "name": "function_2",
+          "description": "Retrieve country-specific data for a specified year.\nExample Scenario: A policy analyst needs country-specific data for Canada in 2021 to compare pandemic-year indicators.. Call with {\"year\": \"2021\", \"country\": \"Canada\"}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "year": {
+                "type": "string",
+                "description": ""
+              },
+              "country": {
+                "type": "string",
+                "description": ""
+              }
+            },
+            "required": [
+              "year",
+              "country"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "retrieve_holiday_by_year(year='2010', country='FR')"
+      ],
+      "name_mapping": {
+        "get_time_zone_by_coord": "function_1",
+        "retrieve_holiday_by_year": "function_2"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        [
+          {
+            "date": "2010-01-01",
+            "localName": "Jour de l'an",
+            "name": "New Year's Day",
+            "countryCode": "FR",
+            "fixed": false,
+            "global": true,
+            "counties": null,
+            "launchYear": null,
+            "types": [
+              "Public"
+            ]
+          },
+          {
+            "date": "2010-04-05",
+            "localName": "Lundi de P\u00e2ques",
+            "name": "Easter Monday",
+            "countryCode": "FR",
+            "fixed": false,
+            "global": true,
+            "counties": null,
+            "launchYear": null,
+            "types": [
+              "Public"
+            ]
+          },
+          {
+            "date": "2010-05-01",
+            "localName": "F\u00eate du Travail",
+            "name": "Labour Day",
+            "countryCode": "FR",
+            "fixed": false,
+            "global": true,
+            "counties": null,
+            "launchYear": null,
+            "types": [
+              "Public"
+            ]
+          },
+          {
+            "date": "2010-05-08",
+            "localName": "Victoire 1945",
+            "name": "Victory in Europe Day",
+            "countryCode": "FR",
+            "fixed": false,
+            "global": true,
+            "counties": null,
+            "launchYear": null,
+            "types": [
+              "Public"
+            ]
+          },
+          {
+            "date": "2010-05-13",
+            "localName": "Ascension",
+            "name": "Ascension Day",
+            "countryCode": "FR",
+            "fixed": false,
+            "global": true,
+            "counties": null,
+            "launchYear": null,
+            "types": [
+              "Public"
+            ]
+          },
+          {
+            "date": "2010-05-24",
+            "localName": "Lundi de Pentec\u00f4te",
+            "name": "Whit Monday",
+            "countryCode": "FR",
+            "fixed": false,
+            "global": true,
+            "counties": null,
+            "launchYear": null,
+            "types": [
+              "Public"
+            ]
+          },
+          {
+            "date": "2010-07-14",
+            "localName": "F\u00eate nationale",
+            "name": "Bastille Day",
+            "countryCode": "FR",
+            "fixed": false,
+            "global": true,
+            "counties": null,
+            "launchYear": null,
+            "types": [
+              "Public"
+            ]
+          },
+          {
+            "date": "2010-08-15",
+            "localName": "Assomption",
+            "name": "Assumption Day",
+            "countryCode": "FR",
+            "fixed": false,
+            "global": true,
+            "counties": null,
+            "launchYear": null,
+            "types": [
+              "Public"
+            ]
+          },
+          {
+            "date": "2010-11-01",
+            "localName": "Toussaint",
+            "name": "All Saints' Day",
+            "countryCode": "FR",
+            "fixed": false,
+            "global": true,
+            "counties": null,
+            "launchYear": null,
+            "types": [
+              "Public"
+            ]
+          },
+          {
+            "date": "2010-11-11",
+            "localName": "Armistice 1918",
+            "name": "Armistice Day",
+            "countryCode": "FR",
+            "fixed": false,
+            "global": true,
+            "counties": null,
+            "launchYear": null,
+            "types": [
+              "Public"
+            ]
+          },
+          {
+            "date": "2010-12-25",
+            "localName": "No\u00ebl",
+            "name": "Christmas Day",
+            "countryCode": "FR",
+            "fixed": false,
+            "global": true,
+            "counties": null,
+            "launchYear": null,
+            "types": [
+              "Public"
+            ]
+          }
+        ]
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 39,
+      "question": "I've got a dataset here that needs to be ordered from highest to lowest value. The numbers I'm working with are 34, 2, 56, 7, 9, and 12. Could you help me sort these in descending order?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Retrieves information related to a specified term string.\nExample Scenario: A student uses the tool to quickly retrieve a definition and key facts about a biology term for homework.. Call with {\"term\": \"photosynthesis\"}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "term": {
+                "type": "string",
+                "description": ""
+              }
+            },
+            "required": [
+              "term"
+            ]
+          }
+        },
+        {
+          "name": "function_2",
+          "description": "Computes density from the provided mass and volume.\nExample Scenario: A materials engineer needs to compute the density of an aluminum component measured to have a mass of 1.35 kg and a volume of 0.0005 m^3.. Call with {\"mass\": 1.35, \"volume\": 0.0005}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "mass": {
+                "type": "number",
+                "description": ""
+              },
+              "volume": {
+                "type": "number",
+                "description": ""
+              }
+            },
+            "required": [
+              "mass",
+              "volume"
+            ]
+          }
+        },
+        {
+          "name": "function_3",
+          "description": "Retrieve stock price time-series data for a specified stock and interval, optionally including dividend and split adjustments.\nExample Scenario: A portfolio analyst retrieves Apple's daily time-series, including dividend and split adjustments, to backtest a moving-average strategy.. Call with {\"stock_name\": \"AAPL\", \"interval\": \"1d\", \"diffandsplits\": \"include\"}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "stock_name": {
+                "type": "string",
+                "description": ""
+              },
+              "interval": {
+                "type": "string",
+                "description": ""
+              },
+              "diffandsplits": {
+                "type": "string",
+                "description": ""
+              }
+            },
+            "required": [
+              "stock_name",
+              "interval"
+            ]
+          }
+        },
+        {
+          "name": "function_4",
+          "description": "Processes an array input and can return it in reverse order when the reverse flag is true.\nExample Scenario: A music app reverses the playback order of a user's playlist when they enable 'Play from the end'.. Call with {\"array\": [\"track_101\", \"track_102\", \"track_103\", \"track_104\"], \"reverse\": true}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "array": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "description": ""
+              },
+              "reverse": {
+                "type": "boolean",
+                "description": "",
+                "default": false
+              }
+            },
+            "required": [
+              "array"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "sort_array(array=[34, 2, 56, 7, 9, 12], reverse=True)"
+      ],
+      "name_mapping": {
+        "find_term_on_urban_dictionary": "function_1",
+        "calculate_density": "function_2",
+        "get_stock_history": "function_3",
+        "sort_array": "function_4"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        [
+          56,
+          34,
+          12,
+          9,
+          7,
+          2
+        ]
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 40,
+      "question": "I need to calculate the sum of the binary numbers '10011' and '1100'. Could you help me with that?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Executes an operation that requires two string inputs (a and b).\nExample Scenario: Generate a personalized greeting by combining a user's first name (a) and last name (b).. Call with {\"a\": \"Ada\", \"b\": \"Lovelace\"}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "a": {
+                "type": "string",
+                "description": ""
+              },
+              "b": {
+                "type": "string",
+                "description": ""
+              }
+            },
+            "required": [
+              "a",
+              "b"
+            ]
+          }
+        },
+        {
+          "name": "function_2",
+          "description": "Processes binary data provided as a string.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "binary": {
+                "type": "string",
+                "description": ""
+              }
+            },
+            "required": [
+              "binary"
+            ]
+          }
+        },
+        {
+          "name": "function_3",
+          "description": "Use to perform an operation that requires a decimal (base-10) integer input.\nExample Scenario: Convert the provided base-10 integer to its binary representation.. Call with {\"decimal\": 255}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "decimal": {
+                "type": "integer",
+                "description": ""
+              }
+            },
+            "required": [
+              "decimal"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "add_binary_numbers(a='10011',b='1100')"
+      ],
+      "name_mapping": {
+        "add_binary_numbers": "function_1",
+        "convert_binary_to_decimal": "function_2",
+        "convert_decimal_to_hex": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        "11111"
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 41,
+      "question": "I've been working on some data analysis and I need to fit a linear regression model. I have these data points with x-coordinates as [1, 2, -3] and corresponding y-coordinates as [4, -5, 6]. I want to understand the relationship between these variables and make a prediction for when x is 10. Can you help me with that?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Performs a computation on paired x and y arrays at a specified point index; use it when you need a result tied to a particular data point in the series.\nExample Scenario: Detect a sudden acceleration by evaluating the local behavior of a vehicle's speed at a specific timestamp.. Call with {\"x\": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], \"y\": [0.0, 0.6, 1.4, 2.3, 3.5, 4.9, 5.7, 6.4, 8.2, 10.1, 11.3], \"point\": 8}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "x": {
+                "type": "array",
+                "description": "",
+                "items": {
+                  "type": "integer"
+                }
+              },
+              "y": {
+                "type": "array",
+                "description": "",
+                "items": {
+                  "type": "integer"
+                }
+              },
+              "point": {
+                "type": "integer",
+                "description": ""
+              }
+            },
+            "required": [
+              "x",
+              "y",
+              "point"
+            ]
+          }
+        },
+        {
+          "name": "function_2",
+          "description": "For operations that process two arrays (x and y) together as paired inputs.\nExample Scenario: Evaluate forecast accuracy by pairing actual vs predicted daily energy consumption readings to compute residuals and MAE.. Call with {\"x\": [23.4, 25.1, 22.9, 24.5, 26.0, 23.8, 24.9, 25.5, 24.2, 26.3], \"y\": [22.8, 24.7, 23.1, 24.0, 26.5, 24.0, 25.2, 25.1, 24.8, 26.0]}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "x": {
+                "type": "array",
+                "description": "",
+                "items": {
+                  "type": "integer"
+                }
+              },
+              "y": {
+                "type": "array",
+                "description": "",
+                "items": {
+                  "type": "integer"
+                }
+              }
+            },
+            "required": [
+              "x",
+              "y"
+            ]
+          }
+        },
+        {
+          "name": "function_3",
+          "description": "Applies a specified integer slope to paired x and y arrays for slope-based analysis or transformation.\nExample Scenario: Baseline drift correction for a time-series sensor signal by removing an assumed linear trend of 3 units per time-step.. Call with {\"x\": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], \"y\": [50, 53, 56, 58, 63, 64, 69, 70, 75, 79], \"slope\": 3}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "x": {
+                "type": "array",
+                "description": "",
+                "items": {
+                  "type": "integer"
+                }
+              },
+              "y": {
+                "type": "array",
+                "description": "",
+                "items": {
+                  "type": "integer"
+                }
+              },
+              "slope": {
+                "type": "integer",
+                "description": ""
+              }
+            },
+            "required": [
+              "x",
+              "y",
+              "slope"
+            ]
+          }
+        },
+        {
+          "name": "function_4",
+          "description": "Computes the value of a linear function y = slope*x + intercept for a given x.\nExample Scenario: Compute the position of an object moving at constant velocity, where slope is velocity and intercept is initial position, at a given time.. Call with {\"slope\": 3, \"intercept\": 10, \"x\": 7}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "slope": {
+                "type": "integer",
+                "description": ""
+              },
+              "intercept": {
+                "type": "integer",
+                "description": ""
+              },
+              "x": {
+                "type": "integer",
+                "description": ""
+              }
+            },
+            "required": [
+              "slope",
+              "intercept",
+              "x"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "linear_regression(x=[1,2,-3],y=[4,-5,6],point=10)"
+      ],
+      "name_mapping": {
+        "linear_regression": "function_1",
+        "calculate_slope": "function_2",
+        "calculate_intercept": "function_3",
+        "predict_value": "function_4"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        -15.476190476190476
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 42,
+      "question": "I've been planning my financial future and I've decided to make an initial investment of $10,000, followed by an annual contribution of $1,000. My investment plan will run for 5 years, and I'm expecting an annual return of 5%. However, I'm also aware that inflation can impact the value of my investment, so I've projected an inflation rate that changes year over year: 1% for the first year, 2% for the second, and so on, up to 4% for the last two years. I need to calculate the real value of my investment after accounting for these inflation rates. Can you provide me with the adjusted value of my investment over this 5-year period?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Project future investment growth over a set number of years based on an initial investment, annual contributions, and a fixed annual return, with an option to adjust results for inflation using a provided year-by-year inflation rate series.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "initial_investment": {
+                "type": "integer",
+                "description": ""
+              },
+              "annual_contribution": {
+                "type": "integer",
+                "description": ""
+              },
+              "years": {
+                "type": "integer",
+                "description": ""
+              },
+              "annual_return": {
+                "type": "number",
+                "description": ""
+              },
+              "inflation_rate": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "description": ""
+              },
+              "adjust_for_inflation": {
+                "type": "boolean",
+                "default": true,
+                "description": ""
+              }
+            },
+            "required": [
+              "initial_investment",
+              "annual_contribution",
+              "years",
+              "annual_return",
+              "inflation_rate"
+            ]
+          }
+        },
+        {
+          "name": "function_2",
+          "description": "Calculates the future value of an investment using compound interest given the principal, annual interest rate, compounding frequency per year, and number of years.\nExample Scenario: A parent invests $15,000 in a college savings account earning 5.5% annually, compounded quarterly, for 8 years to project the account's future value.. Call with {\"principal\": 15000, \"rate\": 0.055, \"times_compounded\": 4, \"years\": 8}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "principal": {
+                "type": "integer",
+                "description": ""
+              },
+              "rate": {
+                "type": "number",
+                "description": ""
+              },
+              "times_compounded": {
+                "type": "integer",
+                "description": ""
+              },
+              "years": {
+                "type": "integer",
+                "description": ""
+              }
+            },
+            "required": [
+              "principal",
+              "rate",
+              "times_compounded",
+              "years"
+            ]
+          }
+        },
+        {
+          "name": "function_3",
+          "description": "Calculates the inflation-adjusted future value of an amount over a specified number of years using an annual inflation rate.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "amount": {
+                "type": "number",
+                "description": ""
+              },
+              "inflation_rate": {
+                "type": "number",
+                "description": ""
+              },
+              "years": {
+                "type": "integer",
+                "description": ""
+              }
+            },
+            "required": [
+              "amount",
+              "inflation_rate",
+              "years"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "calculate_investment_value(initial_investment=10000, annual_contribution=1000, years=5, annual_return=0.05, inflation_rate=[0.01,0.02,0.03,0.04,0.04])"
+      ],
+      "name_mapping": {
+        "calculate_investment_value": "function_1",
+        "compound_interest": "function_2",
+        "inflation_adjustment": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        16145.646273400002
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 43,
+      "question": "I've got $1,000,000 set aside as an initial investment and plan to add $1,000 to it every year. I'm looking at a potential annual interest rate of 10% over the next three years. However, I also want to consider the inflation rates, which I expect to be 1% in the first year and 4% for the next two years. I need to calculate what the investment's value would be at the end of three years, factoring in these inflation rates. Can you help me with that?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Calculates the future value of an investment/account by projecting a present balance plus annual contributions over a specified number of years at a given annual rate of return.\nExample Scenario: A 35-year-old investor wants to project the future value of a retirement account with a current balance and consistent yearly contributions at an expected average annual return.. Call with {\"present_value\": 25000, \"annual_contribution\": 6000, \"years\": 30, \"rate_of_return\": 0.07}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "present_value": {
+                "type": "integer",
+                "description": ""
+              },
+              "annual_contribution": {
+                "type": "integer",
+                "description": ""
+              },
+              "years": {
+                "type": "integer",
+                "description": ""
+              },
+              "rate_of_return": {
+                "type": "number",
+                "description": ""
+              }
+            },
+            "required": [
+              "present_value",
+              "annual_contribution",
+              "years",
+              "rate_of_return"
+            ]
+          }
+        },
+        {
+          "name": "function_2",
+          "description": "Calculates the inflation-adjusted value of an investment by applying a series of inflation rates to an initial investment amount.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "investment_value": {
+                "type": "number",
+                "description": ""
+              },
+              "inflation_rates": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "description": ""
+              }
+            },
+            "required": [
+              "investment_value",
+              "inflation_rates"
+            ]
+          }
+        },
+        {
+          "name": "function_3",
+          "description": "Forecast investment growth over multiple years from an initial amount and annual contributions at a given return rate, with optional inflation-adjusted projections using a year-by-year inflation rate series.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "initial_investment": {
+                "type": "integer",
+                "description": ""
+              },
+              "annual_contribution": {
+                "type": "integer",
+                "description": ""
+              },
+              "years": {
+                "type": "integer",
+                "description": ""
+              },
+              "annual_return": {
+                "type": "number",
+                "description": ""
+              },
+              "inflation_rate": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "description": ""
+              },
+              "adjust_for_inflation": {
+                "type": "boolean",
+                "default": true,
+                "description": ""
+              }
+            },
+            "required": [
+              "initial_investment",
+              "annual_contribution",
+              "years",
+              "annual_return",
+              "inflation_rate"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "calculate_investment_value(initial_investment=1000000, annual_contribution=1000, years=3, annual_return=0.10, inflation_rate=[0.01, 0.04, 0.04])"
+      ],
+      "name_mapping": {
+        "calculate_future_value": "function_1",
+        "adjust_for_inflation": "function_2",
+        "calculate_investment_value": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        1227813.9640000002
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 44,
+      "question": "I've been helping my grandmother to adopt a healthier lifestyle. She's 80 years old, and we've been quite active together lately. She's 170 cm tall and weighs 59 kg. Given that we're maintaining an activity level of 4 on the scale you've provided, we're aiming for a weight loss goal. Could you calculate her nutritional needs based on these details?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Calculates personal health metrics using weight, height, age, and gender.\nExample Scenario: A 45-year-old woman wants to understand her BMI and daily calorie needs before starting a nutrition plan.. Call with {\"weight\": 68.0, \"height\": 165, \"age\": 45, \"gender\": \"female\"}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "weight": {
+                "type": "number",
+                "description": ""
+              },
+              "height": {
+                "type": "number",
+                "description": ""
+              },
+              "age": {
+                "type": "number",
+                "description": ""
+              },
+              "gender": {
+                "type": "string",
+                "description": ""
+              }
+            },
+            "required": [
+              "weight",
+              "height",
+              "age",
+              "gender"
+            ]
+          }
+        },
+        {
+          "name": "function_2",
+          "description": "Calculates total daily energy expenditure (maintenance calories) by adjusting basal metabolic rate with an activity level.\nExample Scenario: Jordan wants to estimate daily maintenance calories using a measured BMR and a moderately active lifestyle (exercises 3\u20135 days/week).. Call with {\"basal_metabolic_rate\": 1675, \"activity_level\": 1.55}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "basal_metabolic_rate": {
+                "type": "number",
+                "description": ""
+              },
+              "activity_level": {
+                "type": "number",
+                "description": ""
+              }
+            },
+            "required": [
+              "basal_metabolic_rate",
+              "activity_level"
+            ]
+          }
+        },
+        {
+          "name": "function_3",
+          "description": "Calculates personalized daily energy needs\u2014BMR/TDEE\u2014and goal-aligned calorie targets using weight, height, age, gender, activity level, and goal (e.g., lose, maintain, gain).\nExample Scenario: A 35-year-old male office worker who trains 3\u20134 times per week wants to lose body fat (metric units).. Call with {\"weight\": 82, \"height\": 178, \"age\": 35, \"gender\": \"male\", \"activity_level\": 1.55, \"goal\": \"lose\"}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "weight": {
+                "type": "number",
+                "description": ""
+              },
+              "height": {
+                "type": "number",
+                "description": ""
+              },
+              "age": {
+                "type": "number",
+                "description": ""
+              },
+              "gender": {
+                "type": "string",
+                "description": ""
+              },
+              "activity_level": {
+                "type": "number",
+                "description": ""
+              },
+              "goal": {
+                "type": "string",
+                "description": ""
+              }
+            },
+            "required": [
+              "weight",
+              "height",
+              "age",
+              "gender",
+              "activity_level",
+              "goal"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "calculate_nutritional_needs(weight=59,height=170,age=80,gender='female',activity_level=4,goal='lose')"
+      ],
+      "name_mapping": {
+        "calculate_basal_metabolic_rate": "function_1",
+        "calculate_daily_energy_expenditure": "function_2",
+        "calculate_nutritional_needs": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        {
+          "calories": 1524.15985,
+          "proteins_g": 114.31198875,
+          "fats_g": 42.33777361111111,
+          "carbohydrates_g": 171.46798312500002
+        }
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 45,
+      "question": "I'm looking to reserve a deluxe room for a client whose ID is 123. They'll be staying from August 11th to August 15th, 2024. The room's nightly rate is $1000. Can you handle the booking for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Books a hotel room for a customer by creating a reservation with the specified room type and check-in/check-out dates, optionally applying a discount code.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "room_type": {
+                "type": "object",
+                "description": ""
+              },
+              "check_in_date": {
+                "type": "string",
+                "description": ""
+              },
+              "check_out_date": {
+                "type": "string",
+                "description": ""
+              },
+              "customer_id": {
+                "type": "string",
+                "description": ""
+              },
+              "discount_code": {
+                "type": "string",
+                "description": "",
+                "default": null
+              }
+            },
+            "required": [
+              "room_type",
+              "check_in_date",
+              "check_out_date",
+              "customer_id"
+            ]
+          }
+        },
+        {
+          "name": "function_2",
+          "description": "Calculate the total cost of a stay by multiplying the per-night room price by the number of nights and applying an optional discount.\nExample Scenario: A business traveler books a deluxe room for 4 nights at $175 per night and applies a 15% corporate discount.. Call with {\"room_price\": 175, \"nights\": 4, \"discount\": 0.15}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "room_price": {
+                "type": "number",
+                "description": ""
+              },
+              "nights": {
+                "type": "integer",
+                "description": ""
+              },
+              "discount": {
+                "type": "number",
+                "description": "",
+                "default": 0
+              }
+            },
+            "required": [
+              "room_price",
+              "nights"
+            ]
+          }
+        },
+        {
+          "name": "function_3",
+          "description": "Bill a customer for a specific room by recording the total price against the provided customer ID and room number.\nExample Scenario: After John Doe checks out from Seaside Inn, the front desk bills his stay for room 504 to customer ID CUST-48721, totaling $432 including room charges and taxes.. Call with {\"customer_id\": \"CUST-48721\", \"room_number\": \"504\", \"total_price\": 432}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "customer_id": {
+                "type": "string",
+                "description": ""
+              },
+              "room_number": {
+                "type": "string",
+                "description": ""
+              },
+              "total_price": {
+                "type": "number",
+                "description": ""
+              }
+            },
+            "required": [
+              "customer_id",
+              "room_number",
+              "total_price"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "book_room(room_type='deluxe',price=1000,check_in_date='08-11-2024',check_out_date='08-15-2024',customer_id='123')"
+      ],
+      "name_mapping": {
+        "book_room": "function_1",
+        "calculate_total_price": "function_2",
+        "confirm_booking": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        {
+          "customer_id": "123",
+          "room_number": "deluxe",
+          "check_in_date": "08-11-2024",
+          "check_out_date": "08-15-2024",
+          "total_price": 1000
+        }
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 46,
+      "question": "I'm planning to host a dinner party tonight and thought of serving some delicious dumplings and rice bowls. I need to order 101 dumplings at $0.1 each and 20 rice bowls at $10 per bowl. Can you calculate the total price for this order for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Process a batch of transaction line items by providing parallel arrays of items, quantities, and unit prices.\nExample Scenario: A cafe POS records a customer's order with multiple items, their quantities, and unit prices to compute the transaction total.. Call with {\"item\": [\"Latte 12oz\", \"Blueberry Muffin\", \"Turkey Sandwich\", \"Bottled Water\"], \"quantity\": [2, 1, 1, 3], \"price\": [3.95, 2.75, 7.5, 1.25]}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "item": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": ""
+              },
+              "quantity": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                },
+                "description": ""
+              },
+              "price": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "description": ""
+              }
+            },
+            "required": [
+              "item",
+              "quantity",
+              "price"
+            ]
+          }
+        },
+        {
+          "name": "function_2",
+          "description": "Computes total cost/revenue by multiplying corresponding quantities and prices and summing the results.\nExample Scenario: Calculate today's total revenue for a coffee shop across menu items (lattes, cappuccinos, sandwiches, muffins, teas).. Call with {\"quantities\": [58, 42, 27, 35, 50], \"prices\": [4.25, 4.0, 8.5, 3.0, 2.5]}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "quantities": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                },
+                "description": ""
+              },
+              "prices": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "description": ""
+              }
+            },
+            "required": [
+              "quantities",
+              "prices"
+            ]
+          }
+        },
+        {
+          "name": "function_3",
+          "description": "Apply a discount to a total amount and return the discounted total.\nExample Scenario: A customer has a shopping cart total of 200.00 and applies a 15% promotional discount to get the final payable amount.. Call with {\"total\": 200.0, \"discount\": 0.15}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "total": {
+                "type": "number",
+                "description": ""
+              },
+              "discount": {
+                "type": "number",
+                "description": ""
+              }
+            },
+            "required": [
+              "total",
+              "discount"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "order_food(item=['dumplings','rice bowl'], quantity=[101,20], price=[0.1,10])"
+      ],
+      "name_mapping": {
+        "order_food": "function_1",
+        "calculate_total": "function_2",
+        "apply_discount": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        210.1
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 47,
+      "question": "I just rewatched \"Pulp Fiction,\" and I'm curious about the mastermind behind its direction. Could you find out who directed this iconic movie for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Looks up information about a movie by name.\nExample Scenario: A user wants to retrieve details about a movie by providing its title.. Call with {\"movie_name\": \"Inception\"}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "movie_name": {
+                "type": "string",
+                "description": ""
+              }
+            },
+            "required": [
+              "movie_name"
+            ]
+          }
+        },
+        {
+          "name": "function_2",
+          "description": "Calculate interest or returns on a principal over a time period at a given rate.\nExample Scenario: Calculate the interest earned on a $10,000 savings deposit at 4.5% annual rate over 3 years.. Call with {\"principal\": 10000, \"rate\": 0.045, \"time\": 3}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "principal": {
+                "type": "number",
+                "description": ""
+              },
+              "rate": {
+                "type": "number",
+                "description": ""
+              },
+              "time": {
+                "type": "number",
+                "description": ""
+              }
+            },
+            "required": [
+              "principal",
+              "rate",
+              "time"
+            ]
+          }
+        },
+        {
+          "name": "function_3",
+          "description": "Converts a temperature value from one unit to another (e.g., Celsius, Fahrenheit, Kelvin) given the numeric temperature, source unit, and target unit.\nExample Scenario: A weather forecaster needs to display a Canadian city's temperature reading in Fahrenheit for a US audience.. Call with {\"temperature\": -15, \"unit_from\": \"Celsius\", \"unit_to\": \"Fahrenheit\"}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "temperature": {
+                "type": "number",
+                "description": ""
+              },
+              "unit_from": {
+                "type": "string",
+                "description": ""
+              },
+              "unit_to": {
+                "type": "string",
+                "description": ""
+              }
+            },
+            "required": [
+              "temperature",
+              "unit_from",
+              "unit_to"
+            ]
+          }
+        },
+        {
+          "name": "function_4",
+          "description": "Defines an integer range by specifying required min and max bounds for operations that need lower and upper limits.\nExample Scenario: Validate user age input during account signup; only allow ages within the acceptable range.. Call with {\"min\": 13, \"max\": 120}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "min": {
+                "type": "integer",
+                "description": ""
+              },
+              "max": {
+                "type": "integer",
+                "description": ""
+              }
+            },
+            "required": [
+              "min",
+              "max"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "get_movie_director(movie_name='Pulp Fiction')"
+      ],
+      "name_mapping": {
+        "get_movie_director": "function_1",
+        "calculate_interest_rate": "function_2",
+        "convert_temperature": "function_3",
+        "generate_random_number": "function_4"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        "Quentin Tarantino"
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 48,
+      "question": "I'm planning a movie night for my family this weekend, and I want to make sure the film is appropriate for all ages. We've settled on the idea of watching \"Avatar\", but I need to confirm its age rating before we proceed. Could you find out the age rating for the movie \"Avatar\"?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Look up information about a movie by providing its name.\nExample Scenario: A student is writing a paper on neo-noir science fiction and needs details about the film.. Call with {\"movie_name\": \"Blade Runner 2049\"}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "movie_name": {
+                "type": "string",
+                "description": ""
+              }
+            },
+            "required": [
+              "movie_name"
+            ]
+          }
+        },
+        {
+          "name": "function_2",
+          "description": "Retrieve information about a movie by its name.\nExample Scenario: A film club organizer needs details about a specific movie to include in the weekly newsletter.. Call with {\"movie_name\": \"Inception\"}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "movie_name": {
+                "type": "string",
+                "description": ""
+              }
+            },
+            "required": [
+              "movie_name"
+            ]
+          }
+        },
+        {
+          "name": "function_3",
+          "description": "Retrieve details about a movie by its name.\nExample Scenario: A user asks to retrieve details about a movie by its name.. Call with {\"movie_name\": \"Inception\"}",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "movie_name": {
+                "type": "string",
+                "description": ""
+              }
+            },
+            "required": [
+              "movie_name"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "get_movie_rating(movie_name='Avatar')"
+      ],
+      "name_mapping": {
+        "get_movie_rating": "function_1",
+        "get_movie_genre": "function_2",
+        "get_director_by_movie_name": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        "PG-13"
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 49,
+      "question": "I have a set of vertices: [[1,2],[3,4],[1,4],[3,7]], and I'm curious about the area that these points, when connected in order, would enclose to form a polygon. Could you calculate the area of this polygon for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Use to perform operations that take an array of coordinates as input.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "coordinates": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  },
+                  "description": "A single coordinate represented by a tuple (x, y)."
+                },
+                "description": ""
+              }
+            },
+            "required": [
+              "coordinates"
+            ]
+          }
+        },
+        {
+          "name": "function_2",
+          "description": "Use when you need to operate on a set of vertices by providing them as an array.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "vertices": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  },
+                  "minItems": 2,
+                  "maxItems": 2,
+                  "description": "A single vertex represented by a 2 element list [x, y]."
+                },
+                "description": ""
+              }
+            },
+            "required": [
+              "vertices"
+            ]
+          }
+        },
+        {
+          "name": "function_3",
+          "description": "Provide an ordered array of vertices (points) to define the geometry the function will process.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "vertices": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  },
+                  "description": "A single vertex represented by a 2 element list [x, y]."
+                },
+                "description": ""
+              }
+            },
+            "required": [
+              "vertices"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        "polygon_area(vertices=[[1,2],[3,4],[1,4],[3,7]])"
+      ],
+      "name_mapping": {
+        "convert_coordinates": "function_1",
+        "polygon_area": "function_2",
+        "validate_polygon": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        0.0
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    }
+  ]
+}

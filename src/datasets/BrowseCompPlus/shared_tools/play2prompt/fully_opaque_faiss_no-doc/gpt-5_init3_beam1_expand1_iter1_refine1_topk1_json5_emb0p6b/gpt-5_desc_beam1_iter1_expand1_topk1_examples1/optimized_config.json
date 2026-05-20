@@ -1,0 +1,246 @@
+{
+  "config_name": "fully_opaque",
+  "description": "Full opacity - generic names, minimal descriptions, unclear parameters",
+  "tools": [
+    {
+      "tool_id": "search_wikipedia",
+      "searcher_config": {
+        "searcher_type": "faiss",
+        "filter_category": "wikipedia"
+      },
+      "tool_definition": {
+        "name": "tool_1",
+        "description": "Web search tool. Use when you need external information, sources, or up-to-date facts (news, stats, availability, citations, documentation). Do not use for purely internal reasoning or math.\n\nParameters:\n- query (string, required): A complete natural-language search query. Build it from the user\u2019s request, expanding with key terms, entities, and constraints. Prefer precise phrasing and common operators where helpful (quotes for exact phrases, site:domain, filetype:, AND/OR, -exclude, intitle:). Add recency hints (e.g., \u201c2026\u201d, \u201clatest\u201d, month/year) or source/region/language keywords when relevant. If a specific source is requested, include site:. Never pass an empty or overly generic query.\n\nOnly send the 'query' field; no other parameters. Returns ranked relevant results.\n\nExamples:\n- \"site:who.int measles outbreak statistics 2025\"\n- \"best mirrorless cameras 2026 reviews\"\n- \"Python 'asyncio.gather' vs 'wait' explanation\"\n- \"SEC 10-K filing Tesla 2023 site:sec.gov\"",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "A natural-language search query describing the information to find."
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "tool_id": "search_academic",
+      "searcher_config": {
+        "searcher_type": "faiss",
+        "filter_category": "academic"
+      },
+      "tool_definition": {
+        "name": "tool_2",
+        "description": "Performs a web search using one natural-language query and returns the most relevant results. Parameters: query (string, required) \u2014 the exact search text to run. Use the user\u2019s words verbatim, including language, spelling, punctuation, numbers, dates, and any existing quotes. Do not translate, paraphrase, expand, summarize, or add operators/filters/special syntax (e.g., site:, filetype:, AND/OR, minus terms, extra quotes). Do not append context or instructions. Only the key \"query\" is allowed (additionalProperties=false). Usage: send a single object like {\"query\":\"...\"}. If the user writes multiple sentences, pass them as one string as written. Examples: {\"query\":\"best budget 4K TVs 2026 reviews\"} {\"query\":\"\u00bfC\u00f3mo tratar una torcedura de tobillo?\"} {\"query\":\"US EV sales statistics 2023\"}",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "A natural-language search query describing the information to find."
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "tool_id": "search_news",
+      "searcher_config": {
+        "searcher_type": "faiss",
+        "filter_category": "news"
+      },
+      "tool_definition": {
+        "name": "tool_3",
+        "description": "Searches using the provided query and returns the most relevant results.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "A natural-language search query describing the information to find."
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "tool_id": "search_entertainment",
+      "searcher_config": {
+        "searcher_type": "faiss",
+        "filter_category": "entertainment"
+      },
+      "tool_definition": {
+        "name": "tool_4",
+        "description": "Searches using the provided query and returns the most relevant results.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "A natural-language search query describing the information to find."
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "tool_id": "search_reference",
+      "searcher_config": {
+        "searcher_type": "faiss",
+        "filter_category": "reference"
+      },
+      "tool_definition": {
+        "name": "tool_5",
+        "description": "Searches using the provided query and returns the most relevant results.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "A natural-language search query describing the information to find."
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "tool_id": "search_government",
+      "searcher_config": {
+        "searcher_type": "faiss",
+        "filter_category": "government"
+      },
+      "tool_definition": {
+        "name": "tool_6",
+        "description": "Searches using the provided query and returns the most relevant results.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "A natural-language search query describing the information to find."
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "tool_id": "search_business",
+      "searcher_config": {
+        "searcher_type": "faiss",
+        "filter_category": "business"
+      },
+      "tool_definition": {
+        "name": "tool_7",
+        "description": "Performs a search and returns the most relevant results for the provided query.\nHow to call:\n- Send a single JSON object with exactly one property.\n- Key: \"query\" (type: string). Required.\n- No other keys are allowed (additionalProperties=false). Do NOT wrap in \"arguments\", \"params\", \"input\", etc.\nQuery rules:\n- Pass the user\u2019s query verbatim. Do not rewrite, translate, expand, summarize, or split it.\n- Do not add or remove terms, operators, quotes, or filters (e.g., no site:, lang:, or extra boolean logic) unless already present in the user\u2019s text.\n- Preserve original casing, punctuation, and spacing. Use a non-empty string.\nReturns: the most relevant search results for the given query.\nCorrect example payload:\n{ \"query\": \"How to rotate SSH keys on GitHub\" }\nIncorrect payloads:\n{ \"q\": \"...\" }\n{ \"query\": \"site:docs.github.com How to rotate SSH keys on GitHub\" } (if site: wasn\u2019t in user text)\n{ \"arguments\": { \"query\": \"...\" } }",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "A natural-language search query describing the information to find."
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "tool_id": "search_sports",
+      "searcher_config": {
+        "searcher_type": "faiss",
+        "filter_category": "sports"
+      },
+      "tool_definition": {
+        "name": "tool_8",
+        "description": "Executes a search with the exact query string provided. Pass the user\u2019s query verbatim via the single parameter \"query\". Do not edit, reorder, trim, normalize, escape, URL-encode, quote, or otherwise transform the string. Preserve all characters exactly as given, including spaces (even multiple), punctuation, case, diacritics, and search operators (e.g., site:, inurl:, quotes, AND/OR, parentheses). Token order matters. Only include the key \"query\"; no additional parameters.\nParameter:\n- query (string, required): The exact search query to submit, unchanged.\nReturns: The most relevant results for that exact query.\nExamples:\n- Correct: {\"query\":\"site:docs.github.com \\\"Actions cache\\\" path:/en/enterprise\"}\n- Incorrect (reordered): {\"query\":\"path:/en/enterprise site:docs.github.com Actions cache\"}\n- Incorrect (wrong key): {\"q\":\"...\"}\n- Incorrect (added quoting): {\"query\":\"'site:example.com test'\"}",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "A natural-language search query describing the information to find."
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "tool_id": "search_history",
+      "searcher_config": {
+        "searcher_type": "faiss",
+        "filter_category": "history"
+      },
+      "tool_definition": {
+        "name": "tool_9",
+        "description": "Searches using the provided query and returns the most relevant results.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "A natural-language search query describing the information to find."
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "tool_id": "search_other",
+      "searcher_config": {
+        "searcher_type": "faiss",
+        "filter_category": "other"
+      },
+      "tool_definition": {
+        "name": "tool_10",
+        "description": "Executes a search and returns the most relevant results for the given input.\n\nParameters\n- query (string, required): The exact user-provided search string. Use it verbatim\u2014do not paraphrase, translate, summarize, expand, truncate, or reorder. Preserve original language, casing, whitespace, punctuation, emojis, and special characters. Apply only JSON-required escaping (e.g., for quotes/backslashes). Do not add prefixes/suffixes (e.g., 'search for', operators like 'site:').\n\nUsage rules\n- Pass a single JSON object containing only the key \"query\".\n- Do not include any additional keys or null/empty values. If no query is provided, ask the user to supply one instead of calling.\n\nExample\nArguments: {\"query\":\"Where's \\\"Foo-Bar\\\"? & why \ud83c\udf1f\"}",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "A natural-language search query describing the information to find."
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  ]
+}

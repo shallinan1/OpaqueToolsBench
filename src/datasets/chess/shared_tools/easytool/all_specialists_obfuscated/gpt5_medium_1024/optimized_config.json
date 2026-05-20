@@ -1,0 +1,50 @@
+{
+  "config_name": "all_specialists_obfuscated",
+  "config_description": "Chess tools with obfuscated names and descriptions: all four game phase specialists",
+  "test_category": "chess",
+  "num_tests": 1,
+  "function_mapping": {
+    "function_1": "opening_specialist",
+    "function_2": "middlegame_specialist",
+    "function_3": "endgame_specialist",
+    "function_4": "late_endgame_specialist"
+  },
+  "tools": [
+    {
+      "name": "function_1",
+      "description": "Analyzes the current chess position and returns a suggested move in algebraic notation; invoke with no parameters (auto-reads the board).\nExample Scenario: During a live online chess game, the player clicks 'Suggest Move' to get the best move from the currently displayed board; the tool auto-reads the position and returns a move in algebraic notation.. Call with {}",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    },
+    {
+      "name": "function_2",
+      "description": "Analyze the current chess position and return a recommended move in algebraic notation.\nExample Scenario: A chess training app maintains the current board state internally. After the user presses a 'Suggest Move' button, the app calls this function to analyze that in-memory position and returns the best move in standard algebraic notation (e.g., 'Nf3', 'Qxe5+', 'O-O').. Call with {}",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    },
+    {
+      "name": "function_3",
+      "description": "Use to analyze the current chess position and get a recommended move in algebraic notation.\nExample Scenario: In a chess training app, when the user taps 'Get Best Move' on the current puzzle, the app calls function_3 to analyze the board position currently displayed (stored in app state) and returns the recommended move in algebraic notation (e.g., 'Nf3', 'Qh5+').. Call with {}",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    },
+    {
+      "name": "function_4",
+      "description": "Suggests the next chess move for the current board position in algebraic notation. Automatically reads the board; invoke with no parameters.\nExample Scenario: A player has an active chess position open in the app (the board state is already loaded). They invoke the tool to automatically read the current board and receive the best next move in algebraic notation without supplying any inputs.. Call with {}",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    }
+  ]
+}

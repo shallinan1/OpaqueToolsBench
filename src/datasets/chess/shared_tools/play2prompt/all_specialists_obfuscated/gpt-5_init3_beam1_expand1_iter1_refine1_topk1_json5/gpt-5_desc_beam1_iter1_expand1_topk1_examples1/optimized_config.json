@@ -1,0 +1,50 @@
+{
+  "config_name": "all_specialists_obfuscated",
+  "config_description": "Chess tools with obfuscated names and descriptions: all four game phase specialists",
+  "test_category": "chess",
+  "num_tests": 1,
+  "function_mapping": {
+    "function_1": "opening_specialist",
+    "function_2": "middlegame_specialist",
+    "function_3": "endgame_specialist",
+    "function_4": "late_endgame_specialist"
+  },
+  "tools": [
+    {
+      "name": "function_1",
+      "description": "Analyzes the current board position and returns a suggested move in algebraic notation. The tool automatically reads the board state \u2014 no input is needed.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    },
+    {
+      "name": "function_2",
+      "description": "Analyzes the current board position and returns a suggested move in algebraic notation. The tool automatically reads the board state \u2014 no input is needed.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    },
+    {
+      "name": "function_3",
+      "description": "Analyzes the current board position and returns a suggested move in algebraic notation. The tool automatically reads the board state \u2014 no input is needed.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    },
+    {
+      "name": "function_4",
+      "description": "Analyzes the current board position and returns a suggested move in algebraic notation. The tool automatically reads the board state \u2014 no input is needed.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    }
+  ]
+}

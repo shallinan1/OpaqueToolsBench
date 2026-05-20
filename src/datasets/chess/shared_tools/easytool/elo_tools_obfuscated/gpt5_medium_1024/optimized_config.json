@@ -1,0 +1,40 @@
+{
+  "config_name": "elo_tools_obfuscated",
+  "config_description": "Chess tools with obfuscated names and descriptions: three Elo-rated move generators",
+  "test_category": "chess",
+  "num_tests": 1,
+  "function_mapping": {
+    "function_1": "elo_1200",
+    "function_2": "elo_1800",
+    "function_3": "elo_2400"
+  },
+  "tools": [
+    {
+      "name": "function_1",
+      "description": "Get a recommended chess move for the current position in algebraic notation; no input required.\nExample Scenario: A chess app already has the current board position set (from a live game or loaded PGN). The user taps 'Recommend Move' to get the engine\u2019s best move in standard algebraic notation for the side to move.. Call with {}",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    },
+    {
+      "name": "function_2",
+      "description": "Get a recommended move for the current chess position. It auto-reads the board and returns the move in algebraic notation; no parameters required.\nExample Scenario: In a chess app during the user's turn, the current board state is already displayed. The user taps 'Recommend Move', and the app calls the tool to auto-read the position and return the best move in algebraic notation.. Call with {}",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    },
+    {
+      "name": "function_3",
+      "description": "Evaluates the current chess position and returns a recommended move in algebraic notation.\nExample Scenario: In a chess training app, when the user pauses at the current board position (stored in the app\u2019s state), the system calls function_3 to evaluate the position and display a recommended move in algebraic notation as a hint.. Call with {}",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    }
+  ]
+}

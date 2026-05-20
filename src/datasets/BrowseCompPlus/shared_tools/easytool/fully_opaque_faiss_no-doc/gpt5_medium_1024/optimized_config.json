@@ -1,0 +1,246 @@
+{
+  "config_name": "fully_opaque",
+  "description": "Full opacity - generic names, minimal descriptions, unclear parameters",
+  "tools": [
+    {
+      "tool_id": "search_wikipedia",
+      "searcher_config": {
+        "searcher_type": "faiss",
+        "filter_category": "wikipedia"
+      },
+      "tool_definition": {
+        "name": "tool_1",
+        "description": "Use to retrieve the most relevant results for a given natural-language search query.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "A natural-language search query describing the information to find."
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "tool_id": "search_academic",
+      "searcher_config": {
+        "searcher_type": "faiss",
+        "filter_category": "academic"
+      },
+      "tool_definition": {
+        "name": "tool_2",
+        "description": "Use to perform a natural-language search to find information and retrieve the most relevant results.\nExample Scenario: A journalist needs to quickly find authoritative explanations of how the EU AI Act classifies AI systems by risk tier and what obligations apply to each category, including enforcement timelines and key dates, to prepare an explainer article.. Call with {\"query\": \"EU AI Act classification of AI systems risk tiers (unacceptable, high-risk, limited, minimal), obligations and compliance requirements for each tier, conformity assessment, transparency, enforcement timelines and key dates, official EU sources (EUR-Lex, European Commission) and reputable analyses, latest 2024-2026 updates\"}",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "A natural-language search query describing the information to find."
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "tool_id": "search_news",
+      "searcher_config": {
+        "searcher_type": "faiss",
+        "filter_category": "news"
+      },
+      "tool_definition": {
+        "name": "tool_3",
+        "description": "Use to look up information by running a natural-language search and retrieving the most relevant results.\nExample Scenario: A compliance officer needs the official EU AI Act final text and a reliable summary of key compliance deadlines for providers and deployers of high-risk AI systems.. Call with {\"query\": \"EU AI Act final text PDF Official Journal key compliance deadlines for providers and deployers of high-risk AI systems timeline 2024 2025 2026\"}",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "A natural-language search query describing the information to find."
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "tool_id": "search_entertainment",
+      "searcher_config": {
+        "searcher_type": "faiss",
+        "filter_category": "entertainment"
+      },
+      "tool_definition": {
+        "name": "tool_4",
+        "description": "Use to find information by running a natural-language search and returning the most relevant results.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "A natural-language search query describing the information to find."
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "tool_id": "search_reference",
+      "searcher_config": {
+        "searcher_type": "faiss",
+        "filter_category": "reference"
+      },
+      "tool_definition": {
+        "name": "tool_5",
+        "description": "Search for information using a natural-language query to retrieve the most relevant results.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "A natural-language search query describing the information to find."
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "tool_id": "search_government",
+      "searcher_config": {
+        "searcher_type": "faiss",
+        "filter_category": "government"
+      },
+      "tool_definition": {
+        "name": "tool_6",
+        "description": "Search for information by providing a natural-language query; returns the most relevant results.\nExample Scenario: A graduate student is preparing a literature review on microplastics in freshwater ecosystems and needs authoritative, recent sources.. Call with {\"query\": \"recent (2020-2026) systematic reviews and meta-analyses on microplastics in freshwater ecosystems: occurrence, trophic transfer, ecotoxicological effects, and regulatory policy responses; include key authors and journals\"}",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "A natural-language search query describing the information to find."
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "tool_id": "search_business",
+      "searcher_config": {
+        "searcher_type": "faiss",
+        "filter_category": "business"
+      },
+      "tool_definition": {
+        "name": "tool_7",
+        "description": "Use to look up information by issuing a natural-language search query and retrieving the most relevant results.\nExample Scenario: A public health analyst needs the most recent WHO guidance (2025 or later) on mpox (monkeypox) vaccination recommendations for high-risk populations.. Call with {\"query\": \"WHO mpox (monkeypox) vaccination recommendations 2025 guidance for high-risk groups site:who.int\"}",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "A natural-language search query describing the information to find."
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "tool_id": "search_sports",
+      "searcher_config": {
+        "searcher_type": "faiss",
+        "filter_category": "sports"
+      },
+      "tool_definition": {
+        "name": "tool_8",
+        "description": "Use to search for information by providing a natural-language query and retrieve the most relevant results.\nExample Scenario: A developer preparing a migration wants the official summary of changes in Python 3.13 to assess compatibility risks.. Call with {\"query\": \"What's New in Python 3.13 official documentation release notes site:docs.python.org\"}",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "A natural-language search query describing the information to find."
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "tool_id": "search_history",
+      "searcher_config": {
+        "searcher_type": "faiss",
+        "filter_category": "history"
+      },
+      "tool_definition": {
+        "name": "tool_9",
+        "description": "Use tool_9 to find information by submitting a natural-language query (query); it returns the most relevant results.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "A natural-language search query describing the information to find."
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "tool_id": "search_other",
+      "searcher_config": {
+        "searcher_type": "faiss",
+        "filter_category": "other"
+      },
+      "tool_definition": {
+        "name": "tool_10",
+        "description": "Search for information by submitting a natural-language query and receive the most relevant results.\nExample Scenario: A compliance officer at a SaaS company needs authoritative sources outlining the key requirements, risk categories, and implementation timeline in the final EU AI Act, including a link to the official EUR-Lex text.. Call with {\"query\": \"Key requirements, risk categories, and implementation timeline of the final EU AI Act with link to the official EUR-Lex regulation text and European Commission guidance\"}",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "A natural-language search query describing the information to find."
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  ]
+}

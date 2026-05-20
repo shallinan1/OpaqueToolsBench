@@ -1,0 +1,2319 @@
+{
+  "config_name": "executable_simple_name[all:increasing_number]_desc[all:blank]_param[all:remove_all]",
+  "config_description": "Tool configurations for executable_simple tests",
+  "test_category": "executable_simple",
+  "num_tests": 100,
+  "modifications": {
+    "names": {
+      "all": "increasing_number"
+    },
+    "descriptions": {
+      "all": "blank"
+    },
+    "parameters": {
+      "all": "remove_all"
+    }
+  },
+  "tests": [
+    {
+      "test_id": 0,
+      "question": "I've been playing a game where rolling a six is somehow more likely than usual, and the chance of it happening on a single roll is 60%. I'm curious, if I roll the die 20 times, what are the odds that I'll get exactly five sixes?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Compute the binomial PMF P(X = k) for X ~ Binomial(n, p). Use when asked for the probability of exactly k successes in n independent Bernoulli trials with success probability p.\n\nParameters (all required):\n- n (integer, >=0): number of trials. NL cues: n, trials, sample size.\n- k (integer, 0..n): number of successes. NL cues: successes, heads, exactly k.\n- p (number, 0..1): probability of success per trial. NL cues: success probability, rate, p.\n\nTool call JSON schema:\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"n\": {\"type\": \"integer\", \"minimum\": 0},\n    \"k\": {\"type\": \"integer\", \"minimum\": 0},\n    \"p\": {\"type\": \"number\", \"minimum\": 0, \"maximum\": 1}\n  },\n  \"required\": [\"n\", \"k\", \"p\"]\n}\n\nReturns: probability in [0,1]. Validates inputs; errors if k>n or p\u2209[0,1].\n\nTrigger phrases: \"binomial probability\", \"P(X=k)\", \"exactly k successes\", \"Binomial(n,p)\".\n\nExamples:\n- Args {\"n\":10,\"k\":3,\"p\":0.5} \u2192 0.1171875\n- Args {\"n\":5,\"k\":0,\"p\":0.2} \u2192 0.32768"
+        }
+      ],
+      "ground_truth": [
+        "calc_binomial_probability(n=20, k=5, p=0.6)"
+      ],
+      "name_mapping": {
+        "calc_binomial_probability": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 1,
+      "question": "During last night's basketball game, one of the star players was on fire, attempting a whopping 30 free throws. It's generally known that the average success rate for free throws hovers around 50%. I'm curious, with that success probability, what are the chances that the player made exactly 15 out of those 30 attempts?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Computes the binomial probability mass function P(X = k | n, p) = C(n,k) p^k (1\u2212p)^(n\u2212k). Use when the user asks for the probability of exactly k successes in n Bernoulli trials with success probability p (e.g., \"In 10 trials with p=0.4, what's P(X=3)?\").\n\nParameters (all required):\n- n: integer >= 0. Number of trials.\n- k: integer with 0 <= k <= n. Number of successes.\n- p: real number in [0,1]. Success probability per trial. If the user gives a percent (e.g., 40%), convert to 0.4.\n\nReturn: float in [0,1], the PMF value. Do not round unless requested.\n\nEdge cases:\n- k<0 or k>n \u2192 0.\n- n=0 \u2192 1 only if k=0, else 0.\n- p=0 \u2192 1 if k=0, else 0.\n- p=1 \u2192 1 if k=n, else 0.\n\nArgument mapping from text:\n- \"trials\" \u2192 n; \"successes/exactly k\" \u2192 k; \"probability/p\" or percentage \u2192 p. If any of n, k, or p is missing, ask for it before calling.\n\nExample: function_1 with {\"n\":10, \"k\":3, \"p\":0.4}."
+        }
+      ],
+      "ground_truth": [
+        "calc_binomial_probability(n=30, k=15, p=0.5)"
+      ],
+      "name_mapping": {
+        "calc_binomial_probability": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 2,
+      "question": "I'm currently tweaking a machine learning model and I need to understand the similarity between two objects in my dataset. Their characteristics are expressed in the feature vectors [0.5, 0.7, 0.2, 0.9, 0.1] for the first object and [0.4, 0.6, 0.3, 0.8, 0.2] for the second one. Could you calculate the cosine similarity between these two feature vectors to help me determine how similar these objects are?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Purpose: Compute the cosine similarity between two numeric vectors.\nParameters (JSON arguments when calling):\n- vectorA (required, array of numbers): The first vector. Must be non-empty, same length as vectorB. Elements must be finite numbers (integers or floats), negatives allowed.\n- vectorB (required, array of numbers): The second vector. Same rules as vectorA.\n- round (optional, integer): Decimal places to round the result to. Range 0\u201315. Default 6.\nConstraints:\n- vectorA.length == vectorB.length > 0.\n- Neither vector may be all zeros (zero L2 norm). No null, NaN, or Infinity values.\nBehavior:\n- Similarity = (A\u00b7B) / (||A|| * ||B||). Returns a number in [-1, 1]. If round is set, the returned value is rounded to that many decimals.\n- On constraint violation, returns an error describing the issue.\nExample call arguments:\n{ \"vectorA\": [1, 2, 3], \"vectorB\": [4, 5, 6], \"round\": 4 }\nExpected return: 0.9746"
+        }
+      ],
+      "ground_truth": [
+        "calculate_cosine_similarity(vectorA=[0.5, 0.7, 0.2, 0.9, 0.1], vectorB=[0.4, 0.6, 0.3, 0.8, 0.2])"
+      ],
+      "name_mapping": {
+        "calculate_cosine_similarity": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 3,
+      "question": "I'm working on a project that involves comparing the attributes of different entities to determine how similar they are. I have two entities represented by numerical arrays, and I need to use cosine similarity as a measure of similarity between them. The attributes for the first entity are [0.3, 0.8, 0.1, 0.6, 0.2], and for the second entity, they are [0.5, 0.7, 0.4, 0.9, 0.3]. Could you calculate the cosine similarity for these two vectors for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Computes cosine similarity between two numeric vectors: (A\u00b7B) / (||A||\u00b7||B||). Required parameters: - vectorA: array of numbers (float), length \u2265 1. - vectorB: array of numbers (float), same length as vectorA. Constraints: all elements must be finite numbers (no null, NaN, or Infinity). Vectors must be the same dimensionality. Returns: { \"similarity\": number } where similarity \u2208 [-1, 1]. If either vector has zero magnitude, returns { \"similarity\": 0 }. Errors on length mismatch or invalid types. Example call: function_1({ \"vectorA\": [1,2,3], \"vectorB\": [4,5,6] }) \u2192 { \"similarity\": 0.974631846 }."
+        }
+      ],
+      "ground_truth": [
+        "calculate_cosine_similarity(vectorA=[0.3, 0.8, 0.1, 0.6, 0.2], vectorB=[0.5, 0.7, 0.4, 0.9, 0.3])"
+      ],
+      "name_mapping": {
+        "calculate_cosine_similarity": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 4,
+      "question": "I'm working on a physics experiment and need to calculate the density of an object I have. It weighs 50 kilograms and takes up a space of 10 cubic meters. Could you help me figure out its density?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "function_1 computes an object's density and whether it will float in fresh water, given mass and volume.\n\nParameters (JSON object):\n- mass (number, required): Object mass in kilograms. Must be > 0 and finite.\n- volume (number, required): Object volume in cubic meters. Must be > 0 and finite.\n\nBehavior:\n- density = mass / volume (kg/m^3).\n- floats_in_freshwater = true if density < 1000, else false (assumes freshwater at 4\u00b0C).\n\nReturns (JSON):\n- density (number): Computed density in kg/m^3.\n- floats_in_freshwater (boolean): Buoyancy result in fresh water.\n\nValidation:\n- Reject missing, null, non-number, NaN/Infinity, or non-positive values with a clear error message.\n- Do not send free-form or \"raw\" input; always pass the structured JSON with the fields above.\n\nExample input: {\"mass\": 10, \"volume\": 0.01}\nExample output: {\"density\": 1000, \"floats_in_freshwater\": false}"
+        }
+      ],
+      "ground_truth": [
+        "calculate_density(mass=50.0, volume=10.0)"
+      ],
+      "name_mapping": {
+        "calculate_density": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 5,
+      "question": "I've got this strange object we've come across in our scientific research. It's pretty hefty, weighing in at 120 kilograms, and it takes up about 30 cubic meters of space. Can you help me calculate its density?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "function_1 computes density as mass divided by volume.\n\nArguments (JSON object):\n- mass (number, required): Mass of the material. Positive, finite numeric value. Do not include units in the value; any unit is acceptable if consistent with volume.\n- volume (number, required): Volume of the material. Positive, finite numeric value; use a unit consistent with mass.\n\nReturn: number \u2014 density (implied units: mass per volume). The function returns only the numeric result.\n\nInput rules:\n- Pass only the two top-level fields: mass and volume.\n- Do not nest under \"properties\" or \"raw\". Do not send strings, null, NaN, Infinity, or non-positive values.\n\nExample:\nNL: \"Density of 12.5 g in 2.5 mL?\"\nArgs: { \"mass\": 12.5, \"volume\": 2.5 }\nOutput: 5"
+        }
+      ],
+      "ground_truth": [
+        "calculate_density(mass=120.0, volume=30.0)"
+      ],
+      "name_mapping": {
+        "calculate_density": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 6,
+      "question": "During our advanced physics experiment, we've been tracking this unique object which initially was moving at 15 m/s. It's been accelerating at a rate of 9.8 m/s\u00b2, and this has been going on for exactly 10 seconds. I need to calculate the total displacement of the object over this period. Can you help me with that?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "function_1 computes 1D constant-acceleration kinematics.\nParameters (JSON object, all required):\n- initial_velocity: number (m/s). Can be negative.\n- acceleration: number (m/s^2). Can be negative or zero.\n- time: number (s). Must be >= 0.\nBehavior:\n- final_velocity = initial_velocity + acceleration * time\n- displacement = initial_velocity * time + 0.5 * acceleration * time^2\nReturns: JSON { final_velocity: number (m/s), displacement: number (m) }.\nInput rules:\n- Pass a single flat JSON object with exactly the keys above.\n- Values must be finite numbers (no strings, NaN, or Infinity). time < 0 is invalid.\nErrors:\n- Missing/invalid parameters result in an error.\nExamples:\n- function_1({\"initial_velocity\": 0, \"acceleration\": 9.81, \"time\": 3})\n- function_1({\"initial_velocity\": 12.5, \"acceleration\": -2.0, \"time\": 4})"
+        }
+      ],
+      "ground_truth": [
+        "calculate_displacement(initial_velocity=15.0, acceleration=9.8, time=10)"
+      ],
+      "name_mapping": {
+        "calculate_displacement": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 7,
+      "question": "During the high-speed chase, when the driver accelerated the vehicle, it was initially moving at 25 meters per second. With the sudden push on the gas pedal, the car accelerated at 15 meters per second squared, and this went on for 8 seconds. I need to calculate the displacement of the vehicle over that time. Can you provide me with that information?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Computes 1D displacement under constant acceleration using s = v0*t + 0.5*a*t^2. SI units expected: m/s for velocity, m/s^2 for acceleration, s for time. Returns a number: displacement (meters) from t=0; no initial position is added. Parameters (all required): \u2022 initial_velocity (number): v0 in m/s; sign indicates direction. \u2022 acceleration (number): a in m/s^2; constant over time. \u2022 time (number): t in seconds; must be >= 0. Validation: all fields required; values must be finite numbers (no NaN/Infinity); time >= 0. Negative output means displacement in the negative direction. JSON parameters schema: {\"type\":\"object\",\"properties\":{\"initial_velocity\":{\"type\":\"number\",\"description\":\"m/s\"},\"acceleration\":{\"type\":\"number\",\"description\":\"m/s^2\"},\"time\":{\"type\":\"number\",\"minimum\":0,\"description\":\"s\"}},\"required\":[\"initial_velocity\",\"acceleration\",\"time\"]}. Example: function_1({\"initial_velocity\":5,\"acceleration\":-9.81,\"time\":2})."
+        }
+      ],
+      "ground_truth": [
+        "calculate_displacement(initial_velocity=25.0, acceleration=15.0, time=8)"
+      ],
+      "name_mapping": {
+        "calculate_displacement": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 8,
+      "question": "During our physics lab session, we're experimenting with electric fields and their effects on charged particles. We've placed a particle that carries a charge of 5 coulombs within a field where there's a voltage of 10 volts. I need to calculate the electrostatic potential energy for this scenario. Could you work that out for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "function_1 \u2014 Compute electrical work/energy from electric charge and potential difference: W = q \u00d7 V.\n\nRequired JSON body parameters:\n- charge (number, coulombs, C): finite real. Negative allowed. Examples: 1.6e-19, 2.0.\n- voltage (number, volts, V): finite real. Negative allowed. Examples: 5, -12.\n\nBehavior:\n- Returns the work/energy in joules (J) as a number equal to charge * voltage.\n- Zero charge or voltage yields 0 J.\n\nValidation:\n- Both keys must be present.\n- Values must be numeric, finite (not NaN/\u00b1Infinity), and |value| \u2264 1e18.\n- Reject non-numeric types; do not include extra fields.\n\nBody schema: { \"charge\": number, \"voltage\": number }\n\nExamples:\n- {\"charge\": 2.5, \"voltage\": 12} \u2192 30\n- {\"charge\": 1.6e-19, \"voltage\": 5} \u2192 8e-19\n\nNotes:\n- Use SI units only; convert before calling.\n- Do not send empty objects or missing parameters."
+        }
+      ],
+      "ground_truth": [
+        "calculate_electrostatic_potential_energy(charge=5.0, voltage=10.0)"
+      ],
+      "name_mapping": {
+        "calculate_electrostatic_potential_energy": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 9,
+      "question": "I'm working on a physics simulation and I have a micro-particle here charged at 7.8 coulombs. It's placed in an electromagnetic field with a voltage of 15.2 volts. Can you calculate the electrostatic potential energy for this particle in the given field?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "function_1 consumes electric parameters to operate on charge and voltage (e.g., energy = charge \u00d7 voltage). You MUST call it with this exact argument shape: {\"parameters\":{\"properties\":{\"charge\":<number>,\"voltage\":<number>}}}. Parameters: charge (required, number, coulombs, >= 0). Convert units before sending (e.g., mC\u2192C, \u03bcC\u2192C, Ah\u2192C where 1 Ah=3600 C). voltage (required, number, volts; finite real; may be negative if polarity is specified; convert units, e.g., kV\u2192V). Rules: provide only numeric values (not strings), include both keys on every call, do not rename keys, do not add extra fields. Validation: if either value is missing, non-finite, or unit-ambiguous, ask for clarification instead of calling. Examples: \"5 C at 12 V\" \u2192 {parameters:{properties:{charge:5,voltage:12}}}. \"q=2 mC, V=-9 V\" \u2192 {parameters:{properties:{charge:0.002,voltage:-9}}}."
+        }
+      ],
+      "ground_truth": [
+        "calculate_electrostatic_potential_energy(charge=7.8, voltage=15.2)"
+      ],
+      "name_mapping": {
+        "calculate_electrostatic_potential_energy": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 10,
+      "question": "During a training exercise, we're analyzing a simulation of a high-speed chase where a vehicle starts from a standstill and then accelerates constantly. We've clocked the acceleration at 9.8 meters per second squared and the time span for this acceleration is 12 seconds. I need to calculate the final velocity of the vehicle at the end of this time frame. Can you give me that figure?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "function_1: Trigger the tool\u2019s default action. No input parameters are defined. Always pass an empty JSON object as arguments. Do not add any keys. Input schema: - args (object, required): must be {} (empty object). Output: Tool-defined payload (content and shape depend on the implementation). Correct usage: - Call: function_1({}) Examples: - NL: \"Execute function one.\" \u2192 function_1({}) - NL: \"Run the default operation.\" \u2192 function_1({}) Notes: - Do not invent fields such as raw, data, parameters, or properties; they are not supported and may cause errors. - If your runtime auto-wraps tool calls, ensure the arguments portion remains an empty object ({})."
+        }
+      ],
+      "ground_truth": [
+        "calculate_final_velocity(initial_velocity=0, acceleration=9.8, time=12)"
+      ],
+      "name_mapping": {
+        "calculate_final_velocity": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 11,
+      "question": "I've got a physics experiment where I'm dropping a ball from a certain height, and I know that the initial velocity is zero because I'm letting it fall freely. Gravity is doing all the work here at 9.8 m/s\u00b2. After 7 seconds, I want to calculate what the final velocity will be. Can we get that sorted out?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "function_1 computes 1D constant-acceleration kinematics and returns final_velocity (m/s) and displacement (m). Input JSON schema (required nested object): { \"motion\": { \"initial_velocity\": number, \"acceleration\": number, \"time\": number } } Parameters: motion.initial_velocity \u2014 number in m/s; motion.acceleration \u2014 number in m/s^2; motion.time \u2014 number in seconds. Rules: use SI units only (convert if needed: km/h \u00f7 3.6 = m/s); time must be >= 0; velocity/acceleration may be negative to indicate direction; provide JSON numbers (not strings). Computation: vf = v0 + a\u00b7t; s = v0\u00b7t + 0.5\u00b7a\u00b7t^2. Example (scooter): {\"motion\":{\"initial_velocity\":2.5,\"acceleration\":0.8,\"time\":12}}. If any required field is missing/invalid, ask the user to supply/correct it before calling."
+        }
+      ],
+      "ground_truth": [
+        "calculate_final_velocity(initial_velocity=0, acceleration=9.8, time=7)"
+      ],
+      "name_mapping": {
+        "calculate_final_velocity": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 12,
+      "question": "I've put $5000 into a fixed deposit offering a 5% annual interest rate, and I'm planning to let it grow for 10 years. Could you calculate the future value of this investment for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Computes a future value (FV) using compound interest. Formula: FV = present_value * (1 + interest_rate) ^ periods. Parameters (all required): present_value (number) \u2014 current amount, >= 0; interest_rate (number) \u2014 per-period rate in decimal form (e.g., 0.05 for 5%), can be negative but must be > -1; periods (integer) \u2014 number of compounding periods, >= 0. Returns: future_value (number), no rounding applied. Usage example: call function_1 with { \"present_value\": 1000, \"interest_rate\": 0.05, \"periods\": 10 } to get approximately 1628.8946268. Notes: pass the rate as a decimal, not a percent; the rate must correspond to the period length."
+        }
+      ],
+      "ground_truth": [
+        "calculate_future_value(present_value=5000, interest_rate=0.05, periods=10)"
+      ],
+      "name_mapping": {
+        "calculate_future_value": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 13,
+      "question": "I've got $8000 that I'm planning to drop into a savings account with a sweet annual interest rate of 4%. I'm not touching it for 15 years. I'm curious about the future value of this investment after that time. Can you crunch the numbers for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "function_1 executes a backend action that requires no input. Use it only when the user explicitly asks to run/trigger function_1 or when a workflow step requires invoking the tool without parameters. Parameters: none. Do not send any keys; pass an empty JSON object {} as arguments. Usage rules: call at most once per user request unless the user asks to repeat; do not fabricate parameters or defaults; after calling, summarize the returned data for the user. Example call: {\"name\":\"function_1\",\"arguments\":{}}. Notes: including any argument fields may cause the call to fail; the tool\u2019s response schema is provider-defined\u2014relay it faithfully."
+        }
+      ],
+      "ground_truth": [
+        "calculate_future_value(present_value=8000, interest_rate=0.04, periods=15)"
+      ],
+      "name_mapping": {
+        "calculate_future_value": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 14,
+      "question": "As part of my data analysis project, I've been tasked with examining the temperature trends over the past month. I've collected a set of daily temperature readings that I need to interpret. The dataset includes temperatures ranging from 22 to 80 degrees Celsius, incrementing by 2 each day. To gain a better understanding of the overall climate patterns, could you calculate the average temperature for this period using these values?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "function_1 computes the arithmetic mean (average) of a list of numbers.\n\nRequired parameter:\n- numbers (array of number): A flat list of finite numeric values (integers and/or floats). Length must be >= 1. Do not include null, NaN, Infinity, strings, booleans, objects, or nested arrays.\n\nBehavior:\n- Returns the mean as a floating-point number.\n- Order of inputs does not affect the result.\n- Passing an empty array or any non-numeric/invalid item will cause an error.\n\nExample tool call:\n{ \"name\": \"function_1\", \"arguments\": { \"numbers\": [1, 2, 3.5, 4] } }\nExpected result: 2.625"
+        }
+      ],
+      "ground_truth": [
+        "calculate_mean(numbers=[22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80])"
+      ],
+      "name_mapping": {
+        "calculate_mean": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 15,
+      "question": "I'm working on a report about a basketball player's average performance throughout the season. The data I have includes the points they scored in each game: 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130, 135, 140, 145, 150, 155, 160. To complete my analysis, I need to calculate the mean score per game. Can you help me with that?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Compute the arithmetic mean (average) of a list of numbers.\n\nParameters (JSON path in schema):\n- parameters.properties.numbers (required): array of numbers (integers or decimals). Must be non-empty; each item must be a finite numeric value (no NaN/Infinity). No other parameters are accepted.\n\nBehavior:\n- Returns a single number: sum(numbers)/count.\n- If numbers is missing or empty, do not call this function.\n\nExample call args:\n{\"numbers\":[4,8,15,16,23,42]}\nExpected result: 18.0\n\nNotes:\n- Order of inputs is irrelevant.\n- Negative and decimal values are allowed.\n- Output is a floating-point number."
+        }
+      ],
+      "ground_truth": [
+        "calculate_mean(numbers=[15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130, 135, 140, 145, 150, 155, 160])"
+      ],
+      "name_mapping": {
+        "calculate_mean": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 16,
+      "question": "I'm developing a new encryption algorithm and I'm currently focused on the permutations aspect. I need to know how many unique arrangements are possible if I take 5 characters from the standard English alphabet, which has 26 letters. This calculation is crucial for understanding the complexity of the encryption. Can you run the permutations calculation with these values?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Computes permutations P(n,k) = n! / (n\u2212k)!, the number of ordered arrangements of k items chosen from n distinct items.\n\nCall format: function_1({ \"n\": <int>, \"k\": <int> })\n\nParameters:\n- n (integer, required): total number of distinct items. Must be >= 0.\n- k (integer, required): number selected in order. Must satisfy 0 <= k <= n.\n\nReturns:\n- integer: exact count of permutations (1 when k=0).\n\nValidation:\n- Return an error for non-integer inputs, negative values, or if k > n.\n\nExamples (NL \u2192 args \u2192 result):\n- \"How many ways to award gold, silver, bronze among 10 runners?\" \u2192 {\"n\":10,\"k\":3} \u2192 720.\n- \"Arrange 5 items in a line from 5\" \u2192 {\"n\":5,\"k\":5} \u2192 120.\n- \"From 12 finalists, fill top 5 places\" \u2192 {\"n\":12,\"k\":5} \u2192 95040.\n\nNote: Order matters; use combinations if order does not matter."
+        }
+      ],
+      "ground_truth": [
+        "calculate_permutations(n=26, k=5)"
+      ],
+      "name_mapping": {
+        "calculate_permutations": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 17,
+      "question": "In my current research on plant genetics, I'm exploring the genetic diversity within a specific species. It's fascinating work, and I've managed to isolate 30 unique genes. The next step in my study involves figuring out the possible combinations if I were to select 7 of these genes at a time for a more detailed analysis. Could you calculate the number of different permutations for 7 genes out of the total 30?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Computes permutations without repetition: P(n,k) = n!/(n\u2212k)!, the number of ordered selections of k items from n distinct items. Required arguments (JSON nesting and names must match exactly): parameters.properties.n (integer \u2265 0): total distinct items; parameters.properties.k (integer \u2265 0): items to arrange; must satisfy k \u2264 n. Returns the permutations count as a non-negative integer; by convention P(n,0)=1. Validation: missing, non-integer, or out-of-range values cause an error. Example tool call arguments: {\"parameters\": {\"properties\": {\"n\": 12, \"k\": 5}}} \u2192 result 95040. Notes: order matters; this is not combinations."
+        }
+      ],
+      "ground_truth": [
+        "calculate_permutations(n=30, k=7)"
+      ],
+      "name_mapping": {
+        "calculate_permutations": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 18,
+      "question": "To better understand the volatility and risk associated with this particular stock, I need to calculate the standard deviation of its daily closing prices over the past 10 trading days. Here are the figures I've gathered: 1000, 2000, 3000, 4000, 5000, 7000, 9000, 15000, 20000, and 30000. Can you provide me with the standard deviation for these closing prices?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "function_1 \u2014 Compute the population standard deviation (\u03c3) of a numeric dataset.\n\nParameters\n- numbers (required): array of number. A non-empty list of finite real numbers. Do not include strings, booleans, null, NaN, or Infinity. Order is irrelevant; units must be consistent.\n\nBehavior\n- Computes population standard deviation: sqrt( \u03a3(xi \u2212 \u03bc)^2 / N ), where \u03bc is the arithmetic mean and N is numbers.length.\n- Returns a single numeric value (float) only, with no extra text or formatting.\n- If N = 1, the result is 0.\n\nWhen to call\n- Call whenever the user asks for \u201cstandard deviation\u201d, \u201cstdev\u201d, or \u201c\u03c3\u201d of given values and does not request a sample/unbiased estimator. If the user explicitly says \u201cpopulation standard deviation\u201d, use this tool. If they ask for \u201csample standard deviation\u201d or \u201cunbiased\u201d, do not use this tool.\n\nArguments examples\n- {\"numbers\": [1, 2, 3, 4]}\n- {\"numbers\": [10.5, 10.5, 10.5]}\n\nValidation\n- If the list is empty or contains non-numeric/invalid entries, ask the user to provide a valid numeric list before calling."
+        }
+      ],
+      "ground_truth": [
+        "calculate_standard_deviation(numbers=[1000,2000,3000,4000,5000,7000,9000,15000,20000,30000])"
+      ],
+      "name_mapping": {
+        "calculate_standard_deviation": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 19,
+      "question": "I've been tracking the scoring performance of a certain basketball player across the last 12 games to get insights into his consistency. The points he scored in each game are as follows: 30, 20, 25, 12, 59, 23, 64, 21, 67, 12, 23, and 43. I need to calculate the standard deviation of this scoring to better understand the variability and predictability of his performance. Could you help me with that?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Computes the population standard deviation (\u03c3) of a numeric dataset.\n\nParameters (arguments object):\n- numbers (array of number) \u2013 required. One or more finite real numbers. Example: [1, 2.5, -3].\n\nUsage:\nCall with arguments: { \"numbers\": [ ... ] }. Do not wrap in a 'raw' field. No other parameters are accepted.\n\nRules and validation:\n- Population formula: sqrt( sum((x - mean)^2) / n ).\n- Single-element input returns 0.\n- Reject and error on: empty array; non-numeric values; NaN; Infinity/-Infinity; null/undefined; strings.\n- Preserves numeric precision of inputs; no rounding is applied.\n\nOutput:\nReturns JSON with the computed value as 'standard_deviation' (number).\n\nExample:\nInput arguments: { \"numbers\": [1, 2, 3, 4] }\nOutput: { \"standard_deviation\": 1.118033988749895 }"
+        }
+      ],
+      "ground_truth": [
+        "calculate_standard_deviation(numbers=[30,20,25,12,59,23,64,21,67,12,23,43])"
+      ],
+      "name_mapping": {
+        "calculate_standard_deviation": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 20,
+      "question": "I'm currently working on an architectural project where we're designing a new triangular-shaped park. We've finally settled on the dimensions, and we're planning for the base to be 500 meters long with a height of 300 meters. Could you calculate the area of this park for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Computes the area of a triangle using A = 0.5 \u00d7 base \u00d7 height.\n\nParameters (JSON object expected):\n- base (number, required): Length of the triangle\u2019s base. Must be a finite numeric value >= 0. Use the same unit as height (e.g., meters, inches).\n- height (number, required): Perpendicular height to the base. Must be a finite numeric value >= 0.\n\nBehavior:\n- Returns a number: the area in square units matching the inputs\u2019 unit.\n- Validation: reject missing parameters, non-numeric types, NaN/Infinity, or negative values with a clear error message.\n\nExamples:\n- {\"base\": 10, \"height\": 5} \u2192 25\n- From NL: \u201ctriangle base 3.5 m, height 2 m\u201d \u2192 {\"base\": 3.5, \"height\": 2}\n\nNotes: No other parameters are supported; pass only base and height."
+        }
+      ],
+      "ground_truth": [
+        "calculate_triangle_area(base=500, height=300)"
+      ],
+      "name_mapping": {
+        "calculate_triangle_area": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 21,
+      "question": "I'm working on the design for a triangular dam, and I've settled on the dimensions. The base is going to be 700 meters, and the height will be at 450 meters. I need to calculate the total area that the face of this dam will cover. Can you help me figure out what that area would be with these measurements?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Compute the area of a triangle using the formula 0.5 \u00d7 base \u00d7 height. Required parameters (must both be present): base (number > 0) and height (number > 0). Units are arbitrary but must match; the result is in squared units. Call format: pass a flat JSON object with exactly these keys (no nesting under \"properties\", no \"raw\"): { \"base\": <number>, \"height\": <number> }. Types must be numeric (integer or float), finite, not strings, null, NaN, or Infinity. Do not include extraneous fields. Examples: { \"base\": 3, \"height\": 4 } \u21d2 6; { \"base\": 5.5, \"height\": 2 } \u21d2 5.5. Validation: reject missing parameters, non-numeric types, or values \u2264 0. Optional parameters: none."
+        }
+      ],
+      "ground_truth": [
+        "calculate_triangle_area(base=700, height=450)"
+      ],
+      "name_mapping": {
+        "calculate_triangle_area": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 22,
+      "question": "I'm working on a financial analysis for an upcoming business transaction, and I need to convert 5,000 Euros into Japanese Yen. Could you provide me with the converted amount using the current exchange rates?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Converts a monetary amount between currencies using latest or historical FX rates.\nRequired parameters:\n- amount (number > 0): Value to convert; must be finite.\n- from_currency (string): 3-letter ISO 4217 code, uppercase (e.g., USD, EUR).\n- to_currency (string): 3-letter ISO 4217 code, uppercase; must differ from from_currency.\nOptional parameters:\n- date (string, YYYY-MM-DD): Historical rate date; if omitted, uses latest available.\n- precision (integer 0\u201310): Decimal places for rounding; default 2.\nBehavior: Validates inputs; fetches rate for date or latest; computes converted_amount rounded to precision.\nResponse fields: converted_amount (number), rate (number), from_currency (string), to_currency (string), date_used (string).\nErrors: INVALID_PARAM (missing/invalid fields), UNSUPPORTED_CURRENCY, RATE_NOT_AVAILABLE (no rate for date), OUT_OF_RANGE_AMOUNT.\nExample args: {\"amount\":125.5,\"from_currency\":\"USD\",\"to_currency\":\"EUR\",\"date\":\"2025-01-15\",\"precision\":2}\nExample response: {\"converted_amount\":114.23,\"rate\":0.9105,\"from_currency\":\"USD\",\"to_currency\":\"EUR\",\"date_used\":\"2025-01-15\"}"
+        }
+      ],
+      "ground_truth": [
+        "convert_currency(amount=5000, from_currency='EUR', to_currency='JPY')"
+      ],
+      "name_mapping": {
+        "convert_currency": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "real_time_match"
+      ]
+    },
+    {
+      "test_id": 23,
+      "question": "I have a client preparing for a vacation in the United Kingdom, and they've set aside a budget of 3000 US Dollars for the trip. They've asked me to get a clear idea of how much they will have in British Pounds so they can plan their expenses accordingly. Could you convert $3000 from USD to GBP for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Converts money between currencies using foreign exchange (FX) rates. Always call this tool when the user asks to convert/exchange currency, price something in another currency, or get an FX rate.\n\nParameters:\n- amount (number, required): Monetary amount > 0. Decimals allowed.\n- from_currency (string, required): 3-letter ISO 4217 code, uppercase (e.g., USD, EUR, JPY).\n- to_currency (string, required): 3-letter ISO 4217 code, uppercase; must differ from from_currency.\n- date (string, optional): Historical conversion date in YYYY-MM-DD. Defaults to latest rate.\n- precision (integer, optional): Decimal places for converted_amount (0\u201310). Default 2.\n- include_rate (boolean, optional): Include per-1 from_currency FX rate in result. Default true.\n\nBehavior:\n- Rounds using half-up to the specified precision.\n- Validates positive amount and ISO codes; errors on invalid input.\n- For rate-only queries, use amount 1 and read rate.\n\nResponse shape:\n{ converted_amount: number, rate: number, amount: number, from_currency: string, to_currency: string, date: string }\n\nExample call JSON:\n{ \"amount\": 125.5, \"from_currency\": \"USD\", \"to_currency\": \"EUR\", \"date\": \"2023-12-31\", \"precision\": 2 }"
+        }
+      ],
+      "ground_truth": [
+        "convert_currency(amount=3000, from_currency='USD', to_currency='GBP')"
+      ],
+      "name_mapping": {
+        "convert_currency": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "real_time_match"
+      ]
+    },
+    {
+      "test_id": 24,
+      "question": "While working on my physics assignment, I've been examining the motion of a particle on a linear trajectory. The equation f(x) = 3t^2 + 2t + 1 represents the particle's position over time. To grasp the particle's behavior better, I need to figure out its velocity at precisely 5 seconds. Could you help me calculate the derivative of the position function to find the velocity at that moment?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": ""
+        }
+      ],
+      "ground_truth": [
+        "estimate_derivative(function='lambda x: 3*x**2 + 2*x + 1', x=5)"
+      ],
+      "name_mapping": {
+        "estimate_derivative": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 25,
+      "question": "I'm working on a financial analysis for a company, trying to understand the intricacies of their revenue growth. The revenue function over time can be described by a mathematical function, specifically f(x) = 4x^3 + 3x^2 + 2x + 1. My current task is to determine the rate at which the company's revenue is changing at the 7-year mark. Can you calculate the derivative of the revenue function for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": ""
+        }
+      ],
+      "ground_truth": [
+        "estimate_derivative(function='lambda x: 4*x**3 + 3*x**2 + 2*x + 1', x=7)"
+      ],
+      "name_mapping": {
+        "estimate_derivative": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 26,
+      "question": "I've been expanding my slang vocabulary, and I keep hearing the word \"lit\" pop up in conversations. It's not a term I'm familiar with, and I'm curious about its meaning. Can you find out what \"lit\" means on Urban Dictionary for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": ""
+        }
+      ],
+      "ground_truth": [
+        "find_term_on_urban_dictionary(term=\"lit\")"
+      ],
+      "name_mapping": {
+        "find_term_on_urban_dictionary": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 27,
+      "question": "While listening to the latest hip-hop tracks, I've noticed that the word \"flex\" keeps popping up in the lyrics. It seems to be used in a way that's different from the traditional meaning I'm familiar with. To get a better grasp of the slang, can you look up what \"flex\" means in the context of hip-hop on Urban Dictionary for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": ""
+        }
+      ],
+      "ground_truth": [
+        "find_term_on_urban_dictionary(term=\"flex\")"
+      ],
+      "name_mapping": {
+        "find_term_on_urban_dictionary": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 28,
+      "question": "I'm planning a new art project - a circular mural on one of the downtown walls. It's going to be quite large, with a 15-foot radius. To make sure I buy enough paint without overspending, I need to figure out the area of this circle. Can you help me with that calculation?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "function_1 computes the area of a circle using A = \u03c0 \u00d7 r^2.\nWhen to call: Use when the user asks for the area of a circle/disk and a radius can be obtained (directly or by converting from other info, e.g., diameter/2). Do not use for circumference or non-circle shapes.\nParameters (call shape is required exactly as below):\n- properties (object, required): container for inputs.\n  - radius (number, required): Circle radius > 0 (finite). Integer or float. Units are implicit; output will be in squared units of the input.\nExample call args: {\"properties\": {\"radius\": 3}}\nValidation: Do not call if radius is missing, non-numeric, \u2264 0, NaN, or \u00b1Infinity. If user gives diameter d, compute radius = d/2 before calling.\nReturn format: A single floating-point number only (the area). No text, units, or JSON wrapper."
+        }
+      ],
+      "ground_truth": [
+        "geometry_area_circle(radius=15)"
+      ],
+      "name_mapping": {
+        "geometry_area_circle": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 29,
+      "question": "I'm working on the design for a client's circular garden and I need to figure out how much sod to order. The garden's radius is 20 feet. Can you calculate the area for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Purpose: Compute the area of a circle (\u03c0r\u00b2) from a provided radius.\nParameters (JSON object):\n- radius (number, required): Circle radius in feet. Must be > 0. Decimals allowed.\nSchema: { type: object, properties: { radius: { type: number, description: 'radius in feet' } }, required: ['radius'], additionalProperties: false }\nConstraints: Units must be feet; convert before calling.\nUsage: Use when the user provides or implies a circular object's radius (e.g., circular rug radius).\nExample call: function_1({ \"radius\": 12.5 }).\nOutput: Returns the computed area in square feet."
+        }
+      ],
+      "ground_truth": [
+        "geometry_area_circle(radius=20)"
+      ],
+      "name_mapping": {
+        "geometry_area_circle": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 30,
+      "question": "I'm in the middle of composing an article on the COVID-19 situation, focusing on Brazil's ongoing response and how it's affecting the local population. Accurate data is crucial for my analysis. Could you give me the latest figures on the active COVID-19 cases in Brazil?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": ""
+        }
+      ],
+      "ground_truth": [
+        "get_active_covid_case_by_country(country='Brazil')"
+      ],
+      "name_mapping": {
+        "get_active_covid_case_by_country": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "real_time_match"
+      ]
+    },
+    {
+      "test_id": 31,
+      "question": "I'm currently compiling a report on the COVID-19 status in various countries, and I need to include the latest figures on active cases in Spain. Can you get me the updated active case count for Spain?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Purpose: Fetch the latest national statistics for a specified country.\nWhen to call: Whenever the user requests country-level stats (e.g., economy, population, health) for a nation. Do not use for city/region queries.\nRequired parameter:\n- country (string): ISO 3166-1 code for the country. Accepts alpha-2 (e.g., US, GB, IN, DE) or alpha-3 (e.g., USA, GBR, IND, DEU). Pass exactly one country per call. Do not pass full country names or extra params.\nUsage: Call with only the required key.\nExample: {\"country\":\"US\"}\nResponse: Returns a JSON object with the most recent national stats for the country. If the response is empty, null, or contains no items, treat as no results.\nPost-call handling: Summarize key metrics briefly and include the reference/updated date if present. If no results, say \"No results found for the requested country code.\" If user supplies a country name, convert it to a valid ISO code or ask for clarification."
+        }
+      ],
+      "ground_truth": [
+        "get_active_covid_case_by_country(country='Spain')"
+      ],
+      "name_mapping": {
+        "get_active_covid_case_by_country": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "real_time_match"
+      ]
+    },
+    {
+      "test_id": 32,
+      "question": "I'm currently compiling a report on various key players in the tech industry, and I'm looking into the origins and ownerships of some of the most traded stocks. Apple's stock, 'AAPL', has been on my radar, and it's vital for my analysis to confirm the exact name of the company trading under this stock symbol. Could you provide me with the company name for 'AAPL'?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Retrieves stock-related data for a single ticker symbol.\n\nArguments schema (strict):\n- Top-level must be an object with a single key: \"properties\".\n- properties (object) must contain:\n  - stock_name (string, required): The stock ticker symbol. Use only the symbol (e.g., MSFT, AAPL). Constraints: 1\u20135 uppercase letters A\u2013Z; no spaces, dots, slashes, exchange prefixes/suffixes, or company names.\n\nRules:\n- No other parameters are accepted.\n- Do not send null/empty values.\n- Do not send unwrapped fields (e.g., {\"stock_name\":\"MSFT\"}) or unrelated keys (e.g., {\"raw\": ...}).\n- If user input is lowercase or a company name, resolve to a valid ticker and uppercase it before calling.\n\nValid examples:\n- {\"properties\": {\"stock_name\": \"MSFT\"}}\n- {\"properties\": {\"stock_name\": \"AAPL\"}}"
+        }
+      ],
+      "ground_truth": [
+        "get_company_name_by_stock_name(stock_name='AAPL')"
+      ],
+      "name_mapping": {
+        "get_company_name_by_stock_name": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 33,
+      "question": "I'm expanding my investment portfolio and I've been closely following a few tech stocks. 'GOOGL' has shown promising trends, and I'm thinking about investing in it. However, I want to be thorough with my research. Could you provide me with the name of the company that 'GOOGL' represents?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Resolves a stock identifier to the provider\u2019s official company name.\n\nInput payload (JSON object):\n- stock_name (string, required): The identifier to resolve. Accepts:\n  \u2022 Ticker symbols (e.g., MSFT, AAPL)\n  \u2022 Common or official company names (e.g., Microsoft, Microsoft Corporation)\n\nUsage rules:\n- Payload MUST be an object containing only { \"stock_name\": \"...\" }.\n- Do NOT call with a raw/empty payload or without stock_name.\n- Do NOT pass null, empty, or whitespace-only strings.\n- Case-insensitive; leading/trailing whitespace is ignored.\n- Send a single lookup per call (no arrays, no nested structures, no extra keys).\n\nValid examples:\n- { \"stock_name\": \"MSFT\" }\n- { \"stock_name\": \"Microsoft\" }\n\nInvalid examples (do not use):\n- {}\n- \"MSFT\"\n- { \"ticker\": \"MSFT\" }\n- { \"stock_name\": [\"MSFT\", \"AAPL\"] }"
+        }
+      ],
+      "ground_truth": [
+        "get_company_name_by_stock_name(stock_name='GOOGL')"
+      ],
+      "name_mapping": {
+        "get_company_name_by_stock_name": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 34,
+      "question": "We've been tracking potential security breaches and '192.168.1.1' keeps popping up in our logs. I need to pinpoint the geographical origin of this IP. Could you determine the latitude and longitude for this address?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "IP geolocation lookup. Converts a single public IPv4/IPv6 to location and network metadata.\nRequired params:\n- ip_address (string): One valid IP only. Do not pass hostnames, URLs, CIDR ranges, or private/reserved IPs.\nOptional params:\n- fields (array<string>): Limit response keys. Allowed: country, region, city, latitude, longitude, timezone, postal_code, continent, isp, org, asn, currency, accuracy_radius_km, source, map_url.\n- locale (string): BCP\u201147 tag (e.g., en, es-ES) to localize names.\n- include_map_url (boolean, default false): If true, adds a map_url for the coordinates.\n- strict (boolean, default true): When false, returns best\u2011effort results on partial data.\n- timeout_ms (integer, 100\u201310000): Client timeout.\nReturns: JSON with requested fields; latitude/longitude in decimal degrees.\nErrors: invalid_ip, reserved_ip, not_found, timeout.\nExamples: {\"ip_address\":\"8.8.8.8\"}; {\"ip_address\":\"2001:4860:4860::8888\",\"fields\":[\"city\",\"latitude\",\"longitude\"],\"include_map_url\":true,\"locale\":\"en\"}."
+        }
+      ],
+      "ground_truth": [
+        "get_coordinate_by_ip_address(ip_address='192.168.1.1')"
+      ],
+      "name_mapping": {
+        "get_coordinate_by_ip_address": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 35,
+      "question": "Could you track down the latitude and longitude for this IP address I'm concerned about? It's 172.16.254.1. I've been monitoring the network and this one's been popping up with some strange activity.",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "function_1 performs IP geolocation lookup. Use it when the user asks for the location of an IP, nearest city, country/region, timezone/local time, latitude/longitude, or ISP/ASN for an IP. Input schema: parameters.properties.ip_address (type: string, required). Accepts a single IPv4 or IPv6 in standard notation only. Do not pass hostnames, URLs, CIDR ranges, or ports. Trim whitespace; leave casing as-is. Example call: {\"ip_address\":\"8.8.8.8\"}. Typical response includes fields such as country, region/state, city, latitude, longitude, postal_code, continent, timezone (IANA), local_time, isp, asn, organization, accuracy_radius_km, and flags like is_private or not_found. Not all fields are guaranteed; handle missing values gracefully. Error handling: invalid_ip (malformed address), private_or_reserved (RFC1918/unique-local), not_found (no data), rate_limited, server_error. If a domain is provided, ask the user for an IP or resolve it before calling."
+        }
+      ],
+      "ground_truth": [
+        "get_coordinate_by_ip_address(ip_address='172.16.254.1')"
+      ],
+      "name_mapping": {
+        "get_coordinate_by_ip_address": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 36,
+      "question": "I have a client planning a trip to Paris, and they're quite keen on details. They want to know the exact latitude and longitude for the city to plan their itinerary with precision. Could you look up the geographical coordinates for Paris for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "function_1 is a zero-argument tool that triggers the backend\u2019s default action (e.g., a health/status check or general routine). Parameters: none. Always invoke with an empty object: {}. Do not add any keys or guessed parameters. When to call: only if the user or system explicitly requests running function_1, the default action, or a health/status check. Otherwise, answer normally without calling the tool. Output: returns backend JSON or text; present it to the user as-is, adding brief context if helpful. Edge cases: if the user provides parameters, ignore them and still call with {}; if the tool returns an error, summarize it and ask how to proceed. Example: function_1({})."
+        }
+      ],
+      "ground_truth": [
+        "get_coordinates_from_city(city_name='Paris')"
+      ],
+      "name_mapping": {
+        "get_coordinates_from_city": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 37,
+      "question": "I'm currently working on a wildlife research project that involves tracking the migration patterns of a bird species known to pass through various cities. The next phase of my study will focus on their activity around Cairo. To ensure the precision of my tracking equipment, I need the exact latitude and longitude coordinates of Cairo. Could you provide me with these details for Cairo?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "City geocoding function. Resolves a city name to geographic coordinates.\n\nWhen to use: Invoke whenever the user asks for a city\u2019s latitude/longitude or needs a map location from a city name.\n\nInput (JSON arguments):\n- properties (object, required)\n  - city_name (string, required): The city name to geocode. Supports UTF-8 (e.g., Paris, S\u00e3o Paulo, \u6771\u4eac). Provide only the name; no additional keys are supported.\n\nOptional parameters: None. Do not include unspecified fields.\n\nOutput:\n- lat (number): Latitude in WGS84 decimal degrees.\n- lon (number): Longitude in WGS84 decimal degrees.\n\nBehavior:\n- If multiple cities share the name, the most globally prominent match is returned.\n- Coordinates represent the city center.\n\nExample call args:\n{ \"properties\": { \"city_name\": \"Paris\" } }\n\nExample response:\n{ \"lat\": 48.8566, \"lon\": 2.3522 }"
+        }
+      ],
+      "ground_truth": [
+        "get_coordinates_from_city(city_name='Cairo')"
+      ],
+      "name_mapping": {
+        "get_coordinates_from_city": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 38,
+      "question": "I'm currently conducting a study on the impact of COVID-19 and I'm focusing on Brazil's situation. I need the latest figures on the total number of deaths attributed to the virus in Brazil. Could you provide me with that information?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "function_1 retrieves dataset records filtered by country. Call this when the user asks for records/data/stats about a specific country (e.g., \u201crecords for Germany\u201d, \u201cshow US data\u201d). Input (JSON): properties.country (string, required) \u2014 the country to filter by. Accepts full country names or ISO 3166-1 codes (alpha-2 or alpha-3). Case-insensitive; leading/trailing spaces allowed and trimmed. Examples: \"Germany\", \"US\", \"USA\", \"GBR\". No other parameters are supported; omit unsupported keys. Validation and edge cases: If the request lacks a country, ask the user to specify one before calling. If the value is ambiguous (e.g., \u201cCongo\u201d), ask for clarification (DRC vs Republic). Normalize common aliases (e.g., US/USA/United States). If unrecognized, do not call; request a valid country. Response: JSON object { \"records\": [ ... ], \"count\": number }. If no matches: { \"records\": [], \"count\": 0 }. Examples: \u201cGet records for Germany\u201d \u2192 {\"properties\":{\"country\":\"Germany\"}}; \u201cShow US stats\u201d \u2192 {\"properties\":{\"country\":\"US\"}}."
+        }
+      ],
+      "ground_truth": [
+        "get_covid_death_by_country(country='Brazil')"
+      ],
+      "name_mapping": {
+        "get_covid_death_by_country": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "real_time_match"
+      ]
+    },
+    {
+      "test_id": 39,
+      "question": "I'm an epidemiologist tracking the impact of COVID-19, and right now, I'm focused on the situation in India. I need the latest figures on the death toll there. Can you get me the updated total number of deaths from COVID in India?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": ""
+        }
+      ],
+      "ground_truth": [
+        "get_covid_death_by_country(country='India')"
+      ],
+      "name_mapping": {
+        "get_covid_death_by_country": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "real_time_match"
+      ]
+    },
+    {
+      "test_id": 40,
+      "question": "I'm currently working on a detailed city map, and I've got two key locations that I need to measure the distance between. The first location is at coordinates (45.76, 4.85), and the second one is at (48.85, 2.35). Could you help me figure out how far apart these two points are?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": ""
+        }
+      ],
+      "ground_truth": [
+        "get_distance(pointA=(45.76, 4.85), pointB=(48.85, 2.35))"
+      ],
+      "name_mapping": {
+        "get_distance": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 41,
+      "question": "During my fieldwork in the forest, I've been closely monitoring a certain animal's movement patterns. Just recently, I've noted two specific spots where it's been sighted. The first location is marked by the coordinates (32.71, -117.16), and the second one is at (34.05, -118.25). To better understand its roaming area, I need to calculate the distance it traveled between these two points. Can you help me determine this distance using the coordinates I provided for the two locations?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Purpose: Compute the straight-line (Euclidean) distance between two points. Call this when the user asks for the distance between coordinates (not driving routes or geodesic/haversine on Earth). Arguments (JSON): pointA (required) \u2014 array of numbers (floats), length \u2265 2 (e.g., [x,y] or [x,y,z]). pointB (required) \u2014 array of numbers (floats), same length and order as pointA. Constraints: values must be finite numbers; arrays must be equal-length; use the same unit system for both points. Output: a single numeric value (float) equal to sqrt(sum((pointB[i]\u2212pointA[i])^2)). Return only the number\u2014no text, units, or formatting. Assistant pre-checks before calling: verify both arrays exist, are equal-length (\u22652), and contain only numbers. Examples of arguments: {\"pointA\":[0,0],\"pointB\":[3,4]} \u21d2 5; {\"pointA\":[1,2,3],\"pointB\":[4,6,3]} \u21d2 5."
+        }
+      ],
+      "ground_truth": [
+        "get_distance(pointA=(32.71, -117.16), pointB=(34.05, -118.25))"
+      ],
+      "name_mapping": {
+        "get_distance": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 42,
+      "question": "I'm deep into my research on the Fibonacci sequence, and I need to analyze the first 20 numbers of the sequence for my study. Could you generate that for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "function_1 \u2014 Generate a Fibonacci sequence.\nPurpose: Return the first n Fibonacci numbers starting at 0, 1.\nParameters:\n- n (integer, required): Number of terms to produce. Must be a non-negative integer (0, 1, 2, ...). Very large values may be slow or rejected.\nBehavior:\n- n=0 -> []\n- n=1 -> [0]\n- n>=2 -> [0, 1, 1, 2, 3, ...] (length n)\nValidation:\n- Missing n, non-integer n, or n<0 will cause an error.\nReturn:\n- Array of integers of length n in index order.\nExamples:\n- function_1({\"n\": 8}) -> [0, 1, 1, 2, 3, 5, 8, 13]\n- function_1({\"n\": 0}) -> []\nNotes: Deterministic; no side effects."
+        }
+      ],
+      "ground_truth": [
+        "get_fibonacci_sequence(n=20)"
+      ],
+      "name_mapping": {
+        "get_fibonacci_sequence": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 43,
+      "question": "For my computer science project, I need to generate the Fibonacci sequence. Specifically, the assignment requires the first 50 numbers. Could you calculate that for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Generates the first n Fibonacci numbers in order, starting with 0, 1.\nParameters:\n- n (required, integer): Number of terms to generate. Must be >= 1. Do not call if n is missing, non-integer, or < 1.\nBehavior:\n- Returns a JSON array of plain integers, length exactly n.\n- Sequence definition: F0=0, F1=1, Fn=Fn-1+Fn-2 for n>=2.\n- For n=1 returns [0]; for n=2 returns [0,1].\n- Output contains only the array (no objects, no extra fields, no strings).\n- Deterministic; no randomness.\nExample call: name=\"function_1\", arguments={\"n\": 15}\nExpected output: [0,1,1,2,3,5,8,13,21,34,55,89,144,233,377]"
+        }
+      ],
+      "ground_truth": [
+        "get_fibonacci_sequence(n=50)"
+      ],
+      "name_mapping": {
+        "get_fibonacci_sequence": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 44,
+      "question": "I'm tasked with monitoring competitor pricing, and I need to keep tabs on a certain item listed on Amazon. Its ASIN is 'B08PPDJWC8'. Could you fetch the latest price for this product for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": ""
+        }
+      ],
+      "ground_truth": [
+        "get_price_by_amazon_ASIN(ASIN='B08PPDJWC8')"
+      ],
+      "name_mapping": {
+        "get_price_by_amazon_ASIN": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 45,
+      "question": "I manage inventory for our online store, and it's crucial to keep track of our competitors' pricing, particularly on Amazon. We're currently selling a product that is also listed there, and I want to ensure our prices are competitive. Could you find out the latest price for the product with the Amazon ASIN 'B08PPDJWC8'?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": ""
+        }
+      ],
+      "ground_truth": [
+        "get_price_by_amazon_ASIN(ASIN='B08PPDJWC8')"
+      ],
+      "name_mapping": {
+        "get_price_by_amazon_ASIN": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 46,
+      "question": "I'm prepping for tomorrow's math class on prime factorization and need to come up with some clear examples. Can you break down the number 4567 into its prime factors for me? This will be a great way to demonstrate the concept to the students.",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "function_1 computes the distinct prime factors of a positive integer.\nParameters:\n- number (required, integer, >= 2): The integer to factorize into prime factors. Use the exact key \"number\". Do not pass strings, floats, booleans, or nested objects.\nOutput:\n- Array of integers: unique prime factors of number in ascending order (duplicates removed). If number is prime, returns [number].\nErrors:\n- The call is rejected if number < 2 or not an integer.\nExamples:\n- Call args: {\"number\": 1001} \u2192 Result: [7, 11, 13]\n- Call args: {\"number\": 60} \u2192 Result: [2, 3, 5]\n- Call args: {\"number\": 13} \u2192 Result: [13]"
+        }
+      ],
+      "ground_truth": [
+        "get_prime_factors(number=4567)"
+      ],
+      "name_mapping": {
+        "get_prime_factors": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 47,
+      "question": "I'm developing a new encryption algorithm and I'm currently focusing on prime factorization as part of the process. To test the algorithm's effectiveness, I need to calculate the prime factors of the number 7891. Can you help me with that?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Purpose: Compute the prime factorization of a single integer.\n\nParameters (JSON):\n- number (integer, required): The positive integer to factorize.\n  - Constraints: integer >= 2.\n  - Do not pass strings, floats, booleans, arrays, objects, or null.\n  - If the user provides non-integer or < 2, request a valid integer >= 2 instead of calling.\n\nBehavior/Output: Returns the prime factors of number. Typical outputs include either:\n- A list of prime factors in nondecreasing order (e.g., 60 -> [2, 2, 3, 5]), or\n- An equivalent structure mapping primes to exponents. If unclear, assume an array of primes.\n\nUsage mapping:\n- \"Prime factors of 84\" -> call: {\"number\": 84}\n- \"Is 97 prime?\" -> call: {\"number\": 97} (prime if result is [97])\n- \"Factor 1/0/-5/12.3\" -> do not call; ask for an integer >= 2.\n\nExamples:\n- function_1({\"number\": 60})\n- function_1({\"number\": 9973})\n\nNotes: Very large inputs may be slow; prefer reasonable sizes."
+        }
+      ],
+      "ground_truth": [
+        "get_prime_factors(number=7891)"
+      ],
+      "name_mapping": {
+        "get_prime_factors": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 48,
+      "question": "I'm working on a product review article and there's a particular item on Amazon I'm focusing on. Its ASIN is 'B08BHXG144'. I need to include the current price in my article, so could you help me find out what it's selling for?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Retrieves an Amazon product title by ASIN. Use this whenever the user asks for a product title or basic info and provides an ASIN, or an Amazon URL containing one. Always call when an ASIN is available; do not guess titles. Input schema: { asin: string }. Parameters: - asin (string, required): The 10-character Amazon Standard Identification Number (uppercase letters/digits). If the user provides an Amazon URL, extract the ASIN (e.g., /dp/ASIN or /gp/product/ASIN) and pass it here. Behavior: Returns the exact product title for the ASIN. If ASIN is invalid/not found, expect an error or empty result and request a valid ASIN from the user. Validation tips: Prefer canonical 10-char ASIN; strip spaces; do not alter case beyond uppercase. Example call: function_1({ \"asin\": \"B08N5WRWNW\" }). Example response: { \"title\": \"Apple iPhone 12 (64GB, Blue) [Locked]\" }."
+        }
+      ],
+      "ground_truth": [
+        "get_product_name_by_amazon_ASIN(ASIN='B08BHXG144')"
+      ],
+      "name_mapping": {
+        "get_product_name_by_amazon_ASIN": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 49,
+      "question": "While browsing Amazon, I came across a product that piqued my interest, but I didn't catch its name. The ASIN is 'B07ZPKBL9V'. Can you help me find out the name of this product?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": ""
+        }
+      ],
+      "ground_truth": [
+        "get_product_name_by_amazon_ASIN(ASIN='B07ZPKBL9V')"
+      ],
+      "name_mapping": {
+        "get_product_name_by_amazon_ASIN": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 50,
+      "question": "I'm considering purchasing a product from Amazon, and before I make a decision, I'd like to check its rating. The product has an ASIN of 'B08BHXG144'. Could you find that information for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Get the current average customer rating for a single Amazon product by ASIN.\n\nParameters\n- ASIN (string, required): Amazon Standard Identification Number. Exactly 10 uppercase alphanumeric characters (e.g., B08N5WRWNW). No spaces, dashes, or prefixes. Provide one ASIN only.\n\nResponse\n- JSON object:\n  - asin (string)\n  - average_rating (number, 0.0\u20135.0)\n  - rating_count (integer, >=0)\n  - last_updated (ISO 8601 timestamp)\n\nErrors\n- 400: missing/invalid ASIN\n- 404: ASIN not found\n- 429/5xx: transient; retry later\n\nUsage notes\n- Call only when you have a valid ASIN; do not pass product names or URLs.\n- If the user supplies an Amazon URL, extract the ASIN before calling.\n\nExample call\nfunction_1 with args: { \"ASIN\": \"B08N5WRWNW\" }"
+        }
+      ],
+      "ground_truth": [
+        "get_rating_by_amazon_ASIN(ASIN='B08BHXG144')"
+      ],
+      "name_mapping": {
+        "get_rating_by_amazon_ASIN": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 51,
+      "question": "I'm considering purchasing a product I found on Amazon, but I want to make sure it's well-received by others before I commit. It has the ASIN 'B07ZPKBL9V'. Can you tell me what the current average customer rating is for this item?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "function_1 retrieves Amazon product details by ASIN. Use only when the user requests info about a specific Amazon item.\n\nParameters (JSON object):\n- ASIN (string, required): 10-character alphanumeric Amazon Standard Identification Number (e.g., B07PGL2ZSL). No spaces/hyphens. Must not be empty.\n- marketplace (string, optional): 2-letter country code of the Amazon site. Supported: US, CA, UK, DE, FR, IT, ES, JP, AU, IN, MX, BR, NL, SE, PL, TR, AE, SA, SG. Default: US.\n- fields (array of strings, optional): Limit returned attributes. Allowed: title, price, currency, url, images, brand, rating, reviewsCount, features, description, dimensions, weight, availability, category. If omitted, standard fields are returned.\n\nUsage rules:\n- Always include ASIN; validate its format before calling.\n- Do not include any unused keys (e.g., raw, text, query).\n- If the user hasn\u2019t provided an ASIN, ask for it first.\n\nExamples:\n- {\"ASIN\":\"B07PGL2ZSL\",\"fields\":[\"title\",\"price\",\"currency\"]}\n- {\"ASIN\":\"B0C123ABCD\",\"marketplace\":\"UK\"}"
+        }
+      ],
+      "ground_truth": [
+        "get_rating_by_amazon_ASIN(ASIN='B07ZPKBL9V')"
+      ],
+      "name_mapping": {
+        "get_rating_by_amazon_ASIN": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 52,
+      "question": "I've been tracking the performance of Apple's stock and I'm interested in taking a deeper dive into its history. I want to see the monthly trends and also check if there have been any splits or dividends issued recently. Can you pull up the history of AAPL for me with a monthly interval and include the stock splits and dividends information?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": ""
+        }
+      ],
+      "ground_truth": [
+        "get_stock_history(stock_name='AAPL', interval='1mo', diffandsplits='true')"
+      ],
+      "name_mapping": {
+        "get_stock_history": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "structural_match"
+      ]
+    },
+    {
+      "test_id": 53,
+      "question": "I need to analyze Microsoft's stock performance over the past few months without the noise from dividends or stock splits. Can you pull up the weekly historical data for the stock symbol 'MSFT' making sure to exclude splits and dividends in the data set?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": ""
+        }
+      ],
+      "ground_truth": [
+        "get_stock_history(stock_name='MSFT', interval='1wk', diffandsplits='true')"
+      ],
+      "name_mapping": {
+        "get_stock_history": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "structural_match"
+      ]
+    },
+    {
+      "test_id": 54,
+      "question": "I need to check the latest price for Apple Inc.'s stock. Can you get that information for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Purpose: Retrieve the latest available price for a single publicly traded stock.\n\nParameters:\n- stock_name (string, required): The stock ticker symbol. Provide only the ticker (e.g., \"MSFT\", \"AAPL\", \"GOOGL\"). Do not include the company name, exchange, currency, or spaces. Uppercase recommended.\n\nUsage:\n- Pass a flat JSON object with exactly one key at the top level: stock_name.\n- Do not nest under other properties and do not include extra keys.\n\nExample call arguments:\n{\"stock_name\": \"MSFT\"}\n\nNotes:\n- Use the exact ticker for the desired share class (e.g., \"GOOGL\" vs \"GOOG\").\n- The call will fail if stock_name is missing or empty."
+        }
+      ],
+      "ground_truth": [
+        "get_stock_price_by_stock_name(stock_name='AAPL')"
+      ],
+      "name_mapping": {
+        "get_stock_price_by_stock_name": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "real_time_match"
+      ]
+    },
+    {
+      "test_id": 55,
+      "question": "I need to check the current price of Microsoft Corporation's stock. Could you get me the latest stock price for Microsoft?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Fetch stock data for a single publicly traded company.\n\nParameter schema:\n- stock_name (string, required): The stock ticker symbol (preferred) or exact company name to look up. Constraints: non-empty, 1\u201350 characters. Use uppercase tickers when known (e.g., MSFT, AAPL, TSLA). If the user provides a company name, pass it verbatim without extra words (e.g., \"Microsoft\", \"Tesla\").\n\nUsage rules:\n- Provide exactly one stock_name per call.\n- Do not call with empty args or placeholder keys.\n- Trim leading/trailing spaces; remove punctuation not part of the ticker (e.g., commas).\n- Prefer the primary listing\u2019s ticker when multiple classes/listings exist.\n\nExpected output: JSON with the matched stock\u2019s data.\n\nExamples:\n- {\"stock_name\":\"MSFT\"}\n- {\"stock_name\":\"Microsoft\"}\n- NL: \"Show Tesla price\" -> {\"stock_name\":\"TSLA\"}\n- NL: \"Quote for Alphabet Class A\" -> {\"stock_name\":\"GOOGL\"}\n\nErrors: Missing/empty stock_name or unknown symbol/name will fail."
+        }
+      ],
+      "ground_truth": [
+        "get_stock_price_by_stock_name(stock_name='MSFT')"
+      ],
+      "name_mapping": {
+        "get_stock_price_by_stock_name": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "real_time_match"
+      ]
+    },
+    {
+      "test_id": 56,
+      "question": "I'm currently knee-deep in a geography project where understanding the time zones for different coordinates is crucial. I've got this particular location with longitude 123.45 and latitude -67.89. I need to determine its time zone. Can you help me with this?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Resolve the IANA time zone ID for a geographic coordinate.\n\nParameters (JSON):\n- lat (number, required): Latitude in decimal degrees (WGS84). Range -90 to 90. North positive, south negative.\n- long (number, required): Longitude in decimal degrees. Range -180 to 180. East positive, west negative.\n\nRequirements:\n- Use exact keys: \"lat\" and \"long\" (no aliases). Provide numbers, not strings. Do not swap lat/long or their signs.\n- Values outside the valid ranges, null, or NaN are invalid (no implicit clamping).\n\nReturn:\n- A string IANA time zone identifier, e.g., \"America/Los_Angeles\".\n- For oceanic or polar coordinates, returns the nearest applicable time zone.\n\nExamples:\n- Input: { \"lat\": 37.7749, \"long\": -122.4194 } \u2192 \"America/Los_Angeles\"\n- Input: { \"lat\": 51.5074, \"long\": -0.1278 } \u2192 \"Europe/London\""
+        }
+      ],
+      "ground_truth": [
+        "get_time_zone_by_coord(long='123.45', lat='-67.89')"
+      ],
+      "name_mapping": {
+        "get_time_zone_by_coord": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 57,
+      "question": "I'm tracking a storm system for my weather report, and I need to provide updates based on the local time where the storm is currently. The storm is right now at latitude 35.22 and longitude -80.75. Can you help me figure out the timezone for this location?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Purpose: Resolve geographic coordinates to an IANA time zone ID.\n\nInput (JSON object):\n- lat (number, required): Latitude in decimal degrees, range -90 to 90 (negative = south). Must be a number, not a string.\n- long (number, required): Longitude in decimal degrees, range -180 to 180 (negative = west). Must be a number, not a string.\n\nRules:\n- Both parameters are required; no defaults.\n- Only keys \"lat\" and \"long\" are accepted (strict). Do not include extra keys.\n- Values must be finite numbers (no null/undefined/NaN/strings/arrays/objects).\n\nBehavior:\n- Returns a string IANA time zone identifier (e.g., \"America/New_York\").\n- Out-of-range or missing params cause the call to fail.\n\nAssistant guidance:\n- Map user synonyms to required keys: latitude/lat \u2192 \"lat\"; longitude/lng/long. \u2192 \"long\".\n- Validate ranges before calling.\n\nExamples:\nfunction_1({\"lat\": 40.7128, \"long\": -74.006}) \u2192 \"America/New_York\"\nfunction_1({\"lat\": 51.5074, \"long\": -0.1278}) \u2192 \"Europe/London\""
+        }
+      ],
+      "ground_truth": [
+        "get_time_zone_by_coord(long='-80.75', lat='35.22')"
+      ],
+      "name_mapping": {
+        "get_time_zone_by_coord": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 58,
+      "question": "I'm working on a climate study focusing on temperature fluctuations in the Arctic and need the latest temperature readings for the North Pole. Can you get the current weather data for me, specifically at 90.00 latitude and 0.00 longitude, using the Open-Meteo API?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": ""
+        }
+      ],
+      "ground_truth": [
+        "get_weather_data(coordinates=[90.00, 0.00])"
+      ],
+      "name_mapping": {
+        "get_weather_data": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "structural_match"
+      ]
+    },
+    {
+      "test_id": 59,
+      "question": "I'm working on a study about climate change in the Sahara Desert, and part of my research requires analyzing real-time temperature data from specific locations. I need to access the current temperature for a point in the desert with a latitude of 25.00 and a longitude of 13.00. Could we use our weather data retrieval system to get this information from the Open-Meteo API for these coordinates?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "function_1 is an undocumented/placeholder tool. Purpose: No official functionality is provided in the current documentation. Parameters: none (no required or optional parameters). Usage: If you must invoke it, call with an empty JSON object only. Do not include any arguments or keys. Example call: function_1({}). Output: Unspecified; the response format and fields are not guaranteed and may be empty or vary. Reliability: Do not rely on this tool for production logic. Error handling: Providing any parameters may cause invocation errors. Recommendation: Avoid using unless explicitly instructed by an external workflow and return its raw response without interpretation."
+        }
+      ],
+      "ground_truth": [
+        "get_weather_data(coordinates=[25.00, 13.00])"
+      ],
+      "name_mapping": {
+        "get_weather_data": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "structural_match"
+      ]
+    },
+    {
+      "test_id": 60,
+      "question": "During my investigation into a recent security breach, I've pinpointed a suspicious IP address that could be the source of the attack. The address is 192.168.1.1. To narrow down the physical location of the potential hacker, I need to find out the zipcode associated with this IP. Can you provide me with that information?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Purpose: Query details about a single IP address (e.g., geolocation, ASN/ISP/owner, and risk/reputation metadata). Use when the user asks to look up, validate, geolocate, identify the owner/ASN/ISP, or assess risk for an IP.\n\nArguments (must match exactly):\n- properties (object, required): container for parameters.\n  - ip_address (string, required): One IPv4 or IPv6 (e.g., \"8.8.8.8\", \"2001:4860:4860::8888\"). Do not include CIDR (\"/24\"), ports (\":443\"), domains, or URLs. If multiple IPs are provided, call once per IP or ask the user to choose.\n\nInvocation example (arguments JSON):\n{\"properties\":{\"ip_address\":\"8.8.8.8\"}}\n\nReturns: JSON with information about the IP (fields may include country/region/city, ASN, ISP/org, and risk/reputation). Handle missing/unknown fields gracefully. If the input is not a valid IP, ask the user for a valid IPv4/IPv6."
+        }
+      ],
+      "ground_truth": [
+        "get_zipcode_by_ip_address(ip_address=\"192.168.1.1\")"
+      ],
+      "name_mapping": {
+        "get_zipcode_by_ip_address": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 61,
+      "question": "I'm tracking some unusual activity on our company's network, and I need to pinpoint the source. The IP in question is 172.16.254.1. Could you find out the associated zipcode for this IP address?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "function_1 is an undocumented, parameterless tool. Use it only when the user explicitly requests to \"call/run function_1\" or when system instructions require it; otherwise, do not invoke it. Parameters: none (no required or optional fields). Always call with an empty payload: {} (no keys, no body content). Expected output: unspecified; may be a string, number, or JSON\u2014do not assume a schema. On success, return the raw tool result to the user with minimal paraphrasing. Error handling: if the tool returns an error or rejects non-empty input, do not retry with guessed parameters; surface the error message as-is. Constraints: providing any arguments or extra keys may cause failure. Example call: function_1({})."
+        }
+      ],
+      "ground_truth": [
+        "get_zipcode_by_ip_address(ip_address='172.16.254.1')"
+      ],
+      "name_mapping": {
+        "get_zipcode_by_ip_address": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 62,
+      "question": "I'm working on some data analysis and need to perform a matrix multiplication as part of the process. The matrices I have are: the first one is [[1, 2], [3, 4]] and the second is [[5, 6], [7, 8]]. Could you help me with the multiplication of these two matrices?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Performs matrix multiplication of two 2D numeric matrices and returns the product.\n\nParameters:\n- matA (required): 2D array of numbers (array of equal-length arrays). Shape m\u00d7n.\n- matB (required): 2D array of numbers (array of equal-length arrays). Shape n\u00d7p.\n\nRules/validation:\n- Both matrices must be rectangular (each row same length) and non-empty.\n- All elements must be finite numbers (integers or floats).\n- Dimension compatibility required: columns(matA) == rows(matB).\n- Order matters: result = matA \u00d7 matB. No implicit transpose or broadcasting.\n\nReturn:\n- 2D array of numbers with shape m\u00d7p.\n\nErrors:\n- Returns an error if arrays are ragged, contain non-numeric/NaN/Infinity, are empty, or shapes are incompatible.\n\nExample payload:\n{ \"matA\": [[1,2,3],[4,5,6]], \"matB\": [[7,8],[9,10],[11,12]] }\nResult: [[58,64],[139,154]]"
+        }
+      ],
+      "ground_truth": [
+        "mat_mul(matA=[[1, 2], [3, 4]], matB=[[5, 6], [7, 8]])"
+      ],
+      "name_mapping": {
+        "mat_mul": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 63,
+      "question": "I'm currently deep into a complex quantum mechanics simulation, and part of the process involves a bit of linear algebra. I need to multiply two matrices to proceed with my calculations. The first matrix I have is [[2, 3], [4, 5]], and the second one is [[6, 7], [8, 9]]. Could you help me with the result of multiplying these two matrices?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "function_1 multiplies two numeric matrices and returns their product.\n\nParameters (JSON object):\n- matA (required): array of arrays of numbers (m x n). Each row must have equal length; numbers may be int or float.\n- matB (required): array of arrays of numbers (n x p). Each row must have equal length.\n\nConstraints:\n- Columns of matA (n) must equal rows of matB.\n- Matrices and rows must be non-empty; values must be finite numbers (no NaN/Infinity).\n\nBehavior:\n- Returns array of arrays (m x p) where result[i][j] = sum_k(matA[i][k] * matB[k][j]).\n\nUsage:\n- Call with exactly: { \"matA\": [...], \"matB\": [...] } (no extra keys).\n- Validate shapes and types before calling.\n\nExample call:\n{ \"matA\": [[1,2,3],[4,5,6]], \"matB\": [[7,8],[9,10],[11,12]] }\nExpected result: [[58,64],[139,154]]\n\nErrors:\n- Thrown on dimension mismatch, non-rectangular rows, or non-numeric entries."
+        }
+      ],
+      "ground_truth": [
+        "mat_mul(matA=[[2, 3], [4, 5]], matB=[[6, 7], [8, 9]])"
+      ],
+      "name_mapping": {
+        "mat_mul": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 64,
+      "question": "I'm working on a combinatorics problem and I've hit a step where I need to calculate the factorial of 7. Can you help me get that result?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "function_1 computes the factorial of a non-negative integer n (n!), i.e., the number of permutations of n distinct items.\n\nParameters (JSON):\n- n: integer, required. Must be a whole number >= 0. No default.\n\nBehavior:\n- Returns: integer result of n!.\n- Validation: missing n, non-integer types (string, float, null), or n < 0 cause an error.\n- Performance: runs in O(n). Very large n may be slow or exceed limits.\n\nExamples:\n- { \"n\": 0 } \u2192 1\n- { \"n\": 1 } \u2192 1\n- { \"n\": 5 } \u2192 120\n- { \"n\": 8 } \u2192 40320\n\nUsage: call with parameters object, e.g., { \"n\": 8 }."
+        }
+      ],
+      "ground_truth": [
+        "math_factorial(n=7)"
+      ],
+      "name_mapping": {
+        "math_factorial": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 65,
+      "question": "While I was delving into some quantum mechanics problems for my physics class, I stumbled upon a particularly challenging equation. It turns out I need to figure out the factorial of the number 12 to proceed with my calculations. Could you help me out by computing the factorial of 12?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "function_1 computes the number of permutations of n distinct items (factorial, n!). Use it to answer questions like \u201cHow many ways to arrange X items?\u201d. Parameters: n (integer, required) \u2014 non-negative count of distinct items to arrange. Return: integer n!. Special case: n=0 returns 1. Arguments JSON schema for tool call: an object with exactly one property: n (integer >= 0). Do not include any extra fields (e.g., no \u201craw\u201d). Examples: \u2022 \u201cHow many ways to arrange 7 books?\u201d \u2192 { \"n\": 7 } \u2022 \u201cArrangements of an empty set?\u201d \u2192 { \"n\": 0 }. Input validation: do not pass negatives or non-integers; convert textual numbers to integers before calling (e.g., \u201cten\u201d \u2192 10). Note: very large n may be slow or exceed typical integer ranges."
+        }
+      ],
+      "ground_truth": [
+        "math_factorial(n=12)"
+      ],
+      "name_mapping": {
+        "math_factorial": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 66,
+      "question": "While researching the political alliances of ancient Rome, I discovered that during two separate periods, the Senate was comprised of 450 and then 300 members. To analyze the data further, I need to calculate the greatest common divisor of these two senate sizes. Could you help me find the GCD for these numbers?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "function_1 (gcd_checker): Computes the greatest common divisor (GCD) of two integers and indicates whether they are coprime (GCD = 1).\nHow to call: provide a nested object exactly as follows: a top-level key parameters containing a key properties with the inputs.\nSchema:\n- parameters: object\n  - properties: object\n    - a: integer (required). Any whole number; negatives allowed (treated by absolute value); 0 allowed.\n    - b: integer (required). Same rules as a.\nRules: If both a and b are 0, GCD is 0 and the numbers are not coprime. Do not send raw values or an arguments key; only use parameters.properties with a and b.\nExamples:\n- {\"name\":\"function_1\",\"parameters\":{\"properties\":{\"a\":10,\"b\":7}}}\n- {\"name\":\"function_1\",\"parameters\":{\"properties\":{\"a\":-12,\"b\":0}}}"
+        }
+      ],
+      "ground_truth": [
+        "math_gcd(a=450, b=300)"
+      ],
+      "name_mapping": {
+        "math_gcd": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 67,
+      "question": "While working on the urban planning project, I've decided to use a grid layout for the city's design. The grid is based on block numbers with the length spanning 360 blocks and the width covering 240 blocks. To ensure the layout is as efficient as possible, I need to find the largest block size that can be uniformly used across both dimensions. Can you calculate the greatest common divisor for these two numbers, 360 and 240, to help me optimize the city's block design?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "function_1 computes the greatest common divisor (GCD) of two integers via the Euclidean algorithm.\n\nRequired parameters:\n- a (integer): First operand. 64-bit signed integer.\n- b (integer): Second operand. 64-bit signed integer.\n\nRules and validation:\n- Only parameters a and b are accepted; extra keys (e.g., raw) are not allowed.\n- Values must be JSON integers (not strings, floats, booleans, null, arrays, or objects).\n- Negative values are permitted; sign is ignored. Output is always non-negative.\n- Edge cases: gcd(0,n)=|n|; gcd(0,0)=0.\n- Both a and b are required; missing or invalid types cause an error.\n\nReturns:\n- Integer: the GCD of a and b.\n\nExamples:\n- a=48, b=18 \u2192 6\n- a=0, b=25 \u2192 25\n- a=-8, b=12 \u2192 4\nUsage: function_1({ \"a\": 48, \"b\": 18 })"
+        }
+      ],
+      "ground_truth": [
+        "math_gcd(a=360, b=240)"
+      ],
+      "name_mapping": {
+        "math_gcd": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 68,
+      "question": "In the studio working on a new track, I've got these two drum loops that I'm trying to synchronize. One loop repeats every 18 beats and the other every 24 beats. I need to figure out after how many beats they'll both line up perfectly so the rhythm stays consistent throughout the song. Could you calculate the least common multiple for these two numbers for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Performs numeric multiplication. Pass a JSON object with exactly two properties: a and b. Parameters: a (number, required) \u2013 first factor. Must be a finite integer or decimal. b (number, required) \u2013 second factor. Must be a finite integer or decimal. Do not send strings, null, arrays, nested objects, NaN, or Infinity. No other keys are used. Returns: number (the product a*b). Examples: input {\"a\": 6, \"b\": 7} \u2192 42; {\"a\": -3, \"b\": 2.5} \u2192 -7.5; {\"a\": 0, \"b\": 123} \u2192 0. Map requests like \"multiply 3 by 5\" to {\"a\": 3, \"b\": 5}."
+        }
+      ],
+      "ground_truth": [
+        "math_lcm(a=24, b=18)"
+      ],
+      "name_mapping": {
+        "math_lcm": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 69,
+      "question": "I'm currently working on a traffic light system for a busy crossroads, and we've got two lights that are on different timers. One cycles every 35 seconds, and the other every 45 seconds. For optimal traffic flow, I need to synchronize these lights so they change at the same time. Could you help me calculate the least common multiple for these two cycle times?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Computes the least common multiple (LCM) of two integers.\n\nParameters (JSON arguments):\n- a (integer, required): First integer. Negatives allowed; absolute value is used.\n- b (integer, required): Second integer. Negatives allowed; absolute value is used.\n\nBehavior:\n- Returns a non-negative integer equal to LCM(|a|, |b|).\n- If one is 0 and the other is nonzero, returns 0.\n- If both are 0, returns an error (LCM undefined).\n- No optional parameters. Do not pass strings, floats, or nulls.\n\nSchema:\n- parameters.type: object\n- parameters.required: [\"a\", \"b\"]\n- parameters.properties.a.type: integer\n- parameters.properties.b.type: integer\n\nExamples:\n- Arguments: {\"a\": 6, \"b\": 9} \u2192 18\n- From text \"LCM of 6 and 9\": map to a=6, b=9 and call with {\"a\": 6, \"b\": 9}."
+        }
+      ],
+      "ground_truth": [
+        "math_lcm(a=45, b=35)"
+      ],
+      "name_mapping": {
+        "math_lcm": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 70,
+      "question": "I'm currently working with a client who's looking to purchase their first home and we're trying to map out their budget. They have their eyes set on a lovely suburban house priced at $350,000. To finance this purchase, they're considering a 30-year mortgage with an interest rate of about 3.5%. Could you help us figure out what their monthly payment would be with these details in mind?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "function_1 \u2014 Fixed-rate loan payment calculator.\nPurpose: Compute the fixed monthly payment for a fully amortizing loan.\nRequired parameters:\n- loan_amount (number): Principal to borrow. Must be > 0.\n- interest_rate (number): Annual nominal interest rate as a decimal (e.g., 0.065 for 6.5%). If user provides a percent, convert to decimal before calling.\n- loan_period (integer): Total number of monthly payments (months). If user provides years, multiply by 12.\nAssumptions: Monthly payments; monthly compounding; no fees; interest_rate \u2265 0; loan_period \u2265 1. If interest_rate = 0, payment = loan_amount / loan_period.\nWhen to call: Any request for monthly mortgage/loan payment, total cost, or comparisons where a fixed payment is needed.\nParameter mapping hints: \u201cprincipal/loan/amount\u201d \u2192 loan_amount; \u201crate/APR/interest\u201d \u2192 interest_rate; \u201cterm/years/months\u201d \u2192 loan_period (convert to months).\nOutput handling: Round monetary results to 2 decimals (no currency symbol).\nExamples:\n- loan_amount=250000, interest_rate=0.065, loan_period=360 \u2192 monthly_payment \u2248 1580.17.\n- loan_amount=10000, interest_rate=0.05, loan_period=36 \u2192 monthly_payment \u2248 299.71."
+        }
+      ],
+      "ground_truth": [
+        "mortgage_calculator(loan_amount=350000, interest_rate=0.035, loan_period=30)"
+      ],
+      "name_mapping": {
+        "mortgage_calculator": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 71,
+      "question": "A couple I'm working with has found their dream home valued at $500,000, and they're weighing their financing options. To help them out, I need to calculate their monthly mortgage payments. They're considering a 25-year loan with a 4.5% interest rate. Could you calculate their monthly payment for a loan amount of $500,000 at 4.5% interest over a 25-year period?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "function_1 computes the fixed monthly payment for a fully amortizing loan.\n\nRequired parameters (JSON body):\n- loan_amount: number (>0). Principal in currency units.\n- interest_rate: number in [0,1]. Annual Percentage Rate as a decimal (e.g., 0.065 for 6.5%). Use 0 for 0% loans.\n- loan_period: integer (>0). Total term in months.\n\nValidation:\n- All fields are required.\n- Numeric values only; no percent signs, commas, or strings.\n- No extra fields.\n- Values must be finite; loan_amount and loan_period > 0; interest_rate in [0,1].\n\nComputation:\n- If interest_rate = 0: monthly_payment = loan_amount / loan_period.\n- Else: monthly_rate = interest_rate / 12; monthly_payment = loan_amount * monthly_rate / (1 - (1 + monthly_rate)^(-loan_period)).\n\nExample request: {\"loan_amount\": 250000, \"interest_rate\": 0.0575, \"loan_period\": 360}"
+        }
+      ],
+      "ground_truth": [
+        "mortgage_calculator(loan_amount=500000, interest_rate=0.045, loan_period=25)"
+      ],
+      "name_mapping": {
+        "mortgage_calculator": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 72,
+      "question": "I'm prepping for tomorrow's algebra class about quadratic equations, and I want to show the students how to calculate the roots using an example. Let's use the equation 3x^2 + 7x - 10 = 0. I need to find the roots for this, with coefficients 3 for a, 7 for b, and -10 for c. Can we run this through the calculation process to get the roots?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Solves the quadratic equation ax^2 + bx + c = 0.\nRequired JSON parameters:\n- a (number): non-zero, finite coefficient of x^2.\n- b (number): finite coefficient of x.\n- c (number): finite constant term.\nArgument schema: {\"a\": number, \"b\": number, \"c\": number}. Send exactly this top-level object (no wrapping, no strings).\nBehavior: Computes discriminant D = b^2 - 4ac and returns two roots.\nReturn shape: {\"roots\": [r1, r2]}. If roots are real, r1 and r2 are numbers. If complex, each root is an object {\"re\": number, \"im\": number}. Order not guaranteed; if D = 0, both roots are equal.\nErrors: Returned if a = 0, or any parameter is missing, non-numeric, NaN, or infinite.\nExamples:\n- Input {\"a\": 1, \"b\": -3, \"c\": 2} \u2192 {\"roots\": [2, 1]}\n- Input {\"a\": 1, \"b\": 2, \"c\": 5} \u2192 {\"roots\": [{\"re\": -1, \"im\": 2}, {\"re\": -1, \"im\": -2}]}\n- Input {\"a\": 1, \"b\": 2, \"c\": 1} \u2192 {\"roots\": [-1, -1]}"
+        }
+      ],
+      "ground_truth": [
+        "quadratic_roots(a=3, b=7, c=-10)"
+      ],
+      "name_mapping": {
+        "quadratic_roots": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 73,
+      "question": "I'm working on a program that's supposed to solve quadratic equations, and I need to test out a function that calculates the roots. Right now, I need to find the roots for the equation 5x^2 - 8x + 2 = 0. I'll use the coefficients 5 for a, -8 for b, and 2 for c. Can we run this through the function to see what the roots are?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "function_1 performs a numeric computation using three required inputs. Parameters (all required): a (number) \u2013 first numeric value (integer or float); b (number) \u2013 second numeric value; c (number) \u2013 third numeric value. Constraints: provide finite numbers only (no strings, NaN, or Infinity). There are no defaults; all three must be present. Call format: pass flat, top\u2011level arguments (do not nest under parameters/properties). Example tool call body: {\"a\": 1, \"b\": 2.5, \"c\": -3}. Return: a single number representing the computed result. The call will fail if any field is missing or has the wrong type."
+        }
+      ],
+      "ground_truth": [
+        "quadratic_roots(a=5, b=-8, c=2)"
+      ],
+      "name_mapping": {
+        "quadratic_roots": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 74,
+      "question": "I'm deep into this demographic analysis project and I've got a pile of zip codes to work through. Right now, I'm focused on 90210, and I need to match it with its city. Could you provide me with the city name for zip code 90210?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Resolves information for a US ZIP Code. Input must be a single JSON object with: properties.zipcode (string, required). Format: 5-digit ZIP (e.g., \"90210\") or ZIP+4 (\"#####-####\", e.g., \"10001-0001\"). Only digits and an optional single hyphen; leading zeros allowed; US-only. No other parameters are accepted.\nExpected behavior: returns provider-defined data associated with the ZIP (e.g., location/service details). Invalid/missing ZIP yields an error.\nMap user terms like \"postal code\", \"ZIP\", or \"zip code\" to properties.zipcode.\nExample calls:\n- {\"properties\":{\"zipcode\":\"90210\"}}\n- {\"properties\":{\"zipcode\":\"02115\"}}\n- {\"properties\":{\"zipcode\":\"10001-0001\"}}\nEdge cases to reject: \"1234\", \"ABCDE\", \"123456\", \"99999-999\", values with spaces, or extra keys."
+        }
+      ],
+      "ground_truth": [
+        "retrieve_city_based_on_zipcode(zipcode='90210')"
+      ],
+      "name_mapping": {
+        "retrieve_city_based_on_zipcode": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 75,
+      "question": "I'm currently working on a project where I'm analyzing population distribution patterns in various cities. Part of the process involves matching zip codes to their corresponding cities. Right now, I need to find out which city the zip code '10001' belongs to. Could you give me the name of the city that matches this zip code?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "function_1 resolves a US ZIP Code to its location data.\nWhen to use: User asks for the city/state (or to validate) for a US ZIP. Do not use for city\u2192ZIP lookups.\nRequired parameter:\n- zipcode (string): A US ZIP in 5-digit or ZIP+4 format. Must match ^\\d{5}(-\\d{4})?$. Preserve leading zeros; strip spaces/hyphens only if needed for validation; keep ZIP+4 hyphen if provided.\nConstraints:\n- Do not call without zipcode or with the wrong key/type.\n- Do not pass raw user text or empty objects.\n- One ZIP per call. If multiple ZIPs are requested and user wants all, call once per ZIP; otherwise ask which ZIP to use.\nExamples (correct): {\"zipcode\":\"90210\"}, {\"zipcode\":\"10001-0001\"}\nExamples (incorrect): {\"zip\":\"90210\"}, {\"zipcode\":90210}, {}, \"raw\"\nExpected response fields (reference): city, state, state_code, county (optional), timezone (optional), country=\"US\".\nTrigger examples: \"What city is 30301?\", \"ZIP 07030 state?\", \"Validate 02115-1133\"."
+        }
+      ],
+      "ground_truth": [
+        "retrieve_city_based_on_zipcode(zipcode='10001')"
+      ],
+      "name_mapping": {
+        "retrieve_city_based_on_zipcode": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 76,
+      "question": "I'm working on a project about how holidays are celebrated across different nations and how these celebrations have evolved. Right now, I'm focusing on France, specifically the year 2010. I need a list of all the public holidays that were observed in France during that year. Can you help me out with that?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": ""
+        }
+      ],
+      "ground_truth": [
+        "retrieve_holiday_by_year(year='2010', country='FR')"
+      ],
+      "name_mapping": {
+        "retrieve_holiday_by_year": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 77,
+      "question": "I'm currently delving into the cultural traditions across Europe for a historical comparison, focusing on the year 2005. Germany, with its rich history and diverse celebrations, has drawn my attention. I'd like to know which holidays were observed in Germany that year. Could you provide me with a list of the 2005 holidays in Germany?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": ""
+        }
+      ],
+      "ground_truth": [
+        "retrieve_holiday_by_year(year='2005', country='DE')"
+      ],
+      "name_mapping": {
+        "retrieve_holiday_by_year": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 78,
+      "question": "As a data analyst, I'm dealing with a dataset that needs to be sorted for my analysis. I have these numbers [34, 2, 56, 7, 9, 12], but they need to be in descending order for the report I'm preparing. Could you sort this array for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Sort an array of numbers in ascending order while preserving duplicates.\nParameters (JSON arguments object):\n- array (required): number[]. A flat array of finite numeric values (integers or floats). Do not wrap in \"properties\" and do not include extra keys.\nBehavior:\n- Returns a new array sorted numerically from smallest to largest.\n- Duplicates are kept.\n- Empty input returns [].\n- Non-number entries (e.g., strings, NaN, null) are invalid.\nRequired shape:\n- {\"array\": [number, ...]}\nExamples:\n- Call args: {\"array\":[3,2,2,10,-1]} \u2192 Result: [-1,2,2,3,10]\n- Call args: {\"array\":[1.5,0,-3.2,1.5]} \u2192 Result: [-3.2,0,1.5,1.5]\n- Call args: {\"array\":[]} \u2192 Result: []"
+        }
+      ],
+      "ground_truth": [
+        "sort_array(array=[34, 2, 56, 7, 9, 12], reverse=True)"
+      ],
+      "name_mapping": {
+        "sort_array": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 79,
+      "question": "I'm currently handling a dataset for my analysis project and need to organize the numbers in ascending order. The dataset I'm working with right now is [1, 2, 2, 7, 7, 10]. Can you sort this array for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Executes a backend operation on a list you provide. When to call: whenever the user requests processing/analysis/transformation of multiple items (batch/list). Required argument shape (do not alter): { \"properties\": { \"array\": [...] } }. Parameters: properties.array (required) \u2014 type: JSON array. Elements may be strings, numbers, booleans, objects, arrays. Notes: always include the properties wrapper; do not send null/undefined; include at least an empty array if no items; for a single item, wrap it in an array of one. Do not add extra keys. Examples (correct): { \"properties\": { \"array\": [\"a\",\"b\",\"c\"] } }, { \"properties\": { \"array\": [1,2,3] } }, { \"properties\": { \"array\": [{\"id\":1},{\"id\":2}] } }. Incorrect: { \"array\": [...] } (missing properties), { \"properties\": {} } (missing array). Response: JSON; treat as opaque and return to the user."
+        }
+      ],
+      "ground_truth": [
+        "sort_array(array=[1, 2, 2, 7, 7, 10], reverse=False)"
+      ],
+      "name_mapping": {
+        "sort_array": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 80,
+      "question": "Could you calculate the sum of two binary numbers '0011' and '1100' for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": ""
+        }
+      ],
+      "ground_truth": [
+        "add_binary_numbers(a='0011',b='1100')"
+      ],
+      "name_mapping": {
+        "add_binary_numbers": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 81,
+      "question": "I'm working on a small project in which I need to perform binary calculations. Could you help me with adding the binary numbers '10011' and '1100' together?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": ""
+        }
+      ],
+      "ground_truth": [
+        "add_binary_numbers(a='10011',b='1100')"
+      ],
+      "name_mapping": {
+        "add_binary_numbers": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 82,
+      "question": "I've been plotting some data and it looks like there's a linear trend. I've got these x-coordinates [1, 2, 3] and corresponding y-values [4, 5, 6]. I need to predict the y-value for when x is 10. Can you apply a linear regression to this and give me that predicted value?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": ""
+        }
+      ],
+      "ground_truth": [
+        "linear_regression(x=[1,2,3],y=[4,5,6],point=10)"
+      ],
+      "name_mapping": {
+        "linear_regression": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 83,
+      "question": "I'm working on a data analysis project and need to model the relationship between two variables. I have a set of data points with x-coordinates as [1, 2, -3] and corresponding y-coordinates as [4, -5, 6]. I need to establish a linear regression model based on these points. Once the model is in place, I'd like to predict the y-value when x is 10. Can you do that for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": ""
+        }
+      ],
+      "ground_truth": [
+        "linear_regression(x=[1,2,-3],y=[4,-5,6],point=10)"
+      ],
+      "name_mapping": {
+        "linear_regression": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 84,
+      "question": "I need to identify the straight line that contains the most points from a set of coordinates I have. The coordinates I'm looking at are [[1,1], [2,2], [3,4], [5,5]]. Could you determine the maximum number of points that align on a single line from this dataset?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": ""
+        }
+      ],
+      "ground_truth": [
+        "maxPoints(points=[[1,1],[2,2],[3,4],[5,5]])"
+      ],
+      "name_mapping": {
+        "maxPoints": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 85,
+      "question": "I've been working on an algorithm that's supposed to identify the largest subset of points that align on a single straight line. I've plotted out a few points: [[1,1], [2,3], [4,6], [5,5]]. I need to determine the maximum number of points from this set that fall on the same line. Can you help me with that?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Executes the tool\u2019s operation on an ordered list of 2D points. The function accepts a single argument object with this exact nesting: parameters.properties.points. Arguments: - parameters (object, required) - properties (object, required; child of parameters) - points (array, required; child of properties): ordered array of coordinate pairs. Each point must be a 2-element array [x, y] where x and y are finite numbers (integers or floats). Example value: [[0, 0], [1.5, 2], [3, 4.1]]. Notes: - The nesting is mandatory; do not pass points at the top level. - Points are processed in the order given. - Missing parameters/properties/points or wrong shapes/types will cause errors. Example call: function_1({ \"parameters\": { \"properties\": { \"points\": [[0,0],[2,3],[4,1]] } } })"
+        }
+      ],
+      "ground_truth": [
+        "maxPoints(points=[[1,1],[2,3],[4,6],[5,5]])"
+      ],
+      "name_mapping": {
+        "maxPoints": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 86,
+      "question": "I want to assess the growth of my investment portfolio. I started with $10,000 and I've been adding $1,000 to it every year. It's been five years now, and my portfolio has been growing at an annual interest rate of 5%. However, I know inflation can impact the real value of my money, and the rates have been 1%, 2%, 3%, 4%, and 4% respectively for each of the past five years. Can you calculate the current value of my investment, taking inflation into account?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": ""
+        }
+      ],
+      "ground_truth": [
+        "calculate_investment_value(initial_investment=10000,annual_contribution=1000,years=5,annual_return=0.05,inflation_rate=[0.01,0.02,0.03,0.04,0.04])"
+      ],
+      "name_mapping": {
+        "calculate_investment_value": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 87,
+      "question": "I've got $1,000,000 set aside as an initial investment and plan to contribute $1,000 each year. I'm looking at a timeframe of 3 years and expecting an annual return of about 10%. However, I also want to consider the inflation rates for these years which I predict to be 1%, 4%, and 4% respectively. Can you calculate what the value of my investment will be at the end of this period, taking into account the inflation?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": ""
+        }
+      ],
+      "ground_truth": [
+        "calculate_investment_value(initial_investment=1000000,annual_contribution=1000,years=3,annual_return=0.1,inflation_rate=[0.01,0.04,0.04])"
+      ],
+      "name_mapping": {
+        "calculate_investment_value": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 88,
+      "question": "I've been trying to adjust my diet and fitness plan, and I really need to get my nutritional needs dialed in. I'm a 30-year-old guy, weigh about 100 kilograms, and I'm 170 centimeters tall. I'm not the most active person \u2013 my activity level is pretty low, around 1. I want to lose weight. Can you calculate what my daily nutritional intake should be?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": ""
+        }
+      ],
+      "ground_truth": [
+        "calculate_nutritional_needs(weight=100,height=170,age=30,gender='male',activity_level=1,goal='lose')"
+      ],
+      "name_mapping": {
+        "calculate_nutritional_needs": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 89,
+      "question": "I have an 80-year-old female client who is 170 cm tall, weighs 59 kg, and is quite active with an activity level of 4. She's looking to reduce her weight. Could you calculate her daily nutritional needs based on these details?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "function_1 is currently undocumented and should be treated as unavailable. Purpose: not specified. Parameters: none (no required or optional parameters are defined or accepted). Inputs: do not pass any arguments. Return: unspecified; no guaranteed shape or semantics. Errors: calling with any arguments or relying on a return schema may cause failures. Usage guidance: do not invoke this function unless the provider supplies an updated spec that clearly defines purpose, parameter names/types/units, required vs optional fields, enums, defaults, and validation rules, along with sample calls. Until such documentation exists, avoid tool calls to function_1 to prevent misuse and variability."
+        }
+      ],
+      "ground_truth": [
+        "calculate_nutritional_needs(weight=59,height=170,age=80,gender='female',activity_level=4,goal='lose')"
+      ],
+      "name_mapping": {
+        "calculate_nutritional_needs": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 90,
+      "question": "I'm planning a business trip to New York, and I've decided to extend my stay to enjoy the city a bit more. I'd like to book a deluxe room for the duration of my trip. The dates I'm looking at are from August 11, 2024, to August 15, 2024. I've got a budget set aside for accommodation, and I'm willing to spend up to $1000 for a comfortable stay. My customer ID is 123. Could you go ahead and book that room for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": ""
+        }
+      ],
+      "ground_truth": [
+        "book_room(room_type='deluxe',price=1000,check_in_date='08-11-2024',check_out_date='08-15-2024',customer_id='123')"
+      ],
+      "name_mapping": {
+        "book_room": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 91,
+      "question": "I'd like to reserve a king room for a customer with the ID 123. The booking is from December 11, 2023, to August 15, 2024. The price we're looking at is $10,000. No discount codes will be applied for this reservation. Can you process this booking for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": ""
+        }
+      ],
+      "ground_truth": [
+        "book_room(room_type='king',price=10000,check_in_date='12-11-2023',check_out_date='08-15-2024',customer_id='123')"
+      ],
+      "name_mapping": {
+        "book_room": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 92,
+      "question": "I'm organizing a small get-together at my place tonight and I'm looking to order some food for the guests. I'd like to get 10 burgers, each costing $5, and also 7 ice creams, with each being $2. Could you place this order for me and let me know what the total price would be?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": ""
+        }
+      ],
+      "ground_truth": [
+        "order_food(item=['burger','ice cream'], quantity=[10,7], price=[5,2])"
+      ],
+      "name_mapping": {
+        "order_food": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 93,
+      "question": "I'd like to place an order for some food. Could you get me 101 dumplings priced at $0.1 each, and also 20 rice bowls at $10 per bowl? Please calculate the total for me as well.",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": ""
+        }
+      ],
+      "ground_truth": [
+        "order_food(item=['dumplings','rice bowl'], quantity=[101,20], price=[0.1,10])"
+      ],
+      "name_mapping": {
+        "order_food": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 94,
+      "question": "I was discussing movies with my friend last night, and we started talking about \"Avatar.\" I realized I don't remember who directed it. Can you find out the director's name for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "function_1 retrieves information about a single movie by its title.\nParameters:\n- movie_name (string, required): The exact movie title to look up. Rules: provide only one title; may include a disambiguating year in parentheses (e.g., \"Dune (2021)\"). Must be non-empty after trimming, 1\u2013200 characters. Remove surrounding quotes and omit extra words like \"movie\", \"film\", or \"about\". Use the official title if known; any language is accepted.\nWhen to call:\n- Call only when the user has clearly specified one movie title.\n- If multiple titles are mentioned or the title is unclear/missing, ask the user to clarify before calling.\nExamples (query \u2192 movie_name):\n- \"Tell me about Inception\" \u2192 \"Inception\"\n- \"Show details for 'The Batman (2022)'\" \u2192 \"The Batman (2022)\"\n- \"Compare Titanic and Avatar\" \u2192 do not call; ask which title.\nSample function_call: function_1({\"movie_name\":\"Inception\"})"
+        }
+      ],
+      "ground_truth": [
+        "get_movie_director(movie_name='Avatar')"
+      ],
+      "name_mapping": {
+        "get_movie_director": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 95,
+      "question": "I was having a debate with a friend about iconic movies, and naturally, 'Pulp Fiction' came up. We started discussing the unique directorial style that really defined the film, but embarrassingly, I blanked on the director's name. Could you please find out who directed 'Pulp Fiction'?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Fetches the director\u2019s full name for a single movie title.\n\nRequired parameter:\n- movie_name (string): The exact movie title to look up. Provide only the title, no year, person names, or extra words. Case-insensitive; trim whitespace.\n\nStrict call shape (use exactly this JSON envelope):\n{\n  \"parameters\": {\n    \"properties\": {\n      \"movie_name\": \"Inception\"\n    }\n  }\n}\n\nResponse:\n- Returns a plain string containing only the director\u2019s name (e.g., \"Christopher Nolan\"). No JSON, labels, or extra text.\n\nGuidance:\n- Call only when a clear title is available.\n- Do not omit movie_name or send empty strings.\n\nExamples:\n- Query: Who directed Inception?\n  Call: { \"parameters\": { \"properties\": { \"movie_name\": \"Inception\" } } }\n- Query: Director of Parasite\n  Call: { \"parameters\": { \"properties\": { \"movie_name\": \"Parasite\" } } }"
+        }
+      ],
+      "ground_truth": [
+        "get_movie_director(movie_name='Pulp Fiction')"
+      ],
+      "name_mapping": {
+        "get_movie_director": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 96,
+      "question": "I'm considering showing the movie \"Avatar\" at my family's movie night this weekend, but I need to make sure it's appropriate for all ages. Can you find out the age rating for \"Avatar\" for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "function_1 \u2014 Get the MPAA rating for a movie title.\n\nPurpose: Returns the official US MPAA rating for the specified film and, when available, the rating reason.\n\nParameters:\n- movie_name (string, required): The movie title to look up. 1\u2013200 characters. Case-insensitive; leading/trailing spaces are ignored. Provide the exact title, including sequel subtitles if applicable (e.g., Mission: Impossible \u2013 Fallout). Do not include extra notes, quotes, or the release year.\n\nReturns:\n- rating: One of G, PG, PG-13, R, NC-17, Not Rated, or Unrated.\n- rating_reason (optional when available).\n\nValidation and errors:\n- invalid_param: movie_name missing, empty, or not a string.\n- not_found: no movie matched.\n- ambiguous_title: multiple distinct films share the same title; retry with a more specific, official title.\n\nExamples:\n- function_1({ \"movie_name\": \"Toy Story\" })\n- function_1({ \"movie_name\": \"Amelie\" })"
+        }
+      ],
+      "ground_truth": [
+        "get_movie_rating(movie_name='Avatar')"
+      ],
+      "name_mapping": {
+        "get_movie_rating": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 97,
+      "question": "Could you find out what the age rating is for \"Pulp Fiction\"? I'm trying to decide if it's suitable for my teenage kids to watch.",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "function_1 \u2014 Retrieve details for a single movie by title.\nParameters (JSON object):\n- movie_name (string, required): The movie title to look up. 1\u2013200 chars, non-empty. Trim whitespace. Use the most specific title provided by the user (e.g., \"The Dark Knight\"). If a year is provided by the user, append in parentheses (e.g., \"King Kong (2005)\").\nCalling rules:\n- Always pass a JSON object with exactly one key: movie_name.\n- Do not include unspecified parameters.\n- If the user names a movie, map it directly to movie_name; otherwise ask the user to specify a title.\nExpected response: JSON describing the movie (e.g., title, year, plot, runtime_minutes, genres, cast, director, rating, id). On failure, returns an error code (e.g., INVALID_ARGUMENT when movie_name is missing/empty; NOT_FOUND when no match).\nExamples:\n- {\"movie_name\": \"The Dark Knight\"}\n- {\"movie_name\": \"Am\u00e9lie\"}"
+        }
+      ],
+      "ground_truth": [
+        "get_movie_rating(movie_name='Pulp Fiction')"
+      ],
+      "name_mapping": {
+        "get_movie_rating": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 98,
+      "question": "I'm working on some land survey data and need to calculate the area of a particular triangular plot. I've got the coordinates of the vertices of the triangle, which are (1,2), (3,4), and (1,3). Can you help me figure out the area of this triangle using these points?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Computes the area of a simple 2D polygon from its vertices using the Shoelace formula.\n\nParameters\n- vertices (required): array of coordinate pairs. Each pair is [x, y] where x and y are finite numbers (integer or float). Length >= 3. The first and last point may be the same; a closing duplicate is ignored. Vertices must follow the polygon boundary in order (clockwise or counterclockwise). No self-intersections, holes, or all-collinear points.\n\nOutput\n- A single number: non-negative polygon area in square units. Numeric only; no text or units.\n\nValidation/errors\n- Error if vertices is missing; has fewer than 3 unique points; contains non-numeric, null, NaN, or infinite values; or forms a self-intersecting polygon.\n\nExamples\nfunction_1({ \"vertices\": [[0,0],[4,0],[4,3]] }) -> 6\nfunction_1({ \"vertices\": [[0,0],[4,0],[4,3],[0,0]] }) -> 6"
+        }
+      ],
+      "ground_truth": [
+        "polygon_area(vertices=[[1,2],[3,4],[1,3]])"
+      ],
+      "name_mapping": {
+        "polygon_area": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 99,
+      "question": "I was reviewing the basics of geometry and ended up with a challenge to calculate the area of a polygon. The polygon is defined by these vertices: [[1,2],[3,4],[1,4],[3,7]]. Can you help me determine the area of this polygon using the shoelace formula?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": ""
+        }
+      ],
+      "ground_truth": [
+        "polygon_area(vertices=[[1,2],[3,4],[1,4],[3,7]])"
+      ],
+      "name_mapping": {
+        "polygon_area": "function_1"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result_type": [
+        "exact_match"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,2120 @@
+{
+  "config_name": "executable_multiple_function_name[all:increasing_number]_desc[all:blank]_param[all:remove_all]",
+  "config_description": "Tool configurations for executable_multiple_function tests",
+  "test_category": "executable_multiple_function",
+  "num_tests": 50,
+  "modifications": {
+    "names": {
+      "all": "increasing_number"
+    },
+    "descriptions": {
+      "all": "blank"
+    },
+    "parameters": {
+      "all": "remove_all"
+    }
+  },
+  "tests": [
+    {
+      "test_id": 0,
+      "question": "I'm playing a dice game and want to calculate my chances. I roll the die 20 times, and I'm trying to figure out the probability of landing on a 6 exactly five times, considering each roll has a one in six chance of being a 6. Could you help me with that?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": ""
+        },
+        {
+          "name": "function_2",
+          "description": ""
+        }
+      ],
+      "ground_truth": [
+        "calc_binomial_probability(n=20, k=5, p=1/6)"
+      ],
+      "name_mapping": {
+        "get_weather_data": "function_1",
+        "calc_binomial_probability": "function_2"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        0.1294102919789905
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 1,
+      "question": "I'm working on a machine learning model, comparing the characteristics of two objects. The feature vectors for these objects are [0.5, 0.7, 0.2, 0.9, 0.1] for the first object and [0.4, 0.6, 0.3, 0.8, 0.2] for the second. To understand how similar these objects are, I need to calculate the cosine similarity between these two vectors. Can you help me with that?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "function_1 computes the cosine similarity between two numeric vectors.\n\nArguments (JSON):\n- vectorA (required): array<number>, length \u2265 1. Example: [0.1, 0.2, 0.3]\n- vectorB (required): array<number>, must have the same length as vectorA.\n\nValidation:\n- All elements must be finite numbers.\n- vectorA.length === vectorB.length.\n- At least one vector must have non-zero magnitude (both not all zeros); otherwise an error is returned.\n- Parameter names are case-sensitive. Do not pass extra keys.\n\nReturns:\n- { \"similarity\": number } \u2014 cosine similarity in [-1, 1] (double precision).\n\nWhen to call:\n- Use when asked to measure/compare similarity or angle between two vectors or embeddings.\n\nExample args:\n{ \"vectorA\": [1, 2, 3], \"vectorB\": [4, 5, 6] }\nExample response:\n{ \"similarity\": 0.974631846 }"
+        },
+        {
+          "name": "function_2",
+          "description": "Purpose: Retrieve stock data for one equity by ticker symbol.\nHow to call: Provide arguments in this exact nested JSON shape:\n{\"parameters\":{\"properties\":{\"stock_name\":\"<TICKER>\"}}}\nRequired parameter:\n- parameters.properties.stock_name (string): The stock ticker symbol, e.g., \"MSFT\". If the user says \"ticker\" or a company name, map/resolve it to stock_name (ticker). Use plain ticker letters (e.g., \"MSFT\", \"AAPL\"); avoid exchange suffixes and extra fields.\nOptional parameters: none.\nConstraints:\n- Include no keys other than parameters \u2192 properties \u2192 stock_name.\n- One ticker per call; for multiple tickers, call the function multiple times.\nExamples:\n- {\"parameters\":{\"properties\":{\"stock_name\":\"MSFT\"}}}\n- {\"parameters\":{\"properties\":{\"stock_name\":\"AAPL\"}}}"
+        }
+      ],
+      "ground_truth": [
+        "calculate_cosine_similarity(vectorA=[0.5, 0.7, 0.2, 0.9, 0.1], vectorB=[0.4, 0.6, 0.3, 0.8, 0.2])"
+      ],
+      "name_mapping": {
+        "calculate_cosine_similarity": "function_1",
+        "get_stock_price_by_stock_name": "function_2"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        0.9884017323417256
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 2,
+      "question": "I'm currently conducting a physics experiment, and I have this object that weighs 50 kilograms and takes up a space of about 10 cubic meters. Could you help me calculate the density of this object?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "function_1 computes material density as mass \u00f7 volume. Input MUST match this JSON shape exactly: { \"parameters\": { \"properties\": { \"mass\": number, \"volume\": number } } }\n- mass: required number, mass in kilograms (kg); finite and > 0.\n- volume: required number, volume in cubic meters (m^3); finite and > 0.\nBehavior:\n- density = mass / volume\n- Returns: { \"density\": number, \"units\": \"kg/m^3\" } with density rounded to 3 decimal places.\nValidation:\n- If a required field is missing, non-numeric, NaN/Infinity, or <= 0, return an error naming the invalid field.\n- Extra keys are ignored.\nNotes:\n- Convert any user-provided units to kg and m^3 before calling.\nExample call: { \"parameters\": { \"properties\": { \"mass\": 785, \"volume\": 0.1 } } }\nExample return: { \"density\": 7850, \"units\": \"kg/m^3\" }"
+        },
+        {
+          "name": "function_2",
+          "description": "Purpose: Compute the future value (FV) of a single present amount using compound interest. Always call this tool for FV queries.\nParameters:\n- present_value (number, required): Current amount in currency units; must be finite and >= 0.\n- interest_rate (number, required): Nominal annual rate as a decimal (e.g., 0.05 for 5%); finite; can be negative or zero.\n- periods (integer, required): Number of years; integer >= 0.\n- compounding_frequency (integer, optional): Times per year interest is compounded; integer >= 1; default 1. Typical values: 1, 2, 4, 12, 365.\nComputation: FV = present_value * (1 + interest_rate / compounding_frequency)^(periods * compounding_frequency). If periods = 0, FV = present_value.\nValidation: Reject non-finite numbers; require integer periods and compounding_frequency.\nExample call: {\"name\":\"function_2\",\"arguments\":{\"present_value\":1000,\"interest_rate\":0.05,\"periods\":10,\"compounding_frequency\":1}}\nSchema refs: parameters.required=[\"present_value\",\"interest_rate\",\"periods\"]."
+        },
+        {
+          "name": "function_3",
+          "description": "Fetches the latest (current) share price for a single publicly traded stock ticker.\n\nParameters (JSON):\n- properties (object, required): container for parameters.\n  - stock_name (string, required): Stock ticker symbol (e.g., \"MSFT\", \"AAPL\"). Use the official exchange ticker; company names are not accepted. Only one ticker per call. No other parameters are supported.\n\nUsage:\nfunction_3({properties: {stock_name: \"MSFT\"}})\nDo not include a \"raw\" field or any extra keys.\n\nReturns:\nA quote object containing the ticker and its latest price (may also include currency and timestamp). If stock_name is missing or invalid, an error is returned."
+        },
+        {
+          "name": "function_4",
+          "description": "function_4 retrieves an Amazon product\u2019s aggregate rating and review summary by ASIN.\n\nPurpose:\n- Given an ASIN, return rating information for that product.\n\nParameters (payload shape is required):\n- properties.ASIN (string, required): Amazon Standard Identification Number. 10-character alphanumeric (e.g., \"B0C1234567\"). Case-sensitive. No other parameters are accepted.\n\nHow to map user requests:\n- If the user asks for a product\u2019s rating by ASIN, pass that ASIN as properties.ASIN.\n\nExample call payload:\n- {\"properties\":{\"ASIN\":\"B0C1234567\"}}\n\nResponse (JSON):\n- asin (string)\n- title (string)\n- rating (number, 0.0\u20135.0)\n- ratingCount (integer)\n- reviewCount (integer)\n- url (string)\n- lastUpdated (ISO 8601 string)\n\nErrors:\n- 400: Missing/invalid ASIN (wrong length/format)\n- 404: ASIN not found\n- 429: Rate limited (retry later)\n- 5xx: Temporary server error (retry)"
+        }
+      ],
+      "ground_truth": [
+        "calculate_density(mass=50, volume=10)"
+      ],
+      "name_mapping": {
+        "calculate_density": "function_1",
+        "calculate_future_value": "function_2",
+        "get_stock_price_by_stock_name": "function_3",
+        "get_rating_by_amazon_ASIN": "function_4"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        5.0
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 3,
+      "question": "I'm working on a physics experiment where we're tracking the movement of a special object. It starts off at 15 m/s, and we're accelerating it at a rate of 9.8 m/s\u00b2. I need to calculate how far it will have traveled after 10 seconds. Can you crunch those numbers for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": ""
+        },
+        {
+          "name": "function_2",
+          "description": "function_2 \u2014 Compute one-dimensional displacement under constant acceleration.\nRequired JSON arguments:\n- initial_velocity (number, m/s): Initial velocity v0. Use positive/negative per your axis.\n- acceleration (number, m/s^2): Constant acceleration a. Can be negative.\n- time (number, s): Elapsed time t. Must be >= 0.\nAll three parameters are required, must be finite numbers (not strings), and use SI units.\nFormula: displacement_m = v0 * t + 0.5 * a * t^2\nReturn (JSON): { \"displacement_m\": number } in meters.\nValidation: reject missing params, non-numeric values, NaN/Infinity, or time < 0.\nExample args: { \"initial_velocity\": 40, \"acceleration\": -9.81, \"time\": 3 }\nExample result: { \"displacement_m\": 55.635 }"
+        }
+      ],
+      "ground_truth": [
+        "calculate_displacement(initial_velocity=15.0, acceleration=9.8, time=10)"
+      ],
+      "name_mapping": {
+        "retrieve_holiday_by_year": "function_1",
+        "calculate_displacement": "function_2"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        640.0
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 4,
+      "question": "I'm conducting a physics experiment involving charged particles and electric fields. There's a particle that I've introduced into the field, and it carries a charge of exactly 5 coulombs. The electric field itself has a potential difference of 10 volts. I need to calculate the electrostatic potential energy for this scenario. Can you help me with that calculation?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Generates a deterministic 6-digit verification code from an HTTP status code and an IP address. When to call: when the user asks to compute/generate a 6-digit code using a status code and an IP (often phrased as \u201cstatus code \u2026 for IP \u2026\u201d). Required parameters (arguments must be a JSON object with exactly these keys): 1) ip_address (string): A valid IPv4 or IPv6 address (e.g., 203.0.113.5 or 2001:db8::1). Do not include ports, brackets, or CIDR. If multiple IPs are provided in text, use the first public IP; otherwise use the first mentioned. 2) status_code (integer): HTTP status code in [100\u2013599]. Extract the numeric part only (e.g., \u201c404 Not Found\u201d -> 404). No defaults; both are required. Output: {\"code\": \"NNNNNN\"} where code is a string of 6 digits; same inputs yield the same code. Example call: {\"name\":\"function_1\",\"arguments\":{\"ip_address\":\"203.0.113.5\",\"status_code\":404}}. Error handling: Validate before calling; if ip_address or status_code are missing/invalid, ask the user for the needed value. If the tool returns an error, relay it succinctly and request corrected inputs."
+        },
+        {
+          "name": "function_2",
+          "description": "Compute electrical energy from charge and voltage: E = Q \u00d7 V.\n\nParameters (JSON):\n- charge (number, required): Electric charge in coulombs (C). Must be a finite real number (no NaN/Infinity). Zero and negative values are allowed.\n- voltage (number, required): Electric potential in volts (V). Must be a finite real number. Zero and negative values are allowed.\n\nBehavior:\n- Calculates energy_joules = charge * voltage using double-precision arithmetic; no unit conversion or rounding.\n- On missing parameters or non-finite inputs, the call should fail validation.\n\nReturn (JSON):\n{ \"energy_joules\": number }\n\nExample call:\nfunction_2({ \"charge\": 2.5, \"voltage\": 12 }) \u2192 { \"energy_joules\": 30 }\nEdge cases:\n- function_2({ \"charge\": 0, \"voltage\": 100 }) \u2192 { \"energy_joules\": 0 }\n- function_2({ \"charge\": -3, \"voltage\": 5 }) \u2192 { \"energy_joules\": -15 }"
+        }
+      ],
+      "ground_truth": [
+        "calculate_electrostatic_potential_energy(charge=5.0, voltage=10.0)"
+      ],
+      "name_mapping": {
+        "get_zipcode_by_ip_address": "function_1",
+        "calculate_electrostatic_potential_energy": "function_2"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        50.0
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 5,
+      "question": "During a simulation of a high-speed pursuit, I'm trying to calculate the velocity a suspect's car would reach from a standstill after accelerating continuously for 12 seconds at a rate of 9.8 meters per second squared. Could you compute the final velocity for me based on these figures?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Computes cosine similarity between two numeric vectors.\n\nParameters:\n- vectorA (number[]): required. Non-empty array of finite numbers. Length must equal vectorB.\n- vectorB (number[]): required. Non-empty array of finite numbers. Length must equal vectorA.\n\nBehavior:\n- Validates types and equal lengths.\n- Uses dot(a,b)/(||a||*||b||).\n- Returns a number in [-1, 1].\n- If either vector has zero magnitude, returns 0.\n- Throws error for non-numeric entries, NaN/Infinity, null/undefined, or mismatched lengths.\n\nWhen to call: use to measure orientation similarity between two same-length feature vectors.\n\nExamples:\n- function_1({\"vectorA\":[1,2,3],\"vectorB\":[1,2,3]}) \u2192 1\n- function_1({\"vectorA\":[1,0,0],\"vectorB\":[0,1,0]}) \u2192 0\n- function_1({\"vectorA\":[-1,0],\"vectorB\":[1,0]}) \u2192 -1"
+        },
+        {
+          "name": "function_2",
+          "description": "Compute payments for a fixed-rate amortizing loan and optionally return an amortization schedule.\n\nWhen to use: to get periodic payment, total paid, and total interest for a standard loan.\n\nRequired params:\n- loan_amount (number > 0): principal in currency units.\n- interest_rate (number >= 0): annual percentage rate as decimal (e.g., 0.065 for 6.5%).\n- loan_period (number > 0): term in years.\n\nOptional params:\n- payments_per_year (integer 1\u2013365, default 12): compounding/payment frequency.\n- extra_payment (number >= 0, default 0): additional amount paid each period.\n- include_schedule (boolean, default false): include per-period breakdown.\n\nValidation: reject non-numeric/invalid values; allow interest_rate=0 for zero-interest loans.\n\nReturns: payment_per_period, total_payment, total_interest, periods, and if include_schedule=true, schedule[] with period, interest, principal, balance. Monetary values rounded to 2 decimals.\n\nExample call: function_2({\"loan_amount\": 350000, \"interest_rate\": 0.065, \"loan_period\": 30, \"payments_per_year\": 12, \"extra_payment\": 100, \"include_schedule\": false})\nExample response: {\"payment_per_period\": 2213.62, \"total_payment\": 796903.20, \"total_interest\": 446903.20, \"periods\": 360}"
+        },
+        {
+          "name": "function_3",
+          "description": "Purpose: Compute final velocity under constant acceleration using v = u + a\u00b7t.\nParameters (JSON):\n- initial_velocity (number, m/s, required): starting speed u. Finite real; may be negative.\n- acceleration (number, m/s^2, required): constant acceleration a. Finite real; may be negative.\n- time (number, s, required): elapsed time t. Finite real; must be >= 0.\nBehavior:\n- Returns: { \"final_velocity\": number (m/s) }.\n- Validation: all fields required; types must be numbers; values finite; time >= 0. Reject NaN, Infinity, strings, arrays, objects, and missing fields.\nAssumptions: straight-line motion; SI units only; no unit conversion.\nExample:\nfunction_3({\"initial_velocity\": 5.0, \"acceleration\": 2.0, \"time\": 3.5}) \u2192 {\"final_velocity\": 12.0}"
+        }
+      ],
+      "ground_truth": [
+        "calculate_final_velocity(initial_velocity=0, acceleration=9.8, time=12)"
+      ],
+      "name_mapping": {
+        "calculate_cosine_similarity": "function_1",
+        "mortgage_calculator": "function_2",
+        "calculate_final_velocity": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        117.60000000000001
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 6,
+      "question": "I'm considering the long-term growth of my savings and I've put $5000 into a fixed deposit with a steady annual interest rate of 5%. I'm planning to let it sit for a decade. Could you calculate the future value of my investment after 10 years?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Calculates the future value (FV) of a present amount using discrete compounding.\n\nArguments (JSON object):\n- present_value (number, required): Current amount in currency units; must be >= 0.\n- interest_rate (number, required): Per-period rate as a decimal (e.g., 0.07 for 7%); must be > -1 (\u2212100% not allowed).\n- periods (integer, required): Number of compounding periods; must be >= 0.\n\nFormula: FV = present_value * (1 + interest_rate) ^ periods.\n\nAssumptions: One compounding per period; no interim contributions.\n\nValidation: Reject missing fields, wrong types, NaN/Infinity, and invalid ranges.\n\nReturns: { \"future_value\": number } (no rounding applied).\n\nInvoke when the user requests future value/compound growth from PV, rate, and periods.\n\nExample call:\nfunction_1({ \"present_value\": 2500, \"interest_rate\": 0.07, \"periods\": 10 })"
+        },
+        {
+          "name": "function_2",
+          "description": "Generate the first n Fibonacci numbers. The sequence starts with 0, 1, and each next term is the sum of the previous two. Returns an array of integers of length n in order.\n\nParameters:\n- n (integer, required): Number of terms to generate. Must be a positive integer (n >= 1). Do not pass strings or floats; parse or round before calling.\n\nCall shape:\n{ \"n\": 12 }\n\nI/O examples:\n- n = 5 -> [0, 1, 1, 2, 3]\n- n = 1 -> [0]\n- n = 2 -> [0, 1]\n\nPhrasing-to-n mapping examples:\n- \"first 12 Fibonacci numbers\" -> n = 12\n- \"Fibonacci sequence with 7 terms\" -> n = 7\n- \"generate 3 Fibonacci numbers\" -> n = 3\nNote: Requests like \"Fibonacci up to 21\" describe a max-value cutoff and are not supported by this function; clarify the desired count (n) before calling."
+        },
+        {
+          "name": "function_3",
+          "description": "Sort an array of numbers in ascending order (smallest to largest) and return the sorted array.\n\nParameters:\n- array (required, number[]): Flat list of finite numbers (integers or decimals) to sort. Do not include strings, booleans, objects, nested arrays, NaN, Infinity, null, or undefined.\n\nBehavior:\n- Ascending numeric sort; duplicates are preserved.\n- Empty input returns an empty array.\n\nConstraints:\n- Only the parameter named \"array\" is supported. Do not send \"raw\" or any other keys.\n\nExamples:\n- {\"array\": [3, 1, 2]} -> [1, 2, 3]\n- {\"array\": [-2, 7.5, 0, 7.5]} -> [-2, 0, 7.5, 7.5]\n- {\"array\": [10]} -> [10]"
+        }
+      ],
+      "ground_truth": [
+        "calculate_future_value(present_value=5000, interest_rate=0.05, periods=10)"
+      ],
+      "name_mapping": {
+        "calculate_future_value": "function_1",
+        "get_fibonacci_sequence": "function_2",
+        "sort_array": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        8144.47313388721
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 7,
+      "question": "As a data analyst, I've been tracking the daily temperatures in a particular city over the last month. The temperatures I've logged range from 22 to 80 degrees Celsius, changing by 2 degrees each day. I need to calculate the average monthly temperature from this data set to understand the climate trend better. Can you help me with this?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Purpose: Convert geographic coordinates to a canonical IANA time zone ID.\n\nRequired arguments (exact JSON paths and types):\n- parameters.properties.lat (number, -90 to 90): Latitude in decimal degrees. North positive, south negative.\n- parameters.properties.long (number, -180 to 180): Longitude in decimal degrees. East positive, west negative.\nKeys are case-sensitive and must be exactly \"lat\" and \"long\". Both are required; do not pass arrays or swapped values.\n\nResponse: JSON with \"zoneId\" (string) \u2014 the canonical IANA time zone (e.g., \"America/New_York\"). No abbreviations or raw UTC offsets.\n\nErrors: Missing, non-numeric, or out-of-range values will result in an error.\n\nExample call arguments:\n{ \"parameters\": { \"properties\": { \"lat\": 40.7128, \"long\": -74.0060 } } }\n\nExample response:\n{ \"zoneId\": \"America/New_York\" }"
+        },
+        {
+          "name": "function_2",
+          "description": "function_2 \u2014 Compute the arithmetic sum of a list of numbers.\n\nParameters:\n- numbers (required): array<number>\n  \u2022 Description: The list of numeric values to add together.\n  \u2022 Type: integers or floats only (finite values). Booleans, strings, null, NaN, and \u00b1Infinity are not allowed.\n  \u2022 Constraints: Must contain at least one item. Negative numbers are allowed. Order does not matter.\n\nBehavior:\n- Returns: number \u2014 the total sum of all values in 'numbers'.\n- Errors if: 'numbers' is missing, empty, or contains any non-numeric/invalid value.\n\nWhen to use:\n- Any request to sum/add a list of values, compute a total, or aggregate numeric amounts.\n\nExamples:\n- function_2({\"numbers\": [1, 2, 3.5]}) \u2192 6.5\n- function_2({\"numbers\": [-2, 10]}) \u2192 8"
+        }
+      ],
+      "ground_truth": [
+        "calculate_mean(numbers=[22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80])"
+      ],
+      "name_mapping": {
+        "get_time_zone_by_coord": "function_1",
+        "calculate_mean": "function_2"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        51.0
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 8,
+      "question": "I'm developing an encryption algorithm and it involves creating permutations from the English alphabet. I need to know the number of different ways I can arrange 5 letters from the total 26. Could you calculate that for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Computes future value (FV) from present value (PV) using compound growth: FV = present_value * (1 + interest_rate) ^ periods. Use decimal rate per period (e.g., 0.05 for 5%). Periods must match the rate\u2019s period (e.g., years if rate is annual).\n\nParameters (JSON):\n- present_value (number, required): Current amount in currency units. Must be >= 0.\n- interest_rate (number, required): Per-period rate as a decimal. Must be > -1 (allows negative rates).\n- periods (integer, required): Number of compounding periods. Must be >= 0.\n\nParameter schema:\n{\"type\":\"object\",\"properties\":{\"present_value\":{\"type\":\"number\",\"minimum\":0},\"interest_rate\":{\"type\":\"number\",\"exclusiveMinimum\":-1},\"periods\":{\"type\":\"integer\",\"minimum\":0}},\"required\":[\"present_value\",\"interest_rate\",\"periods\"],\"additionalProperties\":false}\n\nReturns: {\"future_value\": number}\n\nExample calls:\n- {\"present_value\":1000, \"interest_rate\":0.05, \"periods\":10}\n- {\"present_value\":2500, \"interest_rate\":-0.02, \"periods\":3}"
+        },
+        {
+          "name": "function_2",
+          "description": "Computes permutations P(n,k): the number of ordered arrangements without repetition when choosing k items from n distinct items. Use when order matters (rankings, seating, ordered selections).\n\nRequired parameters:\n- n (integer, >= 0): total number of distinct items/people/options.\n- k (integer, >= 0): number to select/positions/slots to fill; must satisfy k <= n.\n\nDefinition: P(n,k) = n! / (n \u2212 k)!.\nEdge cases: k = 0 returns 1; n = 0 with k = 0 returns 1.\nInvalid if k > n or if either is negative.\n\nReturns: integer count (exact, potentially large).\n\nSynonyms mapping:\n- n \u2194 total, pool size, available items/applicants/options.\n- k \u2194 selected, chosen, ranked positions, ordered picks, slots.\n\nExamples:\n- function_2({\"n\":12, \"k\":5})\n- function_2({\"n\":10, \"k\":10})\n- function_2({\"n\":7, \"k\":0})"
+        },
+        {
+          "name": "function_3",
+          "description": "function_3 \u2014 Retrieve the official company name from a stock ticker symbol.\n\nPurpose:\nReturns the company\u2019s official/registered name for a given ticker (e.g., MSFT \u2192 \"Microsoft Corporation\").\n\nRequired parameter:\n- stock_name (string): The stock ticker symbol. Provide the plain ticker only (e.g., \"MSFT\", \"AAPL\", \"GOOGL\"). Case-insensitive; uppercase recommended. Do not omit this parameter.\n\nArgument shape (must be exact):\n{ \"stock_name\": \"MSFT\" }\n\nUsage example:\nUser intent: \"What is the official name of MSFT?\"\nTool call args: { \"stock_name\": \"MSFT\" }\nExpected result: \"Microsoft Corporation\"\n\nGuidelines:\n- Always include exactly one top-level key: stock_name.\n- Do not pass null or empty strings.\n- Do not nest the parameter or include extra fields.\n- If the ticker is not found, the tool may return an empty result or an error."
+        }
+      ],
+      "ground_truth": [
+        "calculate_permutations(n=26, k=5)"
+      ],
+      "name_mapping": {
+        "calculate_future_value": "function_1",
+        "calculate_permutations": "function_2",
+        "get_company_name_by_stock_name": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        7893600.0
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 9,
+      "question": "I've been tracking the closing prices of a specific stock over the last 10 trading days for a report on market volatility. The figures I've recorded are 1000, 2000, 3000, 4000, 5000, 7000, 9000, 15000, 20000, and 30000. To get a better understanding of the price fluctuation and the risk associated with this stock, I need to calculate the standard deviation of these closing prices. Could you provide me with that statistic?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Purpose: Compute the population standard deviation (sqrt of the mean of squared deviations) of a dataset.\n\nParameters:\n- numbers (required): array of numbers (integer or float), length >= 1. Values must be finite (no NaN/Infinity), may be negative. Nulls/strings/booleans not allowed.\n\nUsage rules:\n- Only pass the \"numbers\" key; extra keys are rejected.\n- Uses population formula (divide by N, not N-1). A single value returns 0.0.\n- Order does not affect the result. Units unchanged. Full precision; no rounding.\n\nReturn: number (population standard deviation).\n\nExample:\nCall: function_1({\"numbers\":[1,2,3,4]})\nResult: 1.118033988749895"
+        },
+        {
+          "name": "function_2",
+          "description": "function_2 returns the first n items from the current list/result set. Use it when the user asks for the \u201cfirst X\u201d, \u201ctop X\u201d, or similar. Required parameter: n (integer, >= 1). No default\u2014do not call without n. If the user provides a numeric string (e.g., \"15\"), convert to an integer. If n is zero, negative, non-integer, or ambiguous (e.g., \"all\"), ask the user to specify a positive integer. Do not include any parameters other than n. The call must use this exact JSON shape and nesting:\n\nExample:\n{\"parameters\":{\"properties\":{\"n\":15}}}\n\nThis requests the first 15 items."
+        }
+      ],
+      "ground_truth": [
+        "calculate_standard_deviation(numbers=[1000,2000,3000,4000,5000,7000,9000,15000,20000,30000])"
+      ],
+      "name_mapping": {
+        "calculate_standard_deviation": "function_1",
+        "get_fibonacci_sequence": "function_2"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        8879.189152169245
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 10,
+      "question": "I'm working on an architectural project for a new park, and the design includes a triangular section. I need to calculate the area of this triangle to continue with my planning. The dimensions I have are a base of 500 meters and a height of 300 meters. Can you help me figure out the total area with these measurements?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "function_1 retrieves stock-related data for a single security. Parameters: stock_name (string, required) \u2014 the identifier to look up. Accepts either a ticker symbol (e.g., AAPL, TSLA, BRK.B) or a company name (e.g., Apple Inc, Alphabet). Requirements: provide a non-empty, trimmed string; uppercase tickers are recommended; allowed characters: A\u2013Z, 0\u20139, spaces, dots, hyphens. One stock per call (no arrays or comma-separated lists). Do not include any keys other than stock_name. Do not send null, empty, or placeholder values. If the user input is ambiguous (multiple possible tickers), ask the user to clarify before calling. Correct call example: {\"name\":\"function_1\",\"arguments\":{\"stock_name\":\"AAPL\"}}. Incorrect examples (do not use): missing stock_name, using any other key (e.g., \"raw\"), or calling with no arguments."
+        },
+        {
+          "name": "function_2",
+          "description": "function_2 computes a deterministic numeric result from two numeric inputs: f(a, b) -> number. Use when two real numbers must be combined into one value.\nParameters (all required):\n- a: number (integer or float). Must be a finite real (no NaN/Infinity).\n- b: number (integer or float). Must be a finite real (no NaN/Infinity).\nBehavior:\n- Returns a single number.\n- Validation error if a or b is missing, not a number, or not finite.\n- No side effects; idempotent for the same inputs.\nHow to call (exact shape):\n{\"name\":\"function_2\",\"parameters\":{\"properties\":{\"a\":5.5,\"b\":3.2}}}\nAnother example:\n{\"name\":\"function_2\",\"parameters\":{\"properties\":{\"a\":0,\"b\":-10}}}\nOutput:\n- A JSON number representing f(a, b). Do not include extra fields in the call."
+        },
+        {
+          "name": "function_3",
+          "description": "Computes the area of a triangle from base and height. Required parameters (both must be provided):\n- base: number > 0. Length of the triangle\u2019s base. No unit strings (use the same unit as height).\n- height: number > 0. Perpendicular height to the base. No unit strings.\nArgument envelope: place values under parameters.properties.base and parameters.properties.height. Do not send empty calls, do not include a raw field, and do not add extra keys.\nAccepted types: integer or decimal numbers. If values appear in text, extract the numbers.\nReturn: numeric area = 0.5 \u00d7 base \u00d7 height (in squared units of the inputs).\nExamples:\n- \"Triangle with base 12 cm and height 7.5 cm\" -> {\"parameters\": {\"properties\": {\"base\": 12, \"height\": 7.5}}}\n- \"Base 3 m, height 4 m\" -> {\"parameters\": {\"properties\": {\"base\": 3, \"height\": 4}}}"
+        }
+      ],
+      "ground_truth": [
+        "calculate_triangle_area(base=500, height=300)"
+      ],
+      "name_mapping": {
+        "get_company_name_by_stock_name": "function_1",
+        "math_lcm": "function_2",
+        "calculate_triangle_area": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        75000.0
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 11,
+      "question": "I need to prepare a report for a client who is planning to conduct a business transaction in Japan. They're looking to convert 5,000 Euros into Japanese Yen. To ensure the report is accurate, I need the converted amount in Yen using the current exchange rates. The currency codes I'll be working with are 'EUR' for Euros and 'JPY' for Yen. Can you provide me with the equivalent sum in Yen?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Checks the security status of a single IPv4 address and returns a 6\u2011digit status code.\nParameters (JSON object):\n- ip_address (string, required): IPv4 in dotted\u2011decimal notation. Exactly 4 octets (0\u2013255) separated by dots. No CIDR, ports, brackets, or whitespace. Example: \"198.51.100.23\".\nUsage rules:\n- Provide exactly one parameter: ip_address. No additional keys are accepted.\n- If the user supplies a hostname, IPv6, or a range/CIDR, ask for a valid single IPv4 address.\nReturns:\n- On success: { \"code\": \"NNNNNN\" } where code is a 6\u2011digit string (000000\u2013999999, leading zeros possible).\n- On error: { \"error\": \"<message>\" } and no code field.\nExample call body:\n{ \"ip_address\": \"198.51.100.23\" }\nExample success response:\n{ \"code\": \"003742\" }\nValidation:\n- Reject malformed IPv4, empty strings, or multiple IPs.\n- Do not infer or geolocate; only evaluate the given IPv4."
+        },
+        {
+          "name": "function_2",
+          "description": "Converts a monetary amount from one currency to another using the service\u2019s latest exchange rate.\n\nParameters (JSON object):\n- amount (number, required): Positive finite amount to convert. Accepts integers or decimals (e.g., 123, 99.95). Do not pass as a string.\n- from_currency (string, required): 3-letter ISO 4217 code of the source currency, uppercase (e.g., USD, EUR, JPY).\n- to_currency (string, required): 3-letter ISO 4217 code of the target currency, uppercase.\n\nConstraints:\n- amount > 0\n- from_currency != to_currency\n- Only these keys are accepted; no extra fields.\n\nExample calls:\n{ \"amount\": 10000, \"from_currency\": \"JPY\", \"to_currency\": \"USD\" }\n{ \"amount\": 12.5, \"from_currency\": \"EUR\", \"to_currency\": \"GBP\" }\n\nInvalid or unsupported currency codes, missing fields, or wrong types cause the call to fail."
+        },
+        {
+          "name": "function_3",
+          "description": ""
+        }
+      ],
+      "ground_truth": [
+        "convert_currency(amount=5000, from_currency='EUR', to_currency='JPY')"
+      ],
+      "name_mapping": {
+        "get_zipcode_by_ip_address": "function_1",
+        "convert_currency": "function_2",
+        "get_stock_history": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        859533.5
+      ],
+      "execution_result_type": [
+        "real_time_match"
+      ]
+    },
+    {
+      "test_id": 12,
+      "question": "In my physics class, we're delving into kinematics, and I've been tasked with analyzing the motion of a particle. The equation f(x) = 3t^2 + 2t + 1 describes its position over time. I need to determine the velocity of this particle when t is 5 seconds. Velocity is the first derivative of the position function with respect to time, so I need to calculate that. Can you help me find the velocity using the appropriate function?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Compute the greatest common divisor (GCD) of two integers.\n\nParameters (all required):\n- a: integer. Any signed whole number. If a=0 and b!=0, result = |b|.\n- b: integer. Any signed whole number. If b=0 and a!=0, result = |a|.\n\nBehavior and constraints:\n- Inputs must be integers (no floats or strings).\n- Order of a and b does not affect the result.\n- Negative signs are ignored (uses absolute values).\n- If a=0 and b=0, returns 0.\n\nArguments (JSON): object with keys \"a\" and \"b\", both integers.\nExample call arguments: {\"a\": 12, \"b\": 18}\n\nReturns:\n- Integer >= 0: the GCD of a and b.\n\nExamples:\n- {\"a\": 48, \"b\": 18} -> 6\n- {\"a\": -8, \"b\": 12} -> 4\n- {\"a\": 0, \"b\": 5} -> 5\n- {\"a\": 0, \"b\": 0} -> 0"
+        },
+        {
+          "name": "function_2",
+          "description": ""
+        }
+      ],
+      "ground_truth": [
+        "estimate_derivative(function='lambda x: 3*x**2 + 2*x + 1', x=5)"
+      ],
+      "name_mapping": {
+        "math_gcd": "function_1",
+        "estimate_derivative": "function_2"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        32.00000264769187
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 13,
+      "question": "I've been hearing the slang term \"lit\" quite frequently these days and it's piqued my curiosity. I'm not entirely sure what it means, so I'm looking to find a definition that could shed some light on its usage and connotations. Can you find out what \"lit\" means on Urban Dictionary for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": ""
+        },
+        {
+          "name": "function_2",
+          "description": ""
+        },
+        {
+          "name": "function_3",
+          "description": "function_3 computes the first n Fibonacci numbers and returns them as an array of integers. Definition: F0=0, F1=1, Fn=Fn\u22121+Fn\u22122. Output length equals n; order is ascending by index. Required parameter: n (integer, non-negative). Do not pass strings, floats, null, objects, or any \"raw\" payload. No other parameters are accepted. Call format (exact JSON): {\"name\":\"function_3\",\"parameters\":{\"properties\":{\"n\":12}}}. Behavior: n=0 -> [], n=1 -> [0], n=12 -> [0,1,1,2,3,5,8,13,21,34,55,89]. If n is missing or invalid, the call should not be made."
+        },
+        {
+          "name": "function_4",
+          "description": "function_4 converts a monetary amount from one currency to another using the latest available FX rate.\n\nRequired parameters:\n- amount (number): Positive numeric value to convert (e.g., 10, 10.75).\n- from_currency (string): 3-letter ISO 4217 code of the source currency, uppercase (e.g., USD, EUR, JPY, GBP, AUD, CAD, CHF, CNY, INR).\n- to_currency (string): 3-letter ISO 4217 code of the target currency, uppercase.\n\nRules:\n- All three parameters are required; no defaults.\n- amount must be > 0.\n- Use valid ISO 4217 codes only. Calls may fail on invalid codes or missing/incorrect types.\n\nPass a single JSON object with exactly these keys:\n{ \"amount\": 10000, \"from_currency\": \"JPY\", \"to_currency\": \"USD\" }\n\nExample:\n{ \"amount\": 50, \"from_currency\": \"EUR\", \"to_currency\": \"GBP\" }"
+        }
+      ],
+      "ground_truth": [
+        "find_term_on_urban_dictionary(term=\"lit\")"
+      ],
+      "name_mapping": {
+        "find_term_on_urban_dictionary": "function_1",
+        "get_distance": "function_2",
+        "get_fibonacci_sequence": "function_3",
+        "convert_currency": "function_4"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        "When [something] is [turned up] or [popping] ..."
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 14,
+      "question": "I'm working on a community art project and planning a large circular mural for a public space. To figure out how much paint I need to buy, I need to calculate the area of the circle I'll be painting. The wall space I've been given has a perfect circular area with a radius of 15 feet. Can you help me determine the area of this circle?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Compute electrical energy (work) from electric charge and voltage using E = charge \u00d7 voltage.\n\nParameters (JSON args):\n- charge (required, number): Electric charge in coulombs (C). Must be finite and \u2265 0. Example: 2 mC \u2192 0.002.\n- voltage (required, number): Electric potential difference in volts (V). Must be finite (can be negative to indicate polarity).\n\nBehavior:\n- Returns: { \"energyJ\": number } where energyJ is in joules (J).\n- Validation: Both keys required; reject missing, null, NaN, Infinity, or non-number types. Convert any non-SI units found in user text to SI before calling. Do not pass strings.\n- No other parameters are accepted.\n\nExamples:\n- 2 mC at 5 kV \u2192 call with { \"charge\": 0.002, \"voltage\": 5000 } \u2192 energyJ = 10.\n- 1.5 C at \u221212 V \u2192 { \"charge\": 1.5, \"voltage\": -12 } \u2192 energyJ = -18."
+        },
+        {
+          "name": "function_2",
+          "description": "Computes the area of a circle from a given radius using \u03c0r\u00b2. Required input nesting: parameters \u2192 properties \u2192 radius. Parameters: radius (number, integer or float) \u2014 non-negative and finite. Units: same as input; output is area in squared units. No optional parameters; extra keys are ignored or may cause errors. Do not change the key names or nesting. Example tool call arguments: {\"parameters\":{\"properties\":{\"radius\":10}}}. Another example: {\"parameters\":{\"properties\":{\"radius\":2.5}}}. Returns: a number (the computed area)."
+        }
+      ],
+      "ground_truth": [
+        "geometry_area_circle(radius=15)"
+      ],
+      "name_mapping": {
+        "calculate_electrostatic_potential_energy": "function_1",
+        "geometry_area_circle": "function_2"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        706.8583470577034
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 15,
+      "question": "I'm working on an in-depth article covering the current COVID-19 situation in Brazil, and it's crucial to have the latest figures to ensure the information I present is factual and up to date. I need to include the number of active COVID-19 cases in the country. Could you provide me with the most recent active case count for Brazil?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "function_1 \u2014 Retrieves country-specific data from this API.\nParameters (JSON):\n- country (string, required): ISO 3166-1 alpha-2 country code (two letters). Case-insensitive; will be normalized to uppercase. Examples: \"GB\", \"US\", \"DE\". Do not pass country names, emojis, or 3-letter codes. If a user says \"UK\", use \"GB\".\nUsage rules:\n- Always provide country. If unavailable, ask the user for the ISO 2-letter code before calling.\n- Trim whitespace; do not send null/empty values.\nExample call: function_1({ \"country\": \"GB\" })\nResponses:\n- 200: JSON object containing country-specific data (fields may vary; treat absent fields as missing, not errors).\n- 400: invalid country code; 404: country not supported.\nError shape: { \"error\": { \"code\": 400|404, \"message\": string } }\nNotes: One call per country; batching is not supported."
+        },
+        {
+          "name": "function_2",
+          "description": "Purpose: Resolve a human-readable country name to the platform\u2019s internal country ID.\n\nRequired input (JSON args):\n- properties (object, required): Container for fields.\n  - country (string, required): The country name to look up. Must be a non-empty string.\n\nArgument structure must match exactly; do not place country at the top level and do not include unrelated keys.\n\nExample args:\n{\"properties\":{\"country\":\"Canada\"}}\n\nBehavior:\n- Returns the internal ID for the specified country.\n- One country per call.\n- If properties or country is missing/empty or the country is not recognized, the call will fail or return no match.\n\nOnly the parameters listed above are supported; there are no optional parameters."
+        }
+      ],
+      "ground_truth": [
+        "get_active_covid_case_by_country(country='Brazil')"
+      ],
+      "name_mapping": {
+        "get_covid_death_by_country": "function_1",
+        "get_active_covid_case_by_country": "function_2"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        1783377
+      ],
+      "execution_result_type": [
+        "real_time_match"
+      ]
+    },
+    {
+      "test_id": 16,
+      "question": "While doing some financial analysis, I've been looking into the details of certain stocks, and 'AAPL' caught my attention. I'd like to know which company it represents. Could you help me find out the company name associated with the stock symbol 'AAPL'?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Fetches the latest stock quote (most recent trading price) for a single public equity ticker. When to use: whenever the user asks for the price/quote/value/cost of a stock (e.g., \"What is AAPL now?\", \"How much is TSLA per share?\"), or needs a purchase total\u2014fetch the price then compute shares \u00d7 price client-side. Parameters: stock_name (string, required) \u2014 the stock ticker symbol, e.g., \"AAPL\", \"TSLA\", \"MSFT\". Behavior: returns the current price quote for the given ticker. Not for crypto, ETFs/funds, forex, options, or multiple tickers. If the user provides a company name but no ticker, ask for the ticker before calling. Error handling: if the ticker is invalid/unknown or data is unavailable, report the issue and request a valid symbol. Example call: {\"name\":\"function_1\",\"arguments\":{\"stock_name\":\"AAPL\"}}."
+        },
+        {
+          "name": "function_2",
+          "description": "function_2 computes the matrix product matA \u00d7 matB.\n\nParameters (all required):\n- matA: number[][] \u2014 Left matrix. A 2D JSON array; non-empty and rectangular (all rows same length). Values must be finite numbers (ints/floats).\n- matB: number[][] \u2014 Right matrix. A 2D JSON array; non-empty and rectangular. The number of rows in matB must equal the number of columns in matA.\n\nShape rules: If matA is m\u00d7n and matB is n\u00d7p, the result is m\u00d7p.\n\nOutput: number[][] \u2014 The product matrix. If any input contains floats, output will be floats.\n\nValidation: Reject ragged arrays, empty arrays/rows, non-numeric values, NaN/Infinity, and dimension mismatches.\n\nExamples:\n- Call:\n{\"name\":\"function_2\",\"arguments\":{\"matA\":[[1,2,3],[4,5,6]],\"matB\":[[7,8],[9,10],[11,12]]}}\n- Parameters-only object:\n{\"parameters\":{\"matA\":[[2,0],[1,3]],\"matB\":[[4],[5]]}}"
+        },
+        {
+          "name": "function_3",
+          "description": "Resolves a stock ticker to its company name (ticker\u2192company lookup). Given a stock ticker symbol, returns the full canonical company name.\n\nArguments (JSON object):\n- stock_name (string, required): The ticker symbol in UPPERCASE. Pass only the ticker, not a company name. Trim whitespace. Allowed: A\u2013Z and digits; optional class suffix with a dot (e.g., BRK.B). Typical length 1\u20136 chars.\n\nUsage:\n- Send a flat JSON object with exactly one key: stock_name. Do not nest under other keys and do not include extra fields.\n- If user supplies lowercase or mixed case, convert to uppercase before calling.\n- Validate basic format; if empty or clearly invalid, ask the user to clarify.\n\nReturns:\n- The company\u2019s full name for the given ticker. If the ticker is unknown, the tool returns an error.\n\nExample call:\n{\"stock_name\":\"MSFT\"}"
+        },
+        {
+          "name": "function_4",
+          "description": "Purpose: Compute the greatest common divisor (GCD) of two integers and report whether they are coprime (GCD == 1). Parameters (required): a (integer), b (integer). Use plain top-level arguments: {\"a\": <int>, \"b\": <int>}. Do not include any extra fields (e.g., no \"raw\", no nesting like \"parameters\" or \"properties\"). Accepted values: any finite 64-bit safe integers; negatives allowed (GCD is computed on |a| and |b|). Edge cases: if both a and b are 0, gcd = 0 and coprime = false. Returns: an object { \"gcd\": integer >= 0, \"coprime\": boolean }. Examples: {\"a\": 25, \"b\": 7} -> {\"gcd\": 1, \"coprime\": true}; {\"a\": 42, \"b\": 30} -> {\"gcd\": 6, \"coprime\": false}."
+        }
+      ],
+      "ground_truth": [
+        "get_company_name_by_stock_name(stock_name='AAPL')"
+      ],
+      "name_mapping": {
+        "get_stock_price_by_stock_name": "function_1",
+        "mat_mul": "function_2",
+        "get_company_name_by_stock_name": "function_3",
+        "math_gcd": "function_4"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        "Apple Inc."
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 17,
+      "question": "I'm currently investigating a security alert that flagged some unusual activity in our network. The IP address '192.168.1.1' was identified in the logs, and I suspect it could be related to the breach. To understand the origin of this potential threat, I need to pinpoint the geographical coordinates of this IP. Could you provide me with the latitude and longitude for the IP address '192.168.1.1'?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "IP geolocation and network lookup. Use this to resolve a public IP address to location and ASN/ISP metadata. When a user asks for the location/country/city/coordinates/ASN/ISP of an IP, or to infer location from an IP, always call this function.\n\nParameters:\n- ip_address (string, required): A single public IPv4 or IPv6 (e.g., 1.1.1.1 or 2606:4700:4700::1111). Do not pass hostnames, URLs, CIDR ranges, or multiple IPs.\n\nReturns (fields may vary): city, region, country, country_code, latitude, longitude, time_zone, postal_code, continent, accuracy_radius_km, asn, isp, organization, is_proxy, is_hosting.\n\nExample call: function_1 with {\"ip_address\": \"1.1.1.1\"}.\n\nErrors: invalid_ip (malformed), private_range (RFC1918/ULA), not_found (no data). On error, ask for a valid public IP or clarify input and retry."
+        },
+        {
+          "name": "function_2",
+          "description": "Retrieve the latest available national statistics for a specific country.\n\nParameters:\n- country (string, required): 2-letter ISO 3166-1 alpha-2 country code in UPPERCASE. Examples: \"CA\", \"US\", \"GB\", \"DE\", \"AU\". Do not use full country names, 3-letter codes, lowercase, or multiple codes.\n\nBehavior:\n- Returns the most recent stats for the specified country as a JSON object.\n- If the code is invalid or no data is available, expect an empty/none result; handle gracefully by informing the user.\n- Supports exactly one country per call.\n\nUsage examples:\n- function_2({\"country\":\"CA\"})\n- function_2({\"country\":\"US\"})\n\nNotes:\n- Always include the country parameter; never call with empty arguments.\n- Trim whitespace and uppercase the code before calling."
+        }
+      ],
+      "ground_truth": [
+        "get_coordinate_by_ip_address(ip_address='192.168.1.1')"
+      ],
+      "name_mapping": {
+        "get_coordinate_by_ip_address": "function_1",
+        "get_covid_death_by_country": "function_2"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        "private range"
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 18,
+      "question": "I have a client who's planning a trip to Paris and they're looking for some detailed travel plans. Could we find out the exact latitude and longitude of Paris for this purpose? They're really into the specifics and would appreciate having the coordinates for their personal itinerary.",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Purpose: Compute the arithmetic sum of a list of numbers and return the total.\n\nParameters (JSON):\n- numbers (required): array of numbers (integers or floats). Must contain at least 1 finite value. No null, NaN, Infinity, strings, or objects.\n\nSchema (for clarity):\nparameters: {\n  type: \"object\",\n  properties: { numbers: { type: \"array\", items: { type: \"number\" }, minItems: 1 } },\n  required: [\"numbers\"],\n  additionalProperties: false\n}\n\nUsage notes:\n- Always call with a JSON object; do not send raw text.\n- Do not call with no args.\n- Example (valid): { \"numbers\": [1, 2, 3.5, -4] }\n- Examples (invalid): {}, { \"numbers\": [] }, { \"numbers\": [\"3\"] }\n\nReturn: single number equal to the sum of all elements."
+        },
+        {
+          "name": "function_2",
+          "description": ""
+        },
+        {
+          "name": "function_3",
+          "description": "function_3 \u2014 Forward geocoding by city name. Retrieves geographic coordinates for a single city/locality. Parameters (arguments object): - city_name (string, required): Non-empty city name to geocode. Accepts Unicode (e.g., \"S\u00e3o Paulo\", \"\u6771\u4eac\"). Provide only the city name; do not include commas, country/state/country codes, full addresses, coordinates, or multiple cities. One city per call. Usage example (args): {\"city_name\":\"Tokyo\"}. Expected result: JSON containing latitude (number) and longitude (number) in decimal degrees (the service may also return normalized city metadata). Constraints: provide exactly the key city_name; extra/missing keys or empty values will fail. Types must match (string only). Invalid: {}, {\"city_name\":\"\"}, {\"city\":\"Paris\"}, {\"city_name\":[\"Paris\"]}."
+        }
+      ],
+      "ground_truth": [
+        "get_coordinates_from_city(city_name='Paris')"
+      ],
+      "name_mapping": {
+        "calculate_mean": "function_1",
+        "get_stock_history": "function_2",
+        "get_coordinates_from_city": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        [
+          "48.8588897",
+          "2.3200410217200766"
+        ]
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 19,
+      "question": "I'm currently conducting research on the impact of COVID-19 and my focus is on Brazil. I need the latest total death count for the country to analyze the severity of the pandemic there. Could you provide me with this information?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "function_1 retrieves an Amazon product title by ASIN. Use this tool when the user requests the product title/name for a specific Amazon item and provides (or you can extract) an ASIN. Input (JSON arguments): { \"ASIN\": string }. Parameter: ASIN (required) \u2014 a 10-character Amazon Standard Identification Number, uppercase alphanumeric (e.g., \"B07PGL2ZSL\"). Pass only this key (case-sensitive); one ASIN per call. Do not pass URLs, SKU, UPC, or other fields. If the user provides an Amazon URL, extract the 10-char ASIN (commonly after /dp/ or /gp/product/) and call the tool. Expected result: the product title for the ASIN or an error if invalid/not found. Example call arguments: { \"ASIN\": \"B0C12AB345\" }."
+        },
+        {
+          "name": "function_2",
+          "description": "Computes electrical energy (work) using W = charge \u00d7 voltage. Use SI units. Input charge in coulombs (C) and voltage in volts (V); output energy in joules (J).\n\nParameters:\n- charge: number (required). Electric charge in coulombs. Any finite real; sign allowed.\n- voltage: number (required). Potential difference in volts. Any finite real; sign allowed.\n\nRules/validation:\n- Both parameters are required; no defaults.\n- Numbers only (no strings, NaN, Infinity, or arrays/objects).\n- SI units only; do not include unit text.\n\nReturn:\n- Object { energyJ: number } where energyJ = charge \u00d7 voltage (joules). Negative result indicates energy delivered to the source.\n\nExample:\nfunction_2({ charge: 0.85, voltage: 230.0 }) \u2192 { energyJ: 195.5 }"
+        },
+        {
+          "name": "function_3",
+          "description": ""
+        },
+        {
+          "name": "function_4",
+          "description": "function_4 \u2014 Resolve a country to its internal numeric ID.\n\nInput (must be wrapped in an envelope):\n- envelope: object (required)\n  - parameters: object (required)\n    - country: string (required). The country to resolve. Accepts case-insensitive common English names or ISO\u20113166 alpha\u20112/alpha\u20113 codes (e.g., \"United States\", \"USA\", \"US\", \"Germany\", \"DE\").\n\nJSON schema (for parameters):\n- type: object\n- properties: { country: { type: string } }\n- required: [\"country\"]\n\nExample calls:\n- function_4({\"envelope\":{\"parameters\":{\"country\":\"USA\"}}})\n- function_4({\"envelope\":{\"parameters\":{\"country\":\"Germany\"}}})\n\nOutput: a single numeric country ID (integer) with no extra text/fields.\n\nUsage rules:\n- Do not call without envelope or without parameters.country.\n- Trim whitespace; reject empty strings.\n- On invalid/missing country, expect an error and request a valid country from the user before retrying."
+        }
+      ],
+      "ground_truth": [
+        "get_covid_death_by_country(country='Brazil')"
+      ],
+      "name_mapping": {
+        "get_product_name_by_amazon_ASIN": "function_1",
+        "calculate_electrostatic_potential_energy": "function_2",
+        "retrieve_holiday_by_year": "function_3",
+        "get_covid_death_by_country": "function_4"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        711380
+      ],
+      "execution_result_type": [
+        "real_time_match"
+      ]
+    },
+    {
+      "test_id": 20,
+      "question": "While I was updating a city map today, I needed to figure out how far apart two landmarks were. The first point is at coordinates (45.76, 4.85), and the second is at (48.85, 2.35). Could you calculate the distance between these two points for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Purpose: Run the tool\u2019s operation for a specified count.\nParameters:\n- n (integer, required): The number of items/iterations to process/return. Must be a positive whole number (1, 2, 3, \u2026). No default\u2014always provide n. Do not pass strings or floats.\nCall payload shape (strict):\n{\n  \"name\": \"function_1\",\n  \"parameters\": {\n    \"properties\": {\n      \"n\": 10\n    }\n  }\n}\nOnly include n under parameters.properties; do not add other keys.\nNatural language \u2192 n mapping examples:\n- \u201ctop 5\u2026\u201d, \u201crun 5 times\u201d, \u201creturn 5 results\u201d \u21d2 n = 5.\nValidation:\n- If n is missing, non-integer, or < 1, ask the user for a valid positive integer and do not call the tool.\nPerformance tip: Keep n reasonable to avoid timeouts or large outputs if unspecified by the user."
+        },
+        {
+          "name": "function_2",
+          "description": "function_2 computes the greatest common divisor (GCD) of two integers.\nParameters (all required):\n- a: integer\n- b: integer\nUsage and constraints:\n- Provide JSON integers only (no strings, floats, NaN, Infinity).\n- Recommended range: 64-bit signed integers (\u22129223372036854775808 to 9223372036854775807).\n- Negative inputs are allowed; the GCD is computed on |a| and |b| and returned as a non-negative integer.\n- Edge cases: gcd(0, n) = |n|; gcd(0, 0) = 0.\n- Order does not matter: gcd(a, b) = gcd(b, a).\nError handling:\n- The call must include both keys a and b.\n- An error is raised if a or b is missing, not an integer, or outside the supported range.\nCall schema (JSON object): {\"a\": <integer>, \"b\": <integer>} (no extra keys).\nExamples:\n- {\"a\": 15, \"b\": 5} \u2192 5\n- {\"a\": -12, \"b\": 18} \u2192 6\n- {\"a\": 0, \"b\": 7} \u2192 7\n- {\"a\": 0, \"b\": 0} \u2192 0"
+        },
+        {
+          "name": "function_3",
+          "description": "Compute great\u2011circle distance between two WGS84 coordinates using the Haversine formula.\n\nParameters\n- pointA (required): [lat, lon] array of two finite numbers in degrees. lat \u2208 [-90, 90], lon \u2208 [-180, 180].\n- pointB (required): [lat, lon] array, same rules as pointA.\n- radius_km (optional): positive number, Earth radius in km. Default 6371.0088.\n- decimals (optional): integer 0\u20136; number of decimal places in result. Default 3.\n\nBehavior\n- Returns a single number: distance in kilometers, rounded to 'decimals'.\n- If pointA == pointB, returns 0.\n- Uses the shorter arc across the globe. Ignores altitude/ellipsoid flattening.\n\nValidation errors (do not call with invalid inputs):\n- Missing params, arrays not length 2, non\u2011numeric/NaN/\u221e, or out\u2011of\u2011range lat/lon.\n\nExample\nInput: {pointA:[40.7128,-74.0060], pointB:[34.0522,-118.2437], decimals:2}\nOutput: 3935.75"
+        }
+      ],
+      "ground_truth": [
+        "get_distance(pointA=(45.76, 4.85), pointB=(48.85, 2.35))"
+      ],
+      "name_mapping": {
+        "get_fibonacci_sequence": "function_1",
+        "math_gcd": "function_2",
+        "get_distance": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        3.9746823772472712
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 21,
+      "question": "I'm currently delving into the Fibonacci sequence for my mathematical research and I'd like to examine the first 20 numbers of the sequence. Could you generate that for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "function_1 generates the Fibonacci sequence. Call it with a single JSON argument using this exact structure: {\"parameters\": {\"properties\": {\"n\": <integer>}}}\n\nParameter (required):\n- parameters.properties.n: integer, the number of Fibonacci terms to return. Must be a positive integer (e.g., 1, 2, 12). Place n exactly under parameters.properties; do not use other keys or levels.\n\nBehavior:\n- Returns an array of length n with the Fibonacci sequence starting 0, 1, 1, 2, ... If n=1 -> [0]; if n=2 -> [0, 1].\n- Missing or non-integer n will cause an error. Extremely large n may be rejected.\n\nExamples:\n- Generate 12 numbers: {\"parameters\": {\"properties\": {\"n\": 12}}}\n- First number only: {\"parameters\": {\"properties\": {\"n\": 1}}}"
+        },
+        {
+          "name": "function_2",
+          "description": "Purpose: Retrieve the latest stock quote for a single ticker symbol.\n\nRequired parameter:\n- stock_name (string): The exchange ticker to query. Use uppercase ticker symbols, no spaces (e.g., AAPL, MSFT, TSLA, GOOG). One ticker per call. Do not pass company names.\n\nHow to call:\n- Minimal args: {\"stock_name\":\"MSFT\"}\n- If your wrapper expects the full envelope: {\"name\":\"function_2\",\"parameters\":{\"properties\":{\"stock_name\":\"MSFT\"}}}\n\nTypical response fields:\n- ticker (string): Echoed ticker symbol.\n- price (number): Latest traded/quoted price.\n- currency (string): Quote currency, e.g., USD.\n- timestamp (string, ISO 8601): Quote time in UTC.\n- source (string): Data source identifier.\n\nErrors: Returned if the ticker is invalid or unavailable."
+        }
+      ],
+      "ground_truth": [
+        "get_fibonacci_sequence(n=20)"
+      ],
+      "name_mapping": {
+        "get_fibonacci_sequence": "function_1",
+        "get_stock_price_by_stock_name": "function_2"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        [
+          0,
+          1,
+          1,
+          2,
+          3,
+          5,
+          8,
+          13,
+          21,
+          34,
+          55,
+          89,
+          144,
+          233,
+          377,
+          610,
+          987,
+          1597,
+          2584,
+          4181
+        ]
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 22,
+      "question": "I'm overseeing a new project where we're monitoring competitor pricing on Amazon to stay competitive. There's this particular product we've been keeping an eye on, and I need the latest price for it. The ASIN for the product is 'B08PPDJWC8'. Could you fetch the current price for this ASIN from Amazon for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "function_1 \u2014 Resolve a human-readable country name to the platform\u2019s internal numeric country ID.\n\nParameters:\n- country (string, required): The full country name in English. Must be a non-empty string matching a recognized sovereign country (e.g., \"Germany\", \"United States\", \"Brazil\"). Avoid abbreviations, ISO codes, partial names, regions, or states.\n\nWhen to call:\n- Use when you need the internal numeric ID for a given country name. Do not call without providing country.\n\nRequest payload (JSON): {\"country\": \"Germany\"}\n\nExpected result:\n- Returns a response containing the numeric country ID for the provided country (e.g., country_id = 276 for Germany). Treat the numeric ID as authoritative.\n\nErrors:\n- Missing or unrecognized country will cause the call to fail.\n\nExamples:\n- Input: {\"country\": \"Germany\"}\n- Input: {\"country\": \"Brazil\"}\n\nNo optional parameters. No side effects."
+        },
+        {
+          "name": "function_2",
+          "description": ""
+        },
+        {
+          "name": "function_3",
+          "description": ""
+        }
+      ],
+      "ground_truth": [
+        "get_price_by_amazon_ASIN(ASIN='B08PPDJWC8')"
+      ],
+      "name_mapping": {
+        "get_covid_death_by_country": "function_1",
+        "get_price_by_amazon_ASIN": "function_2",
+        "find_term_on_urban_dictionary": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        "$180.00"
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 23,
+      "question": "I'm a mathematics teacher, and I'm currently putting together my lesson plan on prime factorization. For tomorrow's class, I've chosen the number 4567 as a practical example to illustrate the concept to my students. I need to break it down into its prime factors.",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "function_1 computes population statistics for a list of numbers and flags values more than 1 standard deviation from the mean. Arguments (JSON): numbers (required, array of finite numbers) \u2014 the numeric values to analyze; length must be >= 2; no null/NaN/Infinity. Computation: mean = sum/n; population_stddev = sqrt(sum((x\u2212mean)^2)/n); z_scores[i] = (numbers[i]\u2212mean)/population_stddev. Outliers are elements with |z| > 1. If population_stddev = 0, all z_scores are 0 and there are no outliers. Returns JSON: { mean: number, population_stddev: number, z_scores: number[], outlier_indices: number[], outliers: number[] }. Example call: function_1({\"numbers\":[10,12,9,30,11]}). Example result: {\"mean\":14.4,\"population_stddev\":7.88,\"z_scores\":[-0.56,-0.30,-0.69,1.98,-0.41],\"outlier_indices\":[3],\"outliers\":[30]}. Validation: throw an error if numbers is missing, not an array, has non-finite values, or length < 2."
+        },
+        {
+          "name": "function_2",
+          "description": ""
+        },
+        {
+          "name": "function_3",
+          "description": "Purpose: Prime factorization of a single integer.\nHow to call (exact JSON shape): pass the integer only at parameters.properties.number.\nSchema: { \"parameters\": { \"properties\": { \"number\": <integer> } } }\nRequirements: number must be an integer \u2265 2. Do not send strings, floats, or extra keys.\nOutput: { \"n\": <integer>, \"factors\": [ { \"prime\": <int>, \"exponent\": <int> }, ... ] }, where primes are ascending and exponents \u2265 1.\nErrors: If number is missing or < 2, correct the input and retry.\nExample call: function_3({\"parameters\":{\"properties\":{\"number\":360}}})\nExample result: {\"n\":360,\"factors\":[{\"prime\":2,\"exponent\":3},{\"prime\":3,\"exponent\":2},{\"prime\":5,\"exponent\":1}]}"
+        },
+        {
+          "name": "function_4",
+          "description": "function_4 \u2014 Trigger-only tool with no inputs. Purpose: invoke a provider-side action and return its raw result. Use this when instructed to call this API. Parameters: none. Do not send any keys or values. How to call: function_4({}). Expected response: provider-defined data (string or JSON). Assistant handling rules: 1) Always call with an empty object {}. 2) Do not add or infer arguments. 3) Return the tool\u2019s response exactly as-is (no reformatting), unless the user explicitly requests a different format. 4) If the tool returns an error, show the error message to the user and stop. 5) Make a single call per request unless the user asks to retry. Example call: function_4({}). Example responses: {\"status\":\"ok\"} or \"done\"."
+        }
+      ],
+      "ground_truth": [
+        "get_prime_factors(number=4567)"
+      ],
+      "name_mapping": {
+        "calculate_standard_deviation": "function_1",
+        "mortgage_calculator": "function_2",
+        "get_prime_factors": "function_3",
+        "get_coordinates_from_city": "function_4"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        [
+          4567
+        ]
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 24,
+      "question": "I'm working on a product review article and I need some information about an item sold on Amazon. The only detail I have is the ASIN: 'B08BHXG144'. I need to find out the product's name associated with this ASIN to include in my write-up. Can you help me retrieve the name of this product?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Purpose: Execute the tool for a specific Amazon product identified by its ASIN. Input shape is strict. Required argument path and casing: parameters.properties.ASIN.\nParameters:\n- parameters (object): container.\n  - properties (object): container.\n    - ASIN (string, required): Amazon Standard Identification Number. Accept a 10-character alphanumeric ASIN (e.g., B00005N5PF) or a 10-digit ISBN-10 used as ASIN (e.g., 0131103628). Users may say \u201cAmazon code\u201d; treat that as ASIN.\nRules:\n- Do not call without a non-empty ASIN.\n- Preserve exact key names and nesting; ASIN must be at parameters.properties.ASIN (case-sensitive).\n- Do not pass extra fields.\n- Trim surrounding whitespace from ASIN.\nExample arguments:\n{ \"parameters\": { \"properties\": { \"ASIN\": \"0131103628\" } } }"
+        },
+        {
+          "name": "function_2",
+          "description": "Compute permutations P(n, k) = n! / (n\u2212k)! (number of ordered selections without repetition). Parameters (required): n (integer) \u2014 total distinct items, n >= 0; k (integer) \u2014 items selected, 0 <= k <= n. Input must be integers (no floats/strings). Return: integer permutation count; by convention P(n, 0) = 1 and P(0, 0) = 1. Validation: reject missing parameters; reject non-integers; reject n < 0, k < 0, or k > n. Call with JSON args only: {\"n\": 52, \"k\": 5}. Examples: {\"n\": 52, \"k\": 5} -> 311875200; {\"n\": 10, \"k\": 3} -> 720; {\"n\": 0, \"k\": 0} -> 1. No optional parameters; no repetition or additional options supported."
+        },
+        {
+          "name": "function_3",
+          "description": "Compute the greatest common divisor (GCD) of two integers. Arguments must be passed as a top-level JSON object with exactly these properties: a and b. Do not wrap in additional fields (e.g., no \"raw\" or \"data\"). Parameters: - a (integer, required): First integer. Negative values allowed; absolute value is used. - b (integer, required): Second integer. Negative values allowed; absolute value is used. Constraints: Values must be JSON integers (not strings or floats). No extra keys are permitted. Edge cases: gcd(a,0)=|a|; gcd(0,b)=|b|; gcd(0,0)=0. Return: A non-negative integer equal to gcd(a,b). Examples: {\"a\":15,\"b\":4} -> 1; {\"a\":-24,\"b\":18} -> 6."
+        },
+        {
+          "name": "function_4",
+          "description": "Calculate the fixed-rate loan principal-and-interest (P&I) payment using the standard amortization formula. Use to get the periodic mortgage payment (excludes taxes/insurance/HOA).\n\nRequired parameters:\n- loan_amount (number): Principal in currency units, > 0.\n- annual_interest_rate (number): Nominal annual rate as a decimal (e.g., 0.065 for 6.5%), \u2265 0.\n- loan_term_years (number): Term length in years, > 0.\n\nOptional:\n- payments_per_year (integer): Payments each year; default 12; \u2265 1.\n- round_to_cents (boolean): Round payment to 2 decimals; default true.\n\nReturns (JSON):\n- payment: periodic P&I payment.\n- period_rate: annual_interest_rate / payments_per_year.\n- number_of_payments: loan_term_years * payments_per_year.\n- total_principal: equals loan_amount.\n- total_interest: payment * number_of_payments \u2212 loan_amount.\n\nEdge cases: If annual_interest_rate = 0, payment = loan_amount / number_of_payments.\n\nExample call:\nfunction_4({\"loan_amount\": 350000, \"annual_interest_rate\": 0.0625, \"loan_term_years\": 30})\n\nExample response:\n{\"payment\": 2153.11, \"period_rate\": 0.0052083333, \"number_of_payments\": 360, \"total_principal\": 350000, \"total_interest\": 425119.6}"
+        }
+      ],
+      "ground_truth": [
+        "get_product_name_by_amazon_ASIN(ASIN='B08BHXG144')"
+      ],
+      "name_mapping": {
+        "get_product_name_by_amazon_ASIN": "function_1",
+        "calculate_permutations": "function_2",
+        "math_gcd": "function_3",
+        "mortgage_calculator": "function_4"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        "Apple iPhone 11 Pro Max, 64GB, Midnight Green - Unlocked (Renewed Premium)"
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 25,
+      "question": "While browsing Amazon, I stumbled upon a product that really piqued my interest. However, I'm quite particular about the quality and general consensus on items before I consider adding them to my cart. The product has an ASIN of 'B07ZPKBL9V', and I would like to know what its average customer rating is. Could you find that information for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": ""
+        },
+        {
+          "name": "function_2",
+          "description": "function_2 computes the great\u2011circle distance (Haversine) between two Earth coordinates (WGS84). Use it to get the straight\u2011line distance over the globe.\nParameters:\n- pointA (required): [lat, lon] as numbers in decimal degrees. lat \u2208 [-90, 90], lon \u2208 [-180, 180].\n- pointB (required): [lat, lon] as numbers in decimal degrees. Same ranges as pointA.\n- unit (optional): string distance unit. One of: \"km\" (default), \"m\", \"mi\", \"nmi\".\n- precision (optional): integer decimal places for rounding the result. 0\u20136 (default 3).\nValidation:\n- pointA/pointB must be arrays of length 2 with finite numbers; lat/lon must be in range. Coordinates are degrees (not radians). Identical points return 0.\nReturns:\n- { \"distance\": number, \"unit\": string } where distance is rounded to precision.\nExample call body:\n{ \"pointA\": [40.7128, -74.0060], \"pointB\": [51.5074, -0.1278], \"unit\": \"km\", \"precision\": 2 }\nExample response:\n{ \"distance\": 5570.22, \"unit\": \"km\" }"
+        },
+        {
+          "name": "function_3",
+          "description": "Purpose: Compute the area of a circle from its radius.\nParameters (JSON object):\n- radius: number (meters). Required. Must be finite and >= 0. Do not pass strings, null, arrays, or extra keys.\nComputation: area = \u03c0 \u00d7 radius^2 (\u03c0 = 3.141592653589793).\nReturns: number \u2014 area in square meters.\nUsage:\n- Call with {\"radius\": 7.5}.\n- If the user provides diameter or circumference, convert to radius before calling (r = d/2; r = C/(2\u03c0)).\n- If input units aren\u2019t meters, convert to meters first (e.g., 25 cm \u2192 0.25 m).\nNotes: Only one parameter (radius). Do not send {\"raw\": \"...\"} or any other fields. Radius 0 is valid (area 0); negative radii are invalid."
+        },
+        {
+          "name": "function_4",
+          "description": "IP to Postal/ZIP lookup. Resolves a public IP address to its best-guess postal_code and locality information.\n\nParameters:\n- ip_address (string, required): A single IPv4 (e.g., 9.9.9.9) or IPv6 (e.g., 2606:4700:4700::1111). Provide only the raw IP; do not pass URLs, hostnames, CIDR ranges, or multiple values.\n\nBehavior:\n- Returns postal_code and location fields when available; accuracy varies by IP, ISP, and region. International addresses return country-appropriate postal codes.\n- For private/reserved/loopback/bogon or malformed IPs, the call fails with an error object (type and message); no lookup is performed.\n- Some fields may be missing if unknown. Results may reflect ISP PoPs or NAT egress points.\n\nResponse fields:\n- postal_code (string), city (string), region (string), country (string), country_code (ISO 3166-1 alpha-2), latitude (number), longitude (number), timezone (IANA string), confidence (0\u2013100), source (string).\n\nExample call: function_4(ip_address=\"9.9.9.9\")\nExample response: {\"postal_code\":\"30301\",\"city\":\"Atlanta\",\"region\":\"Georgia\",\"country\":\"United States\",\"country_code\":\"US\",\"latitude\":33.7483,\"longitude\":-84.3911,\"timezone\":\"America/New_York\",\"confidence\":78,\"source\":\"geoip\"}"
+        }
+      ],
+      "ground_truth": [
+        "get_rating_by_amazon_ASIN(ASIN='B07ZPKBL9V')"
+      ],
+      "name_mapping": {
+        "get_rating_by_amazon_ASIN": "function_1",
+        "get_distance": "function_2",
+        "geometry_area_circle": "function_3",
+        "get_zipcode_by_ip_address": "function_4"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        "4.2"
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 26,
+      "question": "I'm currently analyzing different investment options and I've taken a particular interest in Apple Inc. I want to review the company's stock performance over the past month. Additionally, it's important for me to know if there have been any stock splits or dividends in that time. Could you pull up the monthly history for Apple's stock and ensure that the information includes any splits or dividends?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": ""
+        },
+        {
+          "name": "function_2",
+          "description": "Purpose: Compute the area of a circle from a given radius.\nRequired parameter:\n- radius: number > 0 (meters). Must be finite; integers or decimals allowed. No default; you must provide it. No other parameters are accepted.\nArgument placement (important): This tool expects arguments nested under parameters.properties. Do not place arguments at the top level or directly under parameters.\nCorrect call example:\n{\"name\":\"function_2\",\"parameters\":{\"properties\":{\"radius\":3.2}}}\nIncorrect call (do not do this):\n{\"name\":\"function_2\",\"parameters\":{\"radius\":3.2}}\nBehavior: If radius is missing, <= 0, or not a finite number, the call may fail.\nOutput: Area of the circle in square meters."
+        },
+        {
+          "name": "function_3",
+          "description": ""
+        },
+        {
+          "name": "function_4",
+          "description": "Purpose: Resolve a country to the platform\u2019s internal numeric country ID.\nParameters (JSON):\n- country (string, required): The country to look up. Accepts a full English country name (e.g., \"Canada\") or an ISO 3166-1 alpha-2/alpha-3 code (e.g., \"US\", \"USA\"). Case-insensitive; leading/trailing spaces are ignored. Only this key is allowed.\nBehavior:\n- Returns the internal country ID as an integer for the specified country.\nValidation:\n- Reject if 'country' is missing, not a string, or empty after trimming.\n- Reject if no match is found for the provided value.\nError cases (typical): missing_parameter, invalid_type, not_found.\nExample calls:\n- function_4({ \"country\": \"Canada\" })\n- function_4({ \"country\": \"US\" })"
+        }
+      ],
+      "ground_truth": [
+        "get_stock_history(stock_name='AAPL', interval='1mo', diffandsplits='true')"
+      ],
+      "name_mapping": {
+        "estimate_derivative": "function_1",
+        "geometry_area_circle": "function_2",
+        "get_stock_history": "function_3",
+        "get_active_covid_case_by_country": "function_4"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        {
+          "1730433600": {
+            "date": "2024-11-01",
+            "date_utc": 1730433600,
+            "open": 220.97,
+            "high": 237.81,
+            "low": 219.71,
+            "close": 237.33,
+            "volume": 891640600,
+            "adjclose": 236.5
+          },
+          "1733029200": {
+            "date": "2024-12-01",
+            "date_utc": 1733029200,
+            "open": 237.27,
+            "high": 260.1,
+            "low": 237.16,
+            "close": 250.42,
+            "volume": 977916100,
+            "adjclose": 249.82
+          },
+          "1735707600": {
+            "date": "2025-01-01",
+            "date_utc": 1735707600,
+            "open": 248.93,
+            "high": 249.1,
+            "low": 219.38,
+            "close": 236,
+            "volume": 1200291700,
+            "adjclose": 235.43
+          },
+          "1738386000": {
+            "date": "2025-02-01",
+            "date_utc": 1738386000,
+            "open": 229.99,
+            "high": 250,
+            "low": 225.7,
+            "close": 241.84,
+            "volume": 862272300,
+            "adjclose": 241.26
+          },
+          "1740805200": {
+            "date": "2025-03-01",
+            "date_utc": 1740805200,
+            "open": 241.79,
+            "high": 244.03,
+            "low": 208.42,
+            "close": 222.13,
+            "volume": 1115239500,
+            "adjclose": 221.84
+          },
+          "1743480000": {
+            "date": "2025-04-01",
+            "date_utc": 1743480000,
+            "open": 219.81,
+            "high": 225.19,
+            "low": 169.21,
+            "close": 212.5,
+            "volume": 1606488200,
+            "adjclose": 212.22
+          },
+          "1746072000": {
+            "date": "2025-05-01",
+            "date_utc": 1746072000,
+            "open": 209.08,
+            "high": 214.56,
+            "low": 193.25,
+            "close": 200.85,
+            "volume": 1195728200,
+            "adjclose": 200.59
+          },
+          "1748750400": {
+            "date": "2025-06-01",
+            "date_utc": 1748750400,
+            "open": 200.28,
+            "high": 207.39,
+            "low": 195.07,
+            "close": 205.17,
+            "volume": 1100409300,
+            "adjclose": 205.17
+          },
+          "1751342400": {
+            "date": "2025-07-01",
+            "date_utc": 1751342400,
+            "open": 206.67,
+            "high": 216.23,
+            "low": 206.14,
+            "close": 211.16,
+            "volume": 407676700,
+            "adjclose": 211.16
+          },
+          "1752523201": {
+            "date": "2025-07-14",
+            "date_utc": 1752523201,
+            "open": 209.91,
+            "high": 210.91,
+            "low": 207.54,
+            "close": 208.62,
+            "volume": 37683849,
+            "adjclose": 208.62
+          }
+        }
+      ],
+      "execution_result_type": [
+        "structural_match"
+      ]
+    },
+    {
+      "test_id": 27,
+      "question": "I'm working on a portfolio analysis, and my client is particularly interested in the latest performance of Apple Inc.'s stock. To provide them with the most up-to-date information, I need to check the current stock price for Apple. Could you pull up the latest figures for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "function_1 is a no-argument health-check (ping) endpoint to verify the tool is reachable. It performs no side effects and is safe to call repeatedly. Parameters: none (no required or optional parameters). Invocation: pass an empty arguments object {}. Usage: call when you need to confirm connectivity/readiness before other tool calls or when a simple availability check is requested. Expected behavior: returns a brief success indicator (e.g., 'ok' or a minimal status object); do not rely on specific fields. Example function_call JSON: {\"name\":\"function_1\",\"arguments\":{}}. Do not include any parameters."
+        },
+        {
+          "name": "function_2",
+          "description": "Fetches stock information for a single ticker symbol. Parameters: stock_name (string, required) \u2013 the exact stock ticker symbol to query. Usage: Call with a JSON object containing only stock_name. Example calls: {\"stock_name\":\"MSFT\"}, {\"stock_name\":\"AAPL\"}, {\"stock_name\":\"BRK.B\"}, {\"stock_name\":\"RDS-A\"}. Input extraction rules: use the ticker explicitly mentioned by the user (e.g., MSFT, AAPL). Do not pass company names; if only a company name is given (e.g., \u201cMicrosoft\u201d), ask the user for the ticker instead of guessing. Normalization: trim whitespace and uppercase the ticker; preserve dots/hyphens for share classes (e.g., BRK.B, RDS-A). Validation: stock_name must be a non-empty string (1\u201310 chars), start with A\u2013Z, and contain only A\u2013Z, 0\u20139, dot (.), or hyphen (-). Exactly one ticker per call; arrays or additional fields are not supported. If the ticker cannot be confidently determined, do not call the function."
+        },
+        {
+          "name": "function_3",
+          "description": "Purpose: Compute the population standard deviation (\u03c3) of a numeric list using N in the denominator (ddof=0). Arguments (JSON): { \"numbers\": [Number, ...] }; required: numbers. Parameter details: numbers (required) \u2013 array of finite numbers; length \u2265 1; examples: [1, 2.5, -3, 4]. Behavior: returns a single numeric value (float) only\u2014no text, units, or formatting. If length = 1, returns 0. Validation: all items must be numeric and finite; do not call if the list is empty or contains NaN/Infinity/non-numbers\u2014clean/validate first. When to call: whenever the user asks for the (population) standard deviation of a list/dataset; if the request is for sample stdev (n\u22121), do not use this function. Example call: function_3({\"numbers\":[2,4,4,4,5,5,7,9]}). Expected return: 2.0. Caller should handle any rounding or presentation."
+        }
+      ],
+      "ground_truth": [
+        "get_stock_price_by_stock_name(stock_name='AAPL')"
+      ],
+      "name_mapping": {
+        "mortgage_calculator": "function_1",
+        "get_stock_price_by_stock_name": "function_2",
+        "calculate_standard_deviation": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        211.16
+      ],
+      "execution_result_type": [
+        "real_time_match"
+      ]
+    },
+    {
+      "test_id": 28,
+      "question": "I'm currently working on a geography project that involves mapping out time zones for different locations around the globe. As part of this project, I need to know the time zone for a specific coordinate. Could you provide me with the time zone for the location at longitude 123.45 and latitude -67.89?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Resolve the IANA time zone ID for a geographic coordinate.\n\nParameters (pass as JSON args to the call):\n- coordinates (object, required): Geographic point in decimal degrees.\n  - lat (number, required): Latitude in range [-90, 90]. Positive = north, negative = south.\n  - long (number, required): Longitude in range [-180, 180]. Positive = east, negative = west.\n\nRequirements and tips:\n- Provide numeric values (not strings) for both lat and long.\n- Use the exact key names: coordinates.lat and coordinates.long (no aliases like lon/lng).\n- Do not swap lat/long. Include both; there are no defaults.\n- Typical precision: 4\u20136 decimal places.\n\nExample call arguments:\n{ \"coordinates\": { \"lat\": 40.7128, \"long\": -74.0060 } }\n\nExpected result: Returns the canonical IANA time zone ID for the point (e.g., \"America/New_York\")."
+        },
+        {
+          "name": "function_2",
+          "description": "Purpose: Compute the area of a circle from a radius. Arguments MUST follow this exact JSON nesting: { \"parameters\": { \"properties\": { \"radius\": <number> } } }.\nRequired parameters:\n- parameters (object): Top-level container. Required.\n- parameters.properties (object): Container for values. Required.\n- parameters.properties.radius (number): Radius of the circle. Must be a finite number > 0. Units are user-defined; the result is in squared units of the radius.\nNo other fields are used. Do not pass a raw number or an empty object.\nExample call body: { \"parameters\": { \"properties\": { \"radius\": 3.5 } } }\nBehavior: Computes area = pi * radius^2. Calls with missing nesting, missing radius, non-numeric, NaN, or radius <= 0 should be treated as invalid."
+        },
+        {
+          "name": "function_3",
+          "description": "Fetches the latest stock quote (near real-time) for a single ticker symbol.\n\nParameters\n- stock_name (string, required): The stock ticker to query. Use the exchange ticker, uppercase (A\u2013Z, 0\u20139), optionally with . or - for share classes (e.g., BRK.B, RDS-A). Do not pass company names or natural language.\n\nWhen to call\n- User asks for current price, live quote, latest price, stock quote, or price of a specific ticker (e.g., \u201cAAPL price\u201d, \u201cquote for MSFT\u201d).\n\nReturn\n- Most recent quote including symbol, price (number), currency (string), and timestamp (ISO 8601). Exact fields may vary by venue.\n\nValidation & errors\n- Trim whitespace; reject empty/invalid symbols. If the symbol is unknown or the call fails, explain and ask the user for a valid ticker.\n\nExamples\n- function_3({\"stock_name\":\"AAPL\"})\n- function_3({\"stock_name\":\"MSFT\"})"
+        }
+      ],
+      "ground_truth": [
+        "get_time_zone_by_coord(long='123.45', lat='-67.89')"
+      ],
+      "name_mapping": {
+        "get_time_zone_by_coord": "function_1",
+        "geometry_area_circle": "function_2",
+        "get_stock_price_by_stock_name": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        "Antarctica/DumontDUrville"
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 29,
+      "question": "I'm in the middle of a climate study focusing on temperature changes in the Arctic, and I need the latest temperature readings at the North Pole. Specifically, I'm looking at the point with coordinates 90.00 latitude and 0.00 longitude. I need to access the current temperature data for this precise location using the Open-Meteo API. Could you help me get this information?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Binomial probability mass function (PMF). Computes P(X = k) for X ~ Binomial(n, p): C(n,k) * p^k * (1-p)^(n-k). Use for queries like \"probability of exactly k successes\" or \"k wins out of n with success rate p\". Always call this tool for binomial PMF tasks.\nParameters (all required):\n- n (integer, n >= 0): number of independent trials.\n- k (integer, 0 <= k <= n): number of successes.\n- p (number, 0 <= p <= 1): probability of success per trial.\nReturns: float in [0,1].\nValidation/constraints:\n- Do not call if k < 0, k > n, n < 0, or p not in [0,1]. For k outside [0,n], the probability is 0.\nGuidance:\n- Natural language mapping: \"exactly k\" -> k; \"out of n\" -> n; \"success rate/probability\" -> p.\n- For \"at most/at least/between\", sum PMFs over the relevant k values using repeated calls.\nExamples:\n- function_1(n=10, k=3, p=0.2)\n- function_1(n=5, k=0, p=0.5)"
+        },
+        {
+          "name": "function_2",
+          "description": "function_2 retrieves country-specific data for exactly one country. Arguments MUST be a single JSON object containing the required key: country.\n\nParameters:\n- country (string, required): The target country name or code.\n  \u2022 Accepted forms: common English name (\"Canada\"), ISO 3166-1 alpha-2 (\"CA\"), or alpha-3 (\"CAN\").\n  \u2022 Case-insensitive; trim whitespace. Provide a single country only (no lists or cities/regions).\n  \u2022 Synonyms/aliases mapping examples: \"US\", \"USA\", \"United States of America\" \u2192 \"United States\"; \"UK\", \"Great Britain\", \"GB\", \"GBR\" \u2192 \"United Kingdom\".\n\nValidation:\n- Do NOT call with empty args, null, numbers, arrays, or extra keys.\n- If the user request doesn\u2019t clearly specify one country, ask a clarifying question instead of calling.\n\nExample calls:\n- {\"country\":\"Canada\"}\n- {\"country\":\"US\"}\n- {\"country\":\"FR\"}\n\nNL-to-arg mapping examples:\n- \"Show me stats for Canada\" \u2192 {\"country\":\"Canada\"}\n- \"Info on the US\" \u2192 {\"country\":\"United States\"}\n- \"FR GDP\" \u2192 {\"country\":\"FR\"}"
+        },
+        {
+          "name": "function_3",
+          "description": "Retrieve real-time Air Quality Index (AQI) and pollutant breakdown for a geographic point.\n\nParameters (JSON):\n- lon: number, required. Longitude in degrees, -180 to 180.\n- lat: number, required. Latitude in degrees, -90 to 90.\n\nBehavior:\n- Finds the nearest monitoring source to the given coordinates and returns current AQI.\n- Returns 400 for missing/invalid or out-of-range coordinates.\n\nResponse fields:\n- aqi: number (0\u2013500).\n- category: string (Good, Moderate, Unhealthy for Sensitive Groups, Unhealthy, Very Unhealthy, Hazardous).\n- dominant_pollutant: string (pm25, pm10, o3, no2, so2, co).\n- pollutants: object with per-pollutant concentration and aqi, e.g., pm25: { value, unit, aqi }.\n- timestamp: ISO 8601 UTC.\n- location: { lat, lon }.\n- source: string.\n\nExample call: { \"lon\": -122.4194, \"lat\": 37.7749 }\nExample response: { \"aqi\": 57, \"category\": \"Moderate\", \"dominant_pollutant\": \"pm25\", \"pollutants\": { \"pm25\": { \"value\": 12.6, \"unit\": \"\u00b5g/m\u00b3\", \"aqi\": 57 } }, \"timestamp\": \"2026-02-05T10:23:00Z\", \"location\": { \"lat\": 37.775, \"lon\": -122.419 }, \"source\": \"nearest_station\" }"
+        }
+      ],
+      "ground_truth": [
+        "get_weather_data(coordinates=[90.00, 0.00])"
+      ],
+      "name_mapping": {
+        "calc_binomial_probability": "function_1",
+        "get_covid_death_by_country": "function_2",
+        "get_weather_data": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        31.5
+      ],
+      "execution_result_type": [
+        "structural_match"
+      ]
+    },
+    {
+      "test_id": 30,
+      "question": "I'm currently in the middle of a cybersecurity investigation and have come across a suspicious IP address that we suspect might be the source of a recent cyber attack. The IP address is 192.168.1.1, and I need to track down the physical location it's associated with to proceed with the investigation. To start with, could you find out the zipcode for where this IP address is registered?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "function_1 \u2013 Resolve the postal/ZIP code for a given IP address.\n\nParameters:\n- ip_address (string, required): A single IPv4 or IPv6 address in canonical textual form. Do not include protocols (no http:// or https://), hostnames, ports, CIDR notation, or multiple addresses. Examples: 8.8.4.4, 2001:4860:4860::8888.\n\nCall schema (arguments object): { \"ip_address\": \"<IP string>\" }\n\nResponse:\n- postal_code (string): The best-available postal/ZIP code for the IP\u2019s geolocation (e.g., \"10001\", \"SW1A 1AA\"). Return only the code to the user unless more detail is requested.\n\nUsage notes:\n- Use only when you have exactly one valid, public IP.\n- Trim whitespace before passing.\n- If the IP is invalid, private, reserved, or missing, do not call; ask the user for a valid public IP."
+        },
+        {
+          "name": "function_2",
+          "description": "Purpose: Convert a US ZIP Code to its primary locality (e.g., city and state). Required parameter: zipcode (string). Format: either 5 digits (NNNNN) or ZIP+4 (NNNNN-NNNN). Leading zeros must be preserved\u2014always pass as a string, not a number. Allowed characters: digits 0-9 and one optional hyphen at position 6. No spaces, letters, or other symbols. Scope: US ZIP Codes only.\nUsage:\n- Correct: function_2({\"zipcode\":\"94105\"})\n- Correct: function_2({\"zipcode\":\"02115\"})\n- Correct: function_2({\"zipcode\":\"10001-0001\"})\n- Incorrect (missing): function_2({})\n- Incorrect (number): function_2({\"zipcode\":10001})\nValidation & errors:\n- If zipcode is missing, empty, wrong length, or contains invalid characters, do not call; ask the user for a valid US ZIP.\n- If the ZIP is not found, return the API result and inform the user (do not guess). Pass exactly one parameter named zipcode."
+        },
+        {
+          "name": "function_3",
+          "description": "function_3 computes 1D displacement under constant acceleration. Formulae: displacement s = v0*time + 0.5*acceleration*time^2; final_velocity v = v0 + acceleration*time. Input (JSON) \u2014 all parameters required: 1) initial_velocity_m_per_s (number): initial velocity in meters/second (can be negative). 2) acceleration_m_per_s2 (number): constant acceleration in meters/second^2 (can be negative). 3) time_s (number): elapsed time in seconds (must be >= 0). Validation: do not call without all parameters; all values must be finite numbers; reject time_s < 0. Output (JSON): { \"displacement_m\": number, \"final_velocity_m_per_s\": number }. Example valid call body: { \"initial_velocity_m_per_s\": 5, \"acceleration_m_per_s2\": -2, \"time_s\": 3 }. Example invalid call: {} \u2192 error: Missing required parameters. Units: SI. Deterministic; no side effects."
+        }
+      ],
+      "ground_truth": [
+        "get_zipcode_by_ip_address(ip_address=\"192.168.1.1\")"
+      ],
+      "name_mapping": {
+        "get_zipcode_by_ip_address": "function_1",
+        "retrieve_city_based_on_zipcode": "function_2",
+        "calculate_displacement": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        "private range"
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 31,
+      "question": "I'm working on a data analysis project where I need to multiply two matrices as part of my computations. The first matrix I need to work with is [[1, 2], [3, 4]], and the second one is [[5, 6], [7, 8]]. I need to calculate the product of these two matrices to proceed with my analysis. Can you help me with this calculation?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "function_1 executes a backend action that accepts no inputs. Parameters: none (no required or optional fields). Always call with an empty arguments object: {}. When to call: only when the user explicitly requests to run function_1 (e.g., \u201crun function_1\u201d, \u201cexecute the tool\u201d), or when system/developer instructions direct you to do so. Do not include any user-provided data\u2014this function cannot accept parameters. Expected return: a tool-defined payload; do not assume its schema. After the call, present the payload verbatim and add an explanation only if the user asks. Example tool call: { \"name\": \"function_1\", \"arguments\": {} }. If the call fails, report the error without retrying unless instructed."
+        },
+        {
+          "name": "function_2",
+          "description": "function_2 computes the arithmetic mean (average) of a list of numbers.\n\nParameters (JSON arguments object):\n- numbers (required): array<number>\n  - Must be non-empty.\n  - Elements may be integers or floats.\n  - All elements must be finite numeric values (no NaN, Infinity, -Infinity).\n  - Negative numbers and zeros are allowed.\n\nBehavior:\n- Computes sum(numbers) / count(numbers).\n- If any element is not a finite number or the array is empty, the call should be considered invalid (assistant should not pass such input).\n- Order of elements does not affect the result.\n\nReturn:\n- A single number representing the average.\n\nCorrect call shape:\n{\"name\":\"function_2\",\"arguments\":{\"numbers\":[10,20,30,40]}}\nAnother example:\n{\"name\":\"function_2\",\"arguments\":{\"numbers\":[1.5,2,3.25]}}"
+        }
+      ],
+      "ground_truth": [
+        "mat_mul(matA=[[1, 2], [3, 4]], matB=[[5, 6], [7, 8]])"
+      ],
+      "name_mapping": {
+        "mat_mul": "function_1",
+        "calculate_mean": "function_2"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        [
+          [
+            19,
+            22
+          ],
+          [
+            43,
+            50
+          ]
+        ]
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 32,
+      "question": "In the midst of solving a combinatorics problem, I've hit a step that requires me to calculate the factorial of 7. Could you help me with that?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "function_1 \u2014 Currency conversion. Converts a monetary amount from one currency to another using the latest mid\u2011market FX rate. Call shape (arguments JSON): { \"amount\": number, \"from_currency\": \"XXX\", \"to_currency\": \"YYY\" } Parameters: - amount (number, required): Positive, finite amount in the source currency. Decimals allowed. - from_currency (string, required): 3\u2011letter ISO 4217 code in uppercase (e.g., USD, EUR, JPY). - to_currency (string, required): 3\u2011letter ISO 4217 code in uppercase; must differ from from_currency. Rules: - Result is rounded to the target currency\u2019s standard minor units (ISO exponent): USD/EUR=2, JPY=0, KWD=3; if unknown, 2. - No fees or margins applied. Validation: Errors if amount \u2264 0 or not numeric, or if currency codes are invalid/not ISO 4217. Canonical example call: { \"amount\": 1000, \"from_currency\": \"EUR\", \"to_currency\": \"JPY\" }"
+        },
+        {
+          "name": "function_2",
+          "description": "Purpose: Compute the factorial of n (n!), the number of permutations of n distinct items. By definition, 0! = 1.\n\nCall format (JSON args): {\"n\": <integer>}\n\nParameters:\n- n (integer, required): Non-negative whole number (n \u2265 0). Do not pass floats, strings, booleans, null, or objects. Examples of valid n: 0, 1, 5, 20.\n\nReturns: Exact integer value of n! (arbitrary precision).\n\nErrors/validation:\n- Missing n \u2192 error (n is required).\n- n not an integer \u2192 error (type must be integer).\n- n < 0 \u2192 error (must be non-negative).\n- Extremely large n may be slow or exceed limits.\n\nExamples:\n- Args: {\"n\": 7} \u2192 Result: 5040\n- Args: {\"n\": 0} \u2192 Result: 1\n\nNatural language \u2192 args mapping:\n- \"Compute 7!\" or \"factorial of 7\" \u2192 {\"n\": 7}\n- \"How many permutations of 5 items?\" \u2192 {\"n\": 5}\n\nOnly send the n field; do not include extra keys."
+        }
+      ],
+      "ground_truth": [
+        "math_factorial(n=7)"
+      ],
+      "name_mapping": {
+        "convert_currency": "function_1",
+        "math_factorial": "function_2"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        5040
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 33,
+      "question": "As a historian delving into ancient Roman political alliances, I've stumbled upon an interesting numerical challenge. I need to determine the greatest common divisor for the number of senators during two distinct time periods, one with 450 senators and the other with 300. This will help me understand the commonalities in their political structures. Could you help me calculate that?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Computes density \u03c1 = mass / volume.\n\nWhen to call: whenever the user asks to compute density (mass per unit volume) and you have both mass and volume.\n\nParameters (all required):\n- mass (number, kg): total mass in kilograms. Must be > 0 and finite.\n- volume (number, m^3): volume in cubic meters. Must be > 0 and finite.\n\nUsage rules:\n- Only call after converting any user-provided values to SI: kg and m^3 (e.g., g \u2192 kg; mg \u2192 1e-6 kg; lb \u2192 0.45359237 kg; cm^3 \u2192 1e-6 m^3; L \u2192 1e-3 m^3; mL \u2192 1e-6 m^3). Perform conversions before calling; this function does not handle units.\n- If either parameter is missing, zero/negative, non-numeric, or unit-ambiguous, do not call; ask the user for clarification.\n\nOutput:\n- Returns a number: density in kg/m^3. No rounding is applied by default; round in the assistant\u2019s reply only if requested.\n\nExamples:\n- \"Density of 2 kg in 0.001 m^3\" \u2192 {mass: 2, volume: 0.001} \u2192 2000.\n- \"5 g in 2 cm^3\" \u2192 convert to {mass: 0.005, volume: 0.000002}."
+        },
+        {
+          "name": "function_2",
+          "description": "function_2 returns the first n items from its underlying ordered result set/sequence. Parameters: n (integer, required) \u2014 the number of items to return. Constraints: n must be a positive integer (1, 2, 3, \u2026). There is no default; calling without n will fail. Pass n as a number (not a string). On success, the function returns an array containing the first n items in order. Validation: missing n, non-integer values (e.g., 3.5), zero, or negatives are invalid. Mapping from natural language to args: \u201cfirst 15\u201d \u2192 {\"n\": 15}, \u201ctop five\u201d \u2192 {\"n\": 5}, \u201cgive me 1\u201d \u2192 {\"n\": 1}, \u201creturn the first N items\u201d \u2192 {\"n\": N}. Only include the n field; do not send extra keys."
+        },
+        {
+          "name": "function_3",
+          "description": "function_3 computes the greatest common divisor (GCD) of two integers using the Euclidean algorithm.\n\nParameters (JSON object; no extra fields allowed):\n- a (integer, required): First integer. Negative values are allowed; the absolute value is used.\n- b (integer, required): Second integer. Negative values are allowed; the absolute value is used.\n\nConstraints:\n- Integers only (no floats, strings, booleans, null). Both fields are required.\n- Recommended range: safe integers (|value| <= 9,007,199,254,740,991). Very large values may be slow.\n\nBehavior:\n- Returns the GCD as an integer.\n- If one input is 0, returns abs(other).\n- If both inputs are 0, returns 0.\n\nExamples:\n- {a: 12, b: 18} \u2192 6\n- {a: 0, b: 5} \u2192 5\n- {a: -24, b: 16} \u2192 8\n- {a: 7, b: 13} \u2192 1\n\nNatural language mapping:\n- \"Find the GCD of 12 and 18\" \u2192 {a: 12, b: 18}\n\nOnly provide fields a and b; no additional parameters."
+        }
+      ],
+      "ground_truth": [
+        "math_gcd(a=450, b=300)"
+      ],
+      "name_mapping": {
+        "calculate_density": "function_1",
+        "get_fibonacci_sequence": "function_2",
+        "math_gcd": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        150
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 34,
+      "question": "I'm working on a new track and I've got these two drum loops that I'm trying to synchronize. The first loop repeats every 18 beats, while the second one comes back around every 24 beats. I need them to align perfectly so that the patterns create a seamless rhythm in the song. Could you calculate the least common multiple for 18 and 24 beats to find out after how many beats they'll sync up?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "function_1 performs a proprietary, deterministic numeric transform T(a, b) on two numbers via the backend. Call it whenever the user asks to apply/compute the backend transform on two values; do not approximate in the assistant.\n\nArguments (JSON object):\n- a (number, required): First real number. Accepts integer or decimal as a JSON number (or a numeric string that can be parsed). Must be finite (no NaN/Infinity).\n- b (number, required): Second real number. Same rules as a. Order matters; preserve user-provided order.\n\nReturn: A single JSON number (the raw numeric result). No metadata is returned.\n\nConstraints & handling:\n- Typical |a|, |b| \u2264 1e12. If missing/extra values, non-numeric input, or out-of-range values are provided, ask for clarification before calling.\n- Do not pass null/undefined; do not include extraneous keys.\n\nExample tool call arguments:\n{ \"a\": 3.2, \"b\": 5 }\n\nOutput to user: Show only the numeric result unless they request details."
+        },
+        {
+          "name": "function_2",
+          "description": "function_2 retrieves the latest stock quote (price and quote timestamp) for a single publicly traded equity.\n\nParameters\n- stock_name (string, required): The stock ticker symbol to query. Examples: \"MSFT\", \"AAPL\", \"TSLA\", \"BRK.B\", \"RDS-A\". Case-insensitive; send uppercase. Pass exactly one ticker per call. Do not pass sentences or company names.\n\nAssistant guidance\n- If the user provides a company name or a sentence (e.g., \"price of Apple\"), first resolve/extract the ticker (AAPL), then call.\n- Preserve dots or hyphens if part of the ticker (e.g., BRK.B, RDS-A). Trim whitespace.\n- Validate that stock_name is a non-empty string resembling a ticker (recommended pattern: ^[A-Z][A-Z0-9.-]{0,9}$). If ambiguous or multiple symbols are mentioned, ask the user to specify one.\n\nNotes\n- Returns the most recent available price in the listing currency and the quote time.\n- Not intended for crypto, indices, or funds.\n\nExamples\n- {\"stock_name\":\"MSFT\"}\n- User: \"What is Apple trading at?\" -> {\"stock_name\":\"AAPL\"}"
+        },
+        {
+          "name": "function_3",
+          "description": "function_3 computes permutations without repetition: P(n,k) = n! / (n\u2212k)! It returns the number of ordered arrangements when choosing k distinct items from n distinct items.\n\nRequired parameters:\n- n: integer (n \u2265 0). Total number of distinct items.\n- k: integer (0 \u2264 k \u2264 n). Number of items to arrange in order.\n\nBehavior:\n- Returns an integer P(n,k).\n- Edge cases: if k = 0, returns 1; if k = n, returns n!.\n- Input validation: rejects/throws error if n or k are negative, non-integers, or if k > n.\n- No optional parameters. Do not include any extra fields (e.g., do not pass \"raw\").\n\nExamples:\n- Query: \"How many ways to arrange 5 out of 12 books?\" \u2192 Call: function_3({\"n\": 12, \"k\": 5})\n- Query: \"Seat 3 of 5 students in order\" \u2192 Call: function_3({\"n\": 5, \"k\": 3})"
+        },
+        {
+          "name": "function_4",
+          "description": "Purpose: Compute 1D displacement under constant acceleration using s = v0*t + 0.5*a*t^2.\n\nArguments schema: pass a single object with key \"properties\" only. Inside properties:\n- initial_velocity (number, m/s): real, finite.\n- acceleration (number, m/s^2): real, finite; may be negative.\n- time (number, s): real, finite; must be >= 0.\nAll three fields are REQUIRED. Do NOT place any args outside properties.\n\nWhen to use: whenever the user asks for linear displacement/position change with known initial velocity, constant acceleration, and elapsed time in SI units. Not for variable acceleration or multi-dimensional vectors.\n\nReturns: { \"displacement\": number } in meters (floating-point).\n\nExample call arguments:\n{ \"properties\": { \"initial_velocity\": 5, \"acceleration\": -2, \"time\": 3 } }\nExample result:\n{ \"displacement\": 6 }"
+        }
+      ],
+      "ground_truth": [
+        "math_lcm(a=24, b=18)"
+      ],
+      "name_mapping": {
+        "math_lcm": "function_1",
+        "get_stock_price_by_stock_name": "function_2",
+        "calculate_permutations": "function_3",
+        "calculate_displacement": "function_4"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        72.0
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 35,
+      "question": "I'm assisting a client who's in the process of buying a house. They're looking at a mortgage for the amount of $350,000. The interest rate they've been offered is 3.5%, and they plan to pay it off over 30 years. I need to provide them with an estimate of what their monthly payment would be. Can you work that out for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "function_1 is a no-parameter tool endpoint that performs a predefined backend action. Use it only when the user or system instruction explicitly says to \u201ccall function_1\u201d or \u201cuse the provided tool.\u201d Do not infer domain-specific purposes (e.g., mortgage, currency, dates) for this function. Parameters: none (no required or optional fields). Invocation rules: pass an empty JSON object as arguments ({}); do not include any keys, nulls, or extra fields\u2014these may cause errors. Expected behavior: returns a tool-defined response; relay its result without modification. Example call: name=function_1, arguments={}. Validation: if the task requires inputs, do not call function_1 since it accepts none; answer normally instead."
+        },
+        {
+          "name": "function_2",
+          "description": "Computes the area of a rectangle from two side lengths. Use when the user provides two edges and wants area. Formula: a \u00d7 b. Parameters: a (number, meters, required) \u2013 first side length (e.g., length). Must be > 0 and finite. b (number, meters, required) \u2013 second side length (e.g., width). Must be > 0 and finite. No other parameters are accepted. Returns: numeric area in square meters (m^2); no rounding applied; order of a and b does not matter. Mapping guidance: from phrases like \"7 by 8 meters\", \"7\u00d78 m\", \"length 7 m and width 8 m\" map to {\"a\":7, \"b\":8}. If user gives non-meter units, convert to meters before calling (e.g., 200 cm \u2192 2 m). JSON schema: {\"type\":\"object\",\"properties\":{\"a\":{\"type\":\"number\"},\"b\":{\"type\":\"number\"}},\"required\":[\"a\",\"b\"]}. Examples: {\"a\":7,\"b\":8}; {\"a\":3.5,\"b\":2}; for \"200 cm by 1.2 m\" \u2192 {\"a\":2,\"b\":1.2}."
+        },
+        {
+          "name": "function_3",
+          "description": "Compute factorial n! \u2014 the number of ways to order n distinct items. Use this to answer requests like \u201cfactorial of 7\u201d, \u201c7!\u201d, or \u201cpermutations of 7 items\u201d.\n\nParameters (JSON args when calling the tool):\n- n (integer, required): Non\u2011negative integer to factorial. Must be an integer value (e.g., 7 or 7.0). n < 0 is invalid.\n\nUsage:\n- Call with exactly one field: {\"n\": <int>}. Do not include any other keys (avoid fields like \"raw\").\n- Natural language \u2192 n mapping examples: \"factorial of 7\" \u2192 n=7; \"7!\" \u2192 n=7; \"ways to arrange 10 objects\" \u2192 n=10.\n\nBehavior:\n- Returns the exact factorial as an integer. Edge cases: 0! = 1, 1! = 1.\n- Validation errors if n is missing, not integral, or negative. For reliability, prefer 0 \u2264 n \u2264 20 to avoid overflow in typical 64-bit contexts.\n\nExamples:\n- function_3({\"n\": 7}) \u2192 5040\n- function_3({\"n\": 0}) \u2192 1\n- Invalid: function_3({}), function_3({\"raw\": \"7!\"})"
+        },
+        {
+          "name": "function_4",
+          "description": ""
+        }
+      ],
+      "ground_truth": [
+        "mortgage_calculator(loan_amount=350000, interest_rate=0.035, loan_period=30)"
+      ],
+      "name_mapping": {
+        "mortgage_calculator": "function_1",
+        "math_lcm": "function_2",
+        "math_factorial": "function_3",
+        "estimate_derivative": "function_4"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        1571.656407330882
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 36,
+      "question": "For my next algebra class, I'm planning to cover the topic of quadratic equations. I want to provide a practical example to help my students understand the concept of finding roots. So, I've chosen the equation 3x^2 + 7x - 10 = 0 to work through with the class. Could you calculate the roots for this specific equation?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Compute great-circle (haversine) distance between two Earth coordinates. Use for straight-line/airline distance (not driving/routes). Argument JSON schema: {\"type\":\"object\",\"properties\":{\"origin\":{\"type\":\"object\",\"properties\":{\"lat\":{\"type\":\"number\"},\"lon\":{\"type\":\"number\"}},\"required\":[\"lat\",\"lon\"]},\"destination\":{\"type\":\"object\",\"properties\":{\"lat\":{\"type\":\"number\"},\"lon\":{\"type\":\"number\"}},\"required\":[\"lat\",\"lon\"]},\"unit\":{\"type\":\"string\",\"enum\":[\"kilometers\",\"meters\",\"miles\"],\"default\":\"kilometers\"},\"radius_km\":{\"type\":\"number\",\"description\":\"Optional Earth radius in km; default 6371.0088\"}},\"required\":[\"origin\",\"destination\"]}. Parameter rules: latitude in degrees \u221290..90; longitude \u2212180..180; use keys lat then lon (do not swap). Output: {\"distance\": number, \"unit\": string, \"method\":\"haversine\"}; distance is a float (up to 6 decimals). Example call args: {\"origin\":{\"lat\":40.7128,\"lon\":-74.0060},\"destination\":{\"lat\":34.0522,\"lon\":-118.2437},\"unit\":\"miles\"}. Example response: {\"distance\":2445.6,\"unit\":\"miles\",\"method\":\"haversine\"}."
+        },
+        {
+          "name": "function_2",
+          "description": "Purpose: Accept exactly three numeric coefficients via JSON to operate on a, b, c (e.g., quadratic-related tasks).\nSchema (all required): { \"a\": number, \"b\": number, \"c\": number }\nRules:\n- Provide one JSON object only; include all three keys exactly as: a, b, c (lowercase).\n- Values must be finite numbers (integers or floats). Positive, negative, and zero allowed.\n- If user supplies numbers as text, trim spaces and parse; allow leading +/\u2212 and decimals; avoid thousands separators; validate before calling.\n- Do NOT call with raw text, positional args, arrays, nulls, or extra keys.\n- If any value is missing/invalid, ask the user to clarify before calling.\nTrigger cues:\n- User mentions coefficients a, b, c or provides three numbers for them.\n- Requests to compute/solve using a, b, c.\nExamples:\n- { \"a\": 2, \"b\": 5, \"c\": -3 }\n- { \"a\": -1.5, \"b\": 0, \"c\": 4 }"
+        },
+        {
+          "name": "function_3",
+          "description": ""
+        }
+      ],
+      "ground_truth": [
+        "quadratic_roots(a=3, b=7, c=-10)"
+      ],
+      "name_mapping": {
+        "get_distance": "function_1",
+        "quadratic_roots": "function_2",
+        "estimate_derivative": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        [
+          1.0,
+          -3.3333333333333335
+        ]
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 37,
+      "question": "I'm in the middle of analyzing demographic data for a project and need to cross-reference some information based on zip codes. I've got a specific zip code, let's say 90210, and I need to find out which city it corresponds to. Can you help me retrieve the city name for this zip code?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "function_1 computes the future value (FV) of a single lump sum with periodic compounding.\nFormula: FV = present_value \u00d7 (1 + interest_rate)^periods\nParameters (all required):\n- present_value (number): Current amount. Must be >= 0.\n- interest_rate (number): Per-period interest rate as a decimal (e.g., 0.03 for 3% per period). Must be > -1. Can be 0 or negative (for losses/discounting).\n- periods (integer): Number of compounding periods. Must be >= 0.\nBehavior:\n- If periods = 0, FV = present_value.\n- No rounding is applied; returns full-precision floating-point.\nReturns:\n- { \"future_value\": number }\nValidation:\n- Reject non-numeric types, interest_rate <= -1, negative present_value, or non-integer/negative periods.\nExample call:\nfunction_1({\"present_value\": 5000, \"interest_rate\": 0.03, \"periods\": 60})\nExample response:\n{\"future_value\": 29470.0} (approximately)"
+        },
+        {
+          "name": "function_2",
+          "description": "function_2 \u2014 Lookup USPS primary city and state by ZIP Code.\n\nParameters (JSON body):\n- zipcode (string, required): 5-digit US ZIP Code. Must match ^\\d{5}$. Leading zeros allowed. Do not include ZIP+4; if user provides ZIP+4 (e.g., \"10001-1234\" or \"100011234\"), extract the first 5 digits only. Remove spaces and non-digits before validating.\n\nBehavior:\n- Returns USPS-preferred city name and 2-letter state abbreviation for the ZIP, plus the normalized 5-digit zipcode.\n- If the ZIP is invalid or not found, the tool may return an error.\n\nUsage rules:\n- Call with exactly one key: {\"zipcode\":\"02108\"}. Do not send extra keys (e.g., no \"raw\"). Do not send null/empty strings.\n\nExamples:\n- {\"zipcode\":\"10001\"}\n- {\"zipcode\":\"02108\"}\n- {\"zipcode\":\"00501\"}"
+        },
+        {
+          "name": "function_3",
+          "description": ""
+        },
+        {
+          "name": "function_4",
+          "description": ""
+        }
+      ],
+      "ground_truth": [
+        "retrieve_city_based_on_zipcode(zipcode='90210')"
+      ],
+      "name_mapping": {
+        "calculate_future_value": "function_1",
+        "retrieve_city_based_on_zipcode": "function_2",
+        "estimate_derivative": "function_3",
+        "get_price_by_amazon_ASIN": "function_4"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        "BEVERLY HILLS"
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 38,
+      "question": "I'm currently engaged in a study that requires me to investigate the holidays celebrated across different cultures and how they've evolved over the years. As part of this research, I'm compiling data on the national holidays in various countries for specific years. At the moment, I'm focusing on France. I need to know the list of holidays that were observed in France in the year 2010. Can you provide that information for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Purpose: Resolve geographic coordinates to an IANA time zone identifier (e.g., \"Asia/Tokyo\").\nParameters (all required):\n- lat (number): Latitude in decimal degrees, range -90.0 to 90.0 inclusive. North is positive, south is negative.\n- long (number): Longitude in decimal degrees, range -180.0 to 180.0 inclusive. East is positive, west is negative.\nRules:\n- Parameter names must be exactly \"lat\" and \"long\" (do not use \"lng\" or \"longitude\").\n- Values must be numbers (not strings); null/NaN/Infinity are not allowed.\n- Do not include extra properties.\nReturn: A string containing the IANA time zone ID for the given point.\nExamples:\n- function_1({lat: 35.6895, long: 139.6917}) \u2192 \"Asia/Tokyo\"\n- function_1({lat: 40.7128, long: -74.0060}) \u2192 \"America/New_York\"\nValidation: Missing or out-of-range coordinates will result in an error."
+        },
+        {
+          "name": "function_2",
+          "description": ""
+        }
+      ],
+      "ground_truth": [
+        "retrieve_holiday_by_year(year='2010', country='FR')"
+      ],
+      "name_mapping": {
+        "get_time_zone_by_coord": "function_1",
+        "retrieve_holiday_by_year": "function_2"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        [
+          {
+            "date": "2010-01-01",
+            "localName": "Jour de l'an",
+            "name": "New Year's Day",
+            "countryCode": "FR",
+            "fixed": false,
+            "global": true,
+            "counties": null,
+            "launchYear": null,
+            "types": [
+              "Public"
+            ]
+          },
+          {
+            "date": "2010-04-05",
+            "localName": "Lundi de P\u00e2ques",
+            "name": "Easter Monday",
+            "countryCode": "FR",
+            "fixed": false,
+            "global": true,
+            "counties": null,
+            "launchYear": null,
+            "types": [
+              "Public"
+            ]
+          },
+          {
+            "date": "2010-05-01",
+            "localName": "F\u00eate du Travail",
+            "name": "Labour Day",
+            "countryCode": "FR",
+            "fixed": false,
+            "global": true,
+            "counties": null,
+            "launchYear": null,
+            "types": [
+              "Public"
+            ]
+          },
+          {
+            "date": "2010-05-08",
+            "localName": "Victoire 1945",
+            "name": "Victory in Europe Day",
+            "countryCode": "FR",
+            "fixed": false,
+            "global": true,
+            "counties": null,
+            "launchYear": null,
+            "types": [
+              "Public"
+            ]
+          },
+          {
+            "date": "2010-05-13",
+            "localName": "Ascension",
+            "name": "Ascension Day",
+            "countryCode": "FR",
+            "fixed": false,
+            "global": true,
+            "counties": null,
+            "launchYear": null,
+            "types": [
+              "Public"
+            ]
+          },
+          {
+            "date": "2010-05-24",
+            "localName": "Lundi de Pentec\u00f4te",
+            "name": "Whit Monday",
+            "countryCode": "FR",
+            "fixed": false,
+            "global": true,
+            "counties": null,
+            "launchYear": null,
+            "types": [
+              "Public"
+            ]
+          },
+          {
+            "date": "2010-07-14",
+            "localName": "F\u00eate nationale",
+            "name": "Bastille Day",
+            "countryCode": "FR",
+            "fixed": false,
+            "global": true,
+            "counties": null,
+            "launchYear": null,
+            "types": [
+              "Public"
+            ]
+          },
+          {
+            "date": "2010-08-15",
+            "localName": "Assomption",
+            "name": "Assumption Day",
+            "countryCode": "FR",
+            "fixed": false,
+            "global": true,
+            "counties": null,
+            "launchYear": null,
+            "types": [
+              "Public"
+            ]
+          },
+          {
+            "date": "2010-11-01",
+            "localName": "Toussaint",
+            "name": "All Saints' Day",
+            "countryCode": "FR",
+            "fixed": false,
+            "global": true,
+            "counties": null,
+            "launchYear": null,
+            "types": [
+              "Public"
+            ]
+          },
+          {
+            "date": "2010-11-11",
+            "localName": "Armistice 1918",
+            "name": "Armistice Day",
+            "countryCode": "FR",
+            "fixed": false,
+            "global": true,
+            "counties": null,
+            "launchYear": null,
+            "types": [
+              "Public"
+            ]
+          },
+          {
+            "date": "2010-12-25",
+            "localName": "No\u00ebl",
+            "name": "Christmas Day",
+            "countryCode": "FR",
+            "fixed": false,
+            "global": true,
+            "counties": null,
+            "launchYear": null,
+            "types": [
+              "Public"
+            ]
+          }
+        ]
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 39,
+      "question": "I've got a dataset here that needs to be ordered from highest to lowest value. The numbers I'm working with are 34, 2, 56, 7, 9, and 12. Could you help me sort these in descending order?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": ""
+        },
+        {
+          "name": "function_2",
+          "description": "Computes material density from mass and volume. Use this when the user asks for density.\n\nInput (top-level JSON object, no nesting):\n- mass: number (required). Mass in kilograms (kg). Must be > 0.\n- volume: number (required). Volume in cubic meters (m^3). Must be > 0.\n\nDo NOT wrap in \"properties\" or \"raw\"; pass keys at the top level exactly as shown.\n\nOutput:\n{ \"density\": number, \"unit\": \"kg/m^3\" } where density = mass / volume, computed in double precision (no rounding).\n\nValidation:\n- Both fields must be finite numbers.\n- Missing or wrong types trigger errors like \"required property 'mass' missing\" or \"volume must be > 0\".\n\nExamples:\nRequest: { \"mass\": 2.7, \"volume\": 0.001 }\nResponse: { \"density\": 2700, \"unit\": \"kg/m^3\" }\n\nIf the user provides other units, convert to kg and m^3 before calling; otherwise assume SI."
+        },
+        {
+          "name": "function_3",
+          "description": ""
+        },
+        {
+          "name": "function_4",
+          "description": "Purpose: Processes a user-provided numeric list. Input contract (strict):\n- Required parameter: numbers (array of number). No other parameters are accepted.\n- Each element must be a finite real number (integer or float). NaN, Infinity, null, strings, booleans, objects, and nested arrays are invalid.\n- Length: at least 1 element. Order and duplicates are preserved.\n\nMapping from user input:\n- Use only clearly numeric values (e.g., \"1, 2.5, -3\" -> [1, 2.5, -3]). Do not send if any item is non-numeric or ambiguous; seek clarification instead.\n\nCanonical call:\nfunction_4({ \"numbers\": [1, 2, 3.5, 0, -4] })\n\nInvalid examples (do not call):\n{}, { \"numbers\": [] }, { \"numbers\": [\"1\", 2] }, { \"numbers\": [null] }"
+        }
+      ],
+      "ground_truth": [
+        "sort_array(array=[34, 2, 56, 7, 9, 12], reverse=True)"
+      ],
+      "name_mapping": {
+        "find_term_on_urban_dictionary": "function_1",
+        "calculate_density": "function_2",
+        "get_stock_history": "function_3",
+        "sort_array": "function_4"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        [
+          56,
+          34,
+          12,
+          9,
+          7,
+          2
+        ]
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 40,
+      "question": "I need to calculate the sum of the binary numbers '10011' and '1100'. Could you help me with that?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": ""
+        },
+        {
+          "name": "function_2",
+          "description": "function_2 converts a binary string to its decimal (base-10) integer.\nPurpose: Binary-to-decimal conversion.\nRequired arguments (exact JSON nesting):\n- parameters: object (required)\n  - properties: object (required)\n    - binary: string (required) \u2014 binary digits to convert. Allowed characters: '0' and '1' only; no prefix (e.g., not '0b'); no spaces; leading zeros allowed; length 1\u201364.\nOutput: { \"decimal\": <number> } \u2014 the converted value.\nErrors: Returns an error if \"binary\" is missing, empty, contains non-binary characters, or exceeds length limits.\nExample call args: { \"parameters\": { \"properties\": { \"binary\": \"1011\" } } }\nExample result: { \"decimal\": 11 }"
+        },
+        {
+          "name": "function_3",
+          "description": "Converts a base-10 integer to a hexadecimal string. Output is prefixed with 0x and uses lowercase a\u2013f.\n\nHow to call:\nPass a single required argument nested exactly as below. No other keys are accepted.\n- parameters (object, required)\n  - properties (object, required)\n    - decimal (integer, required): whole number to convert. Negative values allowed; 0 allowed. Must be an integer (not string/float).\n\nReturns: string. Format rules:\n- 0 -> \"0x0\"\n- positive n -> \"0x...\" (lowercase)\n- negative n -> \"-0x...\" (lowercase)\n\nExamples (arguments -> return):\n- {\"parameters\":{\"properties\":{\"decimal\":255}}} -> \"0xff\"\n- {\"parameters\":{\"properties\":{\"decimal\":0}}} -> \"0x0\"\n- {\"parameters\":{\"properties\":{\"decimal\":-26}}} -> \"-0x1a\"\n\nDo:\n- Map requests like \u201cto hex\u201d, \u201chexadecimal\u201d, \u201cbase 16\u201d, \u201c0x\u201d to decimal and call.\n\nDon\u2019t:\n- Don\u2019t use raw/value/root args, strings, floats, or extra keys."
+        }
+      ],
+      "ground_truth": [
+        "add_binary_numbers(a='10011',b='1100')"
+      ],
+      "name_mapping": {
+        "add_binary_numbers": "function_1",
+        "convert_binary_to_decimal": "function_2",
+        "convert_decimal_to_hex": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        "11111"
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 41,
+      "question": "I've been working on some data analysis and I need to fit a linear regression model. I have these data points with x-coordinates as [1, 2, -3] and corresponding y-coordinates as [4, -5, 6]. I want to understand the relationship between these variables and make a prediction for when x is 10. Can you help me with that?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": ""
+        },
+        {
+          "name": "function_2",
+          "description": ""
+        },
+        {
+          "name": "function_3",
+          "description": "function_3 computes the mean squared error (MSE) for a simple linear model through the origin: y_hat = slope * x. Use it to evaluate how well a given slope fits paired (x, y) data.\nParameters (all required):\n- x (array of number): Predictor values. Length >= 1. Must match y length. All entries must be finite numbers.\n- y (array of number): Observed target values. Length must equal x length. All entries must be finite numbers.\n- slope (number): The coefficient applied to each x value. Must be a finite number.\nBehavior/validation: Throws an error if x/y are empty, have different lengths, or contain NaN/Infinity/non-numeric values; or if slope is not finite. No intercept term is used and no additional parameters are accepted.\nReturns: number \u2014 the MSE = average((y_i \u2212 slope * x_i)^2).\nJSON param schema: { x: number[], y: number[], slope: number }\nExample call args: {\"x\":[1,2,3], \"y\":[2,4,5], \"slope\":1.5 }"
+        },
+        {
+          "name": "function_4",
+          "description": "function_4 evaluates a linear function y = slope * x + intercept. Parameters (JSON): - slope (number, required). Alias: rate, m. - intercept (number, required). Alias: baseline, bias, b. - x (number or number[], required). Alias: input, value. Types: integers or floats; arrays preserve order/length. Return: { \"y\": number } when x is a number, or { \"y\": number[] } when x is an array. Validation: all numbers must be finite (no NaN/Infinity); all required fields must be present (via canonical name or alias); if both a canonical key and an alias are provided, the canonical key is used; aliases are lowercase. No other parameters are accepted. Deterministic and side-effect free. Examples: 1) { \"slope\": 2, \"intercept\": 1, \"x\": 3 } -> { \"y\": 7 } 2) { \"rate\": 0.5, \"baseline\": 10, \"input\": [0,2,4] } -> { \"y\": [10,11,12] }"
+        }
+      ],
+      "ground_truth": [
+        "linear_regression(x=[1,2,-3],y=[4,-5,6],point=10)"
+      ],
+      "name_mapping": {
+        "linear_regression": "function_1",
+        "calculate_slope": "function_2",
+        "calculate_intercept": "function_3",
+        "predict_value": "function_4"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        -15.476190476190476
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 42,
+      "question": "I've been planning my financial future and I've decided to make an initial investment of $10,000, followed by an annual contribution of $1,000. My investment plan will run for 5 years, and I'm expecting an annual return of 5%. However, I'm also aware that inflation can impact the value of my investment, so I've projected an inflation rate that changes year over year: 1% for the first year, 2% for the second, and so on, up to 4% for the last two years. I need to calculate the real value of my investment after accounting for these inflation rates. Can you provide me with the adjusted value of my investment over this 5-year period?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": ""
+        },
+        {
+          "name": "function_2",
+          "description": "Computes future value using compound interest. Use when the user asks for future value or interest earned given principal, rate, compounding frequency, and time. Required parameters: - principal (number, >= 0): starting amount in currency units. - rate (number, decimal form, e.g., 0.05 for 5%, >= 0): annual nominal rate. Do not pass 5 or \"5%\". - times_compounded (integer, >= 1): compounding periods per year (e.g., 1, 4, 12, 365). - years (number, >= 0): time in years; fractional allowed. Formula: A = principal * (1 + rate / times_compounded)^(times_compounded * years). Returns: future_value A, interest_earned = A - principal. Edge cases: if rate = 0 or years = 0, A = principal. Examples: (principal=1000, rate=0.05, times_compounded=12, years=10) -> A\u22481647.009; (2500, 0.07, 4, 6) -> A\u22483779.931."
+        },
+        {
+          "name": "function_3",
+          "description": "Computes the present value (today\u2019s dollars) of a future nominal amount by discounting for inflation. Use when a user asks what a future sum is worth today or to compare money across years. Parameters (all required): - amount (number): Future nominal amount in any currency; must be >= 0. - inflation_rate (number): Annual inflation as a decimal fraction (e.g., 0.03 for 3%); must be >= 0. - years (integer): Number of whole years until the amount is received; must be >= 0. Formula: present_value = amount / (1 + inflation_rate)^years. Returns: number (present value, same currency). Notes: years=0 or inflation_rate=0 returns amount; provide rate as a decimal, not a percent. Example call: function_3 with {\"amount\": 10000, \"inflation_rate\": 0.025, \"years\": 10}."
+        }
+      ],
+      "ground_truth": [
+        "calculate_investment_value(initial_investment=10000, annual_contribution=1000, years=5, annual_return=0.05, inflation_rate=[0.01,0.02,0.03,0.04,0.04])"
+      ],
+      "name_mapping": {
+        "calculate_investment_value": "function_1",
+        "compound_interest": "function_2",
+        "inflation_adjustment": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        16145.646273400002
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 43,
+      "question": "I've got $1,000,000 set aside as an initial investment and plan to add $1,000 to it every year. I'm looking at a potential annual interest rate of 10% over the next three years. However, I also want to consider the inflation rates, which I expect to be 1% in the first year and 4% for the next two years. I need to calculate what the investment's value would be at the end of three years, factoring in these inflation rates. Can you help me with that?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Compute the future value (FV) of a present amount using compound interest.\n\nParameters (JSON args):\n- present_value (number, required): Current amount. Use negative for an outflow/deposit.\n- interest_rate (number, required): Nominal annual rate as a decimal (e.g., 0.05 for 5%). Can be negative or zero.\n- periods (number, required): Time in years (>= 0).\n- compounding (string, optional): Compounding frequency; one of: \"annual\" (default), \"semiannual\", \"quarterly\", \"monthly\", \"daily\", \"continuous\".\n\nBehavior:\n- Discrete compounding: FV = present_value * (1 + r/m)^(m * periods), where m is 1,2,4,12,365 for annual/semiannual/quarterly/monthly/daily.\n- Continuous: FV = present_value * e^(r * periods).\n- If periods = 0, FV = present_value.\n\nValidation:\n- present_value and interest_rate must be finite numbers; typical rate range is -1 < r < 1.\n- compounding must be one of the allowed values.\n\nReturns: number (future_value).\n\nExamples:\n- function_1({\"present_value\": 1000, \"interest_rate\": 0.06, \"periods\": 10})\n- function_1({\"present_value\": 2500, \"interest_rate\": 0.045, \"periods\": 5, \"compounding\": \"monthly\"})"
+        },
+        {
+          "name": "function_2",
+          "description": "Purpose: Compute the real present value (PV) of a future nominal amount by discounting cumulative inflation.\n\nRequired parameters:\n- investment_value (number): Future nominal amount in currency units; must be finite and >= 0.\n- inflation_rates (array<number>): Per-period inflation rates as decimals (e.g., 0.03 for 3%). Order is chronological (oldest to newest). Each rate r must be finite and > -1.\n\nComputation: PV = investment_value / \u03a0(1 + r_i). If inflation_rates is empty, PV = investment_value.\n\nReturns: number (present value in the same currency), unrounded.\n\nValidation: Reject NaN/Infinity, negative investment_value, non-array rates, non-numeric entries, or any rate <= -1.\n\nExample call:\nfunction_2({\n  \"investment_value\": 1000,\n  \"inflation_rates\": [0.02, 0.03, 0.025]\n})  // PV = 1000 / (1.02 * 1.03 * 1.025)"
+        },
+        {
+          "name": "function_3",
+          "description": ""
+        }
+      ],
+      "ground_truth": [
+        "calculate_investment_value(initial_investment=1000000, annual_contribution=1000, years=3, annual_return=0.10, inflation_rate=[0.01, 0.04, 0.04])"
+      ],
+      "name_mapping": {
+        "calculate_future_value": "function_1",
+        "adjust_for_inflation": "function_2",
+        "calculate_investment_value": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        1227813.9640000002
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 44,
+      "question": "I've been helping my grandmother to adopt a healthier lifestyle. She's 80 years old, and we've been quite active together lately. She's 170 cm tall and weighs 59 kg. Given that we're maintaining an activity level of 4 on the scale you've provided, we're aiming for a weight loss goal. Could you calculate her nutritional needs based on these details?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "function_1 is a generic server-side executor that takes no input parameters. Use it to trigger the required computation, lookup, or action for the current user request. Parameters: none (required and optional). Invocation rules: always call with an empty argument object {}; do not pass any keys or values. Context handling: the service infers needed details from the conversation or its own defaults\u2014no client-supplied fields are accepted. When to call: whenever the task requires tool execution or external processing; generally once per user request unless the response explicitly asks to retry. Output: returns an object with the operation result; do not assume a fixed schema\u2014inspect and relay the returned fields. Correct: function_1({}). Incorrect: function_1({\"anyKey\": \"anyValue\"})."
+        },
+        {
+          "name": "function_2",
+          "description": "Compute estimated daily maintenance calories (TDEE) from a given BMR and activity. Formula: TDEE = bmr \u00d7 activity_factor. If unit = kJ, result is converted using 1 kcal = 4.184 kJ. Parameters:\n- bmr (number, required): Basal Metabolic Rate in kcal/day. Range: 500\u20135000.\n- activity_level (string, required unless activity_factor is provided): one of \"sedentary\" (1.2), \"lightly_active\" (1.375), \"moderately_active\" (1.55), \"very_active\" (1.725), \"extra_active\" (1.9). Case-insensitive.\n- activity_factor (number, optional): 1.1\u20132.5. If provided, overrides activity_level.\n- unit (string, optional): \"kcal\" (default) or \"kJ\".\n- precision (integer, optional): decimal places for rounding, 0\u20133 (default 0).\nValidation: reject values outside ranges or unknown activity_level.\nReturns: { maintenance_calories: number, unit: string, activity_factor_used: number, method: \"level\"|\"factor\" }.\nExample: bmr=1600, activity_level=\"very_active\" \u2192 maintenance_calories\u22482760 kcal (precision 0)."
+        },
+        {
+          "name": "function_3",
+          "description": ""
+        }
+      ],
+      "ground_truth": [
+        "calculate_nutritional_needs(weight=59,height=170,age=80,gender='female',activity_level=4,goal='lose')"
+      ],
+      "name_mapping": {
+        "calculate_basal_metabolic_rate": "function_1",
+        "calculate_daily_energy_expenditure": "function_2",
+        "calculate_nutritional_needs": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        {
+          "calories": 1524.15985,
+          "proteins_g": 114.31198875,
+          "fats_g": 42.33777361111111,
+          "carbohydrates_g": 171.46798312500002
+        }
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 45,
+      "question": "I'm looking to reserve a deluxe room for a client whose ID is 123. They'll be staying from August 11th to August 15th, 2024. The room's nightly rate is $1000. Can you handle the booking for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": ""
+        },
+        {
+          "name": "function_2",
+          "description": "Purpose: Compute the total hotel stay cost from a nightly room price and number of nights. Use when the user asks for total cost given a per-night rate and nights. Parameters (JSON schema): type: object; required: [\"room_price\", \"nights\"]; properties: room_price (number, >= 0) \u2013 price per night without currency symbols; nights (integer, >= 1) \u2013 number of nights. Behavior: Returns the numeric total = room_price * nights. No taxes, fees, discounts, or currency conversion are applied. No rounding is performed (raw product). Validation: Reject negative room_price or nights < 1; do not pass strings. Examples (NL \u2192 call): \"What\u2019s the cost for 3 nights at $129.99 per night?\" \u2192 {\"room_price\": 129.99, \"nights\": 3}. \"Total for 1 night at 80?\" \u2192 {\"room_price\": 80, \"nights\": 1}. \"If the rate is 200 and I stay 5 nights\" \u2192 {\"room_price\": 200, \"nights\": 5}."
+        },
+        {
+          "name": "function_3",
+          "description": "function_3 \u2014 Finalize a hotel room booking and charge the customer.\n\nArguments (JSON):\n- customer_id (string, required): Unique customer identifier (e.g., \"cust_abc123\" or a UUID). Do not pass names/emails.\n- room_number (integer, required): Room number to assign (e.g., 101). Positive whole number.\n- total_price (number, required): Total amount to charge (e.g., 349.99). Numeric only; no currency symbols.\n\nUsage rules:\n- Call only when all three values are available; otherwise ask the user for the missing data.\n- Send exactly these keys at the top level; no wrappers (e.g., no \"raw\") and no extra fields.\n\nArguments schema:\n{\"type\":\"object\",\"properties\":{\"customer_id\":{\"type\":\"string\"},\"room_number\":{\"type\":\"integer\"},\"total_price\":{\"type\":\"number\"}},\"required\":[\"customer_id\",\"room_number\",\"total_price\"],\"additionalProperties\":false}\n\nExample arguments:\n{\"customer_id\":\"cust_9f2e1\",\"room_number\":215,\"total_price\":482.5}\n\nExpected: Booking and charge confirmation."
+        }
+      ],
+      "ground_truth": [
+        "book_room(room_type='deluxe',price=1000,check_in_date='08-11-2024',check_out_date='08-15-2024',customer_id='123')"
+      ],
+      "name_mapping": {
+        "book_room": "function_1",
+        "calculate_total_price": "function_2",
+        "confirm_booking": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        {
+          "customer_id": "123",
+          "room_number": "deluxe",
+          "check_in_date": "08-11-2024",
+          "check_out_date": "08-15-2024",
+          "total_price": 1000
+        }
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 46,
+      "question": "I'm planning to host a dinner party tonight and thought of serving some delicious dumplings and rice bowls. I need to order 101 dumplings at $0.1 each and 20 rice bowls at $10 per bowl. Can you calculate the total price for this order for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": ""
+        },
+        {
+          "name": "function_2",
+          "description": "function_2 computes a total cost by summing quantities[i] * prices[i] for each item. Input (JSON): quantities and prices. Parameters: quantities (array<number>) REQUIRED \u2014 length 1..1000, each value finite and >= 0; prices (array<number>) REQUIRED \u2014 same length as quantities, each value finite and >= 0. Validation: both arrays must be present; lengths must match; reject NaN, Infinity, null, strings, or negative values; return a clear error if validation fails. Behavior: total = sum over i of quantities[i] * prices[i]; no taxes, fees, discounts, or currency formatting; full numeric precision (no rounding). Output: number (total). Example call: {\"quantities\": [2, 1.5, 0], \"prices\": [10, 4, 3]} -> total 29. Mapping example: \"5 apples at $0.2 and 3 bananas at $1\" -> {\"quantities\": [5, 3], \"prices\": [0.2, 1]}."
+        },
+        {
+          "name": "function_3",
+          "description": "function_3 applies a percentage discount to a monetary total. Use it to compute the discount amount and the final total. Required JSON arguments (no extra fields): {\"total\": number >= 0, \"discount\": number between 0 and 100}. Behavior: discount_amount = round_half_up(total * discount / 100, 2); final_total = round_half_up(total - discount_amount, 2). Constraints: pass numbers (not strings), discount must be 0\u2013100, total must be >= 0; otherwise do not call. Rounding: 2 decimal places, half-up (e.g., 2.345 -> 2.35). Examples (args -> result): {\"total\":120, \"discount\":15} -> discount_amount 18.00, final_total 102.00; {\"total\":99.99, \"discount\":20} -> discount_amount 20.00, final_total 79.99. Text-to-args mapping: \u201cApply 15% off $120\u201d -> {\"total\":120, \"discount\":15}."
+        }
+      ],
+      "ground_truth": [
+        "order_food(item=['dumplings','rice bowl'], quantity=[101,20], price=[0.1,10])"
+      ],
+      "name_mapping": {
+        "order_food": "function_1",
+        "calculate_total": "function_2",
+        "apply_discount": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        210.1
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 47,
+      "question": "I just rewatched \"Pulp Fiction,\" and I'm curious about the mastermind behind its direction. Could you find out who directed this iconic movie for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "function_1 \u2014 Retrieve information about a movie by its title.\n\nArguments (JSON schema):\n- type: object\n- properties:\n  - movie_name: string (required) \u2014 Exact movie title to look up. Case-insensitive. Provide only the title (no year, person names, IDs, or extra text). Trim whitespace; keep punctuation (e.g., \"Spider-Man: Homecoming\").\n- required: [\"movie_name\"]\n\nUsage rules:\n- Pass a flat JSON object with the single key movie_name.\n- Do NOT pass a raw string.\n- Do NOT nest under parameters/properties.\n- Do NOT include unrelated keys (e.g., title, id, raw).\n\nMapping from user text:\n- Extract the movie title the user mentions. If a year is included, strip it and pass only the title.\n\nExamples:\n- Correct: function_1({ \"movie_name\": \"The Godfather\" })\n- Incorrect: function_1(\"The Godfather\")\n- Incorrect: function_1({ \"title\": \"The Godfather\" })\n- Incorrect: function_1({ \"parameters\": { \"movie_name\": \"The Godfather\" } })\n\nExpected output: movie metadata (e.g., year, genres, cast, plot, ratings). If not found, API may return an error or empty result."
+        },
+        {
+          "name": "function_2",
+          "description": "function_2 \u2014 Simple Interest Calculator. Computes simple (non-compounded) interest using I = principal \u00d7 rate \u00d7 time. Returns the interest amount only (excluding principal) as a number.\nRequired parameters:\n- principal (number): Initial amount of money. Must be >= 0. Example: 10000.\n- rate (number): Annual interest rate as a decimal (not percent). Must be >= 0. Example: 0.05 for 5%.\n- time (number): Time in years. Fractions allowed for partial years. Must be >= 0. Example: 1.5 for 18 months.\nUsage guidance:\n- Convert percentages to decimals before passing (e.g., 7% \u2192 0.07).\n- Convert months to years (e.g., 6 months \u2192 0.5 years).\n- No compounding or fees are applied; no rounding is performed.\nExamples:\n- \"5% on $10,000 for 3 years\" \u2192 principal: 10000, rate: 0.05, time: 3\n- \"2.5% for 18 months on $2,400\" \u2192 principal: 2400, rate: 0.025, time: 1.5"
+        },
+        {
+          "name": "function_3",
+          "description": "function_3 converts temperatures between units. Use explicit JSON arguments only (no raw text). Parameters (all required):\n- temperature: number. The value to convert.\n- unit_from: string. One of 'C', 'F', 'K'.\n- unit_to: string. One of 'C', 'F', 'K'.\nMap user text to enums before calling: 'C', 'Celsius', '\u00b0C' -> 'C'; 'F', 'Fahrenheit', '\u00b0F' -> 'F'; 'K', 'Kelvin' -> 'K'. Identity conversions (e.g., C\u2192C) are allowed and return the input value.\nFormulas: C\u2192F: C*9/5+32; F\u2192C: (F-32)*5/9; C\u2192K: C+273.15; K\u2192C: K-273.15; F\u2192K: (F-32)*5/9+273.15; K\u2192F: (K-273.15)*9/5+32.\nDo not include extra keys. Example calls:\n{\"temperature\":100,\"unit_from\":\"C\",\"unit_to\":\"F\"} \u2192 212\n{\"temperature\":32,\"unit_from\":\"F\",\"unit_to\":\"K\"} \u2192 273.15\n{\"temperature\":0,\"unit_from\":\"C\",\"unit_to\":\"C\"} \u2192 0\nReturns an object with the converted value and unit."
+        },
+        {
+          "name": "function_4",
+          "description": "function_4 generates a random value within a validated range. Call it with a JSON object that has exactly two top-level keys: (1) parameters: a JSON Schema for the input; (2) input: the actual values. Do not use a 'raw' field. JSON shape: { \"parameters\": { \"properties\": { \"min\": {\"type\":\"number\",\"description\":\"Inclusive lower bound\"}, \"max\": {\"type\":\"number\",\"description\":\"Inclusive upper bound\"}, \"integer\": {\"type\":\"boolean\",\"description\":\"Return integer if true\",\"default\":false} }, \"required\":[\"min\",\"max\"], \"additionalProperties\": false }, \"input\": { \"min\": <number>, \"max\": <number>, \"integer\": <boolean, optional> } }. Validation: min < max; values finite; if integer=true then min and max must be integers and the inclusive range must contain at least one integer. Bounds are inclusive. Return: {\"value\": number} (integer if integer=true). Example args: {\"parameters\":{\"properties\":{\"min\":{\"type\":\"number\"},\"max\":{\"type\":\"number\"},\"integer\":{\"type\":\"boolean\",\"default\":false}},\"required\":[\"min\",\"max\"],\"additionalProperties\":false},\"input\":{\"min\":1,\"max\":10,\"integer\":true}}"
+        }
+      ],
+      "ground_truth": [
+        "get_movie_director(movie_name='Pulp Fiction')"
+      ],
+      "name_mapping": {
+        "get_movie_director": "function_1",
+        "calculate_interest_rate": "function_2",
+        "convert_temperature": "function_3",
+        "generate_random_number": "function_4"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        "Quentin Tarantino"
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 48,
+      "question": "I'm planning a movie night for my family this weekend, and I want to make sure the film is appropriate for all ages. We've settled on the idea of watching \"Avatar\", but I need to confirm its age rating before we proceed. Could you find out the age rating for the movie \"Avatar\"?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "Executes a no-argument backend action. Parameters: none. Always invoke with an empty arguments object. When to call: only if the user explicitly asks to trigger this default action (e.g., \"run the tool\", \"execute the default task\") or instructions require calling function_1. Do not invent or infer parameters. If the user supplies inputs (names, IDs, filters, text), do not call\u2014clarify that this function accepts no parameters and ask if they still want to proceed. Arguments: {} (must be an empty JSON object; never pass null/undefined or any fields). Validation: reject any non-empty payload. Idempotency/side effects: unknown\u2014avoid repeated calls unless the user requests it. Output handling: surface the tool\u2019s response verbatim; if empty, inform the user no data was returned. Examples: Correct\u2014function_1({}). Incorrect\u2014function_1({\"movie_name\":\"Inception\"}). Error: show the error and ask how to proceed."
+        },
+        {
+          "name": "function_2",
+          "description": ""
+        },
+        {
+          "name": "function_3",
+          "description": ""
+        }
+      ],
+      "ground_truth": [
+        "get_movie_rating(movie_name='Avatar')"
+      ],
+      "name_mapping": {
+        "get_movie_rating": "function_1",
+        "get_movie_genre": "function_2",
+        "get_director_by_movie_name": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        "PG-13"
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    },
+    {
+      "test_id": 49,
+      "question": "I have a set of vertices: [[1,2],[3,4],[1,4],[3,7]], and I'm curious about the area that these points, when connected in order, would enclose to form a polygon. Could you calculate the area of this polygon for me?",
+      "tools": [
+        {
+          "name": "function_1",
+          "description": "function_1 \u2014 Submit geospatial coordinates to the API.\n\nParameters (JSON):\n- coordinates (required): array of coordinate pairs. Each pair is [latitude, longitude] in decimal degrees (WGS84). Latitude range: -90 to 90. Longitude range: -180 to 180. Order must be [lat, lon]. Use numeric types (floats); 4\u20137 decimal places recommended. Provide at least one pair.\n\nNo other parameters are accepted; do not include \"raw\" or extra fields.\n\nValidation: The call fails if coordinates is missing/empty, not an array, any pair is not length 2, values are out of range, non-numeric, NaN/Infinity, or order is incorrect.\n\nExample calls:\n- {\"coordinates\": [[37.7749, -122.4194]]}\n- {\"coordinates\": [[34.0522, -118.2437], [36.1699, -115.1398]]}\n\nReturn: API-specific result associated with the submitted coordinates."
+        },
+        {
+          "name": "function_2",
+          "description": "Compute the area of a 2D polygon from its vertices using the shoelace formula.\nParameters:\n- vertices (required): array of coordinate pairs [[x1,y1],[x2,y2],...], where each x,y is a finite number. At least 3 vertices are required. The order is preserved and defines polygon edges. The first and last point may be the same (closing point); duplicates elsewhere are allowed.\nBehavior:\n- Returns the non-negative area (absolute value) in the units of the input coordinates. Geographic lon/lat are treated as planar (no geodesic correction). Degenerate/colinear polygons yield 0. Self-intersecting rings return the algebraic area magnitude per shoelace.\nValidation & errors:\n- Error if fewer than 3 vertices after removing a single closing duplicate. Error if any x or y is missing, NaN, or infinite.\nExamples:\n- Call: function_2({\"vertices\": [[0,0],[4,0],[0,3]]}) -> 6\n- Call: function_2({\"vertices\": [[0,0],[1,0],[1,1],[0,1],[0,0]]}) -> 1"
+        },
+        {
+          "name": "function_3",
+          "description": ""
+        }
+      ],
+      "ground_truth": [
+        "polygon_area(vertices=[[1,2],[3,4],[1,4],[3,7]])"
+      ],
+      "name_mapping": {
+        "convert_coordinates": "function_1",
+        "polygon_area": "function_2",
+        "validate_polygon": "function_3"
+      },
+      "metadata": {
+        "category": "",
+        "difficulty": ""
+      },
+      "execution_result": [
+        0.0
+      ],
+      "execution_result_type": [
+        "exact_match"
+      ]
+    }
+  ]
+}
